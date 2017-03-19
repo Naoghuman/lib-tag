@@ -11,7 +11,7 @@
     <inceptionYear>2017</inceptionYear>
     <url>https://github.com/Naoghuman/lib-tag.git</url>
     
-    <description>`Lib-Emoticon` is a multi [Maven] project written in [JavaFX] and [NetBeans IDE] and provides the functionalities to use and handle easily [Emoticon]s in your JavaFX application.</description>
+    <description>`Lib-Tag` is a multi [Maven] library written in [JavaFX] and [NetBeans IDE] and provides functionalities to use and handle easily [Tag]s in your JavaFX application.</description>
     
     <developers>
         <developer>
