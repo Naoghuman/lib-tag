@@ -3,9 +3,8 @@ Lib-Tag
 
 
 
-<br />
 Intention
----
+===
 
 `Lib-Tag` is a multi [Maven] library written in [JavaFX] and [NetBeans IDE] and 
 provides functionalities to use and handle easily [Tag]s in your JavaFX application.
@@ -15,14 +14,13 @@ The current `version` is `0.1.0` from MM.dd.2017 (MM.dd.yyyy).
 
 
 
-<br />
 Content
----
+===
 
 * [Demo](#Demo)
 * [Libraries](#Libraries)
-    - [Lib-Tag-Core](#LiTaCor)
-    - [Lib-Tag-Components](#LiTaCom)
+    * [Lib-Tag-Core](#LiTaCor)
+    * [Lib-Tag-Components](#LiTaCom)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -33,42 +31,37 @@ Content
 
 
 
-<br />
 Demo<a name="Demo" />
 ---
 
-TODO
+Add text...
 
 
 
-<br />
 Libraries<a name="Libraries" />
 ---
 
-TODO
+Add text...
 
 
-<br />
-### Lib-Emoticon-Core<a name="LiTaCor" />
+##### Lib-Emoticon-Core<a name="LiTaCor" />
 
-TODO
+Add text...
 
 
-<br />
-### Lib-Tag-Components<a name="LiTaCom" />
+##### Lib-Tag-Components<a name="LiTaCom" />
 
-TODO
+Add text...
 
 
 
-<br />
 Download<a name="Download" />
 ---
 
-TODO
+Add text...
 
 
-<br />
+
 Requirements<a name="Requirements" />
 ---
 
@@ -76,23 +69,20 @@ Requirements<a name="Requirements" />
 
 
 
-<br />
 Installation<a name="Installation" />
 ---
 
-TODO
+Add text...
 
 
 
-<br />
 Documentation<a name="Documentation" />
 ---
 
-TODO
+Add text...
 
 
 
-<br />
 Contribution<a name="Contribution" />
 ---
 
@@ -101,11 +91,10 @@ Contribution<a name="Contribution" />
 
 
 
-<br />
 License<a name="License" />
 ---
 
-The project `Lib-Tag` and all sub-projects are licensed under [General Public License 3.0].
+* The project `Lib-Tag` and all sub-projects are licensed under [General Public License 3.0].
 
 
 
@@ -113,15 +102,15 @@ The project `Lib-Tag` and all sub-projects are licensed under [General Public Li
 Autor<a name="Autor" />
 ---
 
-The project `Lib-Tag` and all sub-projects are maintained by me, Peter Rogge. See [Contact](#Contact).
+* The project `Lib-Tag` and all sub-projects are maintained by me, Peter Rogge. 
+  See [Contact](#Contact).
 
 
 
-<br />
 Contact<a name="Contact" />
 ---
 
-You can reach me under <peter.rogge@yahoo.de>.
+* You can reach me under <peter.rogge@yahoo.de>.
 
 
 
