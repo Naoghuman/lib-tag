@@ -149,6 +149,7 @@
     </build>
     <modules>
         <module>lib-tag-core</module>
+        <module>Lib-Tag-Components</module>
     </modules>
     <dependencyManagement>
         <dependencies>
