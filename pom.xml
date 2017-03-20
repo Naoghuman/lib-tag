@@ -173,7 +173,7 @@
     
     <modules>
         <module>lib-tag-core</module>
-        <module>lib-tag-components2</module>
+        <module>lib-tag-components</module>
     </modules>
     
 </project>
