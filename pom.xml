@@ -147,10 +147,7 @@
             </resource>
         </resources>
     </build>
-    <modules>
-        <module>lib-tag-core</module>
-        <module>Lib-Tag-Components</module>
-    </modules>
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -173,5 +170,10 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    
+    <modules>
+        <module>lib-tag-core</module>
+        <module>lib-tag-components2</module>
+    </modules>
     
 </project>

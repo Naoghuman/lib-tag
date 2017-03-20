@@ -14,3 +14,5 @@ hs_err_pid*
 # libraries
 /lib-tag-core/target/
 /lib-tag-components/target/
+/lib-tag-components1/target/
+/lib-tag-components2/target/
