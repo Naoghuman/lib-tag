@@ -21,48 +21,39 @@ import java.io.Externalizable;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
-import javax.persistence.Column;
-import javax.persistence.Id;
 
 /**
  *
  * @author Naoghuman
  */
 public interface Tag extends Comparable<Tag>, Externalizable {
-    
-    public static final long DEFAULT_ID = -1l;
-    
-    public static final String COLUMN_NAME__DESCRIPTION     = "description"; // NOI18N
-    public static final String COLUMN_NAME__ID              = "id";
-    public static final String COLUMN_NAME__GENERATION_TIME = "generationTime"; // NOI18N
-    public static final String COLUMN_NAME__TITLE           = "title"; // NOI18N
-    
-    public static final String SIGN__EMPTY = ""; // NOI18N
-    
-    @Id
-    @Column(name = COLUMN_NAME__ID)
+
+    public static final long TAG__DEFAULT_ID = -1l;
+
+    public static final String TAG_PARA__DESCRIPTION = "description"; // NOI18N
+    public static final String TAG_PARA__ID = "id";
+    public static final String TAG_PARA__GENERATION_TIME = "generationTime"; // NOI18N
+    public static final String TAG_PARA__TITLE = "title"; // NOI18N
+
     public long getId();
     public void setId(final long id);
     public LongProperty idProperty();
-    
-    @Column(name = COLUMN_NAME__GENERATION_TIME)
+
     public long getGenerationTime();
     public void setGenerationTime(final long generationTime);
     public LongProperty generationTimeProperty();
-    
-    @Column(name = COLUMN_NAME__DESCRIPTION)
+
     public String getDescription();
     public void setDescription(final String description);
     public StringProperty descriptionProperty();
-    
-    @Column(name = COLUMN_NAME__TITLE)
+
     public String getTitle();
     public void setTitle(final String title);
     public StringProperty titleProperty();
-    
+
     @Transient
     public boolean isMarkAsChanged();
     public void setMarkAsChanged(final boolean isMarkAsChanged);
     public BooleanProperty markAsChangedProperty();
-    
+
 }

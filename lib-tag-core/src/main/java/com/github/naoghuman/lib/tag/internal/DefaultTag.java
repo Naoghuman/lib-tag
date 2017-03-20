@@ -17,6 +17,7 @@
 package com.github.naoghuman.lib.tag.internal;
 
 import com.github.naoghuman.lib.tag.core.Tag;
+
 import java.beans.Transient;
 import java.io.IOException;
 import java.io.ObjectInput;
@@ -27,31 +28,48 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javax.persistence.Column;
-import javax.persistence.Id;
 
 /**
  *
  * @author Naoghuman
  */
 public final class DefaultTag implements Tag {
-    
+
+    private static final String SIGN__EMPTY = ""; // NOI18N
+
     public DefaultTag() {
-        this(DEFAULT_ID);
+        this(TAG__DEFAULT_ID);
     }
-    
+
     public DefaultTag(final long id) {
+        this(id, TAG__DEFAULT_ID);
+    }
+
+    public DefaultTag(final long id, final long generationTime) {
+        this(id, TAG__DEFAULT_ID, SIGN__EMPTY);
+    }
+
+    public DefaultTag(final long id, final long generationTime, final String title) {
+        this(id, TAG__DEFAULT_ID, title, SIGN__EMPTY);
+    }
+
+    public DefaultTag(final long id, final long generationTime, final String title, final String description) {
         this.setId(id);
-        
+        this.setGenerationTime(generationTime);
+
+        DefaultTagValidator.getDefault().validate(title);
+        this.setTitle(title);
+
+        DefaultTagValidator.getDefault().requireNonNull(description);
+        this.setDescription(description);
+
         markAsChangedProperty = new SimpleBooleanProperty(Boolean.FALSE);
     }
-       
-    // START  ID ---------------------------------------------------------------
-    private LongProperty idProperty;
-    private long _id = DEFAULT_ID;
 
-    @Id
-    @Column(name = COLUMN_NAME__ID)
+    // START ID ---------------------------------------------------------------
+    private LongProperty idProperty;
+    private long _id = TAG__DEFAULT_ID;
+
     @Override
     public long getId() {
         if (idProperty == null) {
@@ -62,7 +80,7 @@ public final class DefaultTag implements Tag {
     }
 
     @Override
-    public final void setId(long id) {
+    public final void setId(final long id) {
         if (idProperty == null) {
             _id = id;
         } else {
@@ -73,19 +91,17 @@ public final class DefaultTag implements Tag {
     @Override
     public LongProperty idProperty() {
         if (idProperty == null) {
-            idProperty = new SimpleLongProperty(this, COLUMN_NAME__ID, _id);
+            idProperty = new SimpleLongProperty(this, TAG_PARA__ID, _id);
         }
-        
+
         return idProperty;
     }
-    // END  ID -----------------------------------------------------------------
+    // END ID -----------------------------------------------------------------
 
-    
-    // START  GENERATIONTIME ---------------------------------------------------
+    // START GENERATIONTIME ---------------------------------------------------
     private LongProperty generationTimeProperty;
     private long _generationTime = System.currentTimeMillis();
 
-    @Column(name = COLUMN_NAME__GENERATION_TIME)
     @Override
     public long getGenerationTime() {
         if (generationTimeProperty == null) {
@@ -107,18 +123,16 @@ public final class DefaultTag implements Tag {
     @Override
     public LongProperty generationTimeProperty() {
         if (generationTimeProperty == null) {
-            generationTimeProperty = new SimpleLongProperty(this, COLUMN_NAME__GENERATION_TIME, _generationTime);
+            generationTimeProperty = new SimpleLongProperty(this, TAG_PARA__GENERATION_TIME, _generationTime);
         }
         return generationTimeProperty;
     }
-    // END  GENERATIONTIME -----------------------------------------------------
-    
-    
-    // START  DESCRIPTION ------------------------------------------------------
+    // END GENERATIONTIME -----------------------------------------------------
+
+    // START DESCRIPTION ------------------------------------------------------
     private StringProperty descriptionProperty = null;
     private String _description = SIGN__EMPTY;
-    
-    @Column(name = COLUMN_NAME__DESCRIPTION)
+
     @Override
     public String getDescription() {
         if (descriptionProperty == null) {
@@ -127,31 +141,30 @@ public final class DefaultTag implements Tag {
             return descriptionProperty.get();
         }
     }
-    
+
     @Override
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         if (descriptionProperty == null) {
             _description = description;
         } else {
             descriptionProperty.set(description);
         }
     }
-    
+
     @Override
     public StringProperty descriptionProperty() {
         if (descriptionProperty == null) {
-            descriptionProperty = new SimpleStringProperty(this, COLUMN_NAME__DESCRIPTION, _description);
+            descriptionProperty = new SimpleStringProperty(this, TAG_PARA__DESCRIPTION, _description);
         }
-        
+
         return descriptionProperty;
     }
-    // END  DESCRIPTION --------------------------------------------------------
-    
-    // START  TITLE ------------------------------------------------------------
+    // END DESCRIPTION --------------------------------------------------------
+
+    // START TITLE ------------------------------------------------------------
     private StringProperty titleProperty = null;
     private String _title = SIGN__EMPTY;
-    
-    @Column(name = COLUMN_NAME__TITLE)
+
     @Override
     public String getTitle() {
         if (titleProperty == null) {
@@ -160,27 +173,27 @@ public final class DefaultTag implements Tag {
             return titleProperty.get();
         }
     }
-    
+
     @Override
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         if (titleProperty == null) {
             _title = title;
         } else {
             titleProperty.set(title);
         }
     }
-    
+
     @Override
     public StringProperty titleProperty() {
         if (titleProperty == null) {
-            titleProperty = new SimpleStringProperty(this, COLUMN_NAME__TITLE, _title);
+            titleProperty = new SimpleStringProperty(this, TAG_PARA__TITLE, _title);
         }
-        
+
         return titleProperty;
     }
-    // END  TITLE --------------------------------------------------------------
-    
-    // START  MARK-AS-CHANGED --------------------------------------------------
+    // END TITLE --------------------------------------------------------------
+
+    // START MARK-AS-CHANGED --------------------------------------------------
     private transient BooleanProperty markAsChangedProperty = null;
 
     @Transient
@@ -188,47 +201,109 @@ public final class DefaultTag implements Tag {
     public boolean isMarkAsChanged() {
         return markAsChangedProperty.getValue();
     }
-    
+
     @Override
     public BooleanProperty markAsChangedProperty() {
         return markAsChangedProperty;
     }
-    
+
     @Override
     public void setMarkAsChanged(boolean isMarkAsChanged) {
         markAsChangedProperty.setValue(isMarkAsChanged);
     }
-    // END  MARK-AS-CHANGED ----------------------------------------------------
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // END MARK-AS-CHANGED ----------------------------------------------------
 
     @Override
     public int compareTo(final Tag other) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+        int compareTo = this.getTitle().compareTo(other.getTitle());
+        if (compareTo != 0) {
+            return compareTo;
+        }
+        
+        compareTo = Long.compare(this.getId(), other.getId());
+        if (compareTo != 0) {
+            return compareTo;
+        }
+        
+        compareTo = Long.compare(this.getGenerationTime(), other.getGenerationTime());
+        if (compareTo != 0) {
+            return compareTo;
+        }
+        
+        return compareTo;
     }
-    
     
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (this.getId() ^ (this.getId() >>> 32));
+        result = prime * result + (int) (this.getGenerationTime() ^ (this.getGenerationTime() >>> 32));
+        result = prime * result + this.getTitle().hashCode();
+        
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        
+        if (obj == null) {
+            return false;
+        }
+        
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        
+        final DefaultTag other = (DefaultTag) obj;
+        if (this.getId() != other.getId()) {
+            return false;
+        }
+        
+        if (this.getGenerationTime() != other.getGenerationTime()) {
+            return false;
+        }
+        
+        if (!this.getTitle().equals(other.getTitle())) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("Tag ["); // NOI18N
+        
+        sb.append("id=")              .append(this.getId()); // NOI18N
+        sb.append(", generationTime=").append(this.getGenerationTime()); // NOI18N
+        sb.append(", title=")         .append(this.getTitle()); // NOI18N
+        sb.append(", description=")   .append(this.getDescription()); // NOI18N
+        
+        sb.append("]"); // NOI18N
+
+        return sb.toString();
+    }
+
+    @Override
     public void writeExternal(final ObjectOutput out) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+        out.writeLong(this.getId());
+        out.writeLong(this.getGenerationTime());
+        out.writeObject(this.getTitle());
+        out.writeObject(this.getDescription());
     }
 
     @Override
     public void readExternal(final ObjectInput in) throws IOException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+        this.setId(in.readLong());
+        this.setGenerationTime(in.readLong());
+        this.setTitle(String.valueOf(in.readObject()));
+        this.setDescription(String.valueOf(in.readObject()));
     }
-    
+
 }
