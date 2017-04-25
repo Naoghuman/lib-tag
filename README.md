@@ -98,7 +98,6 @@ License<a name="License" />
 
 
 
-<br />
 Autor<a name="Autor" />
 ---
 
