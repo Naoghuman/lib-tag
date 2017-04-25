@@ -25,8 +25,8 @@ import com.github.naoghuman.lib.tag.core.TagValidator;
  * @author Naoghuman
  */
 public class DefaultTagValidator implements TagValidator {
-	
-	private static final Optional<DefaultTagValidator> INSTANCE = Optional.of(new DefaultTagValidator());
+
+    private static final Optional<DefaultTagValidator> INSTANCE = Optional.of(new DefaultTagValidator());
 
     /**
      * Returns a singleton instance from the class <code>DefaultTagValidator</code>.
@@ -40,8 +40,8 @@ public class DefaultTagValidator implements TagValidator {
     private DefaultTagValidator() {
 
     }
-    
-	@Override
+
+    @Override
     public void validate(String value) throws NullPointerException, IllegalArgumentException {
         TagValidator.super.requireNonNull(value);
 
@@ -49,5 +49,5 @@ public class DefaultTagValidator implements TagValidator {
             throw new IllegalArgumentException("The parameter [value] can't be EMPTY"); // NOI18N
         }
     }
-	
+
 }

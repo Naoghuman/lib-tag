@@ -23,8 +23,8 @@ import java.util.Objects;
  * @author Naoghuman
  */
 public interface TagValidator {
-    
-	/**
+
+    /**
      * Validates if the parameter <code>value</code> isn't NULL.
      *
      * @param value the parameter which should be validated.
@@ -33,16 +33,16 @@ public interface TagValidator {
     public default void requireNonNull(String value) throws NullPointerException {
         Objects.requireNonNull(value, "The parameter [value] can't be NULL"); // NOI18N
     }
-    
+
     /**
      * This method validates if the parameter <code>value</code> isn't NULL or EMPTY.
-     * 
-     *TODO hit default-validator rules
-     * 
+     *
+     * TODO hit default-validator rules
+     *
      * @param value the parameter which should be validated.
      * @throws NullPointerException if (value == NULL).
      * @throws IllegalArgumentException if the validation fails.
      */
     public void validate(String value) throws NullPointerException, IllegalArgumentException;
-    
+
 }

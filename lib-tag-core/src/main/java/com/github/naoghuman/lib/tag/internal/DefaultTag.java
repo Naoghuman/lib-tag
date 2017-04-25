@@ -219,29 +219,28 @@ public final class DefaultTag implements Tag {
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         compareTo = Long.compare(this.getId(), other.getId());
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         compareTo = Long.compare(this.getGenerationTime(), other.getGenerationTime());
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         return compareTo;
     }
-    
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (int) (this.getId() ^ (this.getId() >>> 32));
+        result = prime * result + (int) (this.getId()             ^ (this.getId()             >>> 32));
         result = prime * result + (int) (this.getGenerationTime() ^ (this.getGenerationTime() >>> 32));
         result = prime * result + this.getTitle().hashCode();
-        
+
         return result;
     }
 
@@ -250,41 +249,41 @@ public final class DefaultTag implements Tag {
         if (this == obj) {
             return true;
         }
-        
+
         if (obj == null) {
             return false;
         }
-        
+
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
+
         final DefaultTag other = (DefaultTag) obj;
         if (this.getId() != other.getId()) {
             return false;
         }
-        
+
         if (this.getGenerationTime() != other.getGenerationTime()) {
             return false;
         }
-        
+
         if (!this.getTitle().equals(other.getTitle())) {
             return false;
         }
-        
+
         return true;
     }
-    
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("Tag ["); // NOI18N
-        
+
         sb.append("id=")              .append(this.getId()); // NOI18N
         sb.append(", generationTime=").append(this.getGenerationTime()); // NOI18N
         sb.append(", title=")         .append(this.getTitle()); // NOI18N
         sb.append(", description=")   .append(this.getDescription()); // NOI18N
-        
+
         sb.append("]"); // NOI18N
 
         return sb.toString();

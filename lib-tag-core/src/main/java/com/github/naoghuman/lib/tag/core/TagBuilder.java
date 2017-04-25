@@ -54,7 +54,6 @@ public class TagBuilder {
 
     public static interface DescriptionTagBuilder {
         public BuildTagBuilder description(final String description);
-
         public Tag build();
     }
 

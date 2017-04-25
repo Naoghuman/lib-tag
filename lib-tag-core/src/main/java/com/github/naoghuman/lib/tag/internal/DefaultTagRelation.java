@@ -34,11 +34,11 @@ import javafx.beans.property.StringProperty;
 public class DefaultTagRelation implements TagRelation {
 
     private static final String SIGN__EMPTY = ""; // NOI18N
-    
+
     public DefaultTagRelation(final long id, final long tagId, final String containerId, final String containerType) {
         this.init(id, tagId, containerId, containerType);
     }
-    
+
     private void init(final long id, final long tagId, final String containerId, final String containerType) {
         this.setId(id);
         this.setTagId(tagId);
@@ -49,7 +49,7 @@ public class DefaultTagRelation implements TagRelation {
         DefaultTagValidator.getDefault().validate(containerType);
         this.setContainerType(containerId);
     }
-    
+
     // START ID ----------------------------------------------------------------
     private LongProperty idProperty;
     private long _id = TAG_RELATION__DEFAULT_ID;
@@ -81,7 +81,7 @@ public class DefaultTagRelation implements TagRelation {
         return idProperty;
     }
     // END ID ------------------------------------------------------------------
-    
+
     // START TAG-ID ------------------------------------------------------------
     private LongProperty tagIdProperty;
     private long _tagId = TAG_RELATION__DEFAULT_ID;
@@ -184,34 +184,34 @@ public class DefaultTagRelation implements TagRelation {
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         compareTo = this.getContainerId().compareTo(other.getContainerId());
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         compareTo = this.getContainerType().compareTo(other.getContainerType());
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         compareTo = Long.compare(this.getId(), other.getId());
         if (compareTo != 0) {
             return compareTo;
         }
-        
+
         return compareTo;
     }
-    
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (int) (this.getId() ^ (this.getId() >>> 32));
+        result = prime * result + (int) (this.getId()    ^ (this.getId()    >>> 32));
         result = prime * result + (int) (this.getTagId() ^ (this.getTagId() >>> 32));
         result = prime * result + this.getContainerId().hashCode();
         result = prime * result + this.getContainerType().hashCode();
-        
+
         return result;
     }
 
@@ -220,45 +220,45 @@ public class DefaultTagRelation implements TagRelation {
         if (this == obj) {
             return true;
         }
-        
+
         if (obj == null) {
             return false;
         }
-        
+
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
+
         final DefaultTagRelation other = (DefaultTagRelation) obj;
         if (this.getId() != other.getId()) {
             return false;
         }
-        
+
         if (this.getTagId() != other.getTagId()) {
             return false;
         }
-        
+
         if (!this.getContainerId().equals(other.getContainerId())) {
             return false;
         }
-        
+
         if (!this.getContainerType().equals(other.getContainerType())) {
             return false;
         }
-        
+
         return true;
     }
-    
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("Tag ["); // NOI18N
-        
+
         sb.append("id=")             .append(this.getId()); // NOI18N
         sb.append(", tagId=")        .append(this.getTagId()); // NOI18N
         sb.append(", containerId=")  .append(this.getContainerId()); // NOI18N
         sb.append(", containerType=").append(this.getContainerType()); // NOI18N
-        
+
         sb.append("]"); // NOI18N
 
         return sb.toString();
@@ -279,5 +279,5 @@ public class DefaultTagRelation implements TagRelation {
         this.setContainerId(String.valueOf(in.readObject()));
         this.setContainerType(String.valueOf(in.readObject()));
     }
-    
+
 }

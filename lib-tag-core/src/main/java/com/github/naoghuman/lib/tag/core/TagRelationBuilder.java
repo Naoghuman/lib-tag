@@ -60,13 +60,12 @@ public class TagRelationBuilder {
     public static interface BuildTagRelationBuilder {
         public TagRelation build();
     }
-    
-    private static final class TagRelationBuilderImpl implements 
-            IdTagRelationBuilder, TagIdTagRelationBuilder, 
+
+    private static final class TagRelationBuilderImpl implements
+            IdTagRelationBuilder, TagIdTagRelationBuilder,
             ContainerIdTagRelationBuilder, ContainerTypeTagRelationBuilder,
             BuildTagRelationBuilder
     {
-
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
 
@@ -125,7 +124,7 @@ public class TagRelationBuilder {
 
             return tagRelation;
         }
-        
+
     }
-    
+
 }

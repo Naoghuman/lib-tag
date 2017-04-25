@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 PRo
+ * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,20 +20,18 @@ import javafx.scene.text.Font;
 
 /**
  *
- * @author PRo
+ * @author Naoghuman
  */
 public class FontConverter implements Converter<Font> {
 
     @Override
     public String convertToString(Font value) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public Font convertFromString(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-//To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

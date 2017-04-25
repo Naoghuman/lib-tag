@@ -29,10 +29,10 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
 
     public static final long TAG_RELATION__DEFAULT_ID = -1l;
 
-    public static final String TAG_RELATION__PARA__ID = "id";
-    public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId";
-    public static final String TAG_RELATION__PARA__CONTAINER_TYPE = "containerType";
-    public static final String TAG_RELATION__PARA__TAG_ID = "tagId";
+    public static final String TAG_RELATION__PARA__ID             = "id"; // NOI18N
+    public static final String TAG_RELATION__PARA__CONTAINER_ID   = "containerId"; // NOI18N
+    public static final String TAG_RELATION__PARA__CONTAINER_TYPE = "containerType"; // NOI18N
+    public static final String TAG_RELATION__PARA__TAG_ID         = "tagId"; // NOI18N
 
     public long getId();
     public void setId(final long id);

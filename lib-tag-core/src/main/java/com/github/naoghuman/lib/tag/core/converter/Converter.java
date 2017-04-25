@@ -22,8 +22,8 @@ package com.github.naoghuman.lib.tag.core.converter;
  * @param <T>
  */
 public interface Converter<T> {
-    
+
     public String convertToString(T value);
     public T convertFromString(String value);
-    
+
 }

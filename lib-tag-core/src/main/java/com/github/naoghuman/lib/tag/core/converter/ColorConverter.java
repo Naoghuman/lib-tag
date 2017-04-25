@@ -28,7 +28,7 @@ public class ColorConverter implements Converter<Color> {
     @Override
     public String convertToString(Color value) {
         Objects.requireNonNull(value);
-        
+
         final StringBuilder sb = new StringBuilder();
         sb.append(value.getRed());
         sb.append(";"); // NOI18N
@@ -37,14 +37,14 @@ public class ColorConverter implements Converter<Color> {
         sb.append(value.getBlue());
         sb.append(";"); // NOI18N
         sb.append(value.getOpacity());
-        
+
         return sb.toString();
     }
 
     @Override
     public Color convertFromString(String value) {
         Objects.requireNonNull(value);
-        
+
         final String[] colorParts = value.split(";"); // NOI18N
         Color convertedColor = Color.BLACK;
         try {
@@ -53,13 +53,12 @@ public class ColorConverter implements Converter<Color> {
             final double blue    = Double.parseDouble(colorParts[2]);
             final double opacity = Double.parseDouble(colorParts[3]);
             convertedColor = new Color(red, green, blue, opacity);
+        } catch (NumberFormatException ex) {
+            throw new UnsupportedOperationException("Can't convert parameter value [" 
+                    + value + "] from type [String] to type [Color]"); // NOI18N
         }
-        catch (NumberFormatException ex) {
-            throw new UnsupportedOperationException(
-                    "Can't convert parameter value [" + value + "] from type [String] to type [Color]"); // NOI18N
-        }
-        
+
         return convertedColor;
     }
-    
+
 }
