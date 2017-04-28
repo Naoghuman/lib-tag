@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.lib.tag.core.converter;
+package com.github.naoghuman.lib.tag.internal;
 
 import java.util.Objects;
 import javafx.scene.paint.Color;

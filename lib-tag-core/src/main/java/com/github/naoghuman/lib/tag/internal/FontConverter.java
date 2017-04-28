@@ -14,16 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.lib.tag.core.converter;
+package com.github.naoghuman.lib.tag.internal;
+
+import javafx.scene.text.Font;
 
 /**
  *
  * @author Naoghuman
- * @param <T>
  */
-public interface Converter<T> {
+public class FontConverter implements Converter<Font> {
 
-    public String convertToString(T value);
-    public T convertFromString(String value);
+    @Override
+    public String convertToString(Font value) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
+    @Override
+    public Font convertFromString(String value) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
 }
