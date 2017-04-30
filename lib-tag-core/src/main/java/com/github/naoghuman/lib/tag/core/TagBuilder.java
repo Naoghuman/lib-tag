@@ -21,7 +21,7 @@ import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__GENERATION_TIME;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__ID;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__TITLE;
 
-import com.github.naoghuman.lib.tag.internal.DefaultTag;
+import com.github.naoghuman.lib.tag.core.internal.DefaultTag;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleLongProperty;

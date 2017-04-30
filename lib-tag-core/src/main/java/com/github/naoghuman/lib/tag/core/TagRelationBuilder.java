@@ -21,7 +21,7 @@ import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__ID;
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__TAG_ID;
 
-import com.github.naoghuman.lib.tag.internal.DefaultTagRelation;
+import com.github.naoghuman.lib.tag.core.internal.DefaultTagRelation;
 
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
