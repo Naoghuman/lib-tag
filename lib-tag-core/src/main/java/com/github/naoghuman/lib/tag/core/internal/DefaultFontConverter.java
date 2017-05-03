@@ -18,6 +18,8 @@ package com.github.naoghuman.lib.tag.core.internal;
 
 import com.github.naoghuman.lib.tag.core.Converter;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 
 /**
  *
@@ -27,12 +29,38 @@ public class DefaultFontConverter implements Converter<Font> {
 
     @Override
     public String convertToString(Font value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        DefaultConverterValidator.getDefault().requireNonNull(value);
+        
+        final StringBuilder sb = new StringBuilder();
+        sb.append(value.getFamily()); // String family
+        sb.append(";"); // NOI18N
+        sb.append(value.getName()); // FontWeight weight
+        sb.append(";"); // NOI18N
+        sb.append(value.getStyle()); // FontPosture posture
+        sb.append(";"); // NOI18N
+        sb.append(value.getSize()); // double size
+
+        return sb.toString();
     }
 
     @Override
     public Font convertFromString(String value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        DefaultConverterValidator.getDefault().validate(value);
+
+        final String[] fontParts = value.split(";"); // NOI18N
+        Font convertedFont = Font.getDefault();
+        try {
+            final String family       =                        fontParts[0];
+            final FontWeight weight   = FontWeight.findByName( fontParts[1]);
+            final FontPosture posture = FontPosture.findByName(fontParts[2]);
+            final double size         = Double.parseDouble(    fontParts[3]);
+            convertedFont = Font.font(family, weight, posture, size);
+        } catch (NumberFormatException ex) {
+            throw new UnsupportedOperationException("Can't convert parameter value [" 
+                    + value + "] from type [String] to type [Font]"); // NOI18N
+        }
+
+        return convertedFont;
     }
     
 }
