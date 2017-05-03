@@ -38,13 +38,31 @@ public class DefaultColorConverterTest {
     @After
     public void tearDown() {
     }
-
+    
+    @Test (expected = NullPointerException.class)
+    public void testConvertToStringThrowNullPointerException() {
+        DefaultColorConverter instance = new DefaultColorConverter();
+        instance.convertToString(null);
+    }
+    
     @Test
     public void testConvertToString() {
         DefaultColorConverter instance = new DefaultColorConverter();
         Color value = new Color(1.0d, 0.5d, 1.0d, 0.5d);
         String result = instance.convertToString(value);
         assertEquals("1.0;0.5;1.0;0.5", result);
+    }
+    
+    @Test (expected = NullPointerException.class)
+    public void testConvertFromStringThrowNullPointerException() {
+        DefaultColorConverter instance = new DefaultColorConverter();
+        instance.convertFromString(null);
+    }
+    
+    @Test (expected = IllegalArgumentException.class)
+    public void testConvertFromStringThrowIllegalArgumentException() {
+        DefaultColorConverter instance = new DefaultColorConverter();
+        instance.convertFromString("");
     }
 
     @Test

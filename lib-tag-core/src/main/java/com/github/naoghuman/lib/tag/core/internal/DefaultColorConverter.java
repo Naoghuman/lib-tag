@@ -17,7 +17,6 @@
 package com.github.naoghuman.lib.tag.core.internal;
 
 import com.github.naoghuman.lib.tag.core.Converter;
-import java.util.Objects;
 import javafx.scene.paint.Color;
 
 /**
@@ -28,7 +27,7 @@ public class DefaultColorConverter implements Converter<Color> {
 
     @Override
     public String convertToString(Color value) {
-        Objects.requireNonNull(value);
+        DefaultConverterValidator.getDefault().requireNonNull(value);
 
         final StringBuilder sb = new StringBuilder();
         sb.append(value.getRed());
@@ -44,7 +43,7 @@ public class DefaultColorConverter implements Converter<Color> {
 
     @Override
     public Color convertFromString(String value) {
-        Objects.requireNonNull(value);
+        DefaultConverterValidator.getDefault().validate(value);
 
         final String[] colorParts = value.split(";"); // NOI18N
         Color convertedColor = Color.BLACK;

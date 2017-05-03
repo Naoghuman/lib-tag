@@ -16,28 +16,27 @@
  */
 package com.github.naoghuman.lib.tag.core.internal;
 
-import java.util.Optional;
-
 import com.github.naoghuman.lib.tag.core.Validator;
+import java.util.Optional;
 
 /**
  *
  * @author Naoghuman
  */
-public class DefaultTagValidator implements Validator {
+public class DefaultConverterValidator implements Validator {
 
-    private static final Optional<DefaultTagValidator> INSTANCE = Optional.of(new DefaultTagValidator());
+    private static final Optional<DefaultConverterValidator> INSTANCE = Optional.of(new DefaultConverterValidator());
 
     /**
      * Returns a singleton instance from the class <code>DefaultTagValidator</code>.
      *
      * @return a singleton instance from this class.
      */
-    public static final DefaultTagValidator getDefault() {
+    public static final DefaultConverterValidator getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultTagValidator() {
+    private DefaultConverterValidator() {
 
     }
 
