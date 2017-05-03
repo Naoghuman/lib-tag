@@ -23,20 +23,20 @@ import java.util.Optional;
  *
  * @author Naoghuman
  */
-public class DefaultConverterValidator implements Validator {
+public class ConverterValidator implements Validator {
 
-    private static final Optional<DefaultConverterValidator> INSTANCE = Optional.of(new DefaultConverterValidator());
+    private static final Optional<ConverterValidator> INSTANCE = Optional.of(new ConverterValidator());
 
     /**
      * Returns a singleton instance from the class <code>DefaultTagValidator</code>.
      *
      * @return a singleton instance from this class.
      */
-    public static final DefaultConverterValidator getDefault() {
+    public static final ConverterValidator getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultConverterValidator() {
+    private ConverterValidator() {
 
     }
 

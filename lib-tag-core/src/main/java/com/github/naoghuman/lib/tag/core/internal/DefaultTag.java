@@ -57,10 +57,10 @@ public final class DefaultTag implements Tag {
         this.setId(id);
         this.setGenerationTime(generationTime);
 
-        DefaultTagValidator.getDefault().validate(title);
+        TagValidator.getDefault().validate(title);
         this.setTitle(title);
 
-        DefaultTagValidator.getDefault().requireNonNull(description);
+        TagValidator.getDefault().requireNonNull(description);
         this.setDescription(description);
 
         markAsChangedProperty = new SimpleBooleanProperty(Boolean.FALSE);

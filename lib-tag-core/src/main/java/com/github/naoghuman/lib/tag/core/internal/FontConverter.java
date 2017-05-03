@@ -25,11 +25,11 @@ import javafx.scene.text.FontWeight;
  *
  * @author Naoghuman
  */
-public class DefaultFontConverter implements Converter<Font> {
+public class FontConverter implements Converter<Font> {
 
     @Override
     public String convertToString(Font value) {
-        DefaultConverterValidator.getDefault().requireNonNull(value);
+        ConverterValidator.getDefault().requireNonNull(value);
         
         final StringBuilder sb = new StringBuilder();
         sb.append(value.getFamily()); // String family
@@ -45,7 +45,7 @@ public class DefaultFontConverter implements Converter<Font> {
 
     @Override
     public Font convertFromString(String value) {
-        DefaultConverterValidator.getDefault().validate(value);
+        ConverterValidator.getDefault().validate(value);
 
         final String[] fontParts = value.split(";"); // NOI18N
         Font convertedFont = Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10); // NOI18N

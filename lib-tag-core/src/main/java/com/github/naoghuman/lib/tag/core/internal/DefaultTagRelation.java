@@ -43,10 +43,10 @@ public class DefaultTagRelation implements TagRelation {
         this.setId(id);
         this.setTagId(tagId);
 
-        DefaultTagValidator.getDefault().validate(containerId);
+        TagValidator.getDefault().validate(containerId);
         this.setContainerId(containerId);
 
-        DefaultTagValidator.getDefault().validate(containerType);
+        TagValidator.getDefault().validate(containerType);
         this.setContainerType(containerId);
     }
 

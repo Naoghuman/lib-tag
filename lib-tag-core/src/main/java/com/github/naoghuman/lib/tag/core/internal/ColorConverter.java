@@ -23,11 +23,11 @@ import javafx.scene.paint.Color;
  *
  * @author Naoghuman
  */
-public class DefaultColorConverter implements Converter<Color> {
+public class ColorConverter implements Converter<Color> {
 
     @Override
     public String convertToString(Color value) {
-        DefaultConverterValidator.getDefault().requireNonNull(value);
+        ConverterValidator.getDefault().requireNonNull(value);
 
         final StringBuilder sb = new StringBuilder();
         sb.append(value.getRed());
@@ -43,7 +43,7 @@ public class DefaultColorConverter implements Converter<Color> {
 
     @Override
     public Color convertFromString(String value) {
-        DefaultConverterValidator.getDefault().validate(value);
+        ConverterValidator.getDefault().validate(value);
 
         final String[] colorParts = value.split(";"); // NOI18N
         Color convertedColor = Color.BLACK;

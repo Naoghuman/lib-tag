@@ -16,7 +16,9 @@
  */
 package com.github.naoghuman.lib.tag.core.internal;
 
-import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,9 +28,9 @@ import static org.junit.Assert.*;
  *
  * @author Naoghuman
  */
-public class DefaultColorConverterTest {
+public class FontConverterTest {
     
-    public DefaultColorConverterTest() {
+    public FontConverterTest() {
     }
     
     @Before
@@ -41,38 +43,40 @@ public class DefaultColorConverterTest {
     
     @Test (expected = NullPointerException.class)
     public void testConvertToStringThrowNullPointerException() {
-        DefaultColorConverter instance = new DefaultColorConverter();
+        FontConverter instance = new FontConverter();
         instance.convertToString(null);
     }
-    
+
     @Test
     public void testConvertToString() {
-        DefaultColorConverter instance = new DefaultColorConverter();
-        Color value = new Color(1.0d, 0.5d, 1.0d, 0.5d);
+        Font value = Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10);
+        FontConverter instance = new FontConverter();
         String result = instance.convertToString(value);
-        assertEquals("1.0;0.5;1.0;0.5", result);
+        assertEquals("System;System Regular;Regular;10.0", result);
     }
     
     @Test (expected = NullPointerException.class)
     public void testConvertFromStringThrowNullPointerException() {
-        DefaultColorConverter instance = new DefaultColorConverter();
+        FontConverter instance = new FontConverter();
         instance.convertFromString(null);
     }
     
     @Test (expected = IllegalArgumentException.class)
     public void testConvertFromStringThrowIllegalArgumentException() {
-        DefaultColorConverter instance = new DefaultColorConverter();
+        FontConverter instance = new FontConverter();
         instance.convertFromString("");
     }
 
     @Test
     public void testConvertFromString() {
-        DefaultColorConverter instance = new DefaultColorConverter();
-        Color result = instance.convertFromString("1.0;0.5;1.0;0.5");
-        assertEquals(1.0d, result.getRed(),     0.0d);
-        assertEquals(0.5d, result.getGreen(),   0.0d);
-        assertEquals(1.0d, result.getBlue(),    0.0d);
-        assertEquals(0.5d, result.getOpacity(), 0.0d);
+        System.out.println("convertFromString");
+        String value = "System;System Regular;Regular;10.0";
+        FontConverter instance = new FontConverter();
+        Font result = instance.convertFromString(value);
+        assertEquals("System",         result.getFamily());
+        assertEquals("System Regular", result.getName());
+        assertEquals("Regular",        result.getStyle());
+        assertEquals(10.0d,            result.getSize(), 0d);
     }
     
 }

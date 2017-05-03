@@ -24,20 +24,20 @@ import com.github.naoghuman.lib.tag.core.Validator;
  *
  * @author Naoghuman
  */
-public class DefaultTagValidator implements Validator {
+public class TagValidator implements Validator {
 
-    private static final Optional<DefaultTagValidator> INSTANCE = Optional.of(new DefaultTagValidator());
+    private static final Optional<TagValidator> INSTANCE = Optional.of(new TagValidator());
 
     /**
-     * Returns a singleton instance from the class <code>DefaultTagValidator</code>.
+     * Returns a singleton instance from the class <code>TagValidator</code>.
      *
      * @return a singleton instance from this class.
      */
-    public static final DefaultTagValidator getDefault() {
+    public static final TagValidator getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultTagValidator() {
+    private TagValidator() {
 
     }
 
