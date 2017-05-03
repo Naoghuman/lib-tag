@@ -48,7 +48,7 @@ public class DefaultFontConverter implements Converter<Font> {
         DefaultConverterValidator.getDefault().validate(value);
 
         final String[] fontParts = value.split(";"); // NOI18N
-        Font convertedFont = Font.getDefault();
+        Font convertedFont = Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 10); // NOI18N
         try {
             final String family       =                        fontParts[0];
             final FontWeight weight   = FontWeight.findByName( fontParts[1]);
