@@ -39,45 +39,43 @@ import javafx.collections.ObservableMap;
  */
 public class TagBuilder {
 
-    public static final IdTagBuilder create() {
+    public static final IdBuilder create() {
         return new TagBuilderImpl();
     }
 
-    public static interface IdTagBuilder {
-        public GenerationTimeTagBuilder id(final long id);
-        public TitleTagBuilder generationTime(final long generationTime);
-        public DescriptionTagBuilder title(final String title);
+    public interface IdBuilder {
+        public GenerationTimeBuilder id(final long id);
+        public TitleBuilder generationTime(final long generationTime);
+        public DescriptionBuilder title(final String title);
     }
 
-    public static interface GenerationTimeTagBuilder {
-        public TitleTagBuilder generationTime(final long generationTime);
+    public interface GenerationTimeBuilder {
+        public TitleBuilder generationTime(final long generationTime);
+        public DescriptionBuilder title(final String title);
     }
 
-    public static interface TitleTagBuilder {
-        public DescriptionTagBuilder title(final String title);
-        public BuildTagBuilder style(final String style);
-        public Tag build();
+    public interface TitleBuilder {
+        public DescriptionBuilder title(final String title);
     }
 
-    public static interface DescriptionTagBuilder {
-        public StyleTagBuilder description(final String description);
-        public BuildTagBuilder style(final String style);
+    public interface DescriptionBuilder {
+        public StyleBuilder description(final String description);
+        public BuildBuilder style(final String style);
         public Tag build();
     }
     
-    public static interface StyleTagBuilder {
-        public BuildTagBuilder style(final String style);
+    public interface StyleBuilder {
+        public BuildBuilder style(final String style);
         public Tag build();
     }
 
-    public static interface BuildTagBuilder {
+    public interface BuildBuilder {
         public Tag build();
     }
 
-    private static final class TagBuilderImpl implements BuildTagBuilder, 
-            DescriptionTagBuilder, GenerationTimeTagBuilder, 
-            IdTagBuilder, StyleTagBuilder, 
-            TitleTagBuilder
+    private static final class TagBuilderImpl implements BuildBuilder, 
+            DescriptionBuilder, GenerationTimeBuilder, IdBuilder, StyleBuilder, 
+            TitleBuilder
     {
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
@@ -95,31 +93,31 @@ public class TagBuilder {
         }
 
         @Override
-        public GenerationTimeTagBuilder id(long id) {
+        public GenerationTimeBuilder id(long id) {
             properties.put(TAG_PARA__ID, new SimpleLongProperty(id));
             return this;
         }
 
         @Override
-        public StyleTagBuilder description(String description) {
+        public StyleBuilder description(String description) {
             properties.put(TAG_PARA__DESCRIPTION, new SimpleStringProperty(description));
             return this;
         }
 
         @Override
-        public TitleTagBuilder generationTime(final long generationTime) {
+        public TitleBuilder generationTime(final long generationTime) {
             properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty(generationTime));
             return this;
         }
 
         @Override
-        public DescriptionTagBuilder title(String title) {
+        public DescriptionBuilder title(String title) {
             properties.put(TAG_PARA__TITLE, new SimpleStringProperty(title));
             return this;
         }
 
         @Override
-        public BuildTagBuilder style(String style) {
+        public BuildBuilder style(String style) {
             properties.put(TAG_PARA__STYLE, new SimpleStringProperty(style));
             return this;
         }
