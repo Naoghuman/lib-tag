@@ -6,11 +6,11 @@ Lib-Tag-Core
 Intention
 ---
 
-The library `Lib-Tag-Core` provides the API to perform CRUD (`Create` `Read` 
-`Update` `Delete`) operations for a [Tag].
+The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, 
+`Update` and `Delete`) operations for a [Tag].
 
 A `Tag` is basically a simple [String] which can be used for example in a [Label] or 
-a [Button]. With a Tag is easily to search for or analyse a topic if it is tagged.
+a [Button]. With a Tag it is easily to search for or analyse a topic if it is tagged.
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
