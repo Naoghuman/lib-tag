@@ -5,8 +5,6 @@ provides functionalities to use and handle easily [Tag]s in your JavaFX applicat
 
 
 
-
-
 #### Summary
 * ...
 * ...
@@ -50,3 +48,4 @@ Naoghuman
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [Maven]:http://maven.apache.org/
 [NetBeans IDE]:https://netbeans.org/
+[Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
