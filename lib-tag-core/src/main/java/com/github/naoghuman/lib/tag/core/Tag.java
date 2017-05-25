@@ -29,10 +29,13 @@ import javafx.beans.property.StringProperty;
 public interface Tag extends Comparable<Tag>, Externalizable {
 
     public static final long TAG__DEFAULT_ID = -1l;
+    
+    public static final String SIGN__EMPTY = ""; // NOI18N
 
     public static final String TAG_PARA__DESCRIPTION     = "description"; // NOI18N
     public static final String TAG_PARA__ID              = "id";
     public static final String TAG_PARA__GENERATION_TIME = "generationTime"; // NOI18N
+    public static final String TAG_PARA__STYLE           = "style"; // NOI18N
     public static final String TAG_PARA__TITLE           = "title"; // NOI18N
 
     public long getId();
@@ -46,6 +49,10 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public String getDescription();
     public void setDescription(final String description);
     public StringProperty descriptionProperty();
+    
+    public String getStyle();
+    public void setStyle(final String style);
+    public StringProperty styleProperty();
 
     public String getTitle();
     public void setTitle(final String title);

@@ -35,25 +35,27 @@ import javafx.beans.property.StringProperty;
  */
 public final class DefaultTag implements Tag {
 
-    private static final String SIGN__EMPTY = ""; // NOI18N
-
     public DefaultTag() {
         this(TAG__DEFAULT_ID);
     }
 
     public DefaultTag(final long id) {
-        this(id, TAG__DEFAULT_ID);
+        this(id, System.nanoTime());
     }
 
     public DefaultTag(final long id, final long generationTime) {
-        this(id, TAG__DEFAULT_ID, SIGN__EMPTY);
+        this(id, generationTime, SIGN__EMPTY);
     }
 
     public DefaultTag(final long id, final long generationTime, final String title) {
-        this(id, TAG__DEFAULT_ID, title, SIGN__EMPTY);
+        this(id, generationTime, title, SIGN__EMPTY);
     }
 
     public DefaultTag(final long id, final long generationTime, final String title, final String description) {
+        this(id, generationTime, title, description, SIGN__EMPTY);
+    }
+
+    public DefaultTag(final long id, final long generationTime, final String title, final String description, final String style) {
         this.setId(id);
         this.setGenerationTime(generationTime);
 
@@ -62,6 +64,9 @@ public final class DefaultTag implements Tag {
 
         TagValidator.getDefault().requireNonNull(description);
         this.setDescription(description);
+        
+        TagValidator.getDefault().requireNonNull(style);
+        this.setStyle(style);
 
         markAsChangedProperty = new SimpleBooleanProperty(Boolean.FALSE);
     }
@@ -160,7 +165,39 @@ public final class DefaultTag implements Tag {
         return descriptionProperty;
     }
     // END DESCRIPTION --------------------------------------------------------
+    
+    // START STYLE ------------------------------------------------------------
+    private StringProperty styleProperty = null;
+    private String _style = SIGN__EMPTY;
 
+    @Override
+    public String getStyle() {
+        if (styleProperty == null) {
+            return _style;
+        } else {
+            return styleProperty.get();
+        }
+    }
+
+    @Override
+    public void setStyle(final String style) {
+        if (styleProperty == null) {
+            _style = style;
+        } else {
+            styleProperty.set(style);
+        }
+    }
+
+    @Override
+    public StringProperty styleProperty() {
+        if (styleProperty == null) {
+            styleProperty = new SimpleStringProperty(this, TAG_PARA__STYLE, _style);
+        }
+
+        return styleProperty;
+    }
+    // END STYLE --------------------------------------------------------------
+    
     // START TITLE ------------------------------------------------------------
     private StringProperty titleProperty = null;
     private String _title = SIGN__EMPTY;
@@ -279,10 +316,11 @@ public final class DefaultTag implements Tag {
         final StringBuilder sb = new StringBuilder();
         sb.append("Tag ["); // NOI18N
 
-        sb.append("id=")              .append(this.getId()); // NOI18N
+        sb.append("id=")              .append(this.getId());             // NOI18N
         sb.append(", generationTime=").append(this.getGenerationTime()); // NOI18N
-        sb.append(", title=")         .append(this.getTitle()); // NOI18N
-        sb.append(", description=")   .append(this.getDescription()); // NOI18N
+        sb.append(", title=")         .append(this.getTitle());          // NOI18N
+        sb.append(", description=")   .append(this.getDescription());    // NOI18N
+        sb.append(", style=")         .append(this.getStyle());          // NOI18N
 
         sb.append("]"); // NOI18N
 
@@ -291,18 +329,20 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void writeExternal(final ObjectOutput out) throws IOException {
-        out.writeLong(this.getId());
-        out.writeLong(this.getGenerationTime());
+        out.writeLong(  this.getId());
+        out.writeLong(  this.getGenerationTime());
         out.writeObject(this.getTitle());
         out.writeObject(this.getDescription());
+        out.writeObject(this.getStyle());
     }
 
     @Override
     public void readExternal(final ObjectInput in) throws IOException, ClassNotFoundException {
-        this.setId(in.readLong());
+        this.setId(            in.readLong());
         this.setGenerationTime(in.readLong());
-        this.setTitle(String.valueOf(in.readObject()));
-        this.setDescription(String.valueOf(in.readObject()));
+        this.setTitle(         String.valueOf(in.readObject()));
+        this.setDescription(   String.valueOf(in.readObject()));
+        this.setStyle(         String.valueOf(in.readObject()));
     }
 
 }
