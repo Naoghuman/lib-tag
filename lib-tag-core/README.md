@@ -25,6 +25,7 @@ Content
 ---
 
 * [Examples](#Ex)
+    * [Usage of the class `TagBuilder`](#UsOfThClTaBu)
 * [API: com.github.naoghuman.lib.tag.core](#LiTaCo)
     * [TagBuilder](#TaBu)
     * [Tag](#Ta)
@@ -44,6 +45,28 @@ Content
 Examples<a name="Ex" />
 ---
 
+
+### Usage of the class `TagBuilder`<a name="UsOfThClTaBu" />
+
+It is very easy with the class [TagBuilder] to create a [Tag]. The following picture shows all __allowed__ combinations to generate a `Tag` with the `TagBuilder`:
+
+_Image:_ All allowed combinations to create a `Tag`  
+![tagbuilder_allowed-combinations_v0.1.0_2017-05-26_07-29.png][tagbuilder_allowed-combinations_v0.1.0_2017-05-26_07-29]
+
+The same combinations __as__ a [Business process modeling (BPM)] diagram (create with [Bizagi Modeler BPMN]):
+> __Hint__  
+> . The generation from a `Tag` starts with the method `create()`.  
+> . `Blue` rectangles are `optional` attributes.  
+> . `Green` rectangles are `mandory` attributes.  
+> . The `Tag` will created with the last method `build()`.
+
+_Image:_ Business process modeling diagram from `TagBuilder`  
+![tagbuilder_v0.1.0_2017-05-26_07-24.png][tagbuilder_v0.1.0_2017-05-26_07-24]
+
+__Additional informations__  
+* Design Pattern: [Fluent Interface]
+* Design Pattern: [Builder pattern]
+* Design Pattern: [Step builder pattern]
 
 
 API: com.github.naoghuman.lib.tag.core<a name="LiTaCo" />
@@ -102,14 +125,22 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 [//]: # (Images)
 [overview_lib-tag-core_2017-05-25_19-23]:https://cloud.githubusercontent.com/assets/8161815/26462105/c35caf22-417f-11e7-9831-fd6fadda85cb.png
+[tagbuilder_v0.1.0_2017-05-26_07-24]:https://cloud.githubusercontent.com/assets/8161815/26481964/b6c955fc-41e4-11e7-9abf-7e1afbe20c5b.png
+[tagbuilder_allowed-combinations_v0.1.0_2017-05-26_07-29]:https://cloud.githubusercontent.com/assets/8161815/26482025/2339675e-41e5-11e7-9ad2-a5d7b27aa931.png
 
 
 
 [//]: # (Links)
+[Builder pattern]:https://en.wikipedia.org/wiki/Builder_pattern
+[Business process modeling (BPM)]:https://en.wikipedia.org/wiki/Business_process_modeling
 [Button]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
+[Bizagi Modeler BPMN]:http://www.bizagi.com/de/produkte/plattform/modeler
+[Fluent Interface]:https://www.martinfowler.com/bliki/FluentInterface.html
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
+[Step builder pattern]:http://www.svlada.com/step-builder-pattern/
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
+[TagBuilder]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/TagBuilder.java
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language
