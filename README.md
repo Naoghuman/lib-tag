@@ -19,8 +19,8 @@ Content
 
 * [Demo](#Demo)
 * [Libraries](#Libraries)
-    * [Lib-Tag-Core](#LiTaCor)
-    * [Lib-Tag-Components](#LiTaCom)
+    * [Sublibrary Lib-Tag-Core](#LiTaCor)
+    * [Sublibrary Lib-Tag-Components](#LiTaCom)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -41,10 +41,14 @@ Add text...
 Libraries<a name="Libraries" />
 ---
 
-Add text...
+Like I said in the section `Intention` the project `Lib-Tag` is a multi [Maven] 
+library.
+* Minimal the sublibrary `Lib-Tag-Core` is needed.
+* Additional the sublibrary `Lib-Tag-Components` can be used to show the [Tag]s 
+  in a [JavaFX] gui.
 
 
-##### Lib-Tag-Core<a name="LiTaCor" />
+### Sublibrary Lib-Tag-Core<a name="LiTaCor" />
 
 The sublibrary [Lib-Tag-Core] provides the API to perform CRUD (`Create`, `Read`, 
 `Update` and `Delete`) operations for a [Tag].
@@ -55,10 +59,10 @@ a [Button]. With a Tag it is easily to search for or analyse a topic if it is ta
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
 
-For more informations about the sublibrary plz see [Lib-Tag-Core] :simple_smile: .
+For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Core] :smile: .
 
 
-##### Lib-Tag-Components<a name="LiTaCom" />
+### Sublibrary Lib-Tag-Components<a name="LiTaCom" />
 
 Add text...
 
