@@ -22,7 +22,7 @@ import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__TAG_ID;
 
 import com.github.naoghuman.lib.tag.internal.DefaultTagRelation;
-
+import com.github.naoghuman.lib.tag.internal.TagValidator;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleLongProperty;
@@ -37,34 +37,33 @@ import javafx.collections.ObservableMap;
  */
 public class TagRelationBuilder {
 
-    public static final IdTagRelationBuilder create() {
+    public static final IdStep create() {
         return new TagRelationBuilderImpl();
     }
 
-    public static interface IdTagRelationBuilder {
-        public TagIdTagRelationBuilder id(final long id);
+    public static interface IdStep {
+        public TagIdStep id(final long id);
     }
 
-    public static interface TagIdTagRelationBuilder {
-        public ContainerIdTagRelationBuilder tagId(final long tagId);
+    public static interface TagIdStep {
+        public ContainerIdStep tagId(final long tagId);
     }
 
-    public static interface ContainerIdTagRelationBuilder {
-        public ContainerTypeTagRelationBuilder containerId(final String containerId);
+    public static interface ContainerIdStep {
+        public ContainerTypeStep containerId(final String containerId);
     }
 
-    public static interface ContainerTypeTagRelationBuilder {
-        public BuildTagRelationBuilder containerType(final String containerType);
+    public static interface ContainerTypeStep {
+        public Builder containerType(final String containerType);
     }
 
-    public static interface BuildTagRelationBuilder {
+    public static interface Builder {
         public TagRelation build();
     }
 
     private static final class TagRelationBuilderImpl implements
-            IdTagRelationBuilder, TagIdTagRelationBuilder,
-            ContainerIdTagRelationBuilder, ContainerTypeTagRelationBuilder,
-            BuildTagRelationBuilder
+            IdStep, TagIdStep, ContainerIdStep, ContainerTypeStep,
+            Builder
     {
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
@@ -81,26 +80,30 @@ public class TagRelationBuilder {
         }
 
         @Override
-        public TagIdTagRelationBuilder id(final long id) {
+        public TagIdStep id(final long id) {
             properties.put(TAG_RELATION__PARA__ID, new SimpleLongProperty(id));
+            
             return this;
         }
 
         @Override
-        public ContainerIdTagRelationBuilder tagId(final long tagId) {
+        public ContainerIdStep tagId(final long tagId) {
             properties.put(TAG_RELATION__PARA__TAG_ID, new SimpleLongProperty(tagId));
+            
             return this;
         }
 
         @Override
-        public ContainerTypeTagRelationBuilder containerId(final String containerId) {
+        public ContainerTypeStep containerId(final String containerId) {
             properties.put(TAG_RELATION__PARA__CONTAINER_ID, new SimpleStringProperty(containerId));
+            
             return this;
         }
 
         @Override
-        public BuildTagRelationBuilder containerType(final String containerType) {
+        public Builder containerType(final String containerType) {
             properties.put(TAG_RELATION__PARA__CONTAINER_TYPE, new SimpleStringProperty(containerType));
+            
             return this;
         }
 
@@ -115,9 +118,11 @@ public class TagRelationBuilder {
 
             final StringProperty containerIdStringProperty = (StringProperty) properties.get(TAG_RELATION__PARA__CONTAINER_ID);
             final String containerId = containerIdStringProperty.get();
+            TagValidator.getDefault().validate(containerId);
 
             final StringProperty containerTypeStringProperty = (StringProperty) properties.get(TAG_RELATION__PARA__CONTAINER_TYPE);
             final String containerType = containerTypeStringProperty.get();
+            TagValidator.getDefault().validate(containerType);
 
             // Create the tag
             final TagRelation tagRelation = new DefaultTagRelation(id, tagId, containerId, containerType);

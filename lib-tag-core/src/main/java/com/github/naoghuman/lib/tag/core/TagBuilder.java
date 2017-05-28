@@ -25,6 +25,7 @@ import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__TITLE;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG__DEFAULT_ID;
 
 import com.github.naoghuman.lib.tag.internal.DefaultTag;
+import com.github.naoghuman.lib.tag.internal.TagValidator;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleLongProperty;
@@ -39,43 +40,43 @@ import javafx.collections.ObservableMap;
  */
 public class TagBuilder {
 
-    public static final IdBuilder create() {
+    public static final IdStep create() {
         return new TagBuilderImpl();
     }
 
-    public interface IdBuilder {
-        public GenerationTimeBuilder id(final long id);
-        public TitleBuilder generationTime(final long generationTime);
-        public DescriptionBuilder title(final String title);
+    public interface IdStep {
+        public GenerationTimeStep id(final long id);
+        public TitleStep generationTime(final long generationTime);
+        public DescriptionStep title(final String title);
     }
 
-    public interface GenerationTimeBuilder {
-        public TitleBuilder generationTime(final long generationTime);
-        public DescriptionBuilder title(final String title);
+    public interface GenerationTimeStep {
+        public TitleStep generationTime(final long generationTime);
+        public DescriptionStep title(final String title);
     }
 
-    public interface TitleBuilder {
-        public DescriptionBuilder title(final String title);
+    public interface TitleStep {
+        public DescriptionStep title(final String title);
     }
 
-    public interface DescriptionBuilder {
-        public StyleBuilder description(final String description);
-        public BuildBuilder style(final String style);
+    public interface DescriptionStep {
+        public StyleStep description(final String description);
+        public Builder style(final String style);
         public Tag build();
     }
     
-    public interface StyleBuilder {
-        public BuildBuilder style(final String style);
+    public interface StyleStep {
+        public Builder style(final String style);
         public Tag build();
     }
 
-    public interface BuildBuilder {
+    public interface Builder {
         public Tag build();
     }
 
-    private static final class TagBuilderImpl implements BuildBuilder, 
-            DescriptionBuilder, GenerationTimeBuilder, IdBuilder, StyleBuilder, 
-            TitleBuilder
+    private static final class TagBuilderImpl implements Builder, 
+            DescriptionStep, GenerationTimeStep, IdStep, StyleStep, 
+            TitleStep
     {
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
@@ -93,32 +94,37 @@ public class TagBuilder {
         }
 
         @Override
-        public GenerationTimeBuilder id(long id) {
+        public GenerationTimeStep id(long id) {
             properties.put(TAG_PARA__ID, new SimpleLongProperty(id));
+            
             return this;
         }
 
         @Override
-        public StyleBuilder description(String description) {
+        public StyleStep description(String description) {
             properties.put(TAG_PARA__DESCRIPTION, new SimpleStringProperty(description));
+            
             return this;
         }
 
         @Override
-        public TitleBuilder generationTime(final long generationTime) {
+        public TitleStep generationTime(final long generationTime) {
             properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty(generationTime));
+            
             return this;
         }
 
         @Override
-        public DescriptionBuilder title(String title) {
+        public DescriptionStep title(String title) {
             properties.put(TAG_PARA__TITLE, new SimpleStringProperty(title));
+            
             return this;
         }
 
         @Override
-        public BuildBuilder style(String style) {
+        public Builder style(String style) {
             properties.put(TAG_PARA__STYLE, new SimpleStringProperty(style));
+            
             return this;
         }
 
@@ -133,12 +139,15 @@ public class TagBuilder {
 
             final StringProperty titleStringProperty = (StringProperty) properties.get(TAG_PARA__TITLE);
             final String title = titleStringProperty.get();
+            TagValidator.getDefault().validate(title);
 
             final StringProperty descriptionStringProperty = (StringProperty) properties.get(TAG_PARA__DESCRIPTION);
             final String description = descriptionStringProperty.get();
+            TagValidator.getDefault().requireNonNull(description);
 
             final StringProperty styleStringProperty = (StringProperty) properties.get(TAG_PARA__STYLE);
             final String style = styleStringProperty.get();
+            TagValidator.getDefault().requireNonNull(style);
 
             // Create the tag
             final Tag tag = new DefaultTag(id, generationTime, title, description, style);

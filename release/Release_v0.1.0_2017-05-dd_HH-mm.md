@@ -35,6 +35,7 @@ into this release:
 
 
 #### Refactoring
+#2 [Naming] Rename the suffix from the steps in `XyBuilder` to `XyStep`.
 
 
 
