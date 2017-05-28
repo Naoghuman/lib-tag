@@ -44,9 +44,18 @@ Libraries<a name="Libraries" />
 Add text...
 
 
-##### Lib-Emoticon-Core<a name="LiTaCor" />
+##### Lib-Tag-Core<a name="LiTaCor" />
 
-Add text...
+The sublibrary [Lib-Tag-Core] provides the API to perform CRUD (`Create`, `Read`, 
+`Update` and `Delete`) operations for a [Tag].
+
+A `Tag` is basically a simple [String] which can be used for example in a [Label] or 
+a [Button]. With a Tag it is easily to search for or analyse a topic if it is tagged.
+
+_Image:_ [UML] Lib-Tag-Core  
+![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
+
+For more informations about the sublibrary plz see [Lib-Tag-Core] :simple_smile: .
 
 
 ##### Lib-Tag-Components<a name="LiTaCom" />
@@ -114,11 +123,18 @@ Contact<a name="Contact" />
 
 
 [//]: # (Images)
+[overview_lib-tag-core_2017-05-25_19-23]:https://cloud.githubusercontent.com/assets/8161815/26462105/c35caf22-417f-11e7-9831-fd6fadda85cb.png
 
 
 
 [//]: # (Links)
+[Button]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
+[Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
+[Lib-Tag-Core]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-core
 [Maven]:http://maven.apache.org/
 [NetBeans IDE]:https://netbeans.org/
+[String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+[Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
+[UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language
