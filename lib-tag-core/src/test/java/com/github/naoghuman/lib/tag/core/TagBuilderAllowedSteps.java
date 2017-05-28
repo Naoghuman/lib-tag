@@ -20,9 +20,9 @@ package com.github.naoghuman.lib.tag.core;
  *
  * @author Naoghuman
  */
-public class TagBuilderAllowedStepsTest {
+public class TagBuilderAllowedSteps {
     
-    TagBuilderAllowedStepsTest() {
+    TagBuilderAllowedSteps() {
         
        TagBuilder.create().id(0L).generationTime(0L).title("title").description("description").style("style").build();
        TagBuilder.create().id(0L)                   .title("title").description("description").style("style").build();
