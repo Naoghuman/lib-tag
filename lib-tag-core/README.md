@@ -586,6 +586,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [FlowPane]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/FlowPane.html
 [Fluent Interface]:https://www.martinfowler.com/bliki/FluentInterface.html
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
 [Step builder pattern]:http://www.svlada.com/step-builder-pattern/

@@ -7,7 +7,7 @@ Intention
 ===
 
 `Lib-Tag` is a multi [Maven] library written in [JavaFX] and [NetBeans IDE] and 
-provides functionalities to use and handle easily [Tag]s in your JavaFX application.
+provides functionalities to use and handle easily [Tag]s in your [JavaFX] application.
 
 
 The current `version` is `0.1.0` from MM.dd.2017 (MM.dd.yyyy).
