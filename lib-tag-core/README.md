@@ -9,8 +9,9 @@ Intention
 The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, 
 `Update` and `Delete`) operations for a [Tag].
 
-A `Tag` is basically a simple [String] which can be used for example in a [Label] or 
-a [Button]. With a Tag it is easily to search for or analyse a topic if it is tagged.
+A `Tag` is basically a simple [String] which can be used for example in a [Button], 
+[Label] or another [JavaFX] component. Tagged topics can be easily searched or 
+analysed for a `Tag`.
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
@@ -29,14 +30,10 @@ Content
     * [Usage of the class `TagRelationBuilder`](#UsOfThClTaReBu)
 * [API: com.github.naoghuman.lib.tag.core](#LiTaCo)
     * [TagBuilder](#TaBu)
-    * [Tag](#Ta)
+    * [Tag](#Tag)
     * [TagRelationBuilder](#TaReBu)
     * [TagRelation](#TaRe)
-    * [TagValidator](#TaVa)
-* [API: com.github.naoghuman.lib.tag.internal](#LiTaCoIn)
-    * [DefaultTag](#DeTa)
-    * [DefaultTagRelation](#DeTaRe)
-    * [DefaultTagValidator](#DeTaVa)
+    * [Validator](#Vali)
 * [License](#License)
 * [Autor](#Autor)
 * [Contact](#Contact)
@@ -66,6 +63,8 @@ _Image:_ Business process modeling diagram from `TagBuilder`
 ![tagbuilder_v0.1.0_2017-05-26_07-24.png][tagbuilder_v0.1.0_2017-05-26_07-24]
 
 __Additional informations__  
+* Api: [TagBuilder](#TaBu)
+* Api: [Tag](#Tag)
 * Design Pattern: [Fluent Interface]
 * Design Pattern: [Builder pattern]
 * Design Pattern: [Step builder pattern]
@@ -89,8 +88,8 @@ _Image:_ Business process modeling diagram from `TagRelationBuilder`
 ![tagrelationbuilder_v0.1.0_2017-05-28_09-35.png][tagrelationbuilder_v0.1.0_2017-05-28_09-35]
 
 __Additional informations__  
-* Api: [TagRelation](#TaRe)
 * Api: [TagRelationBuilder](#TaReBu)
+* Api: [TagRelation](#TaRe)
 * Design Pattern: [Fluent Interface]
 * Design Pattern: [Builder pattern]
 * Design Pattern: [Step builder pattern]
@@ -103,30 +102,449 @@ API: com.github.naoghuman.lib.tag.core<a name="LiTaCo" />
 
 ### TagBuilder<a name="TaBu" />
 
+```java
+/**
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+ * the developer can create easily an instance from the {@code Interface} 
+ * {@link com.github.naoghuman.lib.tag.core.Tag}.
+ * <ul>
+ * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+ * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
+ * <li>Any attribute if set will be validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * </ul>
+ *
+ * @author Naoghuman
+ * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.Tag
+ * @see    com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @see    java.util.Optional#empty()
+ */
+public final class TagBuilder
+```
 
-### Tag<a name="Ta" />
+
+### Tag<a name="Tag" />
+
+```java
+/**
+ * From the basic idea a {@code Tag} is a simple {@link java.lang.String} which 
+ * can be used to displayed in a {@link javafx.scene.control.Button},  
+ * {@link javafx.scene.control.Label} or another {@code JavaFX} component.<br>
+ * Tagged topics can be easily searched or analysed for a Tag.
+ * <p>
+ * An instance from this {@code Interface} can be easily generated with the fluent builder 
+ * {@link com.github.naoghuman.lib.tag.core.TagBuilder} which is the preferred way 
+ * to generate an implementation from this {@code Interface}.
+ *
+ * @author Naoghuman
+ * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see    java.lang.String
+ * @see    javafx.scene.control.Button
+ * @see    javafx.scene.control.Label
+ */
+public interface Tag extends Comparable<Tag>, Externalizable
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code default-id} (= 
+ * {@link java.lang.Long#MIN_VALUE}) from a {@code Tag}.
+ */
+public static final Long DEFAULT_ID = Long.MIN_VALUE;
+```
+
+```java
+/**
+ * Constant which defines an empty {@link java.lang.String}.
+ * 
+ * @see java.lang.String
+ */
+public static final String SIGN__EMPTY = ""; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code description}.
+ */
+public static final String TAG_PARA__DESCRIPTION = "description"; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code id}.
+ */
+public static final String TAG_PARA__ID = "id";
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code generationTime}.
+ */
+public static final String TAG_PARA__GENERATION_TIME = "generationTime"; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code style}.
+ */
+public static final String TAG_PARA__STYLE = "style"; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code title}.
+ */
+public static final String TAG_PARA__TITLE = "title"; // NOI18N
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code id} from this {@code Tag}.
+ * 
+ * @return the value from the attribute {@code id}.
+ */
+public Long getId();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code id}.<br>
+ * This is an mandory value. Setting the value will validate the value against 
+ * {@link com.github.naoghuman.lib.tag.core.Validator}.
+ * 
+ * @param id the new value for the attribute {@code id}.
+ * @see   com.github.naoghuman.lib.tag.core.Validator
+ */
+public void setId(final Long id);
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code title} from this {@code Tag}.
+ * 
+ * @return the value from the attribute {@code title}.
+ */
+public String getTitle();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code title}.<br>
+ * This is an mandory value. Setting the value will validate the value against 
+ * {@link com.github.naoghuman.lib.tag.core.Validator}.
+ * 
+ * @param title the new value for the attribute {@code title}.
+ * @see   com.github.naoghuman.lib.tag.core.Validator
+ */
+public void setTitle(final String title);
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code generationTime} from this {@code Tag}.<br>
+ * This is an optional value. That means if not set then {@link java.util.Optional#empty()}
+ * will returned.
+ * 
+ * @return the value from the attribute {@code generationTime}.
+ * @see    java.util.Optional#empty()
+ */
+public Optional<Long> getGenerationTime();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code generationTime}.
+ * 
+ * @param generationTime the new value for the attribute {@code generationTime}.
+ */
+public void setGenerationTime(final Long generationTime);
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code description} from this {@code Tag}.<br>
+ * This is an optional value. That means if not set then {@link java.util.Optional#empty()}
+ * will returned.
+ * 
+ * @return the value from the attribute {@code description}.
+ * @see    java.util.Optional#empty()
+ */
+public Optional<String> getDescription();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code description}.
+ * 
+ * @param description the new value for the attribute {@code description}.
+ */
+public void setDescription(final String description);
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code style} from this {@code Tag}.<br>
+ * This is an optional value. That means if not set then {@link java.util.Optional#empty()}
+ * will returned.
+ * 
+ * @return the value from the attribute {@code style}.
+ * @see    java.util.Optional#empty()
+ */
+public Optional<String> getStyle();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code style}.
+ * 
+ * @param style the new value for the attribute {@code style}.
+ */
+public void setStyle(final String style);
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code markAsChanged} from this {@code Tag}.
+ * 
+ * @return the value from the attribute {@code markAsChanged}.
+ */
+@Transient
+public boolean isMarkAsChanged();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code markAsChanged}.
+ * 
+ * @param markAsChanged the new value for the attribute {@code markAsChanged}.
+ */
+public void setMarkAsChanged(final boolean markAsChanged);
+```
 
 
 ### TagRelationBuilder<a name="TaReBu" />
 
+```java
+/**
+ * TODO
+ *
+ * @author Naoghuman
+ * @since  0.1.0
+ */
+public final class TagRelationBuilder
+```
+
 
 ### TagRelation<a name="TaRe" />
 
+```java
+/**
+ * A {@code TagRelation} is a simple mapping between a container like 
+ * {@link javafx.scene.layout.FlowPane} and all {@code Tag}s which should be shown
+ * in the container.
+ * <p>
+ * An instance from this {@code Interface} can be easily generated with the fluent 
+ * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
+ * the preferred way to generate an implementation from this {@code Interface}.
+ *
+ * @author Naoghuman
+ * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see    javafx.scene.layout.FlowPane
+ */
+public interface TagRelation extends Comparable<TagRelation>, Externalizable
+```
 
-### TagValidator<a name="TaVa" />
+```java
+/**
+ * Constant which defines the attribute {@code default-id}(= 
+ * {@link java.lang.Long#MIN_VALUE}) from a {@code TagRelation}.
+ */
+public static final Long DEFAULT_ID = Long.MIN_VALUE;
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code id}.
+ */
+public static final String TAG_RELATION__PARA__ID = "id"; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code containerId}.
+ */
+public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code containerType}.
+ */
+public static final String TAG_RELATION__PARA__CONTAINER_TYPE = "containerType"; // NOI18N
+```
+
+```java
+/**
+ * Constant which defines the attribute {@code tagId}.
+ */
+public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code id} from this {@code TagRelation}.
+ * 
+ * @return the value from the attribute {@code id}.
+ */
+public long getId();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code id}.
+ * 
+ * @param id the new value for the attribute {@code id}.
+ */
+public void setId(final Long id);
+```
+
+```java
+/**
+ * Returnes the attribute {@code id} as a {@link javafx.beans.property.LongProperty}.
+ * 
+ * @return the attribute {@code id} as a {@code LongProperty}.
+ * @see    javafx.beans.property.LongProperty
+ */
+public LongProperty idProperty();
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code tagId} from the {@code Tag}.
+ * 
+ * @return the value from the attribute {@code tagId}.
+ */
+public long getTagId();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code tagId}.
+ * 
+ * @param tagId the new value for the attribute {@code tagId}.
+ */
+public void setTagId(final Long tagId);
+```
+
+```java
+/**
+ * Returnes the attribute {@code tagId} as a {@link javafx.beans.property.LongProperty}.
+ * 
+ * @return the attribute {@code tagId} as a {@code LongProperty}.
+ * @see    javafx.beans.property.LongProperty
+ */
+public LongProperty tagIdProperty();
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code containerId} which defines the 
+ * {@code id} from the container where the {@code Tag} is added.
+ * 
+ * @return the value from the attribute {@code containerId}.
+ */
+public String getContainerId();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code containerId}.
+ * 
+ * @param containerId the new value for the attribute {@code containerId}.
+ */
+public void setContainerId(final String containerId);
+```
+
+```java
+/**
+ * Returnes the attribute {@code containerId} as a {@link javafx.beans.property.StringProperty}.
+ * 
+ * @return the attribute {@code containerId} as a {@code StringProperty}.
+ * @see    javafx.beans.property.StringProperty
+ */
+public StringProperty containerIdProperty();
+```
+
+```java
+/**
+ * Gets the value from the attribute {@code containerType} which defines the 
+ * {@code type} from the container where the {@code Tag} is added.
+ * 
+ * @return the value from the attribute {@code containerType}.
+ */
+public String getContainerType();
+```
+
+```java
+/**
+ * Sets the new value from the attribute {@code containerType}.
+ * 
+ * @param containerType the new value for the attribute {@code containerType}.
+ */
+public void setContainerType(final String containerType);
+```
+
+```java
+/**
+ * Returnes the attribute {@code containerType} as a {@link javafx.beans.property.StringProperty}.
+ * 
+ * @return the attribute {@code containerType} as a {@code StringProperty}.
+ * @see    javafx.beans.property.StringProperty
+ */
+public StringProperty containerTypeProperty();
+```
 
 
+### Validator<a name="Vali" />
 
-API: com.github.naoghuman.lib.tag.internal<a name="LiTaCoIn" />
----
+```java
+/**
+ * This {@code Interface} contains different default methods to validate if an 
+ * {@link java.lang.Object} conforms specific behaviours or not. For example if 
+ * an {@code Object} is NULL or not.
+ *
+ * @author Naoghuman
+ * @since  0.1.0
+ * @see    java.lang.Object
+ */
+public interface Validator 
+```
 
-### DefaultTag<a name="DeTa" />
+```java
+/**
+ * Validates if the parameter {@code value} isn't NULL.
+ *
+ * @param value the attribute which should be validated.
+ * @param <T>   the type of the reference.
+ * @throws      NullPointerException if (value == NULL).
+ */
+public default <T> void requireNonNull(T value) throws NullPointerException
+```
 
-
-### DefaultTagRelation<a name="DeTaRe />
-
-
-### DefaultTagValidator<a name="DeTaVa" />
+```java
+/**
+ * Validates if the {@link java.lang.String} {@code value} isn't NULL and not EMPTY.
+ *
+ * @param value the attribute which should be validated.
+ * @see         java.lang.String
+ * @throws      NullPointerException if (value == NULL).
+ * @throws      IllegalArgumentException if (value.trim() == EMPTY).
+ */
+public default void requireNonNullAndNotEmpty(String value) throws NullPointerException, IllegalArgumentException
+```
 
 
 

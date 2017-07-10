@@ -45,7 +45,7 @@ Like I said in the section `Intention` the project `Lib-Tag` is a multi [Maven]
 library.
 * Minimal the sublibrary `Lib-Tag-Core` is needed.
 * Additional the sublibrary `Lib-Tag-Components` can be used to show the [Tag]s 
-  in a [JavaFX] gui.
+  in different [JavaFX] components.
 
 
 ### Sublibrary Lib-Tag-Core<a name="LiTaCor" />
@@ -53,8 +53,9 @@ library.
 The sublibrary [Lib-Tag-Core] provides the API to perform CRUD (`Create`, `Read`, 
 `Update` and `Delete`) operations for a [Tag].
 
-A `Tag` is basically a simple [String] which can be used for example in a [Label] or 
-a [Button]. With a Tag it is easily to search for or analyse a topic if it is tagged.
+A `Tag` is basically a simple [String] which can be used for example in a [Button], 
+[Label] or another [JavaFX] component. Tagged topics can be easily searched or 
+analysed for a `Tag`.
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]

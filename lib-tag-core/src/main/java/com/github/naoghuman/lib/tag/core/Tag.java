@@ -22,8 +22,8 @@ import java.util.Optional;
 
 /**
  * From the basic idea a {@code Tag} is a simple {@link java.lang.String} which 
- * can be used to displayed in a {@link javafx.scene.control.Button} or 
- * {@link javafx.scene.control.Label} or another component.<br>
+ * can be used to displayed in a {@link javafx.scene.control.Button},  
+ * {@link javafx.scene.control.Label} or another {@code JavaFX} component.<br>
  * Tagged topics can be easily searched or analysed for a Tag.
  * <p>
  * An instance from this {@code Interface} can be easily generated with the fluent builder 

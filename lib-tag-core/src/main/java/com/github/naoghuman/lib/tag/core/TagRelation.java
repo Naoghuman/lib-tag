@@ -38,8 +38,8 @@ import javafx.beans.property.StringProperty;
 public interface TagRelation extends Comparable<TagRelation>, Externalizable {
 
     /**
-     * Constant which defines the attribute {@code default-id}<code>default-id</code> (= 
-     * {@link java.lang.Long#MIN_VALUE}) from a {@code TagRelation}<code>TagRelation</code>.
+     * Constant which defines the attribute {@code default-id}(= 
+     * {@link java.lang.Long#MIN_VALUE}) from a {@code TagRelation}.
      */
     public static final Long DEFAULT_ID = Long.MIN_VALUE;
 
