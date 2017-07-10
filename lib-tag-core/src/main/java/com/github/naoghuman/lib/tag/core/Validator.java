@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,30 +19,41 @@ package com.github.naoghuman.lib.tag.core;
 import java.util.Objects;
 
 /**
+ * This {@code Interface} contains different default methods to validate if an 
+ * {@link java.lang.Object} conforms specific behaviours or not. For example if 
+ * an {@code Object} is NULL or not.
  *
  * @author Naoghuman
+ * @since  0.1.0
+ * @see    java.lang.Object
  */
 public interface Validator {
-
+    
     /**
-     * Validates if the parameter <code>value</code> isn't NULL.
+     * Validates if the parameter {@code value} isn't NULL.
      *
-     * @param value the parameter which should be validated.
-     * @throws NullPointerException if (value == NULL).
+     * @param value the attribute which should be validated.
+     * @param <T>   the type of the reference.
+     * @throws      NullPointerException if (value == NULL).
      */
-    public default void requireNonNull(Object value) throws NullPointerException {
+    public default <T> void requireNonNull(T value) throws NullPointerException {
         Objects.requireNonNull(value, "The parameter [value] can't be NULL"); // NOI18N
     }
-
+    
     /**
-     * This method validates if the parameter <code>value</code> isn't NULL or EMPTY.
+     * Validates if the {@link java.lang.String} {@code value} isn't NULL and not EMPTY.
      *
-     * TODO hit default-validator rules
-     *
-     * @param value the parameter which should be validated.
-     * @throws NullPointerException if (value == NULL).
-     * @throws IllegalArgumentException if the validation fails.
+     * @param value the attribute which should be validated.
+     * @see         java.lang.String
+     * @throws      NullPointerException if (value == NULL).
+     * @throws      IllegalArgumentException if (value.trim() == EMPTY).
      */
-    public void validate(String value) throws NullPointerException, IllegalArgumentException;
+    public default void requireNonNullAndNotEmpty(String value) throws NullPointerException, IllegalArgumentException {
+        Objects.requireNonNull(value, "The parameter [value] can't be NULL"); // NOI18N
+        
+        if (value.trim().isEmpty()) {
+            throw new IllegalArgumentException("The String [value] can't be EMPTY"); // NOI18N
+        }
+    }
 
 }

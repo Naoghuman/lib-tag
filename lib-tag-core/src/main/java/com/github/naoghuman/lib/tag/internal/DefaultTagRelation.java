@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,29 +30,36 @@ import javafx.beans.property.StringProperty;
 /**
  *
  * @author Naoghuman
+ * @since  0.1.0
  */
-public class DefaultTagRelation implements TagRelation {
+public final class DefaultTagRelation implements TagRelation {
 
     private static final String SIGN__EMPTY = ""; // NOI18N
 
-    public DefaultTagRelation(final long id, final long tagId, final String containerId, final String containerType) {
+    public DefaultTagRelation(
+            final Long id, final Long tagId, final String containerId, 
+            final String containerType
+    ) {
         this.init(id, tagId, containerId, containerType);
     }
 
-    private void init(final long id, final long tagId, final String containerId, final String containerType) {
+    private void init(final Long id, final Long tagId, final String containerId, final String containerType) {
+        DefaultValidator.getDefault().requireNonNull(id);
         this.setId(id);
+        
+        DefaultValidator.getDefault().requireNonNull(tagId);
         this.setTagId(tagId);
 
-        TagValidator.getDefault().validate(containerId);
+        DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerId);
         this.setContainerId(containerId);
 
-        TagValidator.getDefault().validate(containerType);
+        DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerType);
         this.setContainerType(containerId);
     }
 
     // START ID ----------------------------------------------------------------
     private LongProperty idProperty;
-    private long _id = TAG_RELATION__DEFAULT_ID;
+    private long _id = DEFAULT_ID;
 
     @Override
     public long getId() {
@@ -64,7 +71,7 @@ public class DefaultTagRelation implements TagRelation {
     }
 
     @Override
-    public final void setId(final long id) {
+    public final void setId(final Long id) {
         if (idProperty == null) {
             _id = id;
         } else {
@@ -84,7 +91,7 @@ public class DefaultTagRelation implements TagRelation {
 
     // START TAG-ID ------------------------------------------------------------
     private LongProperty tagIdProperty;
-    private long _tagId = TAG_RELATION__DEFAULT_ID;
+    private long _tagId = DEFAULT_ID;
 
     @Override
     public long getTagId() {
@@ -96,7 +103,7 @@ public class DefaultTagRelation implements TagRelation {
     }
 
     @Override
-    public final void setTagId(final long tagId) {
+    public final void setTagId(final Long tagId) {
         if (tagIdProperty == null) {
             _tagId = tagId;
         } else {
@@ -216,7 +223,7 @@ public class DefaultTagRelation implements TagRelation {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }

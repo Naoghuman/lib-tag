@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,233 +22,140 @@ import java.beans.Transient;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.util.Optional;
 
 /**
+ * Implementation class from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
+ * <p>
+ * An instance from this {@code Class} can be easily generated with the fluent 
+ * builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} which is the 
+ * preferred way to generate an implementation from this {@code Interface}.
  *
  * @author Naoghuman
+ * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.Tag
+ * @see    com.github.naoghuman.lib.tag.core.TagBuilder
  */
 public final class DefaultTag implements Tag {
-
-    public DefaultTag() {
-        this(TAG__DEFAULT_ID);
+    
+    private static final String NOT_DEFINED = "[not defined]"; // NOI18N
+    
+    /**
+     * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.<br>
+     * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder}
+     * is preferred against the directly usage from this method.
+     * <ul>
+     * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+     * <li>All other attributes are optional, that means if not set then {@link java.util.Optional#empty()}
+     * will returned.</li>
+     * <li>Setting an value in a mandory or an optional attribute will be validate the value 
+     * against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+     * </ul>
+     * 
+     * @param  id             The id (mandory attribute) from this DefaultTag.
+     * @param  title          The title (mandory attribute) from this DefaultTag.
+     * @param  generationTime Optional attribute. If not set then Optional#empty() will returned.
+     * @param  description    Optional attribute. If not set then Optional#empty() will returned.
+     * @param  style          Optional attribute. If not set then Optional#empty() will returned.
+     * @return                A new instance from the interface Tag.
+     * @see    com.github.naoghuman.lib.tag.core.Tag
+     * @see    com.github.naoghuman.lib.tag.core.TagBuilder
+     * @see    com.github.naoghuman.lib.tag.core.Validator
+     * @see    java.util.Optional#empty()
+     */
+    public static final Tag create(
+            final Long id, final String title, final Long generationTime, 
+            final String description, final String style
+    ) {
+        return new DefaultTag(id, title, generationTime, description, style);
     }
-
-    public DefaultTag(final long id) {
-        this(id, System.nanoTime());
-    }
-
-    public DefaultTag(final long id, final long generationTime) {
-        this(id, generationTime, SIGN__EMPTY);
-    }
-
-    public DefaultTag(final long id, final long generationTime, final String title) {
-        this(id, generationTime, title, SIGN__EMPTY);
-    }
-
-    public DefaultTag(final long id, final long generationTime, final String title, final String description) {
-        this(id, generationTime, title, description, SIGN__EMPTY);
-    }
-
-    public DefaultTag(final long id, final long generationTime, final String title, final String description, final String style) {
+    
+    private transient Boolean markAsChanged;
+    
+    private Long   id;
+    private String title;
+    
+    private Optional<Long>   generationTime;
+    private Optional<String> description;
+    private Optional<String> style;
+    
+    private DefaultTag(
+            final Long id, final String title, final Long generationTime, 
+            final String description, final String style
+    ) {
+        DefaultValidator.getDefault().requireNonNull(id);
         this.setId(id);
-        this.setGenerationTime(generationTime);
 
-        TagValidator.getDefault().validate(title);
+        DefaultValidator.getDefault().requireNonNullAndNotEmpty(title);
         this.setTitle(title);
-
-        TagValidator.getDefault().requireNonNull(description);
-        this.setDescription(description);
         
-        TagValidator.getDefault().requireNonNull(style);
-        this.setStyle(style);
-
-        markAsChangedProperty = new SimpleBooleanProperty(Boolean.FALSE);
+        this.generationTime = Optional.ofNullable(generationTime);
+        this.description    = Optional.ofNullable(description);
+        this.style          = Optional.ofNullable(style);
+        
+        markAsChanged = Boolean.FALSE;
     }
-
-    // START ID ---------------------------------------------------------------
-    private LongProperty idProperty;
-    private long _id = TAG__DEFAULT_ID;
-
-    @Override
-    public long getId() {
-        if (idProperty == null) {
-            return _id;
-        } else {
-            return idProperty.get();
-        }
-    }
-
-    @Override
-    public final void setId(final long id) {
-        if (idProperty == null) {
-            _id = id;
-        } else {
-            idProperty.set(id);
-        }
-    }
-
-    @Override
-    public LongProperty idProperty() {
-        if (idProperty == null) {
-            idProperty = new SimpleLongProperty(this, TAG_PARA__ID, _id);
-        }
-
-        return idProperty;
-    }
-    // END ID -----------------------------------------------------------------
-
-    // START GENERATIONTIME ---------------------------------------------------
-    private LongProperty generationTimeProperty;
-    private long _generationTime = System.currentTimeMillis();
-
-    @Override
-    public long getGenerationTime() {
-        if (generationTimeProperty == null) {
-            return _generationTime;
-        } else {
-            return generationTimeProperty.get();
-        }
-    }
-
-    @Override
-    public void setGenerationTime(final long generationTime) {
-        if (generationTimeProperty == null) {
-            _generationTime = generationTime;
-        } else {
-            generationTimeProperty.set(generationTime);
-        }
-    }
-
-    @Override
-    public LongProperty generationTimeProperty() {
-        if (generationTimeProperty == null) {
-            generationTimeProperty = new SimpleLongProperty(this, TAG_PARA__GENERATION_TIME, _generationTime);
-        }
-        return generationTimeProperty;
-    }
-    // END GENERATIONTIME -----------------------------------------------------
-
-    // START DESCRIPTION ------------------------------------------------------
-    private StringProperty descriptionProperty = null;
-    private String _description = SIGN__EMPTY;
-
-    @Override
-    public String getDescription() {
-        if (descriptionProperty == null) {
-            return _description;
-        } else {
-            return descriptionProperty.get();
-        }
-    }
-
-    @Override
-    public void setDescription(final String description) {
-        if (descriptionProperty == null) {
-            _description = description;
-        } else {
-            descriptionProperty.set(description);
-        }
-    }
-
-    @Override
-    public StringProperty descriptionProperty() {
-        if (descriptionProperty == null) {
-            descriptionProperty = new SimpleStringProperty(this, TAG_PARA__DESCRIPTION, _description);
-        }
-
-        return descriptionProperty;
-    }
-    // END DESCRIPTION --------------------------------------------------------
     
-    // START STYLE ------------------------------------------------------------
-    private StringProperty styleProperty = null;
-    private String _style = SIGN__EMPTY;
-
     @Override
-    public String getStyle() {
-        if (styleProperty == null) {
-            return _style;
-        } else {
-            return styleProperty.get();
-        }
+    public Long getId() {
+        return id;
     }
 
     @Override
-    public void setStyle(final String style) {
-        if (styleProperty == null) {
-            _style = style;
-        } else {
-            styleProperty.set(style);
-        }
+    public final void setId(final Long id) {
+        this.id = id;
     }
-
-    @Override
-    public StringProperty styleProperty() {
-        if (styleProperty == null) {
-            styleProperty = new SimpleStringProperty(this, TAG_PARA__STYLE, _style);
-        }
-
-        return styleProperty;
-    }
-    // END STYLE --------------------------------------------------------------
     
-    // START TITLE ------------------------------------------------------------
-    private StringProperty titleProperty = null;
-    private String _title = SIGN__EMPTY;
-
     @Override
     public String getTitle() {
-        if (titleProperty == null) {
-            return _title;
-        } else {
-            return titleProperty.get();
-        }
+        return title;
     }
 
     @Override
     public void setTitle(final String title) {
-        if (titleProperty == null) {
-            _title = title;
-        } else {
-            titleProperty.set(title);
-        }
+        this.title = title;
+    }
+    
+    @Override
+    public Optional<Long> getGenerationTime() {
+        return generationTime;
     }
 
     @Override
-    public StringProperty titleProperty() {
-        if (titleProperty == null) {
-            titleProperty = new SimpleStringProperty(this, TAG_PARA__TITLE, _title);
-        }
-
-        return titleProperty;
+    public void setGenerationTime(final Long generationTime) {
+        this.generationTime = Optional.ofNullable(generationTime);
     }
-    // END TITLE --------------------------------------------------------------
+    
+    @Override
+    public Optional<String> getDescription() {
+        return description;
+    }
 
-    // START MARK-AS-CHANGED --------------------------------------------------
-    private transient BooleanProperty markAsChangedProperty = null;
+    @Override
+    public void setDescription(final String description) {
+        this.description = Optional.ofNullable(description);
+    }
+    
+    @Override
+    public Optional<String> getStyle() {
+        return style;
+    }
+
+    @Override
+    public void setStyle(final String style) {
+        this.style = Optional.ofNullable(style);
+    }
 
     @Transient
     @Override
     public boolean isMarkAsChanged() {
-        return markAsChangedProperty.getValue();
+        return markAsChanged;
     }
 
     @Override
-    public BooleanProperty markAsChangedProperty() {
-        return markAsChangedProperty;
+    public void setMarkAsChanged(final boolean markAsChanged) {
+        this.markAsChanged = markAsChanged;
     }
-
-    @Override
-    public void setMarkAsChanged(boolean isMarkAsChanged) {
-        markAsChangedProperty.setValue(isMarkAsChanged);
-    }
-    // END MARK-AS-CHANGED ----------------------------------------------------
 
     @Override
     public int compareTo(final Tag other) {
@@ -258,14 +165,6 @@ public final class DefaultTag implements Tag {
         }
 
         compareTo = Long.compare(this.getId(), other.getId());
-        if (compareTo != 0) {
-            return compareTo;
-        }
-
-        compareTo = Long.compare(this.getGenerationTime(), other.getGenerationTime());
-        if (compareTo != 0) {
-            return compareTo;
-        }
 
         return compareTo;
     }
@@ -274,15 +173,14 @@ public final class DefaultTag implements Tag {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (int) (this.getId()             ^ (this.getId()             >>> 32));
-        result = prime * result + (int) (this.getGenerationTime() ^ (this.getGenerationTime() >>> 32));
+        result = prime * result + (int) (this.getId() ^ (this.getId() >>> 32));
         result = prime * result + this.getTitle().hashCode();
 
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -296,19 +194,11 @@ public final class DefaultTag implements Tag {
         }
 
         final DefaultTag other = (DefaultTag) obj;
-        if (this.getId() != other.getId()) {
+        if (Long.compare(this.getId(), other.getId()) != 0) {
             return false;
         }
 
-        if (this.getGenerationTime() != other.getGenerationTime()) {
-            return false;
-        }
-
-        if (!this.getTitle().equals(other.getTitle())) {
-            return false;
-        }
-
-        return true;
+        return this.getTitle().equals(other.getTitle());
     }
 
     @Override
@@ -316,11 +206,11 @@ public final class DefaultTag implements Tag {
         final StringBuilder sb = new StringBuilder();
         sb.append("Tag ["); // NOI18N
 
-        sb.append("id=")              .append(this.getId());             // NOI18N
-        sb.append(", generationTime=").append(this.getGenerationTime()); // NOI18N
-        sb.append(", title=")         .append(this.getTitle());          // NOI18N
-        sb.append(", description=")   .append(this.getDescription());    // NOI18N
-        sb.append(", style=")         .append(this.getStyle());          // NOI18N
+        sb.append("id=")              .append(this.getId());    // NOI18N
+        sb.append(", title=")         .append(this.getTitle()); // NOI18N
+        sb.append(", generationTime=").append(this.getGenerationTime().isPresent() ? this.getGenerationTime().get() : NOT_DEFINED); // NOI18N
+        sb.append(", description=")   .append(this.getDescription().isPresent()    ? this.getDescription().get()    : NOT_DEFINED); // NOI18N
+        sb.append(", style=")         .append(this.getStyle().isPresent()          ? this.getStyle().get()          : NOT_DEFINED); // NOI18N
 
         sb.append("]"); // NOI18N
 
@@ -329,20 +219,27 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void writeExternal(final ObjectOutput out) throws IOException {
-        out.writeLong(  this.getId());
-        out.writeLong(  this.getGenerationTime());
+        out.writeLong(this.getId());
         out.writeObject(this.getTitle());
-        out.writeObject(this.getDescription());
-        out.writeObject(this.getStyle());
+        
+        out.writeLong(this.getGenerationTime().isPresent() ? this.getGenerationTime().get() : Long.MIN_VALUE);
+        out.writeObject(this.getDescription().isPresent()  ? this.getDescription().get()    : NOT_DEFINED);
+        out.writeObject(this.getStyle().isPresent()        ? this.getStyle().get()          : NOT_DEFINED);
     }
 
     @Override
     public void readExternal(final ObjectInput in) throws IOException, ClassNotFoundException {
-        this.setId(            in.readLong());
-        this.setGenerationTime(in.readLong());
-        this.setTitle(         String.valueOf(in.readObject()));
-        this.setDescription(   String.valueOf(in.readObject()));
-        this.setStyle(         String.valueOf(in.readObject()));
+        this.setId(in.readLong());
+        this.setTitle(String.valueOf(in.readObject()));
+        
+        final Long readedGenerationTime = in.readLong();
+        this.generationTime = (Long.compare(readedGenerationTime, Long.MIN_VALUE) == 0) ? Optional.ofNullable(readedGenerationTime) : Optional.empty() ;
+        
+        final String readedDescription = String.valueOf(in.readObject());
+        this.description = (readedDescription.equals(NOT_DEFINED)) ? Optional.ofNullable(readedDescription) : Optional.empty();
+        
+        final String readedStyle = String.valueOf(in.readObject());
+        this.style = (readedStyle.equals(NOT_DEFINED)) ? Optional.ofNullable(readedStyle) : Optional.empty();
     }
 
 }

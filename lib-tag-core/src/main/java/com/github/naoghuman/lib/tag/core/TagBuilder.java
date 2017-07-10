@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,16 +16,15 @@
  */
 package com.github.naoghuman.lib.tag.core;
 
-import static com.github.naoghuman.lib.tag.core.Tag.SIGN__EMPTY;
+import static com.github.naoghuman.lib.tag.core.Tag.DEFAULT_ID;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__DESCRIPTION;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__GENERATION_TIME;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__ID;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__STYLE;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__TITLE;
-import static com.github.naoghuman.lib.tag.core.Tag.TAG__DEFAULT_ID;
 
 import com.github.naoghuman.lib.tag.internal.DefaultTag;
-import com.github.naoghuman.lib.tag.internal.TagValidator;
+import com.github.naoghuman.lib.tag.internal.DefaultValidator;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleLongProperty;
@@ -35,49 +34,45 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /**
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+ * the developer can create easily an instance from the {@code Interface} 
+ * {@link com.github.naoghuman.lib.tag.core.Tag}.
+ * <ul>
+ * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+ * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
+ * <li>Any attribute if set will be validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * </ul>
  *
  * @author Naoghuman
+ * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.Tag
+ * @see    com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @see    java.util.Optional#empty()
  */
-public class TagBuilder {
-
+public final class TagBuilder {
+    
     public static final IdStep create() {
         return new TagBuilderImpl();
     }
-
+    
     public interface IdStep {
-        public GenerationTimeStep id(final long id);
-        public TitleStep generationTime(final long generationTime);
-        public DescriptionStep title(final String title);
-    }
-
-    public interface GenerationTimeStep {
-        public TitleStep generationTime(final long generationTime);
-        public DescriptionStep title(final String title);
+        public TitleStep id(final Long id);
     }
 
     public interface TitleStep {
-        public DescriptionStep title(final String title);
-    }
-
-    public interface DescriptionStep {
-        public StyleStep description(final String description);
-        public Builder style(final String style);
-        public Tag build();
+        public Step title(final String title);
     }
     
-    public interface StyleStep {
-        public Builder style(final String style);
+    public interface Step {
+        public Step generationTime(final Long generationTime);
+        public Step description(final String description);
+        public Step style(final String style);
         public Tag build();
     }
 
-    public interface Builder {
-        public Tag build();
-    }
-
-    private static final class TagBuilderImpl implements Builder, 
-            DescriptionStep, GenerationTimeStep, IdStep, StyleStep, 
-            TitleStep
-    {
+    private static final class TagBuilderImpl implements IdStep, Step, TitleStep {
+        
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
 
@@ -86,43 +81,51 @@ public class TagBuilder {
         }
 
         private void init() {
-            properties.put(TAG_PARA__DESCRIPTION,     new SimpleStringProperty(SIGN__EMPTY));
-            properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty(System.nanoTime()));
-            properties.put(TAG_PARA__ID,              new SimpleLongProperty(TAG__DEFAULT_ID));
-            properties.put(TAG_PARA__STYLE,           new SimpleStringProperty(SIGN__EMPTY));
-            properties.put(TAG_PARA__TITLE,           new SimpleStringProperty());
+            // Mandory attributes
+            properties.put(TAG_PARA__ID,    new SimpleLongProperty(DEFAULT_ID));
+            properties.put(TAG_PARA__TITLE, new SimpleStringProperty());
+            
+            // Optional attributes
+            properties.put(TAG_PARA__DESCRIPTION,     new SimpleStringProperty());
+            properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty());
+            properties.put(TAG_PARA__STYLE,           new SimpleStringProperty());
         }
 
         @Override
-        public GenerationTimeStep id(long id) {
+        public TitleStep id(final Long id) {
+            DefaultValidator.getDefault().requireNonNull(id);
             properties.put(TAG_PARA__ID, new SimpleLongProperty(id));
-            
+        
             return this;
         }
 
         @Override
-        public StyleStep description(String description) {
-            properties.put(TAG_PARA__DESCRIPTION, new SimpleStringProperty(description));
-            
-            return this;
-        }
-
-        @Override
-        public TitleStep generationTime(final long generationTime) {
-            properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty(generationTime));
-            
-            return this;
-        }
-
-        @Override
-        public DescriptionStep title(String title) {
+        public Step title(final String title) {
+            DefaultValidator.getDefault().requireNonNullAndNotEmpty(title);
             properties.put(TAG_PARA__TITLE, new SimpleStringProperty(title));
             
             return this;
         }
 
         @Override
-        public Builder style(String style) {
+        public Step generationTime(final Long generationTime) {
+            DefaultValidator.getDefault().requireNonNull(generationTime);
+            properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty(generationTime));
+            
+            return this;
+        }
+
+        @Override
+        public Step description(final String description) {
+            DefaultValidator.getDefault().requireNonNullAndNotEmpty(description);
+            properties.put(TAG_PARA__DESCRIPTION, new SimpleStringProperty(description));
+            
+            return this;
+        }
+
+        @Override
+        public Step style(final String style) {
+            DefaultValidator.getDefault().requireNonNullAndNotEmpty(style);
             properties.put(TAG_PARA__STYLE, new SimpleStringProperty(style));
             
             return this;
@@ -131,28 +134,19 @@ public class TagBuilder {
         @Override
         public Tag build() {
             // Catch data
-            final LongProperty idLongProperty = (LongProperty) properties.get(TAG_PARA__ID);
-            final Long id = idLongProperty.get();
-
-            final LongProperty generationTimeLongProperty = (LongProperty) properties.get(TAG_PARA__GENERATION_TIME);
-            final Long generationTime = generationTimeLongProperty.get();
-
-            final StringProperty titleStringProperty = (StringProperty) properties.get(TAG_PARA__TITLE);
-            final String title = titleStringProperty.get();
-            TagValidator.getDefault().validate(title);
-
+            final LongProperty idLongProperty              = (LongProperty)   properties.get(TAG_PARA__ID);
+            final StringProperty titleStringProperty       = (StringProperty) properties.get(TAG_PARA__TITLE);
+            final LongProperty generationTimeLongProperty  = (LongProperty)   properties.get(TAG_PARA__GENERATION_TIME);
             final StringProperty descriptionStringProperty = (StringProperty) properties.get(TAG_PARA__DESCRIPTION);
-            final String description = descriptionStringProperty.get();
-            TagValidator.getDefault().requireNonNull(description);
+            final StringProperty styleStringProperty       = (StringProperty) properties.get(TAG_PARA__STYLE);
 
-            final StringProperty styleStringProperty = (StringProperty) properties.get(TAG_PARA__STYLE);
-            final String style = styleStringProperty.get();
-            TagValidator.getDefault().requireNonNull(style);
-
-            // Create the tag
-            final Tag tag = new DefaultTag(id, generationTime, title, description, style);
-
-            return tag;
+            // Create a new Tag
+            return DefaultTag.create(
+                    idLongProperty.getValue(),
+                    titleStringProperty.getValue(),
+                    generationTimeLongProperty.getValue(),
+                    descriptionStringProperty.getValue(),
+                    styleStringProperty.getValue());
         }
 
     }

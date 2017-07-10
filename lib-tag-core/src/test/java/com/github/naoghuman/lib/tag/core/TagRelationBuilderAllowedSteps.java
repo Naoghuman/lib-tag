@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,22 +19,28 @@ package com.github.naoghuman.lib.tag.core;
 /**
  *
  * @author Naoghuman
+ * @since  0.1.0
  */
 public class TagRelationBuilderAllowedSteps {
     
     TagRelationBuilderAllowedSteps() {
         
-        /*
-        The TagRelationBuilder creates an TagRelation which can be used to map
-        a Tag to a gui component. All attributes in the builder are mandory.
-        */
+        /**
+         * With the fluent builder {@code TagRelationBuilder} its possible to create
+         * a {@code TagRelation} which can be used to map a {@code Tag} against 
+         * a gui component.
+         * <ul>
+         * <li>All attributes in the builder are {@code mandory}.</li>
+         * <li>All defined values will be validate against the {@code Interface}
+         * {@code Validator}.</li>
+         * </ul>
+         */
         final TagRelation tagRelation = TagRelationBuilder.create()
-                .id(0L)                         // mandory
-                .tagId(0L)                      // mandory
+                .id(TagRelation.DEFAULT_ID)     // mandory (NOT NULL)
+                .tagId(0L)                      // mandory (NOT NULL)
                 .containerId("containerId")     // mandory (NOT NULL && NOT EMPTY)
                 .containerType("containerType") // mandory (NOT NULL && NOT EMPTY)
                 .build();
-        
     }
     
 }

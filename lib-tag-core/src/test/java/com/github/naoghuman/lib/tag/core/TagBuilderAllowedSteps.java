@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,25 +19,29 @@ package com.github.naoghuman.lib.tag.core;
 /**
  *
  * @author Naoghuman
+ * @since  0.1.0
  */
 public class TagBuilderAllowedSteps {
     
     TagBuilderAllowedSteps() {
         
-       TagBuilder.create().id(0L).generationTime(0L).title("title").description("description").style("style").build();
-       TagBuilder.create().id(0L)                   .title("title").description("description").style("style").build();
-       TagBuilder.create().id(0L)                   .title("title")                           .style("style").build();
-       TagBuilder.create().id(0L)                   .title("title")                                          .build();
-       
-       TagBuilder.create()       .generationTime(0L).title("title").description("description").style("style").build();
-       TagBuilder.create()       .generationTime(0L).title("title").description("description")               .build();
-       TagBuilder.create()       .generationTime(0L).title("title")                           .style("style").build();
-       TagBuilder.create()       .generationTime(0L).title("title")                                          .build();
-       
-       TagBuilder.create()                          .title("title").description("description").style("style").build();
-       TagBuilder.create()                          .title("title")                           .style("style").build();
-       TagBuilder.create()                          .title("title")                                          .build();
-       
+        /**
+         * With the fluent builder {@code TagBuilder} its possible to create a 
+         * {@code Tag}.
+         * <ul>
+         * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+         * <li>The other attributes are {@code optional}.</li>
+         * <li>All defined values will be validate against the {@code Interface}
+         * {@code Validator}.</li>
+         * </ul>
+         */
+        final Tag tag = TagBuilder.create()
+                .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)
+                .title("title")                   // mandory (NOT NULL && NOT EMPTY)
+                .generationTime(Long.MIN_VALUE)   // optional
+                .description("description")       // optional
+                .style("style")                   // optional
+                .build();
     }
     
 }

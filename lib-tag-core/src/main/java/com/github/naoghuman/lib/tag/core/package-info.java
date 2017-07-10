@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2017 PRo
+/**
+ * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,5 +13,11 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/**
+ * Contains the <code>API</code> for the library <code>Lib-Tag</code>.
+ * 
+ * @author Naoghuman
+ * @since  0.1.0
  */
 package com.github.naoghuman.lib.tag.core;

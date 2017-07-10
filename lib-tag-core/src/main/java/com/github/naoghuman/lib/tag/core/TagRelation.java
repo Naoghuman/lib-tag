@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,32 +22,135 @@ import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
 
 /**
+ * A {@code TagRelation} is a simple mapping between a container like 
+ * {@link javafx.scene.layout.FlowPane} and all {@code Tag}s which should be shown
+ * in the container.
+ * <p>
+ * An instance from this {@code Interface} can be easily generated with the fluent 
+ * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
+ * the preferred way to generate an implementation from this {@code Interface}.
  *
  * @author Naoghuman
+ * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see    javafx.scene.layout.FlowPane
  */
 public interface TagRelation extends Comparable<TagRelation>, Externalizable {
 
-    public static final long TAG_RELATION__DEFAULT_ID = -1l;
+    /**
+     * Constant which defines the attribute {@code default-id}<code>default-id</code> (= 
+     * {@link java.lang.Long#MIN_VALUE}) from a {@code TagRelation}<code>TagRelation</code>.
+     */
+    public static final Long DEFAULT_ID = Long.MIN_VALUE;
 
-    public static final String TAG_RELATION__PARA__ID             = "id"; // NOI18N
-    public static final String TAG_RELATION__PARA__CONTAINER_ID   = "containerId"; // NOI18N
+    /**
+     * Constant which defines the attribute {@code id}.
+     */
+    public static final String TAG_RELATION__PARA__ID = "id"; // NOI18N
+
+    /**
+     * Constant which defines the attribute {@code containerId}.
+     */
+    public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
+
+    /**
+     * Constant which defines the attribute {@code containerType}.
+     */
     public static final String TAG_RELATION__PARA__CONTAINER_TYPE = "containerType"; // NOI18N
-    public static final String TAG_RELATION__PARA__TAG_ID         = "tagId"; // NOI18N
 
+    /**
+     * Constant which defines the attribute {@code tagId}.
+     */
+    public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
+
+    /**
+     * Gets the value from the attribute {@code id} from this {@code TagRelation}.
+     * 
+     * @return the value from the attribute {@code id}.
+     */
     public long getId();
-    public void setId(final long id);
+    
+    /**
+     * Sets the new value from the attribute {@code id}.
+     * 
+     * @param id the new value for the attribute {@code id}.
+     */
+    public void setId(final Long id);
+    
+    /**
+     * Returnes the attribute {@code id} as a {@link javafx.beans.property.LongProperty}.
+     * 
+     * @return the attribute {@code id} as a {@code LongProperty}.
+     * @see    javafx.beans.property.LongProperty
+     */
     public LongProperty idProperty();
 
+    /**
+     * Gets the value from the attribute {@code tagId} from the {@code Tag}.
+     * 
+     * @return the value from the attribute {@code tagId}.
+     */
     public long getTagId();
-    public void setTagId(final long tagId);
+    
+    /**
+     * Sets the new value from the attribute {@code tagId}.
+     * 
+     * @param tagId the new value for the attribute {@code tagId}.
+     */
+    public void setTagId(final Long tagId);
+    
+    /**
+     * Returnes the attribute {@code tagId} as a {@link javafx.beans.property.LongProperty}.
+     * 
+     * @return the attribute {@code tagId} as a {@code LongProperty}.
+     * @see    javafx.beans.property.LongProperty
+     */
     public LongProperty tagIdProperty();
 
+    /**
+     * Gets the value from the attribute {@code containerId} which defines the 
+     * {@code id} from the container where the {@code Tag} is added.
+     * 
+     * @return the value from the attribute {@code containerId}.
+     */
     public String getContainerId();
+    
+    /**
+     * Sets the new value from the attribute {@code containerId}.
+     * 
+     * @param containerId the new value for the attribute {@code containerId}.
+     */
     public void setContainerId(final String containerId);
+    
+    /**
+     * Returnes the attribute {@code containerId} as a {@link javafx.beans.property.StringProperty}.
+     * 
+     * @return the attribute {@code containerId} as a {@code StringProperty}.
+     * @see    javafx.beans.property.StringProperty
+     */
     public StringProperty containerIdProperty();
 
+    /**
+     * Gets the value from the attribute {@code containerType} which defines the 
+     * {@code type} from the container where the {@code Tag} is added.
+     * 
+     * @return the value from the attribute {@code containerType}.
+     */
     public String getContainerType();
+    
+    /**
+     * Sets the new value from the attribute {@code containerType}.
+     * 
+     * @param containerType the new value for the attribute {@code containerType}.
+     */
     public void setContainerType(final String containerType);
+    
+    /**
+     * Returnes the attribute {@code containerType} as a {@link javafx.beans.property.StringProperty}.
+     * 
+     * @return the attribute {@code containerType} as a {@code StringProperty}.
+     * @see    javafx.beans.property.StringProperty
+     */
     public StringProperty containerTypeProperty();
 
 }
