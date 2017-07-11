@@ -356,10 +356,19 @@ public void setMarkAsChanged(final boolean markAsChanged);
 
 ```java
 /**
- * TODO
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
+ * the developer can create easily an instance from the {@code Interface} 
+ * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+ * <ul>
+ * <li>All attributes are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
+ * </ul>
  *
  * @author Naoghuman
  * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagRelation
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see    com.github.naoghuman.lib.tag.core.Validator
  */
 public final class TagRelationBuilder
 ```
