@@ -46,25 +46,39 @@ Examples<a name="Ex" />
 
 ### Usage of the class `TagBuilder`<a name="UsOfThClTaBu" />
 
-It is very easy with the class [TagBuilder] to create a [Tag].  
-The following picture shows all __allowed__ combinations to generate a `Tag` with the `TagBuilder`:
+It is very easy to create a [Tag] with the fluent builder [TagBuilder]:
 
-_Image:_ All allowed combinations to create a `Tag`  
-![tagbuilder_allowed-combinations_v0.1.0_2017-05-26_07-29.png][tagbuilder_allowed-combinations_v0.1.0_2017-05-26_07-29]
+```java
+/**
+ * With the fluent builder {@code TagBuilder} its possible to create a 
+ * {@code Tag}.
+ * <ul>
+ * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+ * <li>The other attributes are {@code optional}.</li>
+ * <li>All defined values will be validate against the {@code Interface}
+ * {@code Validator}.</li>
+ * </ul>
+ */
+final Tag tag = TagBuilder.create()
+        .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)
+        .title("title")                   // mandory (NOT NULL && NOT EMPTY)
+        .generationTime(Long.MIN_VALUE)   // optional
+        .description("description")       // optional
+        .style("style")                   // optional
+        .build();
+```
 
 The same combinations __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):
-> __Hint__  
-> . The generation from a `Tag` starts with the method `create()`.  
-> . `Blue` rectangles are `optional` attributes.  
-> . `Green` rectangles are `mandory` attributes.  
-> . The `Tag` will then created with the last method `build()`.
-
 _Image:_ Business process modeling diagram from `TagBuilder`  
 ![tagbuilder_v0.1.0_2017-05-26_07-24.png][tagbuilder_v0.1.0_2017-05-26_07-24]
 
+> __Hint__  
+> . The generation from a `Tag` starts with the method `create()`.  
+> . `Green` rectangles are `mandory` attributes.  
+> . `Blue` rectangles are `optional` attributes.  
+> . The `Tag` will then created with the last method `build()`.
+
 __Additional informations__  
-* Api: [TagBuilder](#TaBu)
-* Api: [Tag](#Tag)
 * Design Pattern: [Fluent Interface]
 * Design Pattern: [Builder pattern]
 * Design Pattern: [Step builder pattern]
@@ -72,24 +86,38 @@ __Additional informations__
 
 ### Usage of the class `TagRelationBuilder`<a name="UsOfThClTaReBu" />
 
-With a [TagRelation] its possible to `map` a [Tag] with a specific gui component. So the application `knows` which [Tag]s should be shown in a [Button] or in a [FlowPane]...  
-The following picture shows __how__ to use the `TagRelationBuilder` to generate a `TagRelation`:
+With a [TagRelation] its possible to `map` a [Tag] with a specific gui component. 
+So the application `knows` which [Tag]s should be shown in a [Button] or in a [FlowPane]...
 
-_Image:_ How to generate a `TagRelation` with the class `TagRelationBuilder`  
-![tagrelationbuilder_allowed-combinations_v0.1.0_2017-05-28_09-27.png][tagrelationbuilder_allowed-combinations_v0.1.0_2017-05-28_09-27]
+```java
+/**
+ * With the fluent builder {@code TagRelationBuilder} its possible to create
+ * a {@code TagRelation} which can be used to map a {@code Tag} against 
+ * a gui component.
+ * <ul>
+ * <li>All attributes in the builder are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface}
+ * {@code Validator}.</li>
+ * </ul>
+ */
+final TagRelation tagRelation = TagRelationBuilder.create()
+        .id(TagRelation.DEFAULT_ID)     // mandory (NOT NULL)
+        .tagId(0L)                      // mandory (NOT NULL)
+        .containerId("containerId")     // mandory (NOT NULL && NOT EMPTY)
+        .containerType("containerType") // mandory (NOT NULL && NOT EMPTY)
+        .build();
+```
 
 The same like above __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):
+_Image:_ Business process modeling diagram from `TagRelationBuilder`  
+![tagrelationbuilder_v0.1.0_2017-05-28_09-35.png][tagrelationbuilder_v0.1.0_2017-05-28_09-35]
+
 > __Hint__  
 > . The generation from a `TagRelation` starts with the method `create()`.  
 > . `Green` rectangles are `mandory` attributes.  
 > . The `TagRelation` will then created with the last method `build()`.
 
-_Image:_ Business process modeling diagram from `TagRelationBuilder`  
-![tagrelationbuilder_v0.1.0_2017-05-28_09-35.png][tagrelationbuilder_v0.1.0_2017-05-28_09-35]
-
 __Additional informations__  
-* Api: [TagRelationBuilder](#TaReBu)
-* Api: [TagRelation](#TaRe)
 * Design Pattern: [Fluent Interface]
 * Design Pattern: [Builder pattern]
 * Design Pattern: [Step builder pattern]
@@ -572,9 +600,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [//]: # (Images)
 [overview_lib-tag-core_2017-05-25_19-23]:https://cloud.githubusercontent.com/assets/8161815/26462105/c35caf22-417f-11e7-9831-fd6fadda85cb.png
 [tagbuilder_v0.1.0_2017-05-26_07-24]:https://cloud.githubusercontent.com/assets/8161815/26481964/b6c955fc-41e4-11e7-9abf-7e1afbe20c5b.png
-[tagbuilder_allowed-combinations_v0.1.0_2017-05-26_07-29]:https://cloud.githubusercontent.com/assets/8161815/26482025/2339675e-41e5-11e7-9ad2-a5d7b27aa931.png
 [tagrelationbuilder_v0.1.0_2017-05-28_09-35]:https://cloud.githubusercontent.com/assets/8161815/26526919/637c694c-4389-11e7-8d48-f79eef97df55.png
-[tagrelationbuilder_allowed-combinations_v0.1.0_2017-05-28_09-27]:https://cloud.githubusercontent.com/assets/8161815/26527041/a6677a1a-438b-11e7-9fe1-e66634b47d70.png
 
 
 
