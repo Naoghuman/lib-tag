@@ -17,10 +17,8 @@ The current `version` is `0.1.0` from MM.dd.2017 (MM.dd.yyyy).
 Content
 ===
 
-* [Demo](#Demo)
 * [Libraries](#Libraries)
     * [Sublibrary Lib-Tag-Core](#LiTaCor)
-    * [Sublibrary Lib-Tag-Components](#LiTaCom)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -28,13 +26,6 @@ Content
 * [License](#License)
 * [Autor](#Autor)
 * [Contact](#Contact)
-
-
-
-Demo<a name="Demo" />
----
-
-Add text...
 
 
 
@@ -63,11 +54,6 @@ _Image:_ [UML] Lib-Tag-Core
 For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Core] :smile: .
 
 
-### Sublibrary Lib-Tag-Components<a name="LiTaCom" />
-
-Add text...
-
-
 
 Download<a name="Download" />
 ---
@@ -86,14 +72,21 @@ Requirements<a name="Requirements" />
 Installation<a name="Installation" />
 ---
 
-Add text...
+* If not installed download the [JRE 8] or the [JDK 8].
+  * Optional: To work better with [FXML] files in a [JavaFX] application download 
+    the [JavaFX Scene Builder] under 'Additional Resources'.
+* Choose your preferred IDE (e.g. [NetBeans], [Eclipse] or [IntelliJ IDEA]) for 
+  development.
+* Download or clone the library [Lib-Tag].
 
 
 
 Documentation<a name="Documentation" />
 ---
 
-Add text...
+* In section [Api](#Api) you can see the main point(s) to access the functionality 
+  in this library.
+* For additional information you can see the [JavaDoc] in the library itself.
 
 
 
@@ -135,11 +128,17 @@ Contact<a name="Contact" />
 [//]: # (Links)
 [Button]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[Issue]:https://github.com/Naoghuman/lib-tag/issues
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
+[JavaFX Scene Builder]:http://gluonhq.com/labs/scene-builder/
+[JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
+[Lib-Tag]:https://github.com/Naoghuman/lib-tag
 [Lib-Tag-Core]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-core
 [Maven]:http://maven.apache.org/
 [NetBeans IDE]:https://netbeans.org/
+[Pull Request]:https://help.github.com/articles/using-pull-requests
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language
