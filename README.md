@@ -6,8 +6,12 @@ Lib-Tag
 Intention
 ===
 
-`Lib-Tag` is a multi [Maven] library written in [JavaFX] and [NetBeans IDE] and 
-provides functionalities to use and handle easily [Tag]s in your [JavaFX] application.
+`Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] &amp; 
+[Maven] application. Written in [JavaFX] and [NetBeans IDE] the project contains 
+several sub-libraries for specific tasks. For example:
+* The sub-library `Lib-Tag-Core` is responsible for the `API` from the project.
+* The sub-library `Lib-Tag-Components` allowed to show and managed the [Tag]s in 
+  different [JavaFX] gui components _(Planed for future releases)_.
 
 
 The current `version` is `0.1.0` from MM.dd.2017 (MM.dd.yyyy).
@@ -19,6 +23,7 @@ Content
 
 * [Libraries](#Libraries)
     * [Sublibrary Lib-Tag-Core](#LiTaCor)
+    * [Sublibrary Lib-Tag-Components](#LiTaCom)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -32,11 +37,11 @@ Content
 Libraries<a name="Libraries" />
 ---
 
-Like I said in the section `Intention` the project `Lib-Tag` is a multi [Maven] 
-library.
-* Minimal the sublibrary `Lib-Tag-Core` is needed.
-* Additional the sublibrary `Lib-Tag-Components` can be used to show the [Tag]s 
-  in different [JavaFX] components.
+Like I said in the section `Intention` the project `Lib-Tag` contains several 
+sub-libraries.
+* Minimal the sub-library `Lib-Tag-Core` is needed.
+* Additional the sub-library `Lib-Tag-Components` can be used to show and managed 
+  the [Tag]s in different [JavaFX] components _(Planed for future releases)_.
 
 
 ### Sublibrary Lib-Tag-Core<a name="LiTaCor" />
@@ -54,6 +59,10 @@ _Image:_ [UML] Lib-Tag-Core
 For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Core] :smile: .
 
 
+### Sublibrary Lib-Tag-Components<a name="LiTaCom" />
+
+_The sub-library `Lib-Tag-Components` isn't currently available. The implementation 
+from the library is planed in future releases._
 
 Download<a name="Download" />
 ---
