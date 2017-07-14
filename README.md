@@ -7,14 +7,16 @@ Intention
 ===
 
 `Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] &amp; 
-[Maven] application. Written in [JavaFX] and [NetBeans IDE] the project contains 
-several sub-libraries for specific tasks. For example:
-* The sub-library `Lib-Tag-Core` is responsible for the `API` from the project.
-* The sub-library `Lib-Tag-Components` allowed to show and managed the [Tag]s in 
-  different [JavaFX] gui components _(Planed for future releases)_.
+[Maven] application.  
+A `Tag` is basically a simple [String] which can be used for example in a [Button], 
+[Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched 
+or analysed for a `Tag`.
 
-
-The current `version` is `0.1.0` from MM.dd.2017 (MM.dd.yyyy).
+Written in [JavaFX] and [NetBeans IDE] the project contains several sub-libraries 
+for specific tasks. For example:
+* The sub-library `Lib-Tag-Core` contains the core functionalities from the project.
+* The sub-library `Lib-Tag-Components` allowed to show [Tag]s in different [JavaFX] 
+  gui components _(Planed for future releases)_.
 
 
 
@@ -40,18 +42,18 @@ Libraries<a name="Libraries" />
 Like I said in the section `Intention` the project `Lib-Tag` contains several 
 sub-libraries.
 * Minimal the sub-library `Lib-Tag-Core` is needed.
-* Additional the sub-library `Lib-Tag-Components` can be used to show and managed 
-  the [Tag]s in different [JavaFX] components _(Planed for future releases)_.
+* Additional the sub-library `Lib-Tag-Components` can be used to show [Tag]s in 
+  different [JavaFX] components _(Planed for future releases)_.
 
 
 ### Sublibrary Lib-Tag-Core<a name="LiTaCor" />
 
-The sublibrary [Lib-Tag-Core] provides the API to perform CRUD (`Create`, `Read`, 
-`Update` and `Delete`) operations for a [Tag].
+The sublibrary [Lib-Tag-Core] contains the core functionalities to perform the 
+CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
 
 A `Tag` is basically a simple [String] which can be used for example in a [Button], 
-[Label] or another [JavaFX] component. Tagged topics can be easily searched or 
-analysed for a `Tag`.
+[Label] or another [JavaFX] components. Suchlike tagged topics can be easily 
+searched or analysed for a `Tag`.
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
@@ -61,13 +63,32 @@ For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Core
 
 ### Sublibrary Lib-Tag-Components<a name="LiTaCom" />
 
-_The sub-library `Lib-Tag-Components` isn't currently available. The implementation 
-from the library is planed in future releases._
+_The sub-library `Lib-Tag-Components` isn't currently available.  
+The implementation from the library is planed in future releases._
 
 Download<a name="Download" />
 ---
 
-Add text...
+Current `version` is `0.1.0`. Main points in this release are:
+* ...
+
+**Maven coordinates**  
+In context from a [Maven] project you can use following maven coordinates: 
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.naoghuman</groupId>
+        <artifactId>lib-tag-core</artifactId>
+        <version>0.1.0</version>
+    </dependency>
+</dependencies>
+```
+
+**Download manuell**
+* [Release v0.1.0 (MM.dd.2017 / MM.dd.yyyy)]
+
+**An overview** about all existings releases can be found here:
+* [Overview from all releases in Lib-Tag]
 
 
 
@@ -147,7 +168,9 @@ Contact<a name="Contact" />
 [Lib-Tag-Core]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-core
 [Maven]:http://maven.apache.org/
 [NetBeans IDE]:https://netbeans.org/
+[Overview from all releases in Lib-Tag]:https://github.com/Naoghuman/lib-tag/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
+[Release v0.1.0 (MM.dd.2017 / MM.dd.yyyy)]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.1.0
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language
