@@ -1,15 +1,14 @@
 Welcome to `Lib-Tag` with the new release `0.1.0`.
 
-`Lib-Tag` is a multi [Maven] library written in [JavaFX] and [NetBeans IDE] and 
-provides functionalities to use and handle easily [Tag]s in your [JavaFX] application.
-
+`Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] & [Maven] 
+application.  
 A `Tag` is basically a simple [String] which can be used for example in a [Button], 
-[Label] or another [JavaFX] component. Tagged topics can be easily searched or 
-analysed for a `Tag`.
+[Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched 
+or analysed for a `Tag`.
 
-The project `Lib-Tag` contains following `subprojects` which are included 
-into this release:
-* Lib-Tag-Core
+Written in [JavaFX] and [NetBeans IDE] the project contains several sub-libraries 
+for specific tasks. For example:
+* `Lib-Tag-Core`: The sub-library contains the core functionalities from the project.
 
 
 
