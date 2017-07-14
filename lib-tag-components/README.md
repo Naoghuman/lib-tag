@@ -6,7 +6,9 @@ Lib-Tag-Components
 Intention
 ---
 
-TODO
+_The sub-library `Lib-Tag-Components` isn't currently available.  
+The implementation from the library is planed in future releases._
+
 
 
 Content
