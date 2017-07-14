@@ -46,11 +46,16 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
     
     <build>
         <plugins>
-            <!-- for RELEASE 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.0.1</version>
+                <!-- <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>png</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>-->
+                <!-- for RELEASE 
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -59,8 +64,8 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
                         </goals>
                     </execution>
                 </executions>
+                -->
             </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -96,9 +101,39 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
             </plugin>
             -->
         </plugins>
+        
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.png</include>
+                    <include>**/*.txt</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.png</include>
+                    <include>**/*.txt</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
     
     <dependencies>
+        <dependency>
+            <groupId>com.airhacks</groupId>
+            <artifactId>afterburner.fx</artifactId>
+            <version>1.7.0</version>
+            <scope>compile</scope>
+        </dependency>
+            
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
