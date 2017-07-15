@@ -437,7 +437,7 @@ public static final IdStep create()
  * First mandory step to generate and configured an instance from the {@code Interface} {@core TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code id}.
  */
-public static interface IdStep
+public interface IdStep
 ```
 
 ```java
@@ -445,7 +445,7 @@ public static interface IdStep
  * Second mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code tagId}.
  */
-public static interface TagIdStep
+public interface TagIdStep
 ```
 
 ```java
@@ -453,7 +453,7 @@ public static interface TagIdStep
  * Third mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code containerId}.
  */
-public static interface ContainerIdStep
+public interface ContainerIdStep
 ```
 
 ```java
@@ -461,7 +461,7 @@ public static interface ContainerIdStep
  * Fourth mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code containerType}.
  */
-public static interface ContainerTypeStep
+public interface ContainerTypeStep
 ```
 
 ```java
@@ -469,7 +469,7 @@ public static interface ContainerTypeStep
  * Last step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} returned the generated and configured instance.
  */
-public static interface Builder
+public interface Builder
 ```
 
 

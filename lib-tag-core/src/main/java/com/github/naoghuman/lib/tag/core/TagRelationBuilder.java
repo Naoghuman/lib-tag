@@ -66,7 +66,7 @@ public final class TagRelationBuilder {
      * {@core TagRelation}.<br>
      * This {@code Interface} allowed to set the attribute {@code id}.
      */
-    public static interface IdStep {
+    public interface IdStep {
         
         /**
          * Setter for the mandory attribute {@code id} in the upcoming instance 
@@ -84,7 +84,7 @@ public final class TagRelationBuilder {
      * {@code Interface} {@code TagRelation}.<br>
      * This {@code Interface} allowed to set the attribute {@code tagId}.
      */
-    public static interface TagIdStep {
+    public interface TagIdStep {
         
         /**
          * Setter for the mandory attribute {@code tagId} in the upcoming instance 
@@ -102,7 +102,7 @@ public final class TagRelationBuilder {
      * {@code Interface} {@code TagRelation}.<br>
      * This {@code Interface} allowed to set the attribute {@code containerId}.
      */
-    public static interface ContainerIdStep {
+    public interface ContainerIdStep {
         
         /**
          * Setter for the mandory attribute {@code containerId} in the upcoming 
@@ -120,7 +120,7 @@ public final class TagRelationBuilder {
      * {@code Interface} {@code TagRelation}.<br>
      * This {@code Interface} allowed to set the attribute {@code containerType}.
      */
-    public static interface ContainerTypeStep {
+    public interface ContainerTypeStep {
         
         /**
          * Setter for the mandory attribute {@code containerType} in the upcoming 
@@ -138,7 +138,7 @@ public final class TagRelationBuilder {
      * {@code TagRelation}.<br>
      * This {@code Interface} returned the generated and configured instance.
      */
-    public static interface Builder {
+    public interface Builder {
         
         /**
          * Generated and configured an instance from the {@code Interface} {@code TagRelation} 
