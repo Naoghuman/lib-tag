@@ -409,7 +409,7 @@ public void setMarkAsChanged(final boolean markAsChanged);
  * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
  * </ul>
  *
  * @author Naoghuman
@@ -420,6 +420,58 @@ public void setMarkAsChanged(final boolean markAsChanged);
  */
 public final class TagRelationBuilder
 ```
+
+```java
+/**
+ * Starting point from this fluent builder to generate and configured an 
+ * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+ * 
+ * @return the first step to generate and configured an instance from the {@code Interface} {@core TagRelation}.
+ * @see    com.github.naoghuman.lib.tag.core.TagRelation 
+ */
+public static final IdStep create()
+```
+
+```java
+/**
+ * First mandory step to generate and configured an instance from the {@code Interface} {@core TagRelation}.<br>
+ * This {@code Interface} allowed to set the attribute {@code id}.
+ */
+public static interface IdStep
+```
+
+```java
+/**
+ * Second mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * This {@code Interface} allowed to set the attribute {@code tagId}.
+ */
+public static interface TagIdStep
+```
+
+```java
+/**
+ * Third mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * This {@code Interface} allowed to set the attribute {@code containerId}.
+ */
+public static interface ContainerIdStep
+```
+
+```java
+/**
+ * Fourth mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * This {@code Interface} allowed to set the attribute {@code containerType}.
+ */
+public static interface ContainerTypeStep
+```
+
+```java
+/**
+ * Last step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * This {@code Interface} returned the generated and configured instance.
+ */
+public static interface Builder
+```
+
 
 
 ### TagRelation<a name="TaRe" />
