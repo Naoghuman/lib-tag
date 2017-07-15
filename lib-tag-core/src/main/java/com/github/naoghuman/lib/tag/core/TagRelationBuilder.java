@@ -138,10 +138,8 @@ public final class TagRelationBuilder {
             final StringProperty containerTypeStringProperty = (StringProperty) properties.get(TAG_RELATION__PARA__CONTAINER_TYPE);
             final String containerType = containerTypeStringProperty.get();
 
-            // Create the tag
-            final TagRelation tagRelation = new DefaultTagRelation(id, tagId, containerId, containerType);
-
-            return tagRelation;
+            // Create a the TagRelation
+            return DefaultTagRelation.create(id, tagId, containerId, containerType);
         }
 
     }

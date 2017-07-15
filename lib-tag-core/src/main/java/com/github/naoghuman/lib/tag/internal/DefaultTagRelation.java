@@ -28,22 +28,54 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
+ * Implementation class from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+ * <p>
+ * An instance from this {@code Class} can be easily generated with the fluent 
+ * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
+ * the preferred way to generate an implementation from this {@code Interface}.
  *
  * @author Naoghuman
  * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagRelation
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
  */
 public final class DefaultTagRelation implements TagRelation {
 
     private static final String SIGN__EMPTY = ""; // NOI18N
 
-    public DefaultTagRelation(
+    /**
+     * Factory method to create an instance from the {@code Interface} 
+     * {@link com.github.naoghuman.lib.tag.core.TagRelation}.<br>
+     * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder}
+     * is preferred against the directly usage from this method.
+     * <ul>
+     * <li>All attributes are mandory and validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+     * <li>The attribute {@code id} defines the id from the entity.</li>
+     * <li>The attribute {@code tagId} defines the id from the {@code Tag}.</li>
+     * <li>The attribute {@code containerId} defines the id from the {@code container} where the Tag should be shown.</li>
+     * <li>The attribute {@code containerType} defines the type from the {@code container}.</li>
+     * </ul>
+     * 
+     * @param  id            The id (mandory attribute) from this DefaultTagRelaiton.
+     * @param  tagId         The tagId (mandory attribute) from this DefaultTagRelation.
+     * @param  containerId   The containerId (mandory attribute) from this DefaultTagRelation.
+     * @param  containerType The containerType (mandory attribute) from this DefaultTagRelation.
+     * @return               A new instance from the {@code Interface} TagRelation.
+     * @see    com.github.naoghuman.lib.tag.core.TagRelation
+     * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+     * @see    com.github.naoghuman.lib.tag.core.Validator
+     */
+    public static TagRelation create(
             final Long id, final Long tagId, final String containerId, 
             final String containerType
     ) {
-        this.init(id, tagId, containerId, containerType);
+        return new DefaultTagRelation(id, tagId, containerId, containerType);
     }
 
-    private void init(final Long id, final Long tagId, final String containerId, final String containerType) {
+    private DefaultTagRelation(
+            final Long id, final Long tagId, final String containerId, 
+            final String containerType
+    ) {
         DefaultValidator.getDefault().requireNonNull(id);
         this.setId(id);
         

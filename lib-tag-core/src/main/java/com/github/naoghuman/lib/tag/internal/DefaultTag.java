@@ -57,7 +57,7 @@ public final class DefaultTag implements Tag {
      * @param  generationTime Optional attribute. If not set then Optional#empty() will returned.
      * @param  description    Optional attribute. If not set then Optional#empty() will returned.
      * @param  style          Optional attribute. If not set then Optional#empty() will returned.
-     * @return                A new instance from the interface Tag.
+     * @return                A new instance from the {@code Interface} Tag.
      * @see    com.github.naoghuman.lib.tag.core.Tag
      * @see    com.github.naoghuman.lib.tag.core.TagBuilder
      * @see    com.github.naoghuman.lib.tag.core.Validator
