@@ -75,7 +75,7 @@ final Tag tag = TagBuilder.create()
 
 The same combinations __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):
 _Image:_ Business process modeling diagram from `TagBuilder`  
-![tagbuilder_v0.1.0_2017-05-26_07-24.png][tagbuilder_v0.1.0_2017-05-26_07-24]
+![tagbuilder_v0.1.0_2017-07-15_10-48.png][tagbuilder_v0.1.0_2017-07-15_10-48]
 
 > __Hint__  
 > . The generation from a `Tag` starts with the method `create()`.  
@@ -613,7 +613,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 [//]: # (Images)
 [overview_lib-tag-core_2017-05-25_19-23]:https://cloud.githubusercontent.com/assets/8161815/26462105/c35caf22-417f-11e7-9831-fd6fadda85cb.png
-[tagbuilder_v0.1.0_2017-05-26_07-24]:https://cloud.githubusercontent.com/assets/8161815/26481964/b6c955fc-41e4-11e7-9abf-7e1afbe20c5b.png
+[tagbuilder_v0.1.0_2017-07-15_10-48]:https://user-images.githubusercontent.com/8161815/28238038-702dd80a-694b-11e7-9779-0d2c904cce86.png
 [tagrelationbuilder_v0.1.0_2017-05-28_09-35]:https://cloud.githubusercontent.com/assets/8161815/26526919/637c694c-4389-11e7-8d48-f79eef97df55.png
 
 
