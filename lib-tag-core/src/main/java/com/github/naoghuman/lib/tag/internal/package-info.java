@@ -15,9 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Contains the <code>Implementation</code> for the library <code>Lib-Tag</code>.
+ * Contains the default {@code Implementation} from the library {@code Lib-Tag-Core}.
+ * <p>
+ * The preferred way is not to create an instance directly with the classes in this
+ * package. Plz use instead the corresponding fluent builders in the package 
+ * {@code com.github.naoghuman.lib.tag.core}.
  * 
  * @author Naoghuman
  * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultTag
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultTagRelation
  */
 package com.github.naoghuman.lib.tag.internal;

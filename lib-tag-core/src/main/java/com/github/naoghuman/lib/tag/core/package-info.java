@@ -15,12 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Contains the {@code API} for the library {@code Lib-Tag-Core}.
+ * Contains the {@code API} from the library {@code Lib-Tag-Core}.
  * <p>
  * The main entry point from the API is the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag} 
  * which defines a Tag. A Tag is basically a simple {@link java.lang.String} which can be used for example 
  * in a {@link javafx.scene.control.Button}, {@link javafx.scene.control.Label} or another {@code JavaFX} 
- * gui component. Suchlike tagged topics can be easily searched or analysed for a Tag.<br>
+ * gui component.<br>
+ * Suchlike tagged topics can be easily searched or analysed for a Tag.
+ * <p>
  * A Tag can be easily created and configured with the fluent builder {@code Class} 
  * {@link com.github.naoghuman.lib.tag.core.TagBuilder} which is the preferred way to create an instance 
  * from the {@code Interface} Tag. Another way would be to use directly the {@code Class} 
