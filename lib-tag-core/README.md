@@ -143,7 +143,7 @@ API: com.github.naoghuman.lib.tag.core<a name="LiTaCo" />
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
  * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
- * <li>Any attribute if set will be validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * <li>Any optinal attribute if set will be validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
  * </ul>
  *
  * @author Naoghuman
@@ -154,6 +154,49 @@ API: com.github.naoghuman.lib.tag.core<a name="LiTaCo" />
  * @see    java.util.Optional#empty()
  */
 public final class TagBuilder
+```
+
+```java
+/**
+ * Starting point from this fluent builder to generate and configured an 
+ * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
+ * 
+ * @return the first step to generate and configured an instance from the {@code Interface} {@code Tag}.
+ * @see    com.github.naoghuman.lib.tag.core.Tag
+ */
+public static final IdStep create()
+```
+
+```java
+/**
+ * First mandory step to generate and configured an instance from the {@code Interface} {@code Tag}.<br>
+ * This {@code Interface} allowed to set the attribute {@code id}.
+ */
+public interface IdStep
+```
+
+```java
+/**
+ * Second mandory step to generate and configured an instance from the {@code Interface} {@code Tag}.<br>
+ * This {@code Interface} allowed to set the attribute {@code title}.
+ */
+public interface TitleStep
+```
+
+```java
+/**
+ * Optional steps for the configuration from the new instance from the 
+ * {@code Interface} {@code Tag}.<br>
+ * <ul>
+ * <li>All attributes in this {@code Interface} are optional. If not set, then {@link java.util.Optional#empty()} for every unset attribute will returned.</li>
+ * <li>All setted values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * <li>Any optinal attribute is set more then ones then the last {@code value} will be used for the configuration.</li>
+ * </ul>
+ * 
+ * @see com.github.naoghuman.lib.tag.core.Validator
+ * @see java.util.Optional#empty()
+ */
+public interface Step
 ```
 
 
