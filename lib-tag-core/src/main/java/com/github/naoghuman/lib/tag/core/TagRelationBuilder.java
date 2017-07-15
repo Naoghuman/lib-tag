@@ -37,7 +37,8 @@ import javafx.collections.ObservableMap;
  * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} 
+ *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
  * </ul>
  *
  * @author Naoghuman
@@ -48,28 +49,106 @@ import javafx.collections.ObservableMap;
  */
 public final class TagRelationBuilder {
 
+    /**
+     * Starting point from this fluent builder to generate and configured an 
+     * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+     * 
+     * @return the first step to generate and configured an instance from the 
+     *         {@code Interface} {@core TagRelation}.
+     * @see    com.github.naoghuman.lib.tag.core.TagRelation 
+     */
     public static final IdStep create() {
         return new TagRelationBuilderImpl();
     }
 
+    /**
+     * First mandory step to generate and configured an instance from the {@code Interface} 
+     * {@core TagRelation}.<br>
+     * This {@code Interface} allowed to set the attribute {@code id}.
+     */
     public static interface IdStep {
+        
+        /**
+         * Setter for the mandory attribute {@code id} in the upcoming instance 
+         * from the {@code Interface} {@code TagRelation}. 
+         * 
+         * @param id value for the attribute {@code id}.
+         * @return the next step {@code TagIdStep} in this fluent builder.
+         */
         public TagIdStep id(final Long id);
+        
     }
 
+    /**
+     * Second mandory step to generate and configured an instance from the 
+     * {@code Interface} {@code TagRelation}.<br>
+     * This {@code Interface} allowed to set the attribute {@code tagId}.
+     */
     public static interface TagIdStep {
+        
+        /**
+         * Setter for the mandory attribute {@code tagId} in the upcoming instance 
+         * from the {@code Interface} {@code TagRelation}. 
+         * 
+         * @param tagId value for the attribute {@code tagId}.
+         * @return the next step {@code ContainerIdStep} in this fluent builder.
+         */
         public ContainerIdStep tagId(final Long tagId);
+        
     }
 
+    /**
+     * Third mandory step to generate and configured an instance from the 
+     * {@code Interface} {@code TagRelation}.<br>
+     * This {@code Interface} allowed to set the attribute {@code containerId}.
+     */
     public static interface ContainerIdStep {
+        
+        /**
+         * Setter for the mandory attribute {@code containerId} in the upcoming 
+         * instance from the {@code Interface} {@code TagRelation}. 
+         * 
+         * @param containerId value for the attribute {@code containerId}.
+         * @return the next step {@code ContainerTypeStep} in this fluent builder.
+         */
         public ContainerTypeStep containerId(final String containerId);
+        
     }
 
+    /**
+     * Fourth mandory step to generate and configured an instance from the 
+     * {@code Interface} {@code TagRelation}.<br>
+     * This {@code Interface} allowed to set the attribute {@code containerType}.
+     */
     public static interface ContainerTypeStep {
+        
+        /**
+         * Setter for the mandory attribute {@code containerType} in the upcoming 
+         * instance from the {@code Interface} {@code TagRelation}. 
+         * 
+         * @param containerType value for the attribute {@code containerType}.
+         * @return the last step {@code Builder} in this fluent builder.
+         */
         public Builder containerType(final String containerType);
+        
     }
 
+    /**
+     * Last step to generate and configured an instance from the {@code Interface} 
+     * {@code TagRelation}.<br>
+     * This {@code Interface} returned the generated and configured instance.
+     */
     public static interface Builder {
+        
+        /**
+         * Generated and configured an instance from the {@code Interface} {@code TagRelation} 
+         * with the used values from the previous steps.
+         * 
+         * @return the generated and configured instance.
+         * @see    com.github.naoghuman.lib.tag.core.TagRelation
+         */
         public TagRelation build();
+        
     }
 
     private static final class TagRelationBuilderImpl implements
@@ -139,7 +218,11 @@ public final class TagRelationBuilder {
             final String containerType = containerTypeStringProperty.get();
 
             // Create a the TagRelation
-            return DefaultTagRelation.create(id, tagId, containerId, containerType);
+            return DefaultTagRelation.create(
+                    id,
+                    tagId,
+                    containerId,
+                    containerType);
         }
 
     }
