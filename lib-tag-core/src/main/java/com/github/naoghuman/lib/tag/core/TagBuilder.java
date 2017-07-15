@@ -39,8 +39,10 @@ import javafx.collections.ObservableMap;
  * {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
- * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
- * <li>Any attribute if set will be validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * <li>All other attributes are optional, that means skipping them returns 
+ *     {@link java.util.Optional#empty()}.</li>
+ * <li>Any optinal attribute if set will be validate against 
+ *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
  * </ul>
  *
  * @author Naoghuman
@@ -52,23 +54,107 @@ import javafx.collections.ObservableMap;
  */
 public final class TagBuilder {
     
+    /**
+     * Starting point from this fluent builder to generate and configured an 
+     * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
+     * 
+     * @return the first step to generate and configured an instance from the 
+     *         {@code Interface} {@code Tag}.
+     * @see    com.github.naoghuman.lib.tag.core.Tag
+     */
     public static final IdStep create() {
         return new TagBuilderImpl();
     }
     
+    /**
+     * First mandory step to generate and configured an instance from the 
+     * {@code Interface} {@code Tag}.<br>
+     * This {@code Interface} allowed to set the attribute {@code id}.
+     */
     public interface IdStep {
+        
+        /**
+         * Setter for the mandory attribute {@code id} in the upcoming instance 
+         * from the {@code Interface} {@code Tag}. 
+         * 
+         * @param id value for the attribute {@code id}.
+         * @return the next step {@code TitleStep} in this fluent builder.
+         */
         public TitleStep id(final Long id);
+        
     }
 
+    /**
+     * Second mandory step to generate and configured an instance from the 
+     * {@code Interface} {@code Tag}.<br>
+     * This {@code Interface} allowed to set the attribute {@code title}.
+     */
     public interface TitleStep {
+        
+        /**
+         * Setter for the mandory attribute {@code title} in the upcoming instance 
+         * from the {@code Interface} {@code Tag}. 
+         * 
+         * @param title value for the attribute {@code title}.
+         * @return the next optional steps {@code Step} in this fluent builder.
+         */
         public Step title(final String title);
+        
     }
     
+    /**
+     * Optional steps for the configuration from the new instance from the 
+     * {@code Interface} {@code Tag}.<br>
+     * <ul>
+     * <li>All attributes in this {@code Interface} are optional. If not set, then
+     *     {@link java.util.Optional#empty()} for every unset attribute will returned.</li>
+     * <li>All setted values will be validate against the {@code Interface} 
+     *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+     * <li>Any optinal attribute is set more then ones then the last {@code value}
+     *     will be used for the configuration.</li>
+     * </ul>
+     * 
+     * @see com.github.naoghuman.lib.tag.core.Validator
+     * @see java.util.Optional#empty()
+     */
     public interface Step {
+        
+        /**
+         * Setter for the optional attribute {@code generationTime} in the upcoming 
+         * instance from the {@code Interface} {@code Tag}. 
+         * 
+         * @param generationTime value for the attribute {@code generationTime}.
+         * @return the next optional steps {@code Step} in this fluent builder.
+         */
         public Step generationTime(final Long generationTime);
+        
+        /**
+         * Setter for the optional attribute {@code description} in the upcoming 
+         * instance from the {@code Interface} {@code Tag}. 
+         * 
+         * @param description value for the attribute {@code description}.
+         * @return the next optional steps {@code Step} in this fluent builder.
+         */
         public Step description(final String description);
+        
+        /**
+         * Setter for the optional attribute {@code style} in the upcoming 
+         * instance from the {@code Interface} {@code Tag}. 
+         * 
+         * @param style value for the attribute {@code style}.
+         * @return the next optional steps {@code Step} in this fluent builder.
+         */
         public Step style(final String style);
+        
+        /**
+         * Generated and configured an instance from the {@code Interface} {@code Tag} 
+         * with the used values from the previous steps.
+         * 
+         * @return the generated and configured instance.
+         * @see    com.github.naoghuman.lib.tag.core.Tag
+         */
         public Tag build();
+        
     }
 
     private static final class TagBuilderImpl implements IdStep, Step, TitleStep {
