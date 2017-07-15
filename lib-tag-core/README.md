@@ -6,12 +6,17 @@ Lib-Tag-Core
 Intention
 ---
 
-The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, 
-`Update` and `Delete`) operations for a [Tag].
+The sublibrary `Lib-Tag-Core` contains the core functionalities to perform the 
+CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
 
 A `Tag` is basically a simple [String] which can be used for example in a [Button], 
-[Label] or another [JavaFX] component. Tagged topics can be easily searched or 
-analysed for a `Tag`.
+[Label] or another [JavaFX] component. Suchlike tagged topics can be easily searched 
+or analysed for a `Tag`.
+
+> __Hint__
+> The generated `Tags` can be easily shown in different `JavaFX` gui components 
+> with the sub-library [Lib-Tag-Components] (which will be implemented in future 
+> releases) :smile:.
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
@@ -624,6 +629,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
+[Lib-Tag-Components]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-components
 [Step builder pattern]:http://www.svlada.com/step-builder-pattern/
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
