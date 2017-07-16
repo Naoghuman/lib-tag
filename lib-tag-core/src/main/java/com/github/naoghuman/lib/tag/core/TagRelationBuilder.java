@@ -54,7 +54,7 @@ public final class TagRelationBuilder {
      * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelation}.
      * 
      * @return the first step to generate and configured an instance from the 
-     *         {@code Interface} {@core TagRelation}.
+     *         {@code Interface} {@code TagRelation}.
      * @see    com.github.naoghuman.lib.tag.core.TagRelation 
      */
     public static final IdStep create() {
@@ -63,7 +63,7 @@ public final class TagRelationBuilder {
 
     /**
      * First mandory step to generate and configured an instance from the {@code Interface} 
-     * {@core TagRelation}.<br>
+     * {@code TagRelation}.<br>
      * This {@code Interface} allowed to set the attribute {@code id}.
      */
     public interface IdStep {

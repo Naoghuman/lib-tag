@@ -13,8 +13,7 @@ for specific tasks. For example:
 
 
 #### Summary
-* ...
-* ...
+* First release from the sub-library `Lib-Tag-Core` :smile: .
 
 
 
