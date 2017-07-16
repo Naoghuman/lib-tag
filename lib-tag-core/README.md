@@ -13,10 +13,10 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
 [Label] or another [JavaFX] component. Suchlike tagged topics can be easily searched 
 or analysed for a `Tag`.
 
-> __Hint__
+> __Hint__  
 > The generated `Tags` can be easily shown in different `JavaFX` gui components 
-> with the sub-library [Lib-Tag-Components] (which will be implemented in future 
-> releases) :smile:.
+> with the sub-library [Lib-Tag-Components] __(which will be implemented in future 
+> releases)__ :smile:.
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
