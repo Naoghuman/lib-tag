@@ -12,7 +12,7 @@ The sublibrary `Lib-Tag-Components` contains different possibilities to show a
 * A list of `Tag`s can then be shown in the container [FlowPane].
 
 _Image:_ [UML] Lib-Tag-Components  
-![UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15.png][UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15]
+![UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_17-43.png][UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_17-43]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -54,7 +54,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15]:https://user-images.githubusercontent.com/8161815/28489230-c5791414-6ebe-11e7-8334-705f81fb9946.png
+[UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_17-43]:https://user-images.githubusercontent.com/8161815/28492516-812e35fe-6f05-11e7-81cd-241122c2e10c.png
 
 
 
