@@ -24,6 +24,7 @@ for specific tasks. For example:
 
 
 #### Enhancement
+#4 [Documentation] Update the JavaDoc from the library Lib-Tag-Components.
 #3 [UML] Create UML diagram for the library Lib-Tag-Components.
 
 

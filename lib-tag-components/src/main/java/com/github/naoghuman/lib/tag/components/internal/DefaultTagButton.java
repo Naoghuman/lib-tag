@@ -32,7 +32,7 @@ import javafx.scene.control.Button;
  * @author Naoghuman
  * @since  0.2.0
  */
-public class DefaultTagButton implements TagButton {
+public final class DefaultTagButton implements TagButton {
 
     private String defaultActionId = "ON_ACTION_SHOW_TAG_POPUP";     // NOI18N
     private String defaultStyle    = "default-style-for-tag-button"; // NOI18N

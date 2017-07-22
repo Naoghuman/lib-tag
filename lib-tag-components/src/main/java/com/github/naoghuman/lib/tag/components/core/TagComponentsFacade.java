@@ -33,13 +33,13 @@ import javafx.scene.layout.FlowPane;
 
 /**
  * Over the {@code Class} {@link com.github.naoghuman.lib.tag.components.core.TagComponentsFacade} 
- * the developer have access to different possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
- * in different {@code JavaFX} gui components.
+ * the developer have access to several possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
+ * in different {@code JavaFX} gui components.<br>
+ * Momentary following possibilities exists:
  * <p>
- * Momentary following possibilities exists:<br>
  * Show a {@code Tag} as a
  * <ul>
- * <li>JavaFX {@link javafx.scene.control.Buttton}.</li>
+ * <li>JavaFX {@link javafx.scene.control.Button}.</li>
  * <li>JavaFX {@link javafx.scene.control.Label}.</li>
  * </ul>
  * Show a {@link java.util.List} of {@code Tag}s in a
@@ -49,8 +49,11 @@ import javafx.scene.layout.FlowPane;
  * 
  * @author Naoghuman
  * @since  0.2.0
+ * @see    com.github.naoghuman.lib.tag.components.core.TagButton
+ * @see    com.github.naoghuman.lib.tag.components.core.TagFlowPane
+ * @see    com.github.naoghuman.lib.tag.components.core.TagLabel
  */
-public class TagComponentsFacade implements TagButton, TagFlowPane, TagLabel {
+public final class TagComponentsFacade implements TagButton, TagFlowPane, TagLabel {
 
     private static final Optional<TagComponentsFacade> INSTANCE = Optional.of(new TagComponentsFacade());
 
