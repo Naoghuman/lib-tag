@@ -50,6 +50,7 @@ public final class DefaultTagLabel implements TagLabel {
         label.setText(tag.getTitle());
         label.setStyle(style);
         label.setOnMouseClicked(eventHandler);
+        label.setUserData(tag);
         
         return label;
     }

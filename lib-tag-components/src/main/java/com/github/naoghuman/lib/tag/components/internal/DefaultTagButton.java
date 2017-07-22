@@ -50,6 +50,7 @@ public class DefaultTagButton implements TagButton {
         button.setText(tag.getTitle());
         button.setStyle(style);
         button.setOnAction(eventHandler);
+        button.setUserData(tag);
         
         return button;
     }
