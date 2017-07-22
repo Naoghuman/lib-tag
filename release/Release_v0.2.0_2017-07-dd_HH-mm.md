@@ -1,4 +1,4 @@
-Welcome to `Lib-Tag` with the new release `x.y.z`.
+Welcome to `Lib-Tag` with the new release `0.2.0`.
 
 `Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] & [Maven] 
 application.  
@@ -24,6 +24,7 @@ for specific tasks. For example:
 
 
 #### Enhancement
+#3 [UML] Create UML diagram for the library Lib-Tag-Components.
 
 
 

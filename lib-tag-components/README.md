@@ -6,8 +6,20 @@ Lib-Tag-Components
 Intention
 ---
 
-_The sub-library `Lib-Tag-Components` isn't currently available.  
-The implementation from the library is planed in future releases._
+The sublibrary `Lib-Tag-Components` contains different possibilities to show a 
+[Tag] in different [JavaFX] gui components.
+* Currently a `Tag` can be represented as a [Button] or a [Label].
+* A list of `Tag`s can then be shown in the container [FlowPane].
+
+_Image:_ [UML] Lib-Tag-Components  
+![UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15.png][UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15]
+
+> __Hint__  
+> The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
+
+> __Hint__  
+> This libray is a part of the project [Lib-Tag]. Plz see for additional 
+> informations like `Download`, `Requirements` or `Installation` there. Thanks :smile:
 
 
 
@@ -42,8 +54,16 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
+[UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15]:https://user-images.githubusercontent.com/8161815/28489230-c5791414-6ebe-11e7-8334-705f81fb9946.png
 
 
 
 [//]: # (Links)
+[Button]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
+[FlowPane]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/FlowPane.html
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[GenMyModel]:https://www.genmymodel.com/
+[JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
+[Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
+[Lib-Tag]:https://github.com/Naoghuman/lib-tag
+[UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language

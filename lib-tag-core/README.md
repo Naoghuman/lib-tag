@@ -15,14 +15,16 @@ or analysed for a `Tag`.
 
 > __Hint__  
 > The generated `Tags` can be easily shown in different `JavaFX` gui components 
-> with the sub-library [Lib-Tag-Components] _(which will be implemented in future 
-> releases)_ :smile:.
+> with the sub-library [Lib-Tag-Components].
 
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
 
 > __Hint__  
-> This libray is a part from the project [Lib-Tag]. Plz see for additional 
+> The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
+
+> __Hint__  
+> This libray is a part of the project [Lib-Tag]. Plz see for additional 
 > informations like `Download`, `Requirements` or `Installation` there. Thanks :smile:
 
 
@@ -721,6 +723,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [FlowPane]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/FlowPane.html
 [Fluent Interface]:https://www.martinfowler.com/bliki/FluentInterface.html
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[GenMyModel]:https://www.genmymodel.com/
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag

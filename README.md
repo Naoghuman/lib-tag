@@ -12,11 +12,11 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
 [Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched 
 or analysed for a `Tag`.
 
-Written in [JavaFX] and [NetBeans IDE] the project contains several sub-libraries 
+Written in [JavaFX] and [NetBeans] the project contains several sub-libraries 
 for specific tasks. For example:
 * The sub-library `Lib-Tag-Core` contains the core functionalities from the project.
 * The sub-library `Lib-Tag-Components` allowed to show [Tag]s in different [JavaFX] 
-  gui components _(Planed for future releases)_.
+  gui components.
 
 
 
@@ -43,7 +43,7 @@ Like I said in the section `Intention` the project `Lib-Tag` contains several
 sub-libraries.
 * Minimal the sub-library `Lib-Tag-Core` is needed.
 * Additional the sub-library `Lib-Tag-Components` can be used to show [Tag]s in 
-  different [JavaFX] components _(Planed for future releases)_.
+  different [JavaFX] components.
 
 
 ### Sublibrary Lib-Tag-Core<a name="LiTaCor" />
@@ -58,13 +58,32 @@ searched or analysed for a `Tag`.
 _Image:_ [UML] Lib-Tag-Core  
 ![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
 
-For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Core] :smile: .
+> __Hint__  
+> The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
+
+> __Hint__  
+> For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Core] 
+> :smile: .
 
 
 ### Sublibrary Lib-Tag-Components<a name="LiTaCom" />
 
-_The sub-library `Lib-Tag-Components` isn't currently available.  
-The implementation from the library is planed in future releases._
+The sublibrary [Lib-Tag-Components] contains different possibilities to show a 
+[Tag] in different [JavaFX] gui components.
+* Currently a `Tag` can be represented as a [Button] or a [Label].
+* A list of `Tag`s can then be shown in the container [FlowPane].
+
+_Image:_ [UML] Lib-Tag-Components  
+![UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15.png][UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15]
+
+> __Hint__  
+> The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
+
+> __Hint__  
+> For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Components] 
+> :smile: .
+
+
 
 Download<a name="Download" />
 ---
@@ -106,7 +125,7 @@ Installation<a name="Installation" />
   * Optional: To work better with [FXML] files in a [JavaFX] application download 
     the [JavaFX Scene Builder] under 'Additional Resources'.
 * Choose your preferred IDE (e.g. [NetBeans], [Eclipse] or [IntelliJ IDEA]) for 
-  development.
+  the development.
 * Download or clone the library [Lib-Tag].
 
 
@@ -114,9 +133,11 @@ Installation<a name="Installation" />
 Documentation<a name="Documentation" />
 ---
 
-* In section [Api](#Api) you can see the main point(s) to access the functionality 
-  in this library.
-* For additional information you can see the [JavaDoc] in the library itself.
+* In the section `API` from the respective sub-library you can see the main point(s) 
+  to access the functionality in the library.
+    * [Lib-Tag-Core]
+    * [Lib-Tag-Components]
+* For additional information plz see the [JavaDoc] in the sub-library itself.
 
 
 
@@ -152,22 +173,30 @@ Contact<a name="Contact" />
 
 [//]: # (Images)
 [overview_lib-tag-core_2017-05-25_19-23]:https://cloud.githubusercontent.com/assets/8161815/26462105/c35caf22-417f-11e7-9831-fd6fadda85cb.png
+[UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_09-15]:https://user-images.githubusercontent.com/8161815/28489230-c5791414-6ebe-11e7-8334-705f81fb9946.png
 
 
 
 [//]: # (Links)
 [Button]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
+[Eclipse]:https://www.eclipse.org/
+[FlowPane]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/FlowPane.html
+[FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
+[GenMyModel]:https://www.genmymodel.com/
+[IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [Issue]:https://github.com/Naoghuman/lib-tag/issues
+[JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [JavaFX Scene Builder]:http://gluonhq.com/labs/scene-builder/
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
+[Lib-Tag-Components]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-components
 [Lib-Tag-Core]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-core
 [Maven]:http://maven.apache.org/
-[NetBeans IDE]:https://netbeans.org/
+[NetBeans]:https://netbeans.org/
 [Overview from all releases in Lib-Tag]:https://github.com/Naoghuman/lib-tag/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
 [Release v0.1.0 (07.16.2017 / MM.dd.yyyy)]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.1.0
