@@ -26,7 +26,7 @@ import javafx.scene.control.Button;
  * TODO
  * 
  * @author Naoghuman
- * @since  0.1.0
+ * @since  0.2.0
  */
 public interface TagButton {
 
