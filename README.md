@@ -88,8 +88,8 @@ _Image:_ [UML] Lib-Tag-Components
 Download<a name="Download" />
 ---
 
-Current `version` is `0.1.0`. Main points in this release are:
-* First release from the sub-library `Lib-Tag-Core` :smile: .
+Current `version` is `0.2.0`. Main points in this release are:
+* First release from the sub-library `Lib-Tag-Components` :smile: .
 
 **Maven coordinates**  
 In context from a [Maven] project you can use following maven coordinates: 
@@ -98,13 +98,18 @@ In context from a [Maven] project you can use following maven coordinates:
     <dependency>
         <groupId>com.github.naoghuman</groupId>
         <artifactId>lib-tag-core</artifactId>
-        <version>0.1.0</version>
+        <version>0.2.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.github.naoghuman</groupId>
+        <artifactId>lib-tag-components</artifactId>
+        <version>0.2.0</version>
     </dependency>
 </dependencies>
 ```
 
 **Download manuell**
-* [Release v0.1.0 (07.16.2017 / MM.dd.yyyy)]
+* [Release v0.2.0 (07.22.2017 / MM.dd.yyyy)]
 
 **An overview** about all existings releases can be found here:
 * [Overview from all releases in Lib-Tag]
@@ -199,7 +204,7 @@ Contact<a name="Contact" />
 [NetBeans]:https://netbeans.org/
 [Overview from all releases in Lib-Tag]:https://github.com/Naoghuman/lib-tag/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
-[Release v0.1.0 (07.16.2017 / MM.dd.yyyy)]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.1.0
+[Release v0.2.0 (07.22.2017 / MM.dd.yyyy)]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.2.0
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language

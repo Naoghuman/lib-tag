@@ -4,7 +4,7 @@
     
     <groupId>com.github.naoghuman</groupId>
     <artifactId>lib-tag-core</artifactId>
-    <version>0.1.0</version> <!-- -SNAPSHOT -PRERELEASE -->
+    <version>0.2.0</version> <!-- -SNAPSHOT -PRERELEASE -->
     <packaging>jar</packaging>
     <description>The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
 
