@@ -16,6 +16,7 @@
  */
 package com.github.naoghuman.lib.tag.components.internal;
 
+import com.github.naoghuman.lib.tag.components.core.TagFlowPane;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

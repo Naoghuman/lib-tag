@@ -14,13 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.lib.tag.components.internal;
+package com.github.naoghuman.lib.tag.components.core;
 
 import com.github.naoghuman.lib.tag.core.Tag;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
 
 /**
  * TODO
@@ -28,7 +28,7 @@ import javafx.scene.input.MouseEvent;
  * @author Naoghuman
  * @since  0.1.0
  */
-public interface TagLabel {
+public interface TagButton {
 
     /**
      * TODO
@@ -36,7 +36,7 @@ public interface TagLabel {
      * @param tagId
      * @return
      */
-    public EventHandler<MouseEvent> getMouseHandlerForLabel(final long tagId);
+    public EventHandler<ActionEvent> getActionHandlerForButton(final long tagId);
 
     /**
      * TODO
@@ -45,7 +45,7 @@ public interface TagLabel {
      * @param tagId
      * @return
      */
-    public EventHandler<MouseEvent> getMouseHandlerForLabel(final String actionId, final long tagId);
+    public EventHandler<ActionEvent> getActionHandlerForButton(final String actionId, final long tagId);
 
     /**
      * TODO
@@ -53,7 +53,7 @@ public interface TagLabel {
      * @param tag
      * @return
      */
-    public Label getTagAsLabel(Tag tag);
+    public Button getTagAsButton(final Tag tag);
 
     /**
      * TODO
@@ -62,7 +62,7 @@ public interface TagLabel {
      * @param eventHandler
      * @return
      */
-    public Label getTagAsLabel(final Tag tag, final EventHandler<MouseEvent> eventHandler);
+    public Button getTagAsButton(final Tag tag, final EventHandler<ActionEvent> eventHandler);
 
     /**
      * TODO
@@ -72,20 +72,20 @@ public interface TagLabel {
      * @param eventHandler
      * @return
      */
-    public Label getTagAsLabel(final Tag tag, String style, final EventHandler<MouseEvent> eventHandler);
+    public Button getTagAsButton(final Tag tag, final String style, final EventHandler<ActionEvent> eventHandler);
 
     /**
      * TODO
      * 
      * @param defaultActionId
      */
-    public void setLabelDefaultActionId(final String defaultActionId);
+    public void setButtonDefaultActionId(final String defaultActionId);
 
     /**
      * TODO
      * 
      * @param defaultStyle
      */
-    public void setLabelDefaultStyle(final String defaultStyle);
+    public void setButtonDefaultStyle(final String defaultStyle);
 
 }

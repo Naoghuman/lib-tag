@@ -16,6 +16,7 @@
  */
 package com.github.naoghuman.lib.tag.components.internal;
 
+import com.github.naoghuman.lib.tag.components.core.TagButton;
 import com.github.naoghuman.lib.action.core.ActionHandlerFacade;
 import com.github.naoghuman.lib.action.core.TransferData;
 import com.github.naoghuman.lib.action.core.TransferDataBuilder;
@@ -24,7 +25,6 @@ import com.github.naoghuman.lib.tag.core.Tag;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import com.github.naoghuman.lib.tag.components.core.TagConfiguration;
 
 /**
  * TODO
@@ -34,8 +34,8 @@ import com.github.naoghuman.lib.tag.components.core.TagConfiguration;
  */
 public class DefaultTagButton implements TagButton {
 
-    private String defaultActionId = TagConfiguration.ON_ACTION_SHOW_TAG_POPUP;
-    private String defaultStyle    = "default-style-for-tag-button";
+    private String defaultActionId = "ON_ACTION_SHOW_TAG_POPUP";     // NOI18N
+    private String defaultStyle    = "default-style-for-tag-button"; // NOI18N
 
     public DefaultTagButton() {
         this.initialize();

@@ -21,9 +21,6 @@ import java.util.Optional;
 import com.github.naoghuman.lib.tag.components.internal.DefaultTagButton;
 import com.github.naoghuman.lib.tag.components.internal.DefaultTagFlowPane;
 import com.github.naoghuman.lib.tag.components.internal.DefaultTagLabel;
-import com.github.naoghuman.lib.tag.components.internal.TagButton;
-import com.github.naoghuman.lib.tag.components.internal.TagFlowPane;
-import com.github.naoghuman.lib.tag.components.internal.TagLabel;
 import com.github.naoghuman.lib.tag.core.Tag;
 
 import javafx.collections.ObservableList;

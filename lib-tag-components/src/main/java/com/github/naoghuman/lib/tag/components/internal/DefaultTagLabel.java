@@ -16,6 +16,7 @@
  */
 package com.github.naoghuman.lib.tag.components.internal;
 
+import com.github.naoghuman.lib.tag.components.core.TagLabel;
 import com.github.naoghuman.lib.action.core.ActionHandlerFacade;
 import com.github.naoghuman.lib.action.core.TransferData;
 import com.github.naoghuman.lib.action.core.TransferDataBuilder;
@@ -24,7 +25,6 @@ import com.github.naoghuman.lib.tag.core.Tag;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import com.github.naoghuman.lib.tag.components.core.TagConfiguration;
 
 /**
  * TODO
@@ -34,8 +34,8 @@ import com.github.naoghuman.lib.tag.components.core.TagConfiguration;
  */
 public final class DefaultTagLabel implements TagLabel {
 
-    private String defaultActionId = TagConfiguration.ON_ACTION_SHOW_TAG_POPUP;
-    private String defaultStyle    = "default-style-for-tag-label";
+    private String defaultActionId = "ON_ACTION_SHOW_TAG_POPUP";    // NOI18N
+    private String defaultStyle    = "default-style-for-tag-label"; // NOI18N
     
     public DefaultTagLabel() {
         this.initialize();
