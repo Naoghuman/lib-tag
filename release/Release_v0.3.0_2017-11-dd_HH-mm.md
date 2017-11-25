@@ -1,4 +1,4 @@
-Welcome to `Lib-Tag` with the new release `0.2.0`.
+Welcome to `Lib-Tag` with the new release `0.3.0`.
 
 `Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] & [Maven] 
 application.  
@@ -14,7 +14,8 @@ for specific tasks. For example:
 
 
 #### Summary
-* First release from the sub-library `Lib-Tag-Components` :smile: .
+* ...
+* ...
 
 
 
@@ -23,8 +24,6 @@ for specific tasks. For example:
 
 
 #### Enhancement
-#4 [Documentation] Update the JavaDoc from the library Lib-Tag-Components.
-#3 [UML] Create UML diagram for the library Lib-Tag-Components.
 
 
 
@@ -50,6 +49,7 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
+#5 [TagRelation] To identify the path + component for a Tag is embbed a unique 'containerId' is needed.
 
 
 
