@@ -53,28 +53,24 @@ public final class DefaultTagRelation implements TagRelation {
      * <li>The attribute {@code id} defines the id from the entity.</li>
      * <li>The attribute {@code tagId} defines the id from the {@code Tag}.</li>
      * <li>The attribute {@code containerId} defines the id from the {@code container} where the Tag should be shown.</li>
-     * <li>The attribute {@code containerType} defines the type from the {@code container}.</li>
      * </ul>
      * 
      * @param  id            The id (mandory attribute) from this DefaultTagRelaiton.
      * @param  tagId         The tagId (mandory attribute) from this DefaultTagRelation.
      * @param  containerId   The containerId (mandory attribute) from this DefaultTagRelation.
-     * @param  containerType The containerType (mandory attribute) from this DefaultTagRelation.
      * @return               A new instance from the {@code Interface} TagRelation.
      * @see    com.github.naoghuman.lib.tag.core.TagRelation
      * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
      * @see    com.github.naoghuman.lib.tag.core.Validator
      */
     public static TagRelation create(
-            final Long id, final Long tagId, final String containerId, 
-            final String containerType
+            final Long id, final Long tagId, final String containerId
     ) {
-        return new DefaultTagRelation(id, tagId, containerId, containerType);
+        return new DefaultTagRelation(id, tagId, containerId);
     }
 
     private DefaultTagRelation(
-            final Long id, final Long tagId, final String containerId, 
-            final String containerType
+            final Long id, final Long tagId, final String containerId
     ) {
         DefaultValidator.getDefault().requireNonNull(id);
         this.setId(id);
@@ -84,9 +80,6 @@ public final class DefaultTagRelation implements TagRelation {
 
         DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerId);
         this.setContainerId(containerId);
-
-        DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerType);
-        this.setContainerType(containerId);
     }
 
     // START ID ----------------------------------------------------------------
@@ -185,38 +178,6 @@ public final class DefaultTagRelation implements TagRelation {
     }
     // END CONTAINER-ID --------------------------------------------------------
 
-    // START CONTAINER-TYPE ----------------------------------------------------
-    private StringProperty containerTypeProperty = null;
-    private String _containerType = SIGN__EMPTY;
-
-    @Override
-    public String getContainerType() {
-        if (containerTypeProperty == null) {
-            return _containerType;
-        } else {
-            return containerTypeProperty.get();
-        }
-    }
-
-    @Override
-    public void setContainerType(final String containerType) {
-        if (containerTypeProperty == null) {
-            _containerType = containerType;
-        } else {
-            containerTypeProperty.set(containerType);
-        }
-    }
-
-    @Override
-    public StringProperty containerTypeProperty() {
-        if (containerTypeProperty == null) {
-            containerTypeProperty = new SimpleStringProperty(this, TAG_RELATION__PARA__CONTAINER_TYPE, _containerType);
-        }
-
-        return containerTypeProperty;
-    }
-    // END CONTAINER-TYPE ------------------------------------------------------
-
     @Override
     public int compareTo(final TagRelation other) {
         int compareTo = Long.compare(this.getTagId(), other.getTagId());
@@ -225,11 +186,6 @@ public final class DefaultTagRelation implements TagRelation {
         }
 
         compareTo = this.getContainerId().compareTo(other.getContainerId());
-        if (compareTo != 0) {
-            return compareTo;
-        }
-
-        compareTo = this.getContainerType().compareTo(other.getContainerType());
         if (compareTo != 0) {
             return compareTo;
         }
@@ -249,7 +205,6 @@ public final class DefaultTagRelation implements TagRelation {
         result = prime * result + (int) (this.getId()    ^ (this.getId()    >>> 32));
         result = prime * result + (int) (this.getTagId() ^ (this.getTagId() >>> 32));
         result = prime * result + this.getContainerId().hashCode();
-        result = prime * result + this.getContainerType().hashCode();
 
         return result;
     }
@@ -281,10 +236,6 @@ public final class DefaultTagRelation implements TagRelation {
             return false;
         }
 
-        if (!this.getContainerType().equals(other.getContainerType())) {
-            return false;
-        }
-
         return true;
     }
 
@@ -296,7 +247,6 @@ public final class DefaultTagRelation implements TagRelation {
         sb.append("id=")             .append(this.getId()); // NOI18N
         sb.append(", tagId=")        .append(this.getTagId()); // NOI18N
         sb.append(", containerId=")  .append(this.getContainerId()); // NOI18N
-        sb.append(", containerType=").append(this.getContainerType()); // NOI18N
 
         sb.append("]"); // NOI18N
 
@@ -308,7 +258,6 @@ public final class DefaultTagRelation implements TagRelation {
         out.writeLong(this.getId());
         out.writeLong(this.getTagId());
         out.writeObject(this.getContainerId());
-        out.writeObject(this.getContainerType());
     }
 
     @Override
@@ -316,7 +265,6 @@ public final class DefaultTagRelation implements TagRelation {
         this.setId(in.readLong());
         this.setTagId(in.readLong());
         this.setContainerId(String.valueOf(in.readObject()));
-        this.setContainerType(String.valueOf(in.readObject()));
     }
 
 }

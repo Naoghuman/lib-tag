@@ -54,11 +54,6 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
     public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code containerType}.
-     */
-    public static final String TAG_RELATION__PARA__CONTAINER_TYPE = "containerType"; // NOI18N
-
-    /**
      * Constant which defines the attribute {@code tagId}.
      */
     public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
@@ -129,28 +124,5 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
      * @see    javafx.beans.property.StringProperty
      */
     public StringProperty containerIdProperty();
-
-    /**
-     * Gets the value from the attribute {@code containerType} which defines the 
-     * {@code type} from the container where the {@code Tag} is added.
-     * 
-     * @return the value from the attribute {@code containerType}.
-     */
-    public String getContainerType();
-    
-    /**
-     * Sets the new value from the attribute {@code containerType}.
-     * 
-     * @param containerType the new value for the attribute {@code containerType}.
-     */
-    public void setContainerType(final String containerType);
-    
-    /**
-     * Returnes the attribute {@code containerType} as a {@link javafx.beans.property.StringProperty}.
-     * 
-     * @return the attribute {@code containerType} as a {@code StringProperty}.
-     * @see    javafx.beans.property.StringProperty
-     */
-    public StringProperty containerTypeProperty();
 
 }

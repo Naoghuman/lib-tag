@@ -17,7 +17,6 @@
 package com.github.naoghuman.lib.tag.core;
 
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__CONTAINER_ID;
-import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__CONTAINER_TYPE;
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__ID;
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__TAG_ID;
 
@@ -109,27 +108,9 @@ public final class TagRelationBuilder {
          * instance from the {@code Interface} {@code TagRelation}. 
          * 
          * @param containerId value for the attribute {@code containerId}.
-         * @return the next step {@code ContainerTypeStep} in this fluent builder.
-         */
-        public ContainerTypeStep containerId(final String containerId);
-        
-    }
-
-    /**
-     * Fourth mandory step to generate and configured an instance from the 
-     * {@code Interface} {@code TagRelation}.<br>
-     * This {@code Interface} allowed to set the attribute {@code containerType}.
-     */
-    public interface ContainerTypeStep {
-        
-        /**
-         * Setter for the mandory attribute {@code containerType} in the upcoming 
-         * instance from the {@code Interface} {@code TagRelation}. 
-         * 
-         * @param containerType value for the attribute {@code containerType}.
          * @return the last step {@code Builder} in this fluent builder.
          */
-        public Builder containerType(final String containerType);
+        public Builder containerId(final String containerId);
         
     }
 
@@ -152,8 +133,7 @@ public final class TagRelationBuilder {
     }
 
     private static final class TagRelationBuilderImpl implements
-            IdStep, TagIdStep, ContainerIdStep, ContainerTypeStep,
-            Builder
+            IdStep, TagIdStep, ContainerIdStep, Builder
     {
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
@@ -165,7 +145,6 @@ public final class TagRelationBuilder {
         private void init() {
             // Mandory attributes
             properties.put(TAG_RELATION__PARA__CONTAINER_ID,   new SimpleStringProperty());
-            properties.put(TAG_RELATION__PARA__CONTAINER_TYPE, new SimpleStringProperty());
             properties.put(TAG_RELATION__PARA__ID,             new SimpleLongProperty());
             properties.put(TAG_RELATION__PARA__TAG_ID,         new SimpleLongProperty());
         }
@@ -187,17 +166,9 @@ public final class TagRelationBuilder {
         }
 
         @Override
-        public ContainerTypeStep containerId(final String containerId) {
+        public Builder containerId(final String containerId) {
             DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerId);
             properties.put(TAG_RELATION__PARA__CONTAINER_ID, new SimpleStringProperty(containerId));
-            
-            return this;
-        }
-
-        @Override
-        public Builder containerType(final String containerType) {
-            DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerType);
-            properties.put(TAG_RELATION__PARA__CONTAINER_TYPE, new SimpleStringProperty(containerType));
             
             return this;
         }
@@ -214,15 +185,11 @@ public final class TagRelationBuilder {
             final StringProperty containerIdStringProperty = (StringProperty) properties.get(TAG_RELATION__PARA__CONTAINER_ID);
             final String containerId = containerIdStringProperty.get();
 
-            final StringProperty containerTypeStringProperty = (StringProperty) properties.get(TAG_RELATION__PARA__CONTAINER_TYPE);
-            final String containerType = containerTypeStringProperty.get();
-
             // Create a the TagRelation
             return DefaultTagRelation.create(
                     id,
                     tagId,
-                    containerId,
-                    containerType);
+                    containerId);
         }
 
     }

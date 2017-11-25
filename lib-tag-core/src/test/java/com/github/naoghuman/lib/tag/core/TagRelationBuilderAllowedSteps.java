@@ -31,15 +31,13 @@ public class TagRelationBuilderAllowedSteps {
          * a gui component.
          * <ul>
          * <li>All attributes in the builder are {@code mandory}.</li>
-         * <li>All defined values will be validate against the {@code Interface}
-         * {@code Validator}.</li>
+         * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
          * </ul>
          */
         final TagRelation tagRelation = TagRelationBuilder.create()
                 .id(TagRelation.DEFAULT_ID)     // mandory (NOT NULL)
                 .tagId(0L)                      // mandory (NOT NULL)
                 .containerId("containerId")     // mandory (NOT NULL && NOT EMPTY)
-                .containerType("containerType") // mandory (NOT NULL && NOT EMPTY)
                 .build();
     }
     
