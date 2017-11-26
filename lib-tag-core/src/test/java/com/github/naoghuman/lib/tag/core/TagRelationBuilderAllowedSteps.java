@@ -18,8 +18,9 @@ package com.github.naoghuman.lib.tag.core;
 
 /**
  *
- * @author Naoghuman
- * @since  0.1.0
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
  */
 public class TagRelationBuilderAllowedSteps {
     

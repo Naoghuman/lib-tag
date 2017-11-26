@@ -34,10 +34,11 @@ import javafx.beans.property.StringProperty;
  * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
  * the preferred way to generate an implementation from this {@code Interface}.
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.TagRelation
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
  */
 public final class DefaultTagRelation implements TagRelation {
 

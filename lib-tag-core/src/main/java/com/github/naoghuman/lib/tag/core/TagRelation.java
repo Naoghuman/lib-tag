@@ -30,10 +30,11 @@ import javafx.beans.property.StringProperty;
  * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
  * the preferred way to generate an implementation from this {@code Interface}.
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see    javafx.scene.layout.FlowPane
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see     javafx.scene.layout.FlowPane
  */
 public interface TagRelation extends Comparable<TagRelation>, Externalizable {
 
