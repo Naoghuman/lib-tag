@@ -40,11 +40,12 @@ import javafx.collections.ObservableMap;
  *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
  * </ul>
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.TagRelation
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see     com.github.naoghuman.lib.tag.core.Validator
  */
 public final class TagRelationBuilder {
 
