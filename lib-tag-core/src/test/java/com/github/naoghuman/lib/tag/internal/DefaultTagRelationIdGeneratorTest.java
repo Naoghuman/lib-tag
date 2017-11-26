@@ -27,9 +27,9 @@ import static org.junit.Assert.*;
  *
  * @author Naoghuman
  */
-public class DefaultIdGeneratorTest {
+public class DefaultTagRelationIdGeneratorTest {
     
-    public DefaultIdGeneratorTest() {
+    public DefaultTagRelationIdGeneratorTest() {
     }
     
     @Before
@@ -42,17 +42,18 @@ public class DefaultIdGeneratorTest {
     
     @Test
     public void testGenerateId() {
-        String result = DefaultIdGenerator.getDefault().generateId();
+        String result = DefaultTagRelationtIdGenerator.getDefault().generateId();
         
         assertFalse(result.isEmpty());
     }
     
     @Test
     public void testGenerateIdWithPathAndType() {
-        Class path = DefaultIdGeneratorTest.class;
+        Class path = DefaultTagRelationIdGeneratorTest.class;
         Class type = AnchorPane.class;
         
-        String result = DefaultIdGenerator.getDefault().generateId(path, type);
+        String result = DefaultTagRelationtIdGenerator.getDefault().generateId(path, type);
+        System.out.println(result);
         
         assertTrue(result.startsWith(path.getCanonicalName()));
         assertTrue(result.contains("_AnchorPane_"));
@@ -60,11 +61,12 @@ public class DefaultIdGeneratorTest {
 
     @Test
     public void testGenerateIdWithPathAndTypeAndAdditional() {
-        Class path = DefaultIdGeneratorTest.class;
+        Class path = DefaultTagRelationIdGeneratorTest.class;
         Class type = AnchorPane.class;
         Optional<String> additional = Optional.of("Hello-World");
         
-        String result = DefaultIdGenerator.getDefault().generateId(path, type, additional);
+        String result = DefaultTagRelationtIdGenerator.getDefault().generateId(path, type, additional);
+        System.out.println(result);
         
         assertTrue(result.startsWith(path.getCanonicalName()));
         assertTrue(result.contains("_AnchorPane_Hello-World_"));

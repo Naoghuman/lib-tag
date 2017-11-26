@@ -16,29 +16,29 @@
  */
 package com.github.naoghuman.lib.tag.internal;
 
-import com.github.naoghuman.lib.tag.core.IdGenerator;
 import java.util.Optional;
+import com.github.naoghuman.lib.tag.core.TagRelationIdGenerator;
 
 /**
  *
  * @author Naoghuman
  */
-public class DefaultIdGenerator implements IdGenerator {
+public class DefaultTagRelationtIdGenerator implements TagRelationIdGenerator {
 
     private static final String UNDERLINE = "_"; // NOI18N
     
-    private static final Optional<DefaultIdGenerator> INSTANCE = Optional.of(new DefaultIdGenerator());
+    private static final Optional<DefaultTagRelationtIdGenerator> INSTANCE = Optional.of(new DefaultTagRelationtIdGenerator());
 
     /**
-     * Returns a singleton instance from the {@code Class} <code>DefaultIdGenerator</code>.
+     * Returns a singleton instance from the {@code Class} <code>DefaultTagRelationtIdGenerator</code>.
      *
      * @return a singleton instance from this {@code Class}.
      */
-    public static final DefaultIdGenerator getDefault() {
+    public static final DefaultTagRelationtIdGenerator getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultIdGenerator() {
+    private DefaultTagRelationtIdGenerator() {
 
     }
     
@@ -54,6 +54,9 @@ public class DefaultIdGenerator implements IdGenerator {
 
     @Override
     public String generateId(final Class path, final Class type, final Optional<String> additional) {
+        DefaultValidator.getDefault().requireNonNull(path);
+        DefaultValidator.getDefault().requireNonNull(type);
+        
         final StringBuilder sb = new StringBuilder();
         sb.append(path.getCanonicalName());
         sb.append(UNDERLINE);

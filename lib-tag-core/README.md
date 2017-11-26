@@ -18,7 +18,7 @@ or analysed for a `Tag`.
 > with the sub-library [Lib-Tag-Components].
 
 _Image:_ [UML] Lib-Tag-Core  
-![overview_lib-tag-core_2017-05-25_19-23.png][overview_lib-tag-core_2017-05-25_19-23]
+![uml_lib-tag-core_2017-11-26_18-19.png][uml_lib-tag-core_2017-11-26_18-19]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -40,6 +40,7 @@ Content
     * [Tag](#Tag)
     * [TagRelationBuilder](#TaReBu)
     * [TagRelation](#TaRe)
+    * [TagRelationIdGenerator](#TaReIdGe)
     * [Validator](#Vali)
 * [License](#License)
 * [Autor](#Autor)
@@ -103,21 +104,19 @@ So the application `knows` which [Tag]s should be shown in a [Button] or in a [F
  * a gui component.
  * <ul>
  * <li>All attributes in the builder are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface}
- * {@code Validator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
  * </ul>
  */
 final TagRelation tagRelation = TagRelationBuilder.create()
         .id(TagRelation.DEFAULT_ID)     // mandory (NOT NULL)
         .tagId(0L)                      // mandory (NOT NULL)
         .containerId("containerId")     // mandory (NOT NULL && NOT EMPTY)
-        .containerType("containerType") // mandory (NOT NULL && NOT EMPTY)
         .build();
 ```
 
-The same like above __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):
+The same like above __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):  
 _Image:_ Business process modeling diagram from `TagRelationBuilder`  
-![tagrelationbuilder_v0.1.0_2017-05-28_09-35.png][tagrelationbuilder_v0.1.0_2017-05-28_09-35]
+![bpm_tagreleationbuilder_2017-11-25_22-42.png][bpm_tagreleationbuilder_2017-11-25_22-42]
 
 > __Hint__  
 > . The generation from a `TagRelation` starts with the method `create()`.  
@@ -414,11 +413,12 @@ public void setMarkAsChanged(final boolean markAsChanged);
  * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
  * </ul>
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.TagRelation
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see     com.github.naoghuman.lib.tag.core.Validator
  */
 public final class TagRelationBuilder
 ```
@@ -460,14 +460,6 @@ public interface ContainerIdStep
 
 ```java
 /**
- * Fourth mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
- * This {@code Interface} allowed to set the attribute {@code containerType}.
- */
-public interface ContainerTypeStep
-```
-
-```java
-/**
  * Last step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} returned the generated and configured instance.
  */
@@ -488,10 +480,11 @@ public interface Builder
  * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
  * the preferred way to generate an implementation from this {@code Interface}.
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see    javafx.scene.layout.FlowPane
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see     javafx.scene.layout.FlowPane
  */
 public interface TagRelation extends Comparable<TagRelation>, Externalizable
 ```
@@ -617,33 +610,94 @@ public void setContainerId(final String containerId);
 public StringProperty containerIdProperty();
 ```
 
+
+### TagRelationIdGenerator<a name="TaReIdGe" />
+
 ```java
 /**
- * Gets the value from the attribute {@code containerType} which defines the 
- * {@code type} from the container where the {@code Tag} is added.
+ * This {@code Interface} contains different default methods to generate an 
+ * unique {@code Id} and returned it as a {@link java.lang.String}.
+ * <p>
+ * The main point from this {@code Interface} is the possibility to generate an unique 
+ * {@code Id} for a relation between a {@link com.github.naoghuman.lib.tag.core.Tag}
+ * and the container where the {@code Tag} will be embbeded.
+ * <p>
+ * For additional information about the {@code relation} plz see
+ * {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder}.
+ *
+ * @author Naoghuman
+ * @since  0.3.0
+ * @see    com.github.naoghuman.lib.tag.core.Tag
+ * @see    com.github.naoghuman.lib.tag.core.TagRelation
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
  * 
- * @return the value from the attribute {@code containerType}.
  */
-public String getContainerType();
+public interface TagRelationIdGenerator
 ```
 
 ```java
 /**
- * Sets the new value from the attribute {@code containerType}.
+ * Use simple {@link java.lang.System#nanoTime()} to generate the {@code Id}.
  * 
- * @param containerType the new value for the attribute {@code containerType}.
+ * @return the generated {@code Id}.
+ * @since  0.3.0
+ * @see    java.lang.System#nanoTime()
  */
-public void setContainerType(final String containerType);
+public String generateId();
 ```
 
 ```java
 /**
- * Returnes the attribute {@code containerType} as a {@link javafx.beans.property.StringProperty}.
+ * Generate an (unique) {@code Id} as an {@link java.lang.String}.
  * 
- * @return the attribute {@code containerType} as a {@code StringProperty}.
- * @see    javafx.beans.property.StringProperty
+ * This method delegates to 
+ * {@link com.github.naoghuman.lib.tag.core.TagRelationIdGenerator#generateId(java.lang.Class, java.lang.Class, java.util.Optional)}
+ * with {@link java.util.Optional#empty()}.
+ * 
+ * @param  path usually the path from the class where the {@code Tag} used.
+ * @param  type usually the type of the container where the {@code Tag} should be embbeded.
+ * @return the generated {@code Id}.
+ * @throws NullPointerException if path or type is NULL.
+ * @since  0.3.0
+ * @see    java.util.Optional#empty()
  */
-public StringProperty containerTypeProperty();
+public String generateId(final Class path, final Class type);
+```
+
+```java
+/**
+ * Generate an (unique) {@code Id} as an {@link java.lang.String}.
+ * 
+ * The format from the {@code Id} is:
+ * <ul>
+ * <li>path.getCanonicalName()</li>
+ * <li>'_'</li>
+ * <li>type.getSimpleName()</li>
+ * <li>'_' (if additional.isPresent())</li>
+ * <li>additional.get() (if additional.isPresent())</li>
+ * <li>'_'</li>
+ * <li>System.nanoTime()</li>
+ * </ul>
+ * 
+ * Example with/out optional information:
+ * <ul>
+ * <li>com.github.naoghuman.lib.tag.internal.DefaultIdGeneratorTest_AnchorPane_Hello-World_832469951006256</li>
+ * <li>com.github.naoghuman.lib.tag.internal.DefaultIdGeneratorTest_AnchorPane_832531206890821</li>
+ * </ul>
+ * 
+ * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultValidator#requireNonNull(java.lang.Object)}
+ * will be used to validate if {@code path} and / or {@code type} isn't NULL.
+ * 
+ * @param path       usually the path from the class where the {@code Tag} used.
+ * @param type       usually the type of the container where the {@code Tag} should be embbeded.
+ * @param additional flag for additional {@code Id} information.
+ * @return the generated {@code Id}.
+ * @throws NullPointerException if path or type is NULL.
+ * @since  0.3.0
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultValidator#requireNonNull(java.lang.Object)
+ * @see    java.lang.System#nanoTime()
+ */
+public String generateId(final Class path, final Class type, final Optional<String> additional);
 ```
 
 
@@ -709,9 +763,9 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[overview_lib-tag-core_2017-05-25_19-23]:https://cloud.githubusercontent.com/assets/8161815/26462105/c35caf22-417f-11e7-9831-fd6fadda85cb.png
+[uml_lib-tag-core_2017-11-26_18-19]:https://user-images.githubusercontent.com/8161815/33242513-7f2aa87a-d2d6-11e7-9a02-0b45f9223f54.png
 [tagbuilder_v0.1.0_2017-07-15_10-48]:https://user-images.githubusercontent.com/8161815/28238038-702dd80a-694b-11e7-9779-0d2c904cce86.png
-[tagrelationbuilder_v0.1.0_2017-05-28_09-35]:https://cloud.githubusercontent.com/assets/8161815/26526919/637c694c-4389-11e7-8d48-f79eef97df55.png
+[bpm_tagreleationbuilder_2017-11-25_22-42]:https://user-images.githubusercontent.com/8161815/33235119-18a0dcd6-d232-11e7-8ba0-762cec0944b3.png
 
 
 
