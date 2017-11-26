@@ -24,6 +24,7 @@ for specific tasks. For example:
 
 
 #### Enhancement
+#5 [TagRelation] To identify the path + component for a Tag is embbed a unique 'containerId' is needed.
 
 
 
@@ -49,7 +50,7 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
-#5 [TagRelation] To identify the path + component for a Tag is embbed a unique 'containerId' is needed.
+#6 [Validator] Rename Validator to TagValidator to fit the naming convention. (refactoring)
 
 
 
