@@ -35,21 +35,21 @@ import javafx.collections.ObservableMap;
 
 /**
  * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
- * the developer can create easily an instance from the {@code Interface} 
+ * the developer can easily create an instance from the {@code Interface} 
  * {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
  * <li>All other attributes are optional, that means skipping them returns 
  *     {@link java.util.Optional#empty()}.</li>
- * <li>Any optinal attribute if set will be validate against 
- *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * <li>Any attribute (mandory or optional if set) will be validate against 
+ *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
  * </ul>
  *
  * @author Naoghuman
  * @since  0.1.0
  * @see    com.github.naoghuman.lib.tag.core.Tag
  * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  * @see    java.util.Optional#empty()
  */
 public final class TagBuilder {
@@ -107,14 +107,14 @@ public final class TagBuilder {
      * {@code Interface} {@code Tag}.<br>
      * <ul>
      * <li>All attributes in this {@code Interface} are optional. If not set, then
-     *     {@link java.util.Optional#empty()} for every unset attribute will returned.</li>
+     *     {@link java.util.Optional#empty()} will be returned.</li>
      * <li>All setted values will be validate against the {@code Interface} 
-     *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
-     * <li>Any optinal attribute is set more then ones then the last {@code value}
-     *     will be used for the configuration.</li>
+     *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+     * <li>For any optinal attribute if setted more then ones then the last 
+     *     {@code value} will be used for the configuration.</li>
      * </ul>
      * 
-     * @see com.github.naoghuman.lib.tag.core.Validator
+     * @see com.github.naoghuman.lib.tag.core.TagValidator
      * @see java.util.Optional#empty()
      */
     public interface Step {

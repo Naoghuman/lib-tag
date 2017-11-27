@@ -37,7 +37,7 @@ import javafx.collections.ObservableMap;
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
  * <li>All defined values will be validate against the {@code Interface} 
- *     {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
  * </ul>
  *
  * @author  Naoghuman
@@ -45,7 +45,7 @@ import javafx.collections.ObservableMap;
  * @version 0.3.0
  * @see     com.github.naoghuman.lib.tag.core.TagRelation
  * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see     com.github.naoghuman.lib.tag.core.Validator
+ * @see     com.github.naoghuman.lib.tag.core.TagValidator
  */
 public final class TagRelationBuilder {
 

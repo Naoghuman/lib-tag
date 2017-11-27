@@ -47,9 +47,9 @@ public final class DefaultTag implements Tag {
      * <ul>
      * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
      * <li>All other attributes are optional, that means if not set then {@link java.util.Optional#empty()}
-     * will returned.</li>
+     *     will returned.</li>
      * <li>Setting an value in a mandory or an optional attribute will be validate the value 
-     * against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+     *     against {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
      * </ul>
      * 
      * @param  id             The id (mandory attribute) from this DefaultTag.
@@ -60,7 +60,7 @@ public final class DefaultTag implements Tag {
      * @return                A new instance from the {@code Interface} Tag.
      * @see    com.github.naoghuman.lib.tag.core.Tag
      * @see    com.github.naoghuman.lib.tag.core.TagBuilder
-     * @see    com.github.naoghuman.lib.tag.core.Validator
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      * @see    java.util.Optional#empty()
      */
     public static final Tag create(

@@ -21,8 +21,8 @@ import java.util.Optional;
 import com.github.naoghuman.lib.tag.core.TagValidator;
 
 /**
- * An implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagValidator} 
- * for the validation in context from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
+ * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagValidator} 
+ * for the validation in context from a {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <p>
  * Will be used in the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
  * and in the {@code Class} {@link com.github.naoghuman.lib.tag.internal.DefaultTag}.

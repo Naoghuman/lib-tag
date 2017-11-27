@@ -53,27 +53,27 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public static final String SIGN__EMPTY = ""; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code description}.
+     * Constant which defines the name from the attribute {@code description}.
      */
     public static final String TAG_PARA__DESCRIPTION = "description"; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code id}.
+     * Constant which defines the name from the attribute {@code id}.
      */
     public static final String TAG_PARA__ID = "id";
 
     /**
-     * Constant which defines the attribute {@code generationTime}.
+     * Constant which defines the name from the attribute {@code generationTime}.
      */
     public static final String TAG_PARA__GENERATION_TIME = "generationTime"; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code style}.
+     * Constant which defines the name from the attribute {@code style}.
      */
     public static final String TAG_PARA__STYLE = "style"; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code title}.
+     * Constant which defines the name from the attribute {@code title}.
      */
     public static final String TAG_PARA__TITLE = "title"; // NOI18N
 
@@ -87,10 +87,10 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     /**
      * Sets the new value from the attribute {@code id}.<br>
      * This is an mandory value. Setting the value will validate the value against 
-     * {@link com.github.naoghuman.lib.tag.core.Validator}.
+     * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
      * @param id the new value for the attribute {@code id}.
-     * @see   com.github.naoghuman.lib.tag.core.Validator
+     * @see   com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setId(final Long id);
 
@@ -104,10 +104,10 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     /**
      * Sets the new value from the attribute {@code title}.<br>
      * This is an mandory value. Setting the value will validate the value against 
-     * {@link com.github.naoghuman.lib.tag.core.Validator}.
+     * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
      * @param title the new value for the attribute {@code title}.
-     * @see   com.github.naoghuman.lib.tag.core.Validator
+     * @see   com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setTitle(final String title);
 

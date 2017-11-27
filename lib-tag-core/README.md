@@ -18,7 +18,7 @@ or analysed for a `Tag`.
 > with the sub-library [Lib-Tag-Components].
 
 _Image:_ [UML] Lib-Tag-Core  
-![uml_lib-tag-core_2017-11-26_18-19.png][uml_lib-tag-core_2017-11-26_18-19]
+![uml_lib-tag-core_2017-11-27_15-51.png][uml_lib-tag-core_2017-11-27_15-51]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -41,7 +41,7 @@ Content
     * [TagRelationBuilder](#TaReBu)
     * [TagRelation](#TaRe)
     * [TagRelationIdGenerator](#TaReIdGe)
-    * [Validator](#Vali)
+    * [TagValidator](#TaVa)
 * [License](#License)
 * [Autor](#Autor)
 * [Contact](#Contact)
@@ -63,8 +63,7 @@ It is very easy to create a [Tag] with the fluent builder [TagBuilder]:
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
  * <li>The other attributes are {@code optional}.</li>
- * <li>All defined values will be validate against the {@code Interface}
- * {@code Validator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
  * </ul>
  */
 final Tag tag = TagBuilder.create()
@@ -104,7 +103,7 @@ So the application `knows` which [Tag]s should be shown in a [Button] or in a [F
  * a gui component.
  * <ul>
  * <li>All attributes in the builder are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
  * </ul>
  */
 final TagRelation tagRelation = TagRelationBuilder.create()
@@ -139,19 +138,21 @@ API: com.github.naoghuman.lib.tag.core<a name="LiTaCo" />
 ```java
 /**
  * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
- * the developer can create easily an instance from the {@code Interface} 
+ * the developer can easily create an instance from the {@code Interface} 
  * {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
- * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
- * <li>Any optinal attribute if set will be validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * <li>All other attributes are optional, that means skipping them returns 
+ *     {@link java.util.Optional#empty()}.</li>
+ * <li>Any attribute (mandory or optional if set) will be validate against 
+ *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
  * </ul>
  *
  * @author Naoghuman
  * @since  0.1.0
  * @see    com.github.naoghuman.lib.tag.core.Tag
  * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  * @see    java.util.Optional#empty()
  */
 public final class TagBuilder
@@ -189,12 +190,15 @@ public interface TitleStep
  * Optional steps for the configuration from the new instance from the 
  * {@code Interface} {@code Tag}.<br>
  * <ul>
- * <li>All attributes in this {@code Interface} are optional. If not set, then {@link java.util.Optional#empty()} for every unset attribute will returned.</li>
- * <li>All setted values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
- * <li>Any optinal attribute is set more then ones then the last {@code value} will be used for the configuration.</li>
+ * <li>All attributes in this {@code Interface} are optional. If not set, then
+ *     {@link java.util.Optional#empty()} will be returned.</li>
+ * <li>All setted values will be validate against the {@code Interface} 
+ *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+ * <li>For any optinal attribute if setted more then ones then the last 
+ *     {@code value} will be used for the configuration.</li>
  * </ul>
  * 
- * @see com.github.naoghuman.lib.tag.core.Validator
+ * @see com.github.naoghuman.lib.tag.core.TagValidator
  * @see java.util.Optional#empty()
  */
 public interface Step
@@ -243,35 +247,35 @@ public static final String SIGN__EMPTY = ""; // NOI18N
 
 ```java
 /**
- * Constant which defines the attribute {@code description}.
+ * Constant which defines the name from the attribute {@code description}.
  */
 public static final String TAG_PARA__DESCRIPTION = "description"; // NOI18N
 ```
 
 ```java
 /**
- * Constant which defines the attribute {@code id}.
+ * Constant which defines the name from the attribute {@code id}.
  */
 public static final String TAG_PARA__ID = "id";
 ```
 
 ```java
 /**
- * Constant which defines the attribute {@code generationTime}.
+ * Constant which defines the name from the attribute {@code generationTime}.
  */
 public static final String TAG_PARA__GENERATION_TIME = "generationTime"; // NOI18N
 ```
 
 ```java
 /**
- * Constant which defines the attribute {@code style}.
+ * Constant which defines the name from the attribute {@code style}.
  */
 public static final String TAG_PARA__STYLE = "style"; // NOI18N
 ```
 
 ```java
 /**
- * Constant which defines the attribute {@code title}.
+ * Constant which defines the name from the attribute {@code title}.
  */
 public static final String TAG_PARA__TITLE = "title"; // NOI18N
 ```
@@ -289,10 +293,10 @@ public Long getId();
 /**
  * Sets the new value from the attribute {@code id}.<br>
  * This is an mandory value. Setting the value will validate the value against 
- * {@link com.github.naoghuman.lib.tag.core.Validator}.
+ * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
  * @param id the new value for the attribute {@code id}.
- * @see   com.github.naoghuman.lib.tag.core.Validator
+ * @see   com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setId(final Long id);
 ```
@@ -310,10 +314,10 @@ public String getTitle();
 /**
  * Sets the new value from the attribute {@code title}.<br>
  * This is an mandory value. Setting the value will validate the value against 
- * {@link com.github.naoghuman.lib.tag.core.Validator}.
+ * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
  * @param title the new value for the attribute {@code title}.
- * @see   com.github.naoghuman.lib.tag.core.Validator
+ * @see   com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setTitle(final String title);
 ```
@@ -410,7 +414,8 @@ public void setMarkAsChanged(final boolean markAsChanged);
  * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} 
+ *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
  * </ul>
  *
  * @author  Naoghuman
@@ -418,7 +423,7 @@ public void setMarkAsChanged(final boolean markAsChanged);
  * @version 0.3.0
  * @see     com.github.naoghuman.lib.tag.core.TagRelation
  * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see     com.github.naoghuman.lib.tag.core.Validator
+ * @see     com.github.naoghuman.lib.tag.core.TagValidator
  */
 public final class TagRelationBuilder
 ```
@@ -474,7 +479,7 @@ public interface Builder
 /**
  * A {@code TagRelation} is a simple mapping between a container like 
  * {@link javafx.scene.layout.FlowPane} and all {@code Tag}s which should be shown
- * in the container.
+ * in this container.
  * <p>
  * An instance from this {@code Interface} can be easily generated with the fluent 
  * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
@@ -499,28 +504,21 @@ public static final Long DEFAULT_ID = Long.MIN_VALUE;
 
 ```java
 /**
- * Constant which defines the attribute {@code id}.
+ * Constant which defines the name from the attribute {@code id}.
  */
 public static final String TAG_RELATION__PARA__ID = "id"; // NOI18N
 ```
 
 ```java
 /**
- * Constant which defines the attribute {@code containerId}.
+ * Constant which defines the name from the attribute {@code containerId}.
  */
 public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
 ```
 
 ```java
 /**
- * Constant which defines the attribute {@code containerType}.
- */
-public static final String TAG_RELATION__PARA__CONTAINER_TYPE = "containerType"; // NOI18N
-```
-
-```java
-/**
- * Constant which defines the attribute {@code tagId}.
+ * Constant which defines the name from the attribute {@code tagId}.
  */
 public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
 ```
@@ -685,7 +683,7 @@ public String generateId(final Class path, final Class type);
  * <li>com.github.naoghuman.lib.tag.internal.DefaultIdGeneratorTest_AnchorPane_832531206890821</li>
  * </ul>
  * 
- * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultValidator#requireNonNull(java.lang.Object)}
+ * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator#requireNonNull(java.lang.Object)}
  * will be used to validate if {@code path} and / or {@code type} isn't NULL.
  * 
  * @param path       usually the path from the class where the {@code Tag} used.
@@ -694,14 +692,14 @@ public String generateId(final Class path, final Class type);
  * @return the generated {@code Id}.
  * @throws NullPointerException if path or type is NULL.
  * @since  0.3.0
- * @see    com.github.naoghuman.lib.tag.internal.DefaultValidator#requireNonNull(java.lang.Object)
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultTagValidator#requireNonNull(java.lang.Object)
  * @see    java.lang.System#nanoTime()
  */
 public String generateId(final Class path, final Class type, final Optional<String> additional);
 ```
 
 
-### Validator<a name="Vali" />
+### TagValidator<a name="TaVa" />
 
 ```java
 /**
@@ -763,7 +761,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[uml_lib-tag-core_2017-11-26_18-19]:https://user-images.githubusercontent.com/8161815/33242513-7f2aa87a-d2d6-11e7-9a02-0b45f9223f54.png
+[uml_lib-tag-core_2017-11-27_15-51]:https://user-images.githubusercontent.com/8161815/33272634-053b16de-d38b-11e7-92d2-4a92b11fa8b0.png
 [tagbuilder_v0.1.0_2017-07-15_10-48]:https://user-images.githubusercontent.com/8161815/28238038-702dd80a-694b-11e7-9779-0d2c904cce86.png
 [bpm_tagreleationbuilder_2017-11-25_22-42]:https://user-images.githubusercontent.com/8161815/33235119-18a0dcd6-d232-11e7-8ba0-762cec0944b3.png
 

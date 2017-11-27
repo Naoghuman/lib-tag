@@ -32,7 +32,7 @@ public class TagRelationBuilderAllowedSteps {
          * a gui component.
          * <ul>
          * <li>All attributes in the builder are {@code mandory}.</li>
-         * <li>All defined values will be validate against the {@code Interface} {@code Validator}.</li>
+         * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
          * </ul>
          */
         final TagRelation tagRelation = TagRelationBuilder.create()

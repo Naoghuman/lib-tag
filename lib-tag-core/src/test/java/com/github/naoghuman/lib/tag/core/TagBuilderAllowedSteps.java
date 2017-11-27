@@ -31,8 +31,7 @@ public class TagBuilderAllowedSteps {
          * <ul>
          * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
          * <li>The other attributes are {@code optional}.</li>
-         * <li>All defined values will be validate against the {@code Interface}
-         * {@code Validator}.</li>
+         * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
          * </ul>
          */
         final Tag tag = TagBuilder.create()

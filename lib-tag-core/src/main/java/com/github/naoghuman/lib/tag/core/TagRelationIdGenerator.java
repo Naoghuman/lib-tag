@@ -83,7 +83,7 @@ public interface TagRelationIdGenerator {
      * <li>com.github.naoghuman.lib.tag.internal.DefaultIdGeneratorTest_AnchorPane_832531206890821</li>
      * </ul>
      * 
-     * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultValidator#requireNonNull(java.lang.Object)}
+     * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator#requireNonNull(java.lang.Object)}
      * will be used to validate if {@code path} and / or {@code type} isn't NULL.
      * 
      * @param path       usually the path from the class where the {@code Tag} used.
@@ -92,7 +92,7 @@ public interface TagRelationIdGenerator {
      * @return the generated {@code Id}.
      * @throws NullPointerException if path or type is NULL.
      * @since  0.3.0
-     * @see    com.github.naoghuman.lib.tag.internal.DefaultValidator#requireNonNull(java.lang.Object)
+     * @see    com.github.naoghuman.lib.tag.internal.DefaultTagValidator#requireNonNull(java.lang.Object)
      * @see    java.lang.System#nanoTime()
      */
     public String generateId(final Class path, final Class type, final Optional<String> additional);

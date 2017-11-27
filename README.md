@@ -56,7 +56,7 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
 searched or analysed for a `Tag`.
 
 _Image:_ [UML] Lib-Tag-Core  
-![uml_lib-tag-core_2017-11-26_18-19.png][uml_lib-tag-core_2017-11-26_18-19]
+![uml_lib-tag-core_2017-11-27_15-51.png][uml_lib-tag-core_2017-11-27_15-51]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -177,7 +177,7 @@ Contact<a name="Contact" />
 
 
 [//]: # (Images)
-[uml_lib-tag-core_2017-11-26_18-19]:https://user-images.githubusercontent.com/8161815/33242513-7f2aa87a-d2d6-11e7-9a02-0b45f9223f54.png
+[uml_lib-tag-core_2017-11-27_15-51]:https://user-images.githubusercontent.com/8161815/33272634-053b16de-d38b-11e7-92d2-4a92b11fa8b0.png
 [UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07]:https://user-images.githubusercontent.com/8161815/28492739-f0c22878-6f08-11e7-9b92-3d95f33990cb.png
 
 

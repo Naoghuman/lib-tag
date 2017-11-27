@@ -50,19 +50,19 @@ public final class DefaultTagRelation implements TagRelation {
      * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder}
      * is preferred against the directly usage from this method.
      * <ul>
-     * <li>All attributes are mandory and validate against {@link com.github.naoghuman.lib.tag.core.Validator}.</li>
+     * <li>All attributes are mandory and validate against {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
      * <li>The attribute {@code id} defines the id from the entity.</li>
      * <li>The attribute {@code tagId} defines the id from the {@code Tag}.</li>
      * <li>The attribute {@code containerId} defines the id from the {@code container} where the Tag should be shown.</li>
      * </ul>
      * 
-     * @param  id            The id (mandory attribute) from this DefaultTagRelaiton.
-     * @param  tagId         The tagId (mandory attribute) from this DefaultTagRelation.
-     * @param  containerId   The containerId (mandory attribute) from this DefaultTagRelation.
-     * @return               A new instance from the {@code Interface} TagRelation.
+     * @param  id          The id (mandory attribute) from this DefaultTagRelaiton.
+     * @param  tagId       The tagId (mandory attribute) from this DefaultTagRelation.
+     * @param  containerId The containerId (mandory attribute) from this DefaultTagRelation.
+     * @return             A new instance from the {@code Interface} TagRelation.
      * @see    com.github.naoghuman.lib.tag.core.TagRelation
      * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
-     * @see    com.github.naoghuman.lib.tag.core.Validator
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public static TagRelation create(
             final Long id, final Long tagId, final String containerId
@@ -245,9 +245,9 @@ public final class DefaultTagRelation implements TagRelation {
         final StringBuilder sb = new StringBuilder();
         sb.append("Tag ["); // NOI18N
 
-        sb.append("id=")             .append(this.getId()); // NOI18N
-        sb.append(", tagId=")        .append(this.getTagId()); // NOI18N
-        sb.append(", containerId=")  .append(this.getContainerId()); // NOI18N
+        sb.append("id=")           .append(this.getId()); // NOI18N
+        sb.append(", tagId=")      .append(this.getTagId()); // NOI18N
+        sb.append(", containerId=").append(this.getContainerId()); // NOI18N
 
         sb.append("]"); // NOI18N
 

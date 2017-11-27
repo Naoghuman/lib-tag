@@ -37,6 +37,7 @@ for specific tasks. For example:
 
 
 #### Refactoring
+#6 [Validator] Rename Validator to TagValidator to fit the naming convention.
 
 
 
@@ -50,7 +51,6 @@ Naoghuman
 
 
 [//]: # (Issues which will be integrated in this release)
-#6 [Validator] Rename Validator to TagValidator to fit the naming convention. (refactoring)
 
 
 

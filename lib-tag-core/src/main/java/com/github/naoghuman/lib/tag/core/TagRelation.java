@@ -24,7 +24,7 @@ import javafx.beans.property.StringProperty;
 /**
  * A {@code TagRelation} is a simple mapping between a container like 
  * {@link javafx.scene.layout.FlowPane} and all {@code Tag}s which should be shown
- * in the container.
+ * in this container.
  * <p>
  * An instance from this {@code Interface} can be easily generated with the fluent 
  * builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} which is 
@@ -45,17 +45,17 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
     public static final Long DEFAULT_ID = Long.MIN_VALUE;
 
     /**
-     * Constant which defines the attribute {@code id}.
+     * Constant which defines the name from the attribute {@code id}.
      */
     public static final String TAG_RELATION__PARA__ID = "id"; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code containerId}.
+     * Constant which defines the name from the attribute {@code containerId}.
      */
     public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
 
     /**
-     * Constant which defines the attribute {@code tagId}.
+     * Constant which defines the name from the attribute {@code tagId}.
      */
     public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
 
