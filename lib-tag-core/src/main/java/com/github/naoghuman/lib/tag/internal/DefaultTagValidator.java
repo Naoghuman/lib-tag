@@ -18,10 +18,10 @@ package com.github.naoghuman.lib.tag.internal;
 
 import java.util.Optional;
 
-import com.github.naoghuman.lib.tag.core.Validator;
+import com.github.naoghuman.lib.tag.core.TagValidator;
 
 /**
- * An implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Validator} 
+ * An implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagValidator} 
  * for the validation in context from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <p>
  * Will be used in the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
@@ -31,23 +31,23 @@ import com.github.naoghuman.lib.tag.core.Validator;
  * @since  0.1.0
  * @see    com.github.naoghuman.lib.tag.core.Tag
  * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.Validator
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  * @see    com.github.naoghuman.lib.tag.internal.DefaultTag
  */
-public final class DefaultValidator implements Validator {
+public final class DefaultTagValidator implements TagValidator {
 
-    private static final Optional<DefaultValidator> INSTANCE = Optional.of(new DefaultValidator());
+    private static final Optional<DefaultTagValidator> INSTANCE = Optional.of(new DefaultTagValidator());
 
     /**
-     * Returns a singleton instance from the {@code Class} <code>DefaultValidator</code>.
+     * Returns a singleton instance from the {@code Class} <code>DefaultTagValidator</code>.
      *
      * @return a singleton instance from this {@code Class}.
      */
-    public static final DefaultValidator getDefault() {
+    public static final DefaultTagValidator getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultValidator() {
+    private DefaultTagValidator() {
 
     }
 

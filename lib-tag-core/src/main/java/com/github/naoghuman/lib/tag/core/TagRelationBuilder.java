@@ -21,7 +21,7 @@ import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__
 import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__TAG_ID;
 
 import com.github.naoghuman.lib.tag.internal.DefaultTagRelation;
-import com.github.naoghuman.lib.tag.internal.DefaultValidator;
+import com.github.naoghuman.lib.tag.internal.DefaultTagValidator;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleLongProperty;
@@ -152,7 +152,7 @@ public final class TagRelationBuilder {
 
         @Override
         public TagIdStep id(final Long id) {
-            DefaultValidator.getDefault().requireNonNull(id);
+            DefaultTagValidator.getDefault().requireNonNull(id);
             properties.put(TAG_RELATION__PARA__ID, new SimpleLongProperty(id));
             
             return this;
@@ -160,7 +160,7 @@ public final class TagRelationBuilder {
 
         @Override
         public ContainerIdStep tagId(final Long tagId) {
-            DefaultValidator.getDefault().requireNonNull(tagId);
+            DefaultTagValidator.getDefault().requireNonNull(tagId);
             properties.put(TAG_RELATION__PARA__TAG_ID, new SimpleLongProperty(tagId));
             
             return this;
@@ -168,7 +168,7 @@ public final class TagRelationBuilder {
 
         @Override
         public Builder containerId(final String containerId) {
-            DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerId);
+            DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
             properties.put(TAG_RELATION__PARA__CONTAINER_ID, new SimpleStringProperty(containerId));
             
             return this;

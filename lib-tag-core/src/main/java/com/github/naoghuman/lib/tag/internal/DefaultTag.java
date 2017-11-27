@@ -83,10 +83,10 @@ public final class DefaultTag implements Tag {
             final Long id, final String title, final Long generationTime, 
             final String description, final String style
     ) {
-        DefaultValidator.getDefault().requireNonNull(id);
+        DefaultTagValidator.getDefault().requireNonNull(id);
         this.setId(id);
 
-        DefaultValidator.getDefault().requireNonNullAndNotEmpty(title);
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(title);
         this.setTitle(title);
         
         this.generationTime = Optional.ofNullable(generationTime);

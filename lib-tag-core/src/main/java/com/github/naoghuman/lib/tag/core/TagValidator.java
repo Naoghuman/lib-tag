@@ -27,7 +27,7 @@ import java.util.Objects;
  * @since  0.1.0
  * @see    java.lang.Object
  */
-public interface Validator {
+public interface TagValidator {
     
     /**
      * Validates if the parameter {@code value} isn't NULL.

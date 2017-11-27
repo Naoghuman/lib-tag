@@ -73,13 +73,13 @@ public final class DefaultTagRelation implements TagRelation {
     private DefaultTagRelation(
             final Long id, final Long tagId, final String containerId
     ) {
-        DefaultValidator.getDefault().requireNonNull(id);
+        DefaultTagValidator.getDefault().requireNonNull(id);
         this.setId(id);
         
-        DefaultValidator.getDefault().requireNonNull(tagId);
+        DefaultTagValidator.getDefault().requireNonNull(tagId);
         this.setTagId(tagId);
 
-        DefaultValidator.getDefault().requireNonNullAndNotEmpty(containerId);
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
         this.setContainerId(containerId);
     }
 

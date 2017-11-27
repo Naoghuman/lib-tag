@@ -54,8 +54,8 @@ public class DefaultTagRelationtIdGenerator implements TagRelationIdGenerator {
 
     @Override
     public String generateId(final Class path, final Class type, final Optional<String> additional) {
-        DefaultValidator.getDefault().requireNonNull(path);
-        DefaultValidator.getDefault().requireNonNull(type);
+        DefaultTagValidator.getDefault().requireNonNull(path);
+        DefaultTagValidator.getDefault().requireNonNull(type);
         
         final StringBuilder sb = new StringBuilder();
         sb.append(path.getCanonicalName());
