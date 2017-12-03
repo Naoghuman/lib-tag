@@ -68,8 +68,12 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
     
     /**
      * Sets the new value from the attribute {@code id}.
+     * <p>
+     * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param id the new value for the attribute {@code id}.
+     * @param  id the new value for the attribute {@code id}.
+     * @throws NullPointerException if {@code id} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setId(final Long id);
     
@@ -90,8 +94,12 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
     
     /**
      * Sets the new value from the attribute {@code tagId}.
+     * <p>
+     * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param tagId the new value for the attribute {@code tagId}.
+     * @param  tagId the new value for the attribute {@code tagId}.
+     * @throws NullPointerException if {@code tagId} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setTagId(final Long tagId);
     
@@ -113,8 +121,13 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
     
     /**
      * Sets the new value from the attribute {@code containerId}.
+     * <p>
+     * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param containerId the new value for the attribute {@code containerId}.
+     * @param  containerId the new value for the attribute {@code containerId}.
+     * @throws IllegalArgumentException if {@code containerId} is EMPTY.
+     * @throws NullPointerException     if {@code containerId} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setContainerId(final String containerId);
     

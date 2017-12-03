@@ -56,7 +56,7 @@ public final class DefaultTagRelation implements TagRelation {
      * <li>The attribute {@code containerId} defines the id from the {@code container} where the Tag should be shown.</li>
      * </ul>
      * 
-     * @param  id          The id (mandory attribute) from this DefaultTagRelaiton.
+     * @param  id          The id (mandory attribute) from this DefaultTagRelation.
      * @param  tagId       The tagId (mandory attribute) from this DefaultTagRelation.
      * @param  containerId The containerId (mandory attribute) from this DefaultTagRelation.
      * @return             A new instance from the {@code Interface} TagRelation.
@@ -73,19 +73,14 @@ public final class DefaultTagRelation implements TagRelation {
     private DefaultTagRelation(
             final Long id, final Long tagId, final String containerId
     ) {
-        DefaultTagValidator.getDefault().requireNonNull(id);
         this.setId(id);
-        
-        DefaultTagValidator.getDefault().requireNonNull(tagId);
         this.setTagId(tagId);
-
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
         this.setContainerId(containerId);
     }
 
     // START ID ----------------------------------------------------------------
-    private LongProperty idProperty;
-    private long _id = DEFAULT_ID;
+    private LongProperty idProperty = null;
+    private long         _id        = DEFAULT_ID;
 
     @Override
     public long getId() {
@@ -98,6 +93,8 @@ public final class DefaultTagRelation implements TagRelation {
 
     @Override
     public final void setId(final Long id) {
+        DefaultTagValidator.getDefault().requireNonNull(id);
+        
         if (idProperty == null) {
             _id = id;
         } else {
@@ -116,9 +113,9 @@ public final class DefaultTagRelation implements TagRelation {
     // END ID ------------------------------------------------------------------
 
     // START TAG-ID ------------------------------------------------------------
-    private LongProperty tagIdProperty;
-    private long _tagId = DEFAULT_ID;
-
+    private LongProperty tagIdProperty = null;
+    private long         _tagId        = DEFAULT_ID;
+ 
     @Override
     public long getTagId() {
         if (tagIdProperty == null) {
@@ -130,6 +127,8 @@ public final class DefaultTagRelation implements TagRelation {
 
     @Override
     public final void setTagId(final Long tagId) {
+        DefaultTagValidator.getDefault().requireNonNull(tagId);
+        
         if (tagIdProperty == null) {
             _tagId = tagId;
         } else {
@@ -149,7 +148,7 @@ public final class DefaultTagRelation implements TagRelation {
 
     // START CONTAINER-ID ------------------------------------------------------
     private StringProperty containerIdProperty = null;
-    private String _containerId = SIGN__EMPTY;
+    private String         _containerId        = SIGN__EMPTY;
 
     @Override
     public String getContainerId() {
@@ -162,6 +161,8 @@ public final class DefaultTagRelation implements TagRelation {
 
     @Override
     public void setContainerId(final String containerId) {
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
+        
         if (containerIdProperty == null) {
             _containerId = containerId;
         } else {
@@ -233,17 +234,13 @@ public final class DefaultTagRelation implements TagRelation {
             return false;
         }
 
-        if (!this.getContainerId().equals(other.getContainerId())) {
-            return false;
-        }
-
-        return true;
+        return this.getContainerId().equals(other.getContainerId());
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("Tag ["); // NOI18N
+        sb.append("Tag["); // NOI18N
 
         sb.append("id=")           .append(this.getId()); // NOI18N
         sb.append(", tagId=")      .append(this.getTagId()); // NOI18N
