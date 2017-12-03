@@ -17,22 +17,30 @@
 package com.github.naoghuman.lib.tag.core;
 
 /**
+ * Example usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+ * for the documentation.
  *
  * @author Naoghuman
  * @since  0.1.0
+ * @see    com.github.naoghuman.lib.tag.core.TagBuilder
  */
 public class TagBuilderAllowedSteps {
     
     TagBuilderAllowedSteps() {
         
         /**
-         * With the fluent builder {@code TagBuilder} its possible to create a 
-         * {@code Tag}.
+         * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+         * its possible to create easly a {@code Tag} which is the preferred way.
+         * 
          * <ul>
          * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
-         * <li>The other attributes are {@code optional}.</li>
+         * <li>All other attributes are {@code optional}.</li>
          * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
          * </ul>
+         * 
+        * @see com.github.naoghuman.lib.tag.core.Tag
+        * @see com.github.naoghuman.lib.tag.core.TagBuilder
+        * @see com.github.naoghuman.lib.tag.core.TagValidator
          */
         final Tag tag = TagBuilder.create()
                 .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)

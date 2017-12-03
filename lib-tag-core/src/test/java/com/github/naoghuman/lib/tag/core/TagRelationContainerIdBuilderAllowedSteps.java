@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,24 +19,24 @@ package com.github.naoghuman.lib.tag.core;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * Example usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
+ * Example usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
  * for the documentation.
  *
  * @author  Naoghuman
- * @since   0.1.0
- * @version 0.3.0
- * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @since   0.3.0
  * @see     com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
  */
-public class TagRelationBuilderAllowedSteps {
+public class TagRelationContainerIdBuilderAllowedSteps {
     
-    TagRelationBuilderAllowedSteps() {
+    TagRelationContainerIdBuilderAllowedSteps() {
         
         /**
-         * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
-         * its possible to create easly a {@link com.github.naoghuman.lib.tag.core.TagRelation}
-         * which can be used to map a {@link com.github.naoghuman.lib.tag.core.Tag} against 
-         * a gui component.
+         * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+         * its possible to create easly an unique {@code Id} which can be used to map a 
+         * {@link com.github.naoghuman.lib.tag.core.Tag} against a gui component.
+         * 
+         * For more information about how to map a {@code Tag} with a container see 
+         * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
          * 
          * <ul>
          * <li>All attributes in the builder are {@code mandory}.</li>
@@ -49,14 +49,10 @@ public class TagRelationBuilderAllowedSteps {
          * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
          * @see com.github.naoghuman.lib.tag.core.TagValidator
          */
-        final TagRelation tagRelation = TagRelationBuilder.create()
-                .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)
-                .tagId(0L)                                          // mandory (NOT NULL)
-                .containerId(TagRelationContainerIdBuilder.create()
-                        .path(TagRelationContainerId.class)         // mandory (NOT NULL)
-                        .container(AnchorPane.class)                // mandory (NOT NULL)
-                        .containerId("container-id")                // mandory (NOT NULL && NOT EMPTY)
-                        .build())
+        final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
+                .path(TagRelationContainerId.class) // mandory (NOT NULL)
+                .container(AnchorPane.class)        // mandory (NOT NULL)
+                .containerId("container-id")        // mandory (NOT NULL && NOT EMPTY)
                 .build();
         
     }

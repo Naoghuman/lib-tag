@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (C) 2017 Naoghuman
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,58 +17,47 @@
 package com.github.naoghuman.lib.tag.internal;
 
 import java.util.Optional;
-import com.github.naoghuman.lib.tag.core.TagRelationIdGenerator;
+import com.github.naoghuman.lib.tag.core.TagRelationContainerId;
 
 /**
+ * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId}.
  *
  * @author Naoghuman
+ * @since  0.3.0
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationContainerId
  */
-public class DefaultTagRelationtIdGenerator implements TagRelationIdGenerator {
+public class DefaultTagRelationContainerId implements TagRelationContainerId {
 
     private static final String UNDERLINE = "_"; // NOI18N
     
-    private static final Optional<DefaultTagRelationtIdGenerator> INSTANCE = Optional.of(new DefaultTagRelationtIdGenerator());
+    private static final Optional<DefaultTagRelationContainerId> INSTANCE = Optional.of(new DefaultTagRelationContainerId());
 
     /**
-     * Returns a singleton instance from the {@code Class} <code>DefaultTagRelationtIdGenerator</code>.
+     * Returns a singleton instance from the {@code Class} <code>DefaultTagRelationContainerId</code>.
      *
      * @return a singleton instance from this {@code Class}.
+     * @since  0.3.0
      */
-    public static final DefaultTagRelationtIdGenerator getDefault() {
+    public static final DefaultTagRelationContainerId getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultTagRelationtIdGenerator() {
+    private DefaultTagRelationContainerId() {
 
-    }
-    
-    @Override
-    public String generateId() {
-        return String.valueOf(System.nanoTime());
     }
 
     @Override
-    public String generateId(final Class path, final Class type) {
-        return this.generateId(path, type, Optional.empty());
-    }
-
-    @Override
-    public String generateId(final Class path, final Class type, final Optional<String> additional) {
+    public String generateId(final Class path, final Class container, final String containerId) {
         DefaultTagValidator.getDefault().requireNonNull(path);
-        DefaultTagValidator.getDefault().requireNonNull(type);
+        DefaultTagValidator.getDefault().requireNonNull(container);
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
         
         final StringBuilder sb = new StringBuilder();
         sb.append(path.getCanonicalName());
         sb.append(UNDERLINE);
-        sb.append(type.getSimpleName());
-        
-        if (additional.isPresent()) {
-            sb.append(UNDERLINE);
-            sb.append(additional.get());
-        }
-        
+        sb.append(container.getSimpleName());
         sb.append(UNDERLINE);
-        sb.append(System.nanoTime());
+        sb.append(containerId);
         
         return sb.toString();
     }

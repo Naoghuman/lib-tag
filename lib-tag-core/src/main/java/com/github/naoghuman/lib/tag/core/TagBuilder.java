@@ -77,7 +77,7 @@ public final class TagBuilder {
          * Setter for the mandory attribute {@code id} in the upcoming instance 
          * from the {@code Interface} {@code Tag}. 
          * 
-         * @param id value for the attribute {@code id}.
+         * @param  id value for the attribute {@code id}.
          * @return the next step {@code TitleStep} in this fluent builder.
          */
         public TitleStep id(final Long id);
@@ -95,7 +95,7 @@ public final class TagBuilder {
          * Setter for the mandory attribute {@code title} in the upcoming instance 
          * from the {@code Interface} {@code Tag}. 
          * 
-         * @param title value for the attribute {@code title}.
+         * @param  title value for the attribute {@code title}.
          * @return the next optional steps {@code Step} in this fluent builder.
          */
         public Step title(final String title);
@@ -123,7 +123,7 @@ public final class TagBuilder {
          * Setter for the optional attribute {@code generationTime} in the upcoming 
          * instance from the {@code Interface} {@code Tag}. 
          * 
-         * @param generationTime value for the attribute {@code generationTime}.
+         * @param  generationTime value for the attribute {@code generationTime}.
          * @return the next optional steps {@code Step} in this fluent builder.
          */
         public Step generationTime(final Long generationTime);
@@ -132,7 +132,7 @@ public final class TagBuilder {
          * Setter for the optional attribute {@code description} in the upcoming 
          * instance from the {@code Interface} {@code Tag}. 
          * 
-         * @param description value for the attribute {@code description}.
+         * @param  description value for the attribute {@code description}.
          * @return the next optional steps {@code Step} in this fluent builder.
          */
         public Step description(final String description);
@@ -141,7 +141,7 @@ public final class TagBuilder {
          * Setter for the optional attribute {@code style} in the upcoming 
          * instance from the {@code Interface} {@code Tag}. 
          * 
-         * @param style value for the attribute {@code style}.
+         * @param  style value for the attribute {@code style}.
          * @return the next optional steps {@code Step} in this fluent builder.
          */
         public Step style(final String style);
