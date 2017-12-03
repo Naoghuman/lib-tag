@@ -24,6 +24,7 @@ for specific tasks. For example:
 
 
 #### Enhancement
+#7 [TagValidator] Add Unittests for the default implementation.
 #5 [TagRelation] To identify the path + component for a Tag is embbed a unique 'containerId' is needed.
 
 

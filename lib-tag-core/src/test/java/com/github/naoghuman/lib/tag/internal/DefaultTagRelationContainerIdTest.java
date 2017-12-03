@@ -23,8 +23,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * Test class to test the default implementation from the {@code Class} 
+ * {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId} which is 
+ * {@link com.github.naoghuman.lib.tag.internal.DefaultTagRelationContainerId}.
  *
  * @author Naoghuman
+ * @since  0.3.0
+ * @see    com.github.naoghuman.lib.tag.core.TagRelationContainerId
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultTagRelationContainerId
  */
 public class DefaultTagRelationContainerIdTest {
     
