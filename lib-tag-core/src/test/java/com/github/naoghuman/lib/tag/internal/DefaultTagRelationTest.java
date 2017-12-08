@@ -17,10 +17,6 @@
 package com.github.naoghuman.lib.tag.internal;
 
 import com.github.naoghuman.lib.tag.core.TagRelation;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import javafx.beans.property.LongProperty;
-import javafx.beans.property.StringProperty;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

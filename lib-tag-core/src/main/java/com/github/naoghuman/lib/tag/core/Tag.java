@@ -82,15 +82,16 @@ public interface Tag extends Comparable<Tag>, Externalizable {
      * 
      * @return the value from the attribute {@code id}.
      */
-    public Long getId();
+    public long getId();
     
     /**
      * Sets the new value from the attribute {@code id}.<br>
      * This is an mandory value. Setting the value will validate the value against 
      * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param id the new value for the attribute {@code id}.
-     * @see   com.github.naoghuman.lib.tag.core.TagValidator
+     * @param  id the new value for the attribute {@code id}.
+     * @throws NullPointerException if {@code id} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setId(final Long id);
 
@@ -106,8 +107,10 @@ public interface Tag extends Comparable<Tag>, Externalizable {
      * This is an mandory value. Setting the value will validate the value against 
      * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param title the new value for the attribute {@code title}.
-     * @see   com.github.naoghuman.lib.tag.core.TagValidator
+     * @param  title the new value for the attribute {@code title}.
+     * @throws IllegalArgumentException if {@code id} is EMPTY.
+     * @throws NullPointerException     if {@code id} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setTitle(final String title);
 
@@ -122,9 +125,13 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public Optional<Long> getGenerationTime();
     
     /**
-     * Sets the new value from the attribute {@code generationTime}.
+     * Sets the new optional value from the attribute {@code generationTime}.<br>
+     * If the value is set then it will be valid against 
+     * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param generationTime the new value for the attribute {@code generationTime}.
+     * @param  generationTime the new value for the attribute {@code generationTime}.
+     * @throws NullPointerException if {@code generationTime} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setGenerationTime(final Long generationTime);
 
@@ -139,9 +146,14 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public Optional<String> getDescription();
     
     /**
-     * Sets the new value from the attribute {@code description}.
+     * Sets the new optional value from the attribute {@code description}.<br>
+     * If the value is set then it will be valid against 
+     * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param description the new value for the attribute {@code description}.
+     * @param  description the new value for the attribute {@code description}.
+     * @throws IllegalArgumentException if {@code description} is EMPTY.
+     * @throws NullPointerException     if {@code description} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setDescription(final String description);
     
@@ -156,9 +168,14 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public Optional<String> getStyle();
     
     /**
-     * Sets the new value from the attribute {@code style}.
+     * Sets the new optional value from the attribute {@code style}.<br>
+     * If the value is set then it will be valid against 
+     * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
      * 
-     * @param style the new value for the attribute {@code style}.
+     * @param  style the new value for the attribute {@code style}.
+     * @throws IllegalArgumentException if {@code style} is EMPTY.
+     * @throws NullPointerException     if {@code style} is NULL.
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
      */
     public void setStyle(final String style);
 

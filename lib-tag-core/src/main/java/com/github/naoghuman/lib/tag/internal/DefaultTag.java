@@ -75,34 +75,41 @@ public final class DefaultTag implements Tag {
     private Long   id;
     private String title;
     
-    private Optional<Long>   generationTime;
-    private Optional<String> description;
-    private Optional<String> style;
+    private Optional<Long>   generationTime = Optional.empty();
+    private Optional<String> description    = Optional.empty();
+    private Optional<String> style          = Optional.empty();
     
     private DefaultTag(
             final Long id, final String title, final Long generationTime, 
             final String description, final String style
     ) {
-        DefaultTagValidator.getDefault().requireNonNull(id);
         this.setId(id);
-
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(title);
         this.setTitle(title);
         
-        this.generationTime = Optional.ofNullable(generationTime);
-        this.description    = Optional.ofNullable(description);
-        this.style          = Optional.ofNullable(style);
+        if (generationTime != null) {
+            this.setGenerationTime(generationTime);
+        }
+        
+        if (description != null) {
+            this.setDescription(description);
+        }
+        
+        if (style != null) {
+            this.setStyle(style);
+        }
         
         markAsChanged = Boolean.FALSE;
     }
     
     @Override
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
     @Override
     public final void setId(final Long id) {
+        DefaultTagValidator.getDefault().requireNonNull(id);
+        
         this.id = id;
     }
     
@@ -113,6 +120,8 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setTitle(final String title) {
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(title);
+        
         this.title = title;
     }
     
@@ -123,7 +132,9 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setGenerationTime(final Long generationTime) {
-        this.generationTime = Optional.ofNullable(generationTime);
+        DefaultTagValidator.getDefault().requireNonNull(generationTime);
+        
+        this.generationTime = Optional.of(generationTime);
     }
     
     @Override
@@ -133,7 +144,9 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setDescription(final String description) {
-        this.description = Optional.ofNullable(description);
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(description);
+        
+        this.description = Optional.of(description);
     }
     
     @Override
@@ -143,7 +156,9 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setStyle(final String style) {
-        this.style = Optional.ofNullable(style);
+        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(style);
+        
+        this.style = Optional.of(style);
     }
 
     @Transient

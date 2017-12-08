@@ -220,19 +220,19 @@ public final class TagBuilder {
         @Override
         public Tag build() {
             // Catch data
-            final LongProperty idLongProperty              = (LongProperty)   properties.get(TAG_PARA__ID);
-            final StringProperty titleStringProperty       = (StringProperty) properties.get(TAG_PARA__TITLE);
-            final LongProperty generationTimeLongProperty  = (LongProperty)   properties.get(TAG_PARA__GENERATION_TIME);
-            final StringProperty descriptionStringProperty = (StringProperty) properties.get(TAG_PARA__DESCRIPTION);
-            final StringProperty styleStringProperty       = (StringProperty) properties.get(TAG_PARA__STYLE);
+            final LongProperty   id             = (LongProperty)   properties.get(TAG_PARA__ID);
+            final StringProperty title          = (StringProperty) properties.get(TAG_PARA__TITLE);
+            final LongProperty   generationTime = (LongProperty)   properties.get(TAG_PARA__GENERATION_TIME);
+            final StringProperty description    = (StringProperty) properties.get(TAG_PARA__DESCRIPTION);
+            final StringProperty style          = (StringProperty) properties.get(TAG_PARA__STYLE);
 
             // Create a new Tag
             return DefaultTag.create(
-                    idLongProperty.getValue(),
-                    titleStringProperty.getValue(),
-                    generationTimeLongProperty.getValue(),
-                    descriptionStringProperty.getValue(),
-                    styleStringProperty.getValue());
+                    id.getValue(),
+                    title.getValue(),
+                    generationTime.getValue(),
+                    description.getValue(),
+                    style.getValue());
         }
 
     }
