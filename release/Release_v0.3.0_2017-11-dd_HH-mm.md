@@ -24,6 +24,7 @@ for specific tasks. For example:
 
 
 #### Enhancement
+#10 [Tag] Optional attributes should be used in DefaultTag.create(...) method.
 #9 [Tag] Add Unittests for the default implementation.
 #8 [TagRelation] Add Unittests for the default implementation.
 #7 [TagValidator] Add Unittests for the default implementation.

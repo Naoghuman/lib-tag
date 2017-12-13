@@ -115,14 +115,11 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public void setTitle(final String title);
 
     /**
-     * Gets the value from the attribute {@code generationTime} from this {@code Tag}.<br>
-     * This is an optional value. That means if not set then {@link java.util.Optional#empty()}
-     * will returned.
+     * Gets the value from the attribute {@code generationTime} from this {@code Tag}.
      * 
      * @return the value from the attribute {@code generationTime}.
-     * @see    java.util.Optional#empty()
      */
-    public Optional<Long> getGenerationTime();
+    public Long getGenerationTime();
     
     /**
      * Sets the new optional value from the attribute {@code generationTime}.<br>

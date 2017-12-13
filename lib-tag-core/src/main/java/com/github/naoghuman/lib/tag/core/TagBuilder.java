@@ -25,6 +25,7 @@ import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__TITLE;
 
 import com.github.naoghuman.lib.tag.internal.DefaultTag;
 import com.github.naoghuman.lib.tag.internal.DefaultTagValidator;
+import java.util.Optional;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleLongProperty;
@@ -96,9 +97,27 @@ public final class TagBuilder {
          * from the {@code Interface} {@code Tag}. 
          * 
          * @param  title value for the attribute {@code title}.
+         * @return the next step {@code GenerationTimeStep} in this fluent builder.
+         */
+        public GenerationTimeStep title(final String title);
+        
+    }
+    
+    /**
+     * Third mandory step to generate and configured an instance from the 
+     * {@code Interface} {@code Tag}.<br>
+     * This {@code Interface} allowed to set the attribute {@code generationTime}.
+     */
+    public interface GenerationTimeStep {
+        
+        /**
+         * Setter for the mandory attribute {@code generationTime} in the upcoming 
+         * instance from the {@code Interface} {@code Tag}. 
+         * 
+         * @param  generationTime value for the attribute {@code generationTime}.
          * @return the next optional steps {@code Step} in this fluent builder.
          */
-        public Step title(final String title);
+        public Step generationTime(final Long generationTime);
         
     }
     
@@ -118,15 +137,6 @@ public final class TagBuilder {
      * @see java.util.Optional#empty()
      */
     public interface Step {
-        
-        /**
-         * Setter for the optional attribute {@code generationTime} in the upcoming 
-         * instance from the {@code Interface} {@code Tag}. 
-         * 
-         * @param  generationTime value for the attribute {@code generationTime}.
-         * @return the next optional steps {@code Step} in this fluent builder.
-         */
-        public Step generationTime(final Long generationTime);
         
         /**
          * Setter for the optional attribute {@code description} in the upcoming 
@@ -157,7 +167,7 @@ public final class TagBuilder {
         
     }
 
-    private static final class TagBuilderImpl implements IdStep, Step, TitleStep {
+    private static final class TagBuilderImpl implements GenerationTimeStep, IdStep, Step, TitleStep {
         
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
@@ -186,7 +196,7 @@ public final class TagBuilder {
         }
 
         @Override
-        public Step title(final String title) {
+        public GenerationTimeStep title(final String title) {
             DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(title);
             properties.put(TAG_PARA__TITLE, new SimpleStringProperty(title));
             
@@ -231,8 +241,8 @@ public final class TagBuilder {
                     id.getValue(),
                     title.getValue(),
                     generationTime.getValue(),
-                    description.getValue(),
-                    style.getValue());
+                    Optional.ofNullable(description.getValue()),
+                    Optional.ofNullable(style.getValue()));
         }
 
     }

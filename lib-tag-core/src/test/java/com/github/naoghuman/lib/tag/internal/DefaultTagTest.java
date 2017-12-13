@@ -47,15 +47,25 @@ public class DefaultTagTest {
     }
     
     // #########################################################################
-
+    
     @Test
-    public void testCreate() {
-        Long id             = System.nanoTime();
-        String title        = "hello tag";
+    public void testCreateWithThreeParameters() {
+        Long   id             = System.nanoTime();
+        String title          = "hello tag";
+        Long   generationTime = System.nanoTime();
         
-        Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Tag result = DefaultTag.create(id, title, generationTime);
+        assertNotNull(result);
+    }
+    
+    @Test
+    public void testCreateWithFiveParameters() {
+        Long   id             = System.nanoTime();
+        String title          = "hello tag";
+        Long   generationTime = System.nanoTime();
+        
+        Optional<String> description = Optional.empty();
+        Optional<String> style       = Optional.empty();
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -63,80 +73,78 @@ public class DefaultTagTest {
 
     @Test(expected = NullPointerException.class)
     public void testCreateThrowsBecauseIdIsNULL() {
-        Long id             = null;
-        String title        = "hello tag";
-        
+        Long   id             = null;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         DefaultTag.create(id, title, generationTime, description, style);
     }
 
     @Test(expected = NullPointerException.class)
     public void testCreateThrowsBecauseTitleIsNULL() {
-        Long id             = System.nanoTime();
-        String title        = null;
-        
+        Long   id             = System.nanoTime();
+        String title          = null;
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         DefaultTag.create(id, title, generationTime, description, style);
     }
 
-//    @Test
-//    public void testCreateGenerationTimeIsOptionalEmpty() {
-//        Long id             = System.nanoTime();
-//        String title        = null;// XXX muesste ein fehler
-//        
-//        Long   generationTime = 1L;
-//        String description    = "description";
-//        String style          = "-fx-style";
-//        
-//        Tag result = DefaultTag.create(id, title, generationTime, description, style);
-//        assertNotNull(result);
-//        assertEquals(Optional.empty(), result.getGenerationTime());
-//    }
+    @Test(expected = NullPointerException.class)
+    public void testCreateThrowsBecauseGenerationTimeIsNULL() {
+        Long   id             = System.nanoTime();
+        String title          = "hello tag";
+        Long   generationTime = null;
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
+        
+        DefaultTag.create(id, title, generationTime, description, style);
+    }
 
-//    @Test
-//    public void testCreateDescriptionTimeIsOptionalEmpty() {
-//        Long id             = System.nanoTime();
-//        String title        = null;
-//        
-//        Long   generationTime = 1L;
-//        String description    = "description";
-//        String style          = "-fx-style";
-//        
-//        Tag result = DefaultTag.create(id, title, generationTime, description, style);
-//        assertNotNull(result);
-//        assertEquals(Optional.empty(), result.getDescription());
-//    }
+    @Test
+    public void testCreateDescriptionIsOptionalEmpty() {
+        Long   id             = System.nanoTime();
+        String title          = "hello tag";
+        Long   generationTime = 1L;
+        
+        Optional<String> description = Optional.empty();
+        Optional<String> style       = Optional.of("-fx-style");
+        
+        Tag result = DefaultTag.create(id, title, generationTime, description, style);
+        assertNotNull(result);
+        assertEquals(Optional.empty(), result.getDescription());
+    }
 
-//    @Test
-//    public void testCreateStyleTimeIsOptionalEmpty() {
-//        Long id             = System.nanoTime();
-//        String title        = null;
-//        
-//        Long   generationTime = 1L;
-//        String description    = "description";
-//        String style          = "-fx-style";
-//        
-//        Tag result = DefaultTag.create(id, title, generationTime, description, style);
-//        assertNotNull(result);
-//        assertEquals(Optional.empty(), result.getStyle());
-//    }
+    @Test
+    public void testCreateStyleTimeIsOptionalEmpty() {
+        Long   id             = System.nanoTime();
+        String title          = "hello tag";
+        Long   generationTime = 1L;
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.empty();
+        
+        Tag result = DefaultTag.create(id, title, generationTime, description, style);
+        assertNotNull(result);
+        assertEquals(Optional.empty(), result.getStyle());
+    }
     
     // #########################################################################
 
     @Test
     public void testGetId() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -145,12 +153,12 @@ public class DefaultTagTest {
 
     @Test
     public void testSetId() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -162,12 +170,12 @@ public class DefaultTagTest {
 
     @Test(expected = NullPointerException.class)
     public void testSetIdThrowsBecauseItIsNULL() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -176,19 +184,16 @@ public class DefaultTagTest {
         result.setId(null);
     }
     
-    // TODO add read-only-long-property
-    // TODO change in DefaultTAgRealation to read-only-properties
-    
     // #########################################################################
 
     @Test
     public void testGetTitle() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -197,12 +202,12 @@ public class DefaultTagTest {
 
     @Test
     public void testSetTitle() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -214,12 +219,12 @@ public class DefaultTagTest {
 
     @Test(expected = NullPointerException.class)
     public void testSetTitleThrowsBecauseItIsNULL() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -230,12 +235,12 @@ public class DefaultTagTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testSetTitleThrowsBecauseItIsEMPTY() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
+        Long   id             = 123456789L;
+        String title          = "hello tag";
         Long   generationTime = 1L;
-        String description    = "description";
-        String style          = "-fx-style";
+        
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -248,66 +253,48 @@ public class DefaultTagTest {
 
     @Test
     public void testGetGenerationTime() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
-        assertTrue(result.getGenerationTime().isPresent());
-        assertEquals(generationTime, result.getGenerationTime().get());
+        assertEquals(generationTime, result.getGenerationTime());
     }
 
     @Test
     public void testSetGenerationTime() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
-        assertTrue(result.getGenerationTime().isPresent());
-        assertEquals(generationTime, result.getGenerationTime().get());
+        assertEquals(generationTime, result.getGenerationTime());
         
         Long newGenerationTime = 54321L;
         result.setGenerationTime(newGenerationTime);
-        assertTrue(result.getGenerationTime().isPresent());
-        assertEquals(newGenerationTime, result.getGenerationTime().get());
-    }
-
-    @Test
-    public void testSetGenerationTimeNullInConstructorIsOptionalEmpty() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
-        Long   generationTime = null;
-        String description    = "description";
-        String style          = "-fx-style";
-        
-        Tag result = DefaultTag.create(id, title, generationTime, description, style);
-        assertNotNull(result);
-        assertFalse(result.getGenerationTime().isPresent());
+        assertEquals(newGenerationTime, result.getGenerationTime());
     }
 
     @Test(expected = NullPointerException.class)
     public void testSetGenerationTimeThrowsBecauseItIsNULL() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
-        assertTrue(result.getGenerationTime().isPresent());
-        assertEquals(generationTime, result.getGenerationTime().get());
+        assertEquals(generationTime, result.getGenerationTime());
         
         result.setGenerationTime(null);
     }
@@ -316,12 +303,12 @@ public class DefaultTagTest {
 
     @Test
     public void testGetDescription() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -331,12 +318,12 @@ public class DefaultTagTest {
 
     @Test
     public void testSetDescription() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -348,28 +335,14 @@ public class DefaultTagTest {
         assertEquals("new description", result.getDescription().get());
     }
 
-    @Test
-    public void testSetDescriptionNullInConstructorIsOptionalEmpty() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
-        Long   generationTime = 987654321L;
-        String description    = null;
-        String style          = "-fx-style";
-        
-        Tag result = DefaultTag.create(id, title, generationTime, description, style);
-        assertNotNull(result);
-        assertFalse(result.getDescription().isPresent());
-    }
-
     @Test(expected = NullPointerException.class)
     public void testSetDescriptionThrowsBecauseItIsNULL() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -381,14 +354,14 @@ public class DefaultTagTest {
     
     // #########################################################################
 
-//    @Test
+    @Test
     public void testGetStyle() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -398,12 +371,12 @@ public class DefaultTagTest {
 
     @Test
     public void testSetStyle() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -415,28 +388,14 @@ public class DefaultTagTest {
         assertEquals("new -fx-style", result.getStyle().get());
     }
 
-    @Test
-    public void testSetStyleNullInConstructorIsOptionalEmpty() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
-        
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = null;
-        
-        Tag result = DefaultTag.create(id, title, generationTime, description, style);
-        assertNotNull(result);
-        assertFalse(result.getStyle().isPresent());
-    }
-
     @Test(expected = NullPointerException.class)
     public void testSetStyleThrowsBecauseItIsNULL() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -450,12 +409,12 @@ public class DefaultTagTest {
 
     @Test
     public void testIsMarkAsChanged() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -464,12 +423,12 @@ public class DefaultTagTest {
 
     @Test
     public void testSetMarkAsChanged() {
-        Long id             = 123456789L;
-        String title        = "hello tag";
+        Long   id             = 123456789L;
+        String title          = "hello tag";
+        Long   generationTime = 1L;
         
-        Long   generationTime = 987654321L;
-        String description    = "description";
-        String style          = "-fx-style";
+        Optional<String> description = Optional.of("description");
+        Optional<String> style       = Optional.of("-fx-style");
         
         Tag result = DefaultTag.create(id, title, generationTime, description, style);
         assertNotNull(result);
@@ -480,27 +439,6 @@ public class DefaultTagTest {
     }
     
     // #########################################################################
-
-//    @Test
-//    public void testCompareTo() {
-//        System.out.println("compareTo");
-//        Tag other = null;
-//        DefaultTag instance = null;
-//        int expResult = 0;
-//        int result = instance.compareTo(other);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-
-//    @Test
-//    public void testHashCode() {
-//        System.out.println("hashCode");
-//        DefaultTag instance = null;
-//        int expResult = 0;
-//        int result = instance.hashCode();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
 
 //    @Test
 //    public void testEquals() {

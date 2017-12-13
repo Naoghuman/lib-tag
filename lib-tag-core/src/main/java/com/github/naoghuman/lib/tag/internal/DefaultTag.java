@@ -22,6 +22,7 @@ import java.beans.Transient;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -44,6 +45,36 @@ public final class DefaultTag implements Tag {
      * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.<br>
      * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder}
      * is preferred against the directly usage from this method.
+     * 
+     * <ul>
+     * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+     * <li>Setting an value will be validate the value against 
+     *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+     * </ul>
+     * 
+     * This method delegates to 
+     * {@link com.github.naoghuman.lib.tag.internal.DefaultTag#create(java.lang.Long, java.lang.String, java.util.Optional, java.util.Optional, java.util.Optional) }
+     * where all optional values are {@link java.util.Optional#empty()}.
+     * 
+     * @param  id             The id (mandory attribute) from this DefaultTag.
+     * @param  title          The title (mandory attribute) from this DefaultTag.
+     * @param  generationTime The generationTime (mandory attribute) from this DefaultTag.
+     * @return                A new instance from the {@code Interface} Tag.
+     * @see    com.github.naoghuman.lib.tag.core.Tag
+     * @see    com.github.naoghuman.lib.tag.core.TagBuilder
+     * @see    com.github.naoghuman.lib.tag.core.TagValidator
+     * @see    java.util.Optional#empty()
+     */
+    public static final Tag create(
+            final Long id, final String title, final Long generationTime
+    ) {
+        return DefaultTag.create(id, title, generationTime, Optional.empty(), Optional.empty());
+    }
+    
+    /**
+     * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.<br>
+     * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder}
+     * is preferred against the directly usage from this method.
      * <ul>
      * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
      * <li>All other attributes are optional, that means if not set then {@link java.util.Optional#empty()}
@@ -54,7 +85,7 @@ public final class DefaultTag implements Tag {
      * 
      * @param  id             The id (mandory attribute) from this DefaultTag.
      * @param  title          The title (mandory attribute) from this DefaultTag.
-     * @param  generationTime Optional attribute. If not set then Optional#empty() will returned.
+     * @param  generationTime The generationTime (mandory attribute) from this DefaultTag.
      * @param  description    Optional attribute. If not set then Optional#empty() will returned.
      * @param  style          Optional attribute. If not set then Optional#empty() will returned.
      * @return                A new instance from the {@code Interface} Tag.
@@ -65,7 +96,7 @@ public final class DefaultTag implements Tag {
      */
     public static final Tag create(
             final Long id, final String title, final Long generationTime, 
-            final String description, final String style
+            final Optional<String> description, final Optional<String> style
     ) {
         return new DefaultTag(id, title, generationTime, description, style);
     }
@@ -74,28 +105,25 @@ public final class DefaultTag implements Tag {
     
     private Long   id;
     private String title;
+    private Long generationTime;
     
-    private Optional<Long>   generationTime = Optional.empty();
-    private Optional<String> description    = Optional.empty();
-    private Optional<String> style          = Optional.empty();
+    private Optional<String> description = Optional.empty();
+    private Optional<String> style       = Optional.empty();
     
     private DefaultTag(
             final Long id, final String title, final Long generationTime, 
-            final String description, final String style
+            final Optional<String> description, final Optional<String> style
     ) {
         this.setId(id);
         this.setTitle(title);
+        this.setGenerationTime(generationTime);
         
-        if (generationTime != null) {
-            this.setGenerationTime(generationTime);
+        if (description.isPresent()) {
+            this.setDescription(description.get());
         }
         
-        if (description != null) {
-            this.setDescription(description);
-        }
-        
-        if (style != null) {
-            this.setStyle(style);
+        if (style.isPresent()) {
+            this.setStyle(style.get());
         }
         
         markAsChanged = Boolean.FALSE;
@@ -126,7 +154,7 @@ public final class DefaultTag implements Tag {
     }
     
     @Override
-    public Optional<Long> getGenerationTime() {
+    public Long getGenerationTime() {
         return generationTime;
     }
 
@@ -134,7 +162,7 @@ public final class DefaultTag implements Tag {
     public void setGenerationTime(final Long generationTime) {
         DefaultTagValidator.getDefault().requireNonNull(generationTime);
         
-        this.generationTime = Optional.of(generationTime);
+        this.generationTime = generationTime;
     }
     
     @Override
@@ -188,44 +216,50 @@ public final class DefaultTag implements Tag {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (int) (this.getId() ^ (this.getId() >>> 32));
-        result = prime * result + this.getTitle().hashCode();
+        result = prime * result + Objects.hashCode(this.id);
+        result = prime * result + Objects.hashCode(this.title);
+        result = prime * result + Objects.hashCode(this.generationTime);
 
         return result;
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-
+        
         if (obj == null) {
             return false;
         }
-
+        
         if (getClass() != obj.getClass()) {
             return false;
         }
-
+        
         final DefaultTag other = (DefaultTag) obj;
-        if (Long.compare(this.getId(), other.getId()) != 0) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
-
-        return this.getTitle().equals(other.getTitle());
+        
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        
+        return Objects.equals(this.generationTime, other.generationTime);
     }
-
+    
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("Tag ["); // NOI18N
 
-        sb.append("id=")              .append(this.getId());    // NOI18N
-        sb.append(", title=")         .append(this.getTitle()); // NOI18N
-        sb.append(", generationTime=").append(this.getGenerationTime().isPresent() ? this.getGenerationTime().get() : NOT_DEFINED); // NOI18N
-        sb.append(", description=")   .append(this.getDescription().isPresent()    ? this.getDescription().get()    : NOT_DEFINED); // NOI18N
-        sb.append(", style=")         .append(this.getStyle().isPresent()          ? this.getStyle().get()          : NOT_DEFINED); // NOI18N
+        sb.append("id=")              .append(this.getId());             // NOI18N
+        sb.append(", title=")         .append(this.getTitle());          // NOI18N
+        sb.append(", generationTime=").append(this.getGenerationTime()); // NOI18N
+        
+        sb.append(", description=")   .append(this.getDescription().isPresent() ? this.getDescription().get() : NOT_DEFINED); // NOI18N
+        sb.append(", style=")         .append(this.getStyle().isPresent()       ? this.getStyle().get()       : NOT_DEFINED); // NOI18N
 
         sb.append("]"); // NOI18N
 
@@ -236,20 +270,18 @@ public final class DefaultTag implements Tag {
     public void writeExternal(final ObjectOutput out) throws IOException {
         out.writeLong(this.getId());
         out.writeObject(this.getTitle());
+        out.writeLong(this.getGenerationTime());
         
-        out.writeLong(this.getGenerationTime().isPresent() ? this.getGenerationTime().get() : Long.MIN_VALUE);
-        out.writeObject(this.getDescription().isPresent()  ? this.getDescription().get()    : NOT_DEFINED);
-        out.writeObject(this.getStyle().isPresent()        ? this.getStyle().get()          : NOT_DEFINED);
+        out.writeObject(this.getDescription().isPresent() ? this.getDescription().get() : NOT_DEFINED);
+        out.writeObject(this.getStyle().isPresent()       ? this.getStyle().get()       : NOT_DEFINED);
     }
 
     @Override
     public void readExternal(final ObjectInput in) throws IOException, ClassNotFoundException {
         this.setId(in.readLong());
         this.setTitle(String.valueOf(in.readObject()));
-        
-        final Long readedGenerationTime = in.readLong();
-        this.generationTime = (Long.compare(readedGenerationTime, Long.MIN_VALUE) == 0) ? Optional.ofNullable(readedGenerationTime) : Optional.empty() ;
-        
+        this.setGenerationTime(in.readLong());
+
         final String readedDescription = String.valueOf(in.readObject());
         this.description = (readedDescription.equals(NOT_DEFINED)) ? Optional.ofNullable(readedDescription) : Optional.empty();
         
