@@ -18,7 +18,7 @@ or analysed for a `Tag`.
 > with the sub-library [Lib-Tag-Components].
 
 _Image:_ [UML] Lib-Tag-Core  
-![uml_lib-tag-core_2017-11-27_15-51.png][uml_lib-tag-core_2017-11-27_15-51]
+![uml_lib-tag-core_2017-12-16_21-40.png][uml_lib-tag-core_2017-12-16_21-40]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -31,16 +31,17 @@ _Image:_ [UML] Lib-Tag-Core
 
 Content
 ---
-
 * [Examples](#Ex)
     * [Usage of the class `TagBuilder`](#UsOfThClTaBu)
     * [Usage of the class `TagRelationBuilder`](#UsOfThClTaReBu)
+    * [Usage of the class `TagRelationContainerIdBuilder`](#UsOfThClTaReCoIdBu)
 * [API: com.github.naoghuman.lib.tag.core](#LiTaCo)
     * [TagBuilder](#TaBu)
     * [Tag](#Tag)
     * [TagRelationBuilder](#TaReBu)
     * [TagRelation](#TaRe)
-    * [TagRelationIdGenerator](#TaReIdGe)
+    * [TagRelationContainerIdBuilder](#TaReCoIdBu)
+    * [TagRelationContainerId](#TaReCoId)
     * [TagValidator](#TaVa)
 * [License](#License)
 * [Autor](#Autor)
@@ -58,26 +59,31 @@ It is very easy to create a [Tag] with the fluent builder [TagBuilder]:
 
 ```java
 /**
- * With the fluent builder {@code TagBuilder} its possible to create a 
- * {@code Tag}.
+ * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+ * its possible to create easly a {@code Tag} which is the preferred way.
+ * 
  * <ul>
- * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
- * <li>The other attributes are {@code optional}.</li>
+ * <li>The first three attributes {@code id}, {@code title} and {@code generationTime} are mandory.</li>
+ * <li>All other attributes are {@code optional}.</li>
  * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
  * </ul>
+ * 
+ * @see com.github.naoghuman.lib.tag.core.Tag
+ * @see com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see com.github.naoghuman.lib.tag.core.TagValidator
  */
 final Tag tag = TagBuilder.create()
         .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)
         .title("title")                   // mandory (NOT NULL && NOT EMPTY)
-        .generationTime(Long.MIN_VALUE)   // optional
+        .generationTime(Long.MIN_VALUE)   // mandory (NOT NULL)
         .description("description")       // optional
         .style("style")                   // optional
         .build();
 ```
 
-The same combinations __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):
+The same __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):  
 _Image:_ Business process modeling diagram from `TagBuilder`  
-![tagbuilder_v0.1.0_2017-07-15_10-48.png][tagbuilder_v0.1.0_2017-07-15_10-48]
+![bpm_lib-tag-core_tagbuilder_2017-12-17_08-23.png][bpm_lib-tag-core_tagbuilder_2017-12-17_08-23]
 
 > __Hint__  
 > . The generation from a `Tag` starts with the method `create()`.  
@@ -94,33 +100,93 @@ __Additional informations__
 ### Usage of the class `TagRelationBuilder`<a name="UsOfThClTaReBu" />
 
 With a [TagRelation] its possible to `map` a [Tag] with a specific gui component. 
-So the application `knows` which [Tag]s should be shown in a [Button] or in a [FlowPane]...
+So the application `knows` which [Tag]s should be shown for example in a [Button] 
+or in a [FlowPane].
 
 ```java
 /**
- * With the fluent builder {@code TagRelationBuilder} its possible to create
- * a {@code TagRelation} which can be used to map a {@code Tag} against 
+ * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
+ * its possible to create easly a {@link com.github.naoghuman.lib.tag.core.TagRelation}
+ * which can be used to map a {@link com.github.naoghuman.lib.tag.core.Tag} against 
  * a gui component.
+ * 
  * <ul>
  * <li>All attributes in the builder are {@code mandory}.</li>
  * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
  * </ul>
+ * 
+ * @see com.github.naoghuman.lib.tag.core.Tag
+ * @see com.github.naoghuman.lib.tag.core.TagRelation
+ * @see com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
+ * @see com.github.naoghuman.lib.tag.core.TagValidator
  */
 final TagRelation tagRelation = TagRelationBuilder.create()
-        .id(TagRelation.DEFAULT_ID)     // mandory (NOT NULL)
-        .tagId(0L)                      // mandory (NOT NULL)
-        .containerId("containerId")     // mandory (NOT NULL && NOT EMPTY)
+        .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)
+        .tagId(0L)                                          // mandory (NOT NULL)
+        .containerId(TagRelationContainerIdBuilder.create()
+                .path(TagRelationContainerId.class)         // mandory (NOT NULL)
+                .container(AnchorPane.class)                // mandory (NOT NULL)
+                .containerId("container-id")                // mandory (NOT NULL && NOT EMPTY)
+                .build())
         .build();
 ```
 
 The same like above __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):  
 _Image:_ Business process modeling diagram from `TagRelationBuilder`  
-![bpm_tagreleationbuilder_2017-11-25_22-42.png][bpm_tagreleationbuilder_2017-11-25_22-42]
+![bpm_lib-tag-core_tagreleationbuilder_2017-11-25_22-42.png][bpm_lib-tag-core_tagreleationbuilder_2017-11-25_22-42]
 
 > __Hint__  
 > . The generation from a `TagRelation` starts with the method `create()`.  
 > . `Green` rectangles are `mandory` attributes.  
 > . The `TagRelation` will then created with the last method `build()`.
+
+__Additional informations__  
+* Design Pattern: [Fluent Interface]
+* Design Pattern: [Builder pattern]
+* Design Pattern: [Step builder pattern]
+
+
+### Usage of the class `TagRelationContainerIdBuilder`<a name="UsOfThClTaReContainerIdBu" />
+
+To identify the container and the assoziated [Tag]s from the container a unique `id` 
+is required. Here comes the following fluent builder in the game:
+
+```java
+/**
+ * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+ * its possible to create easly an unique {@code Id} which can be used to map a 
+ * {@link com.github.naoghuman.lib.tag.core.Tag} against a gui component.
+ * 
+ * For more information about how to map a {@code Tag} with a container see 
+ * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+ * 
+ * <ul>
+ * <li>All attributes in the builder are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+ * </ul>
+ * 
+ * @see com.github.naoghuman.lib.tag.core.Tag
+ * @see com.github.naoghuman.lib.tag.core.TagRelation
+ * @see com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
+ * @see com.github.naoghuman.lib.tag.core.TagValidator
+ */
+final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
+        .path(TagRelationContainerId.class) // mandory (NOT NULL)
+        .container(AnchorPane.class)        // mandory (NOT NULL)
+        .containerId("container-id")        // mandory (NOT NULL && NOT EMPTY)
+        .build();
+```
+
+Again the same __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):  
+_Image:_ Business process modeling diagram from `TagRelationContainerIdBuilder`  
+![bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32.png][bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32]
+
+> __Hint__  
+> . The generation from a `TagRelationContainerId` starts with the method `create()`.  
+> . `Green` rectangles are `mandory` attributes.  
+> . The `TagRelationContainerId` will then created with the last method `build()`.
 
 __Additional informations__  
 * Design Pattern: [Fluent Interface]
@@ -142,18 +208,17 @@ API: com.github.naoghuman.lib.tag.core<a name="LiTaCo" />
  * {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
- * <li>All other attributes are optional, that means skipping them returns 
- *     {@link java.util.Optional#empty()}.</li>
- * <li>Any attribute (mandory or optional if set) will be validate against 
- *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+ * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
+ * <li>Any attribute (mandory or optional if set) will be validate against {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
  * </ul>
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.Tag
- * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.TagValidator
- * @see    java.util.Optional#empty()
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see     com.github.naoghuman.lib.tag.core.TagValidator
+ * @see     java.util.Optional#empty()
  */
 public final class TagBuilder
 ```
@@ -163,7 +228,8 @@ public final class TagBuilder
  * Starting point from this fluent builder to generate and configured an 
  * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
  * 
- * @return the first step to generate and configured an instance from the {@code Interface} {@code Tag}.
+ * @return the first step to generate and configured an instance from the 
+ *         {@code Interface} {@code Tag}.
  * @see    com.github.naoghuman.lib.tag.core.Tag
  */
 public static final IdStep create()
@@ -171,7 +237,8 @@ public static final IdStep create()
 
 ```java
 /**
- * First mandory step to generate and configured an instance from the {@code Interface} {@code Tag}.<br>
+ * First mandory step to generate and configured an instance from the 
+ * {@code Interface} {@code Tag}.<br>
  * This {@code Interface} allowed to set the attribute {@code id}.
  */
 public interface IdStep
@@ -179,10 +246,20 @@ public interface IdStep
 
 ```java
 /**
- * Second mandory step to generate and configured an instance from the {@code Interface} {@code Tag}.<br>
+ * Second mandory step to generate and configured an instance from the 
+ * {@code Interface} {@code Tag}.<br>
  * This {@code Interface} allowed to set the attribute {@code title}.
  */
-public interface TitleStep
+public interface TitleStep 
+```
+
+```java
+/**
+ * Third mandory step to generate and configured an instance from the 
+ * {@code Interface} {@code Tag}.<br>
+ * This {@code Interface} allowed to set the attribute {@code generationTime}.
+ */
+public interface GenerationTimeStep
 ```
 
 ```java
@@ -190,12 +267,9 @@ public interface TitleStep
  * Optional steps for the configuration from the new instance from the 
  * {@code Interface} {@code Tag}.<br>
  * <ul>
- * <li>All attributes in this {@code Interface} are optional. If not set, then
- *     {@link java.util.Optional#empty()} will be returned.</li>
- * <li>All setted values will be validate against the {@code Interface} 
- *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
- * <li>For any optinal attribute if setted more then ones then the last 
- *     {@code value} will be used for the configuration.</li>
+ * <li>All attributes in this {@code Interface} are optional. If not set, then {@link java.util.Optional#empty()} will be returned.</li>
+ * <li>All setted values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+ * <li>For any optinal attribute if setted more then ones then the last {@code value} will be used for the configuration.</li>
  * </ul>
  * 
  * @see com.github.naoghuman.lib.tag.core.TagValidator
@@ -286,7 +360,7 @@ public static final String TAG_PARA__TITLE = "title"; // NOI18N
  * 
  * @return the value from the attribute {@code id}.
  */
-public Long getId();
+public long getId();
 ```
 
 ```java
@@ -295,8 +369,9 @@ public Long getId();
  * This is an mandory value. Setting the value will validate the value against 
  * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param id the new value for the attribute {@code id}.
- * @see   com.github.naoghuman.lib.tag.core.TagValidator
+ * @param  id the new value for the attribute {@code id}.
+ * @throws NullPointerException if {@code id} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setId(final Long id);
 ```
@@ -316,29 +391,32 @@ public String getTitle();
  * This is an mandory value. Setting the value will validate the value against 
  * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param title the new value for the attribute {@code title}.
- * @see   com.github.naoghuman.lib.tag.core.TagValidator
+ * @param  title the new value for the attribute {@code title}.
+ * @throws IllegalArgumentException if {@code id} is EMPTY.
+ * @throws NullPointerException     if {@code id} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setTitle(final String title);
 ```
 
 ```java
 /**
- * Gets the value from the attribute {@code generationTime} from this {@code Tag}.<br>
- * This is an optional value. That means if not set then {@link java.util.Optional#empty()}
- * will returned.
+ * Gets the value from the attribute {@code generationTime} from this {@code Tag}.
  * 
  * @return the value from the attribute {@code generationTime}.
- * @see    java.util.Optional#empty()
  */
-public Optional<Long> getGenerationTime();
+public Long getGenerationTime();
 ```
 
 ```java
 /**
- * Sets the new value from the attribute {@code generationTime}.
+ * Sets the new optional value from the attribute {@code generationTime}.<br>
+ * If the value is set then it will be valid against 
+ * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param generationTime the new value for the attribute {@code generationTime}.
+ * @param  generationTime the new value for the attribute {@code generationTime}.
+ * @throws NullPointerException if {@code generationTime} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setGenerationTime(final Long generationTime);
 ```
@@ -357,9 +435,14 @@ public Optional<String> getDescription();
 
 ```java
 /**
- * Sets the new value from the attribute {@code description}.
+ * Sets the new optional value from the attribute {@code description}.<br>
+ * If the value is set then it will be valid against 
+ * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param description the new value for the attribute {@code description}.
+ * @param  description the new value for the attribute {@code description}.
+ * @throws IllegalArgumentException if {@code description} is EMPTY.
+ * @throws NullPointerException     if {@code description} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setDescription(final String description);
 ```
@@ -377,10 +460,15 @@ public Optional<String> getStyle();
 ```
 
 ```java
-/**
- * Sets the new value from the attribute {@code style}.
+**
+ * Sets the new optional value from the attribute {@code style}.<br>
+ * If the value is set then it will be valid against 
+ * {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param style the new value for the attribute {@code style}.
+ * @param  style the new value for the attribute {@code style}.
+ * @throws IllegalArgumentException if {@code style} is EMPTY.
+ * @throws NullPointerException     if {@code style} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setStyle(final String style);
 ```
@@ -430,10 +518,11 @@ public final class TagRelationBuilder
 
 ```java
 /**
- * Starting point from this fluent builder to generate and configured an 
+ * Starting point from this fluent builder to configured and generate an 
  * instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelation}.
  * 
- * @return the first step to generate and configured an instance from the {@code Interface} {@core TagRelation}.
+ * @return the first step to configure and generate an instance from the 
+ *         {@code Interface} {@code TagRelation}.
  * @see    com.github.naoghuman.lib.tag.core.TagRelation 
  */
 public static final IdStep create()
@@ -441,15 +530,17 @@ public static final IdStep create()
 
 ```java
 /**
- * First mandory step to generate and configured an instance from the {@code Interface} {@core TagRelation}.<br>
+ * First mandory step to configure and generate an instance from the {@code Interface} 
+ * {@code TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code id}.
  */
-public interface IdStep
+ public interface IdStep
 ```
 
 ```java
 /**
- * Second mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * Second mandory step to generate and configured an instance from the 
+ * {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code tagId}.
  */
 public interface TagIdStep
@@ -457,7 +548,8 @@ public interface TagIdStep
 
 ```java
 /**
- * Third mandory step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * Third mandory step to generate and configured an instance from the 
+ * {@code Interface} {@code TagRelation}.<br>
  * This {@code Interface} allowed to set the attribute {@code containerId}.
  */
 public interface ContainerIdStep
@@ -465,7 +557,8 @@ public interface ContainerIdStep
 
 ```java
 /**
- * Last step to generate and configured an instance from the {@code Interface} {@code TagRelation}.<br>
+ * Last step to generate and configured an instance from the {@code Interface} 
+ * {@code TagRelation}.<br>
  * This {@code Interface} returned the generated and configured instance.
  */
 public interface Builder
@@ -535,8 +628,12 @@ public long getId();
 ```java
 /**
  * Sets the new value from the attribute {@code id}.
+ * <p>
+ * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param id the new value for the attribute {@code id}.
+ * @param  id the new value for the attribute {@code id}.
+ * @throws NullPointerException if {@code id} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setId(final Long id);
 ```
@@ -563,8 +660,12 @@ public long getTagId();
 ```java
 /**
  * Sets the new value from the attribute {@code tagId}.
+ * <p>
+ * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param tagId the new value for the attribute {@code tagId}.
+ * @param  tagId the new value for the attribute {@code tagId}.
+ * @throws NullPointerException if {@code tagId} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setTagId(final Long tagId);
 ```
@@ -592,8 +693,13 @@ public String getContainerId();
 ```java
 /**
  * Sets the new value from the attribute {@code containerId}.
+ * <p>
+ * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
  * 
- * @param containerId the new value for the attribute {@code containerId}.
+ * @param  containerId the new value for the attribute {@code containerId}.
+ * @throws IllegalArgumentException if {@code containerId} is EMPTY.
+ * @throws NullPointerException     if {@code containerId} is NULL.
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
  */
 public void setContainerId(final String containerId);
 ```
@@ -609,12 +715,82 @@ public StringProperty containerIdProperty();
 ```
 
 
-### TagRelationIdGenerator<a name="TaReIdGe" />
+### TagRelationContainerIdBuilder<a name="TaReCoIdBu" />
 
 ```java
 /**
- * This {@code Interface} contains different default methods to generate an 
- * unique {@code Id} and returned it as a {@link java.lang.String}.
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+ * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
+ * <p>
+ * The main point from this {@code builder} is the possibility to generate an unique 
+ * {@code Id} for a relation between a {@link com.github.naoghuman.lib.tag.core.Tag}
+ * and the container where the {@code Tag} will be embbeded.
+ * 
+ * <ul>
+ * <li>All attributes are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface} 
+ *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+ * </ul>
+ *
+ * @author Naoghuman
+ * @since  0.3.0
+ * @see    com.github.naoghuman.lib.tag.core.Tag
+ * @see    com.github.naoghuman.lib.tag.core.TagRelation
+ * @see    com.github.naoghuman.lib.tag.core.TagValidator
+ */
+public class TagRelationContainerIdBuilder
+```
+
+```java
+/**
+ * Starting point from this fluent builder to configure and create an unique {@code Id},
+ * returned as a {@link java.lang.String}.
+ * 
+ * @return the first step to generate and configured an unique {@code Id}.
+ */
+public static final PathStep create()
+```
+
+```java
+/**
+ * First mandory step to configure and create an unique {@code Id}.<br>
+ * This {@code Interface} allowed to set the attribute {@code path}.
+ */
+public interface PathStep
+```
+
+```java
+/**
+ * Second mandory step to configure and create an unique {@code Id}.<br>
+ * This {@code Interface} allowed to set the attribute {@code container}.
+ */
+public interface ContainerStep
+```
+
+```java
+/**
+ * Third mandory step to configure and create an unique {@code Id}.<br>
+ * This {@code Interface} allowed to set the attribute {@code containerId}.
+ */
+public interface ContainerIdStep
+```
+
+```java
+/**
+ * In the last step the unique {@code Id} will created and returned.<br>
+ * This {@code Interface} allowed to generate the {@code Id}.
+ */
+public interface Builder
+```
+
+
+### TagRelationContainerId<a name="TaReCoId" />
+
+```java
+/**
+ * This {@code Interface} contains the default method {@code generateId(Class, Class, String)}
+ * which allowed the developer to generate an unique {@code Id} and returned it 
+ * as a {@link java.lang.String}.
  * <p>
  * The main point from this {@code Interface} is the possibility to generate an unique 
  * {@code Id} for a relation between a {@link com.github.naoghuman.lib.tag.core.Tag}
@@ -628,74 +804,39 @@ public StringProperty containerIdProperty();
  * @see    com.github.naoghuman.lib.tag.core.Tag
  * @see    com.github.naoghuman.lib.tag.core.TagRelation
  * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * 
  */
-public interface TagRelationIdGenerator
+public interface TagRelationContainerId
 ```
 
 ```java
 /**
- * Use simple {@link java.lang.System#nanoTime()} to generate the {@code Id}.
- * 
- * @return the generated {@code Id}.
- * @since  0.3.0
- * @see    java.lang.System#nanoTime()
- */
-public String generateId();
-```
-
-```java
-/**
- * Generate an (unique) {@code Id} as an {@link java.lang.String}.
- * 
- * This method delegates to 
- * {@link com.github.naoghuman.lib.tag.core.TagRelationIdGenerator#generateId(java.lang.Class, java.lang.Class, java.util.Optional)}
- * with {@link java.util.Optional#empty()}.
- * 
- * @param  path usually the path from the class where the {@code Tag} used.
- * @param  type usually the type of the container where the {@code Tag} should be embbeded.
- * @return the generated {@code Id}.
- * @throws NullPointerException if path or type is NULL.
- * @since  0.3.0
- * @see    java.util.Optional#empty()
- */
-public String generateId(final Class path, final Class type);
-```
-
-```java
-/**
- * Generate an (unique) {@code Id} as an {@link java.lang.String}.
+ * Generates an (unique) {@code Id} as an {@link java.lang.String}.
  * 
  * The format from the {@code Id} is:
  * <ul>
- * <li>path.getCanonicalName()</li>
- * <li>'_'</li>
- * <li>type.getSimpleName()</li>
- * <li>'_' (if additional.isPresent())</li>
- * <li>additional.get() (if additional.isPresent())</li>
- * <li>'_'</li>
- * <li>System.nanoTime()</li>
+ * <li>path.getCanonicalName() + '_' + container.getSimpleName() + '_' + containerId</li>
  * </ul>
  * 
- * Example with/out optional information:
+ * Example:
  * <ul>
- * <li>com.github.naoghuman.lib.tag.internal.DefaultIdGeneratorTest_AnchorPane_Hello-World_832469951006256</li>
  * <li>com.github.naoghuman.lib.tag.internal.DefaultIdGeneratorTest_AnchorPane_832531206890821</li>
  * </ul>
  * 
- * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator#requireNonNull(java.lang.Object)}
- * will be used to validate if {@code path} and / or {@code type} isn't NULL.
+ * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}
+ * will be used to validate if {@code path}, {@code container} and {@code containerId} isn't NULL. The parameter 
+ * {@code containerId} will be checked additional if it isn't EMPTY.
  * 
- * @param path       usually the path from the class where the {@code Tag} used.
- * @param type       usually the type of the container where the {@code Tag} should be embbeded.
- * @param additional flag for additional {@code Id} information.
+ * @param  path        usually the path from the class where the {@code Tag} used.
+ * @param  container   usually the type of the container where the {@code Tag} should be embbeded.
+ * @param  containerId the {@code Id} from the container.
  * @return the generated {@code Id}.
- * @throws NullPointerException if path or type is NULL.
+ * @throws IllegalArgumentException if the containerId is EMPTY.
+ * @throws NullPointerException     if path, container or containerId is NULL.
  * @since  0.3.0
- * @see    com.github.naoghuman.lib.tag.internal.DefaultTagValidator#requireNonNull(java.lang.Object)
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultTagValidator
  * @see    java.lang.System#nanoTime()
  */
-public String generateId(final Class path, final Class type, final Optional<String> additional);
+public String generateId(final Class path, final Class container, final String containerId);
 ```
 
 
@@ -711,7 +852,7 @@ public String generateId(final Class path, final Class type, final Optional<Stri
  * @since  0.1.0
  * @see    java.lang.Object
  */
-public interface Validator 
+public interface TagValidator
 ```
 
 ```java
@@ -761,9 +902,10 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[uml_lib-tag-core_2017-11-27_15-51]:https://user-images.githubusercontent.com/8161815/33272634-053b16de-d38b-11e7-92d2-4a92b11fa8b0.png
-[tagbuilder_v0.1.0_2017-07-15_10-48]:https://user-images.githubusercontent.com/8161815/28238038-702dd80a-694b-11e7-9779-0d2c904cce86.png
-[bpm_tagreleationbuilder_2017-11-25_22-42]:https://user-images.githubusercontent.com/8161815/33235119-18a0dcd6-d232-11e7-8ba0-762cec0944b3.png
+[bpm_lib-tag-core_tagbuilder_2017-12-17_08-23]:https://user-images.githubusercontent.com/8161815/34077423-0925b636-e304-11e7-823f-4e2e288acd24.png
+[bpm_lib-tag-core_tagreleationbuilder_2017-11-25_22-42]:https://user-images.githubusercontent.com/8161815/34077425-16aecb9e-e304-11e7-8c23-d1cf42dbf8ee.png
+[bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32]:https://user-images.githubusercontent.com/8161815/34077450-fef599fa-e304-11e7-903d-e3ad075a0d63.png
+[uml_lib-tag-core_2017-12-16_21-40]:https://user-images.githubusercontent.com/8161815/34074166-c22ebf2a-e2a9-11e7-9a13-dccebb036f73.png
 
 
 

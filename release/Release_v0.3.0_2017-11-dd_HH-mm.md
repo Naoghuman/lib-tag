@@ -41,6 +41,7 @@ for specific tasks. For example:
 
 
 #### Refactoring
+#11 [Documentation] Update the documentation to v0.3.0.
 #6 [Validator] Rename Validator to TagValidator to fit the naming convention.
 
 

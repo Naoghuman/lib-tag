@@ -34,9 +34,9 @@ import javafx.scene.layout.FlowPane;
 /**
  * Over the {@code Class} {@link com.github.naoghuman.lib.tag.components.core.TagComponentsFacade} 
  * the developer have access to several possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
- * in different {@code JavaFX} gui components.<br>
- * Momentary following possibilities exists:
+ * in different {@code JavaFX} gui components.
  * <p>
+ * Momentary following possibilities exists:<br>
  * Show a {@code Tag} as a
  * <ul>
  * <li>JavaFX {@link javafx.scene.control.Button}.</li>

@@ -33,19 +33,19 @@ public class TagBuilderAllowedSteps {
          * its possible to create easly a {@code Tag} which is the preferred way.
          * 
          * <ul>
-         * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+         * <li>The first three attributes {@code id}, {@code title} and {@code generationTime} are mandory.</li>
          * <li>All other attributes are {@code optional}.</li>
          * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
          * </ul>
          * 
-        * @see com.github.naoghuman.lib.tag.core.Tag
-        * @see com.github.naoghuman.lib.tag.core.TagBuilder
-        * @see com.github.naoghuman.lib.tag.core.TagValidator
+         * @see com.github.naoghuman.lib.tag.core.Tag
+         * @see com.github.naoghuman.lib.tag.core.TagBuilder
+         * @see com.github.naoghuman.lib.tag.core.TagValidator
          */
         final Tag tag = TagBuilder.create()
                 .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)
                 .title("title")                   // mandory (NOT NULL && NOT EMPTY)
-                .generationTime(Long.MIN_VALUE)   // optional
+                .generationTime(Long.MIN_VALUE)   // mandory (NOT NULL)
                 .description("description")       // optional
                 .style("style")                   // optional
                 .build();

@@ -58,7 +58,9 @@ public final class TagRelationBuilder {
      * @see    com.github.naoghuman.lib.tag.core.TagRelation 
      */
     public static final IdStep create() {
+        
         return new TagRelationBuilderImpl();
+        
     }
 
     /**

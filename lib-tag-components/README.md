@@ -12,7 +12,7 @@ The sublibrary `Lib-Tag-Components` contains different possibilities to show a
 * A list of `Tag`s can then be shown in the container [FlowPane].
 
 _Image:_ [UML] Lib-Tag-Components  
-![UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07.png][UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07]
+![uml_lib-tag-components_2017-12-16_21-53.png][uml_lib-tag-components_2017-12-16_21-53]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -46,9 +46,9 @@ API: com.github.naoghuman.lib.tag.components.core<a name="LiTaCom" />
 /**
  * Over the {@code Class} {@link com.github.naoghuman.lib.tag.components.core.TagComponentsFacade} 
  * the developer have access to several possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
- * in different {@code JavaFX} gui components.<br>
- * Momentary following possibilities exists:
+ * in different {@code JavaFX} gui components.
  * <p>
+ * Momentary following possibilities exists:<br>
  * Show a {@code Tag} as a
  * <ul>
  * <li>JavaFX {@link javafx.scene.control.Button}.</li>
@@ -65,6 +65,7 @@ API: com.github.naoghuman.lib.tag.components.core<a name="LiTaCom" />
  * @see    com.github.naoghuman.lib.tag.components.core.TagFlowPane
  * @see    com.github.naoghuman.lib.tag.components.core.TagLabel
  */
+public final class TagComponentsFacade implements TagButton, TagFlowPane, TagLabel
 ```
 
 ```java
@@ -140,7 +141,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 
 
 [//]: # (Images)
-[UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07]:https://user-images.githubusercontent.com/8161815/28492739-f0c22878-6f08-11e7-9b92-3d95f33990cb.png
+[uml_lib-tag-components_2017-12-16_21-53]:https://user-images.githubusercontent.com/8161815/34074267-d60f73d4-e2ab-11e7-91d6-8eb2a611cc03.png
 
 
 
@@ -152,4 +153,5 @@ You can reach me under <peter.rogge@yahoo.de>.
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
+[Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language

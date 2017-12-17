@@ -56,7 +56,7 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
 searched or analysed for a `Tag`.
 
 _Image:_ [UML] Lib-Tag-Core  
-![uml_lib-tag-core_2017-11-27_15-51.png][uml_lib-tag-core_2017-11-27_15-51]
+![uml_lib-tag-core_2017-12-16_21-40.png][uml_lib-tag-core_2017-12-16_21-40]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -74,7 +74,7 @@ The sublibrary [Lib-Tag-Components] contains different possibilities to show a
 * A list of `Tag`s can then be shown in the container [FlowPane].
 
 _Image:_ [UML] Lib-Tag-Components  
-![UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07.png][UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07]
+![uml_lib-tag-components_2017-12-16_21-53.png][uml_lib-tag-components_2017-12-16_21-53]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -88,11 +88,11 @@ _Image:_ [UML] Lib-Tag-Components
 Download<a name="Download" />
 ---
 
-Current `version` is `0.2.0`. Main points in this release are:
+TODO Current `version` is `0.2.0`. Main points in this release are:
 * First release from the sub-library `Lib-Tag-Components` :smile: .
 
 **Maven coordinates**  
-In context from a [Maven] project you can use following maven coordinates: 
+TODO In context from a [Maven] project you can use following maven coordinates: 
 ```xml
 <dependencies>
     <dependency>
@@ -109,7 +109,7 @@ In context from a [Maven] project you can use following maven coordinates:
 ```
 
 **Download manuell**
-* [Release v0.2.0 (07.22.2017 / MM.dd.yyyy)]
+* [Release v0.2.0 (07.22.2017 / MM.dd.yyyy)] TODO
 
 **An overview** about all existings releases can be found here:
 * [Overview from all releases in Lib-Tag]
@@ -177,8 +177,8 @@ Contact<a name="Contact" />
 
 
 [//]: # (Images)
-[uml_lib-tag-core_2017-11-27_15-51]:https://user-images.githubusercontent.com/8161815/33272634-053b16de-d38b-11e7-92d2-4a92b11fa8b0.png
-[UML-diagram_Lib-Tag-Components_v0.2.0_2017-07-22_18-07]:https://user-images.githubusercontent.com/8161815/28492739-f0c22878-6f08-11e7-9b92-3d95f33990cb.png
+[uml_lib-tag-core_2017-12-16_21-40]:https://user-images.githubusercontent.com/8161815/34074166-c22ebf2a-e2a9-11e7-9a13-dccebb036f73.png
+[uml_lib-tag-components_2017-12-16_21-53]:https://user-images.githubusercontent.com/8161815/34074267-d60f73d4-e2ab-11e7-91d6-8eb2a611cc03.png
 
 
 

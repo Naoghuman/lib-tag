@@ -40,18 +40,17 @@ import javafx.collections.ObservableMap;
  * {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <ul>
  * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
- * <li>All other attributes are optional, that means skipping them returns 
- *     {@link java.util.Optional#empty()}.</li>
- * <li>Any attribute (mandory or optional if set) will be validate against 
- *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+ * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
+ * <li>Any attribute (mandory or optional if set) will be validate against {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
  * </ul>
  *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.Tag
- * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.TagValidator
- * @see    java.util.Optional#empty()
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.3.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see     com.github.naoghuman.lib.tag.core.TagValidator
+ * @see     java.util.Optional#empty()
  */
 public final class TagBuilder {
     
@@ -125,12 +124,9 @@ public final class TagBuilder {
      * Optional steps for the configuration from the new instance from the 
      * {@code Interface} {@code Tag}.<br>
      * <ul>
-     * <li>All attributes in this {@code Interface} are optional. If not set, then
-     *     {@link java.util.Optional#empty()} will be returned.</li>
-     * <li>All setted values will be validate against the {@code Interface} 
-     *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
-     * <li>For any optinal attribute if setted more then ones then the last 
-     *     {@code value} will be used for the configuration.</li>
+     * <li>All attributes in this {@code Interface} are optional. If not set, then {@link java.util.Optional#empty()} will be returned.</li>
+     * <li>All setted values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+     * <li>For any optinal attribute if setted more then ones then the last {@code value} will be used for the configuration.</li>
      * </ul>
      * 
      * @see com.github.naoghuman.lib.tag.core.TagValidator
