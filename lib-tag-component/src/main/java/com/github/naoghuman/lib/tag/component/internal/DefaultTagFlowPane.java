@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.lib.tag.components.internal;
+package com.github.naoghuman.lib.tag.component.internal;
 
-import com.github.naoghuman.lib.tag.components.core.TagFlowPane;
+import com.github.naoghuman.lib.tag.component.core.TagFlowPane;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

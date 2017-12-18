@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>com.github.naoghuman</groupId>
-    <artifactId>lib-tag-components</artifactId>
+    <artifactId>lib-tag-component</artifactId>
     <version>0.3.0-SNAPSHOT</version> <!-- -SNAPSHOT -PRERELEASE -->
     <packaging>jar</packaging>
     <description>TODO</description>
-    <name>Lib-Tag-Components</name>
+    <name>Lib-Tag-Component</name>
     <inceptionYear>2017</inceptionYear>
     <url>https://github.com/Naoghuman/lib-tag.git</url>
     

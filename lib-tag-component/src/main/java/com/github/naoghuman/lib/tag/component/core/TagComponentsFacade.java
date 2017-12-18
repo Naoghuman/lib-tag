@@ -14,13 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.github.naoghuman.lib.tag.components.core;
+package com.github.naoghuman.lib.tag.component.core;
 
 import java.util.Optional;
 
-import com.github.naoghuman.lib.tag.components.internal.DefaultTagButton;
-import com.github.naoghuman.lib.tag.components.internal.DefaultTagFlowPane;
-import com.github.naoghuman.lib.tag.components.internal.DefaultTagLabel;
+import com.github.naoghuman.lib.tag.component.internal.DefaultTagButton;
+import com.github.naoghuman.lib.tag.component.internal.DefaultTagFlowPane;
+import com.github.naoghuman.lib.tag.component.internal.DefaultTagLabel;
 import com.github.naoghuman.lib.tag.core.Tag;
 
 import javafx.collections.ObservableList;
@@ -32,7 +32,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 
 /**
- * Over the {@code Class} {@link com.github.naoghuman.lib.tag.components.core.TagComponentsFacade} 
+ * Over the {@code Class} {@link com.github.naoghuman.lib.tag.component.core.TagComponentsFacade} 
  * the developer have access to several possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
  * in different {@code JavaFX} gui components.
  * <p>
@@ -49,9 +49,9 @@ import javafx.scene.layout.FlowPane;
  * 
  * @author Naoghuman
  * @since  0.2.0
- * @see    com.github.naoghuman.lib.tag.components.core.TagButton
- * @see    com.github.naoghuman.lib.tag.components.core.TagFlowPane
- * @see    com.github.naoghuman.lib.tag.components.core.TagLabel
+ * @see    com.github.naoghuman.lib.tag.component.core.TagButton
+ * @see    com.github.naoghuman.lib.tag.component.core.TagFlowPane
+ * @see    com.github.naoghuman.lib.tag.component.core.TagLabel
  */
 public final class TagComponentsFacade implements TagButton, TagFlowPane, TagLabel {
 

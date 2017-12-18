@@ -16,3 +16,4 @@ hs_err_pid*
 /target/
 /todo/
 /lib-tag-core/nbproject/
+/lib-tag-component/target/

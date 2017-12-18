@@ -8,8 +8,8 @@ or analysed for a `Tag`.
 
 Written in [JavaFX] and [NetBeans IDE] the project contains several sub-libraries 
 for specific tasks. For example:
-* `Lib-Tag-Core`      : The sub-library contains the core functionalities from the project.
-* `Lib-Tag-Components`: The sub-library allowed to show [Tag]s in different [JavaFX] gui components.
+* `Lib-Tag-Core`     : The sub-library contains the core functionalities from the project.
+* `Lib-Tag-Component`: The sub-library allowed to show [Tag]s in different [JavaFX] gui components.
 
 
 

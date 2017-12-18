@@ -23,4 +23,4 @@
  * @author Naoghuman
  * @since  0.2.0
  */
-package com.github.naoghuman.lib.tag.components.core;
+package com.github.naoghuman.lib.tag.component.core;

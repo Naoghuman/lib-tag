@@ -15,7 +15,7 @@ or analysed for a `Tag`.
 Written in [JavaFX] and [NetBeans] the project contains several sub-libraries 
 for specific tasks. For example:
 * The sub-library `Lib-Tag-Core` contains the core functionalities from the project.
-* The sub-library `Lib-Tag-Components` allowed to show [Tag]s in different [JavaFX] 
+* The sub-library `Lib-Tag-Component` allowed to show [Tag]s in different [JavaFX] 
   gui components.
 
 
@@ -25,7 +25,7 @@ Content
 
 * [Libraries](#Libraries)
     * [Sublibrary Lib-Tag-Core](#LiTaCor)
-    * [Sublibrary Lib-Tag-Components](#LiTaCom)
+    * [Sublibrary Lib-Tag-Component](#LiTaCom)
 * [Download](#Download)
 * [Requirements](#Requirements)
 * [Installation](#Installation)
@@ -42,7 +42,7 @@ Libraries<a name="Libraries" />
 Like I said in the section `Intention` the project `Lib-Tag` contains several 
 sub-libraries.
 * Minimal the sub-library `Lib-Tag-Core` is needed.
-* Additional the sub-library `Lib-Tag-Components` can be used to show [Tag]s in 
+* Additional the sub-library `Lib-Tag-Component` can be used to show [Tag]s in 
   different [JavaFX] components.
 
 
@@ -66,14 +66,14 @@ _Image:_ [UML] Lib-Tag-Core
 > :smile: .
 
 
-### Sublibrary Lib-Tag-Components<a name="LiTaCom" />
+### Sublibrary Lib-Tag-Component<a name="LiTaCom" />
 
-The sublibrary [Lib-Tag-Components] contains different possibilities to show a 
+The sublibrary [Lib-Tag-Component] contains different possibilities to show a 
 [Tag] in different [JavaFX] gui components.
 * Currently a `Tag` can be represented as a [Button] or a [Label].
 * A list of `Tag`s can then be shown in the container [FlowPane].
 
-_Image:_ [UML] Lib-Tag-Components  
+_Image:_ [UML] Lib-Tag-Component  
 ![uml_lib-tag-components_2017-12-16_21-53.png][uml_lib-tag-components_2017-12-16_21-53]
 
 > __Hint__  
@@ -198,7 +198,7 @@ Contact<a name="Contact" />
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
-[Lib-Tag-Components]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-components
+[Lib-Tag-Component]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-component
 [Lib-Tag-Core]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-core
 [Maven]:http://maven.apache.org/
 [NetBeans]:https://netbeans.org/

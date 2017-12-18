@@ -1,4 +1,4 @@
-Lib-Tag-Components
+Lib-Tag-Component
 ===
 
 
@@ -6,12 +6,12 @@ Lib-Tag-Components
 Intention
 ---
 
-The sublibrary `Lib-Tag-Components` contains different possibilities to show a 
+The sublibrary `Lib-Tag-Component` contains different possibilities to show a 
 [Tag] in different [JavaFX] gui components.
 * Currently a `Tag` can be represented as a [Button] or a [Label].
 * A list of `Tag`s can then be shown in the container [FlowPane].
 
-_Image:_ [UML] Lib-Tag-Components  
+_Image:_ [UML] Lib-Tag-Component  
 ![uml_lib-tag-components_2017-12-16_21-53.png][uml_lib-tag-components_2017-12-16_21-53]
 
 > __Hint__  
@@ -25,7 +25,7 @@ _Image:_ [UML] Lib-Tag-Components
 
 Content
 ---
-* [API: com.github.naoghuman.lib.tag.components.core](#LiTaCom)
+* [API: com.github.naoghuman.lib.tag.component.core](#LiTaCom)
     * [TagComponentsFacade](#TaComFa)
     * [TagButton](#TaBu)
     * [TagLabel](#TaLa)
@@ -36,7 +36,7 @@ Content
 
 
 
-API: com.github.naoghuman.lib.tag.components.core<a name="LiTaCom" />
+API: com.github.naoghuman.lib.tag.component.core<a name="LiTaCom" />
 ---
 
 
@@ -44,7 +44,7 @@ API: com.github.naoghuman.lib.tag.components.core<a name="LiTaCom" />
 
 ```java
 /**
- * Over the {@code Class} {@link com.github.naoghuman.lib.tag.components.core.TagComponentsFacade} 
+ * Over the {@code Class} {@link com.github.naoghuman.lib.tag.component.core.TagComponentsFacade} 
  * the developer have access to several possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
  * in different {@code JavaFX} gui components.
  * <p>
@@ -61,9 +61,9 @@ API: com.github.naoghuman.lib.tag.components.core<a name="LiTaCom" />
  * 
  * @author Naoghuman
  * @since  0.2.0
- * @see    com.github.naoghuman.lib.tag.components.core.TagButton
- * @see    com.github.naoghuman.lib.tag.components.core.TagFlowPane
- * @see    com.github.naoghuman.lib.tag.components.core.TagLabel
+ * @see    com.github.naoghuman.lib.tag.component.core.TagButton
+ * @see    com.github.naoghuman.lib.tag.component.core.TagFlowPane
+ * @see    com.github.naoghuman.lib.tag.component.core.TagLabel
  */
 public final class TagComponentsFacade implements TagButton, TagFlowPane, TagLabel
 ```
@@ -122,14 +122,14 @@ public interface TagFlowPane
 License<a name="License" />
 ---
 
-The project `Lib-Tag-Components` is licensed under [General Public License 3.0].
+The project `Lib-Tag-Component` is licensed under [General Public License 3.0].
 
 
 
 Autor<a name="Autor" />
 ---
 
-The project `Lib-Tag-Components` is maintained by me, Peter Rogge. See [Contact](#Contact).
+The project `Lib-Tag-Component` is maintained by me, Peter Rogge. See [Contact](#Contact).
 
 
 

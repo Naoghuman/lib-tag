@@ -8,8 +8,8 @@ or analysed for a `Tag`.
 
 Written in [JavaFX] and [NetBeans IDE] the project contains several sub-libraries 
 for specific tasks. For example:
-* `Lib-Tag-Core`      : The sub-library contains the core functionalities from the project.
-* `Lib-Tag-Components`: The sub-library allowed to show [Tag]s in different [JavaFX] gui components.
+* `Lib-Tag-Core`     : The sub-library contains the core functionalities from the project.
+* `Lib-Tag-Component`: The sub-library allowed to show [Tag]s in different [JavaFX] gui components.
 
 
 
@@ -41,6 +41,7 @@ for specific tasks. For example:
 
 
 #### Refactoring
+#13 [Lib-Tag-Components] Rename the library to Lib-Tag-Component.
 #11 [Documentation] Update the documentation to v0.3.0.
 #6 [Validator] Rename Validator to TagValidator to fit the naming convention.
 
