@@ -26,7 +26,6 @@ _Image:_ [UML] Lib-Tag-Component
 Content
 ---
 * [API: com.github.naoghuman.lib.tag.component.core](#LiTaCom)
-    * [TagComponentsFacade](#TaComFa)
     * [TagButton](#TaBu)
     * [TagLabel](#TaLa)
     * [TagFlowPane](#TaFlPa)
@@ -38,44 +37,6 @@ Content
 
 API: com.github.naoghuman.lib.tag.component.core<a name="LiTaCom" />
 ---
-
-
-### TagComponentsFacade<a name="TaComFa" />
-
-```java
-/**
- * Over the {@code Class} {@link com.github.naoghuman.lib.tag.component.core.TagComponentsFacade} 
- * the developer have access to several possibilities to show a {@link  com.github.naoghuman.lib.tag.core.Tag} 
- * in different {@code JavaFX} gui components.
- * <p>
- * Momentary following possibilities exists:<br>
- * Show a {@code Tag} as a
- * <ul>
- * <li>JavaFX {@link javafx.scene.control.Button}.</li>
- * <li>JavaFX {@link javafx.scene.control.Label}.</li>
- * </ul>
- * Show a {@link java.util.List} of {@code Tag}s in a
- * <ul>
- * <li>JavaFX {@link javafx.scene.layout.FlowPane}.</li>
- * </ul>
- * 
- * @author Naoghuman
- * @since  0.2.0
- * @see    com.github.naoghuman.lib.tag.component.core.TagButton
- * @see    com.github.naoghuman.lib.tag.component.core.TagFlowPane
- * @see    com.github.naoghuman.lib.tag.component.core.TagLabel
- */
-public final class TagComponentsFacade implements TagButton, TagFlowPane, TagLabel
-```
-
-```java
-/**
- * Returns a singleton instance from the class {@code TagComponentsFacade}.
- * 
- * @return a singleton instance from the class {@code TagComponentsFacade}.
- */
-public static final TagComponentsFacade getDefault()
-```
 
 
 ### TagButton<a name="TaBu" />
