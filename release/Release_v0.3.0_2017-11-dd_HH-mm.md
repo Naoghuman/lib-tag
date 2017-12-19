@@ -33,6 +33,7 @@ for specific tasks. For example:
 
 
 #### Feature
+#15 [Lib-Tag-Component] Add new interface (and class) TagComponentValidator.
 
 
 
