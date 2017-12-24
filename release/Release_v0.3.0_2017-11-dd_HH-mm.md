@@ -42,6 +42,7 @@ for specific tasks. For example:
 
 
 #### Refactoring
+#19 [Lib-Tag-Component] Add new class TagComponentEventHandler.
 #14 [Lib-Tag-Component] Remove the class TagComponentsFacade.
 #13 [Lib-Tag-Components] Rename the library to Lib-Tag-Component.
 #11 [Documentation] Update the documentation to v0.3.0.
