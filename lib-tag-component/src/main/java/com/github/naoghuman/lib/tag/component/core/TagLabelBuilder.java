@@ -136,7 +136,8 @@ public final class TagLabelBuilder {
      * Last step to generate and configured an instance from a 
      * {@link javafx.scene.control.Label}.
      * <br>
-     * This {@code Interface} return the generated and configured {@code label}.
+     * This {@code Interface} returned the generated and configured {@code Label} 
+     * in context from the library {@code Lib-Tag}.
      * 
      * @author Naoghuman
      * @since  0.3.0
@@ -150,7 +151,7 @@ public final class TagLabelBuilder {
          * 
          * @author Naoghuman
          * @since  0.3.0
-         * @return the generated and configured {@code label}.
+         * @return the generated and configured {@code Label}.
          * @see    javafx.scene.control.Label
          */
         public Label build();
