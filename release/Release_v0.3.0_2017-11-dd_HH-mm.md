@@ -33,6 +33,7 @@ for specific tasks. For example:
 
 
 #### Feature
+#18 [Lib-Tag-Component] Add new class TagFlowPaneBuilder which replace the interface TagFlowPane.
 #17 [Lib-Tag-Component] Add new class TagLabelBuilder which replace the interface TagLabel.
 #16 [Lib-Tag-Component] Add new class TagButtonBuilder which replace the interface TagButton.
 #15 [Lib-Tag-Component] Add new interface (and class) TagComponentValidator.
