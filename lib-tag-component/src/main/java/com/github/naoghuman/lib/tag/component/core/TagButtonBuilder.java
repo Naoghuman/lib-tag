@@ -170,7 +170,8 @@ public final class TagButtonBuilder {
      * Last step to generate and configured an instance from a 
      * {@link javafx.scene.control.Button}.
      * <br>
-     * This {@code Interface} return the generated and configured {@code button}.
+     * This {@code Interface} returned the generated and configured {@code Button} 
+     * in context from the library {@code Lib-Tag}.
      * 
      * @author Naoghuman
      * @since  0.3.0
@@ -184,7 +185,7 @@ public final class TagButtonBuilder {
          * 
          * @author Naoghuman
          * @since  0.3.0
-         * @return the generated and configured {@code button}.
+         * @return the generated and configured {@code Button}.
          * @see    javafx.scene.control.Button
          */
         public Button build();
