@@ -61,8 +61,8 @@ public final class TagButtonBuilder {
      * @return the first step {@code TagStep} from this fluent builder.
      * @see    com.github.naoghuman.lib.tag.component.internal.DefaultTagComponentValidator
      * @see    com.github.naoghuman.lib.tag.core.Tag
+     * @see    javafx.event.EventHandler
      * @see    javafx.scene.control.Button
-     * @see    javafx.scene.control.EventHandler
      */
     public static final TagStep create() {
         return new TagButtonBuilderImpl();

@@ -173,18 +173,18 @@ public final class TagFlowPaneBuilder {
      * 
      * @author Naoghuman
      * @since  0.3.0
-     * @see    javafx.scene.control.FlowPane
+     * @see    javafx.scene.layout.FlowPane
      */
     public interface BuilderStep {
         
         /**
-         * Generated and configured an instance from a {@link javafx.scene.control.FlowPane}
+         * Generated and configured an instance from a {@link javafx.scene.layout.FlowPane}
          * with the used values from the previous steps.
          * 
          * @author Naoghuman
          * @since  0.3.0
          * @return the generated and configured {@code FlowPane}.
-         * @see    javafx.scene.control.FlowPane
+         * @see    javafx.scene.layout.FlowPane
          */
         public FlowPane build();
         

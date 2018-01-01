@@ -21,28 +21,20 @@ import java.util.Optional;
 import com.github.naoghuman.lib.tag.core.TagValidator;
 
 /**
- * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.component.core.TagComponetValidator} 
+ * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.component.core.TagComponentValidator} 
  * for the validation for the different gui components in this library.
  * <p>
  * Will be used per default in the fluent builders 
  * {@link com.github.naoghuman.lib.tag.component.core.TagButtonBuilder}, 
  * {@link com.github.naoghuman.lib.tag.component.core.TagFlowPaneBuilder} and 
  * {@link com.github.naoghuman.lib.tag.component.core.TagLabelBuilder}.
- * <br>
- * The default validator will be also used in different gui components from this library like
- * {@link com.github.naoghuman.lib.tag.component.internal.DefaultTagButton}, 
- * {@link com.github.naoghuman.lib.tag.component.internal.DefaultTagFlowPane} and 
- * {@link com.github.naoghuman.lib.tag.component.internal.DefaultTagLabel}.
  *
  * @author Naoghuman
  * @since  0.3.0
- * @see    com.github.naoghuman.lib.tag.component.core.TagComponetValidator
+ * @see    com.github.naoghuman.lib.tag.component.core.TagComponentValidator
  * @see    com.github.naoghuman.lib.tag.component.core.TagButtonBuilder
  * @see    com.github.naoghuman.lib.tag.component.core.TagFlowPaneBuilder
  * @see    com.github.naoghuman.lib.tag.component.core.TagLabelBuilder
- * @see    com.github.naoghuman.lib.tag.component.internal.DefaultTagButton
- * @see    com.github.naoghuman.lib.tag.component.internal.DefaultTagFlowPane
- * @see    com.github.naoghuman.lib.tag.component.internal.DefaultTagLabel
  */
 public final class DefaultTagComponentValidator implements TagValidator {
 

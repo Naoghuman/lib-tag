@@ -104,7 +104,7 @@ public final class TagComponentEventHandler {
      * @author Naoghuman
      * @since  0.3.0
      * @param  tagId the {@code id} from the {@link com.github.naoghuman.lib.tag.core.Tag}.
-     * @return 
+     * @return the generated and configured {@code EventHandler}.
      * @see    com.github.naoghuman.lib.action.core.TransferData
      * @see    com.github.naoghuman.lib.tag.component.core.TagComponentEventHandler#ON_ACTION__TRIGGER_ACTION_EVENT
      * @see    com.github.naoghuman.lib.tag.core.Tag
@@ -140,7 +140,7 @@ public final class TagComponentEventHandler {
      * @since  0.3.0
      * @param  tagId the {@code id} from the {@link com.github.naoghuman.lib.tag.core.Tag}.
      * @param  mouseTrigger allowed the developer to configure the {@code EventHandler}.
-     * @return 
+     * @return the generated and configured {@code EventHandler}.
      * @see    com.github.naoghuman.lib.action.core.TransferData
      * @see    com.github.naoghuman.lib.tag.component.core.TagComponentEventHandler#ON_ACTION__TRIGGER_MOUSE_EVENT__DOUBLE_LEFT_CLICK
      * @see    com.github.naoghuman.lib.tag.component.core.TagComponentEventHandler#ON_ACTION__TRIGGER_MOUSE_EVENT__ONE_RIGHT_CLICK
