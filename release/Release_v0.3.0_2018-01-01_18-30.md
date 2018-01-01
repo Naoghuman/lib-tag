@@ -14,8 +14,8 @@ for specific tasks. For example:
 
 
 #### Summary
-* ...
-* ...
+* Add UnitTests to the library Lib-Tag-Core.
+* Add different fluent builders in the library Lib-Tag-Component.
 
 
 
@@ -28,7 +28,7 @@ for specific tasks. For example:
 #9  [Tag] Add Unittests for the default implementation.
 #8  [TagRelation] Add Unittests for the default implementation.
 #7  [TagValidator] Add Unittests for the default implementation.
-#5  [TagRelation] To identify the path + component for a Tag is embbed a unique 'containerId' is needed.
+#5  [TagRelation] To identify the path + component for a Tag is embbed an unique 'containerId' is needed.
 
 
 
@@ -48,6 +48,7 @@ for specific tasks. For example:
 #19 [Lib-Tag-Component] Add new class TagComponentEventHandler.
 #14 [Lib-Tag-Component] Remove the class TagComponentsFacade.
 #13 [Lib-Tag-Components] Rename the library to Lib-Tag-Component.
+#12 [Lib-Tag-Component] Update documentation to v0.3.0.
 #11 [Documentation] Update the documentation to v0.3.0.
 #6  [Validator] Rename Validator to TagValidator to fit the naming convention.
 

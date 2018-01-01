@@ -74,13 +74,13 @@ The sublibrary [Lib-Tag-Component] contains different possibilities to show a
 * A list of `Tag`s can then be shown in the container [FlowPane].
 
 _Image:_ [UML] Lib-Tag-Component  
-![uml_lib-tag-components_2017-12-16_21-53.png][uml_lib-tag-components_2017-12-16_21-53]
+![uml_lib-tag-components_2018-01-01_07-10.png][uml_lib-tag-components_2018-01-01_07-10]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
 
 > __Hint__  
-> For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Components] 
+> For more informations about the sublibrary (examples, api) plz see [Lib-Tag-Component] 
 > :smile: .
 
 
@@ -88,28 +88,29 @@ _Image:_ [UML] Lib-Tag-Component
 Download<a name="Download" />
 ---
 
-TODO Current `version` is `0.2.0`. Main points in this release are:
-* First release from the sub-library `Lib-Tag-Components` :smile: .
+Current `version` is `0.3.0`. Main points in this release are:
+* Add UnitTests to the library Lib-Tag-Core.
+* Add different fluent builders in the library Lib-Tag-Component.
 
 **Maven coordinates**  
-TODO In context from a [Maven] project you can use following maven coordinates: 
+In context from a [Maven] project you can use following maven coordinates: 
 ```xml
 <dependencies>
     <dependency>
         <groupId>com.github.naoghuman</groupId>
         <artifactId>lib-tag-core</artifactId>
-        <version>0.2.0</version>
+        <version>0.3.0</version>
     </dependency>
     <dependency>
         <groupId>com.github.naoghuman</groupId>
         <artifactId>lib-tag-components</artifactId>
-        <version>0.2.0</version>
+        <version>0.3.0</version>
     </dependency>
 </dependencies>
 ```
 
 **Download manuell**
-* [Release v0.2.0 (07.22.2017 / MM.dd.yyyy)] TODO
+* [Release v0.3.0 (01.01.2018 / MM.dd.yyyy)]  
 
 **An overview** about all existings releases can be found here:
 * [Overview from all releases in Lib-Tag]
@@ -178,7 +179,7 @@ Contact<a name="Contact" />
 
 [//]: # (Images)
 [uml_lib-tag-core_2017-12-16_21-40]:https://user-images.githubusercontent.com/8161815/34074166-c22ebf2a-e2a9-11e7-9a13-dccebb036f73.png
-[uml_lib-tag-components_2017-12-16_21-53]:https://user-images.githubusercontent.com/8161815/34074267-d60f73d4-e2ab-11e7-91d6-8eb2a611cc03.png
+[uml_lib-tag-components_2018-01-01_07-10]:https://user-images.githubusercontent.com/8161815/34465913-13d2989a-eec3-11e7-8298-0298c375b51f.png
 
 
 
@@ -204,7 +205,7 @@ Contact<a name="Contact" />
 [NetBeans]:https://netbeans.org/
 [Overview from all releases in Lib-Tag]:https://github.com/Naoghuman/lib-tag/releases
 [Pull Request]:https://help.github.com/articles/using-pull-requests
-[Release v0.2.0 (07.22.2017 / MM.dd.yyyy)]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.2.0
+[Release v0.3.0 (01.01.2018 / MM.dd.yyyy)]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.3.0
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
 [UML]:https://en.wikipedia.org/wiki/Unified_Modeling_Language
