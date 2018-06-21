@@ -22,11 +22,15 @@ import java.util.Objects;
  * This {@code Interface} contains different default methods to validate if an 
  * {@link java.lang.Object} conforms specific behaviours or not. For example if 
  * an {@code Object} is NULL or not.
+ * <p>
+ * The {@code Interface} is {@code deprecated} with version 0.3.0 and will 
+ * remove with in 0.4.0.
  *
  * @author Naoghuman
  * @since  0.3.0
  * @see    java.lang.Object
  */
+@Deprecated
 public interface TagComponentValidator {
     
     /**
@@ -38,6 +42,7 @@ public interface TagComponentValidator {
      * @throws      NullPointerException if (value == NULL).
      * @since       0.3.0
      */
+    @Deprecated
     public default <T> void requireNonNull(T value) throws NullPointerException {
         Objects.requireNonNull(value, "The parameter [value] can't be NULL"); // NOI18N
     }
@@ -52,6 +57,7 @@ public interface TagComponentValidator {
      * @throws      IllegalArgumentException if (value.trim() == EMPTY).
      * @since       0.3.0
      */
+    @Deprecated
     public default void requireNonNullAndNotEmpty(String value) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(value, "The parameter [value] can't be NULL"); // NOI18N
         
