@@ -60,7 +60,7 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     /**
      * Constant which defines the name from the attribute {@code id}.
      */
-    public static final String TAG_PARA__ID = "id";
+    public static final String TAG_PARA__ID = "id"; // NOI18N
 
     /**
      * Constant which defines the name from the attribute {@code generationTime}.
