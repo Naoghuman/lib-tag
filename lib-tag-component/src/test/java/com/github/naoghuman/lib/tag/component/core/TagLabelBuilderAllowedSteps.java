@@ -52,9 +52,9 @@ public class TagLabelBuilderAllowedSteps {
                 .mouseHandler(null) // mandory (NOT NULL)
                 .build();
         
-        // Example from the usage from the enum TagComponentEventHandler.MouseClick
-        final EventHandler<MouseEvent>  mouseHandler = TagComponentEventHandler.mouseHandler(Long.MIN_VALUE, 
-                TagComponentEventHandler.MouseClick.DOUBLE_LEFT_OR_ONE_RIGHT_CLICK);
+        // Example from the usage from the enum TagComponentMouseHandler.MouseClick
+        final EventHandler<MouseEvent>  mouseHandler = TagComponentMouseHandler.mouseHandler(Long.MIN_VALUE, 
+                TagComponentMouseHandler.MouseClick.DOUBLE_LEFT_CLICK);
         final Label lbl2 = TagLabelBuilder.create()
                 .tag(null)                  // mandory (NOT NULL)
                 .mouseHandler(mouseHandler) // mandory (NOT NULL)

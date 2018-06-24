@@ -54,10 +54,10 @@ public class TagButtonBuilderAllowedSteps {
                 .mouseHandler(null)  // mandory (NOT NULL)
                 .build();
         
-        // Example from the usage from TagComponentEventHandler
-        final EventHandler<ActionEvent> actionHandler = TagComponentEventHandler.actionHandler(Long.MIN_VALUE);
-        final EventHandler<MouseEvent>  mouseHandler  = TagComponentEventHandler.mouseHandler(Long.MIN_VALUE, 
-                TagComponentEventHandler.MouseClick.ONE_RIGHT_CLICK);
+        // Example from the usage from TagComponentActionHandler and TagComponentMouseHandler
+        final EventHandler<ActionEvent> actionHandler = TagComponentActionHandler.actionHandler(Long.MIN_VALUE);
+        final EventHandler<MouseEvent>  mouseHandler  = TagComponentMouseHandler.mouseHandler(Long.MIN_VALUE, 
+                TagComponentMouseHandler.MouseClick.ONE_RIGHT_CLICK);
         final Button btn2 = TagButtonBuilder.create()
                 .tag(null)                    // mandory (NOT NULL)
                 .actionHandler(actionHandler) // mandory (NOT NULL)
