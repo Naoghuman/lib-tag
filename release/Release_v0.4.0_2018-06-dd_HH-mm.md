@@ -6,12 +6,6 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
 [Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched 
 or analysed for a `Tag`.
 
-Written in [JavaFX] and [NetBeans IDE] the project contains several sub-libraries 
-for specific tasks. For example:
-* `Lib-Tag-Core`     : The sub-library contains the core functionalities from the project.
-* `Lib-Tag-Component`: The sub-library allowed to show [Tag]s in different [JavaFX] gui components.
-
-
 
 #### Summary
 * ...
@@ -19,7 +13,8 @@ for specific tasks. For example:
 
 
 
-#### New
+#### Feature
+#34 [Lib-Tag-Core] Move content directly in this GitHub project.
 
 
 
@@ -27,11 +22,11 @@ for specific tasks. For example:
 
 
 
-#### Feature
-
-
-
 #### Bug
+
+
+
+#### Documentation
 
 
 

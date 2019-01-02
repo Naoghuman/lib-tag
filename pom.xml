@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>com.github.naoghuman</groupId>
     <artifactId>lib-tag</artifactId>
     <version>0.4.0-SNAPSHOT</version> <!-- -SNAPSHOT -PRERELEASE -->
     <packaging>jar</packaging>
-    <description>`Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] &amp; [Maven] application.  
-A `Tag` is basically a simple [String] which can be used for example in a [Button], [Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched or analysed for a `Tag`.</description>
+    <description>The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
+
+A `Tag` is basically a simple [String] which can be used for example in a [Button], [Label] or another [JavaFX] component. Tagged topics can be easily searched or analysed for a `Tag`.</description>
     <name>Lib-Tag</name>
     <inceptionYear>2017</inceptionYear>
     <url>https://github.com/Naoghuman/lib-tag.git</url>
@@ -43,5 +43,108 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <!-- <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>png</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>-->
+                <!-- for RELEASE 
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                -->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                <!-- for RELEASE 
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                -->
+            </plugin>
+            <!-- for RELEASE 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+        </plugins>
+        
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.png</include>
+                    <include>**/*.txt</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.png</include>
+                    <include>**/*.txt</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+    
+    <dependencies>  
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     
 </project>
