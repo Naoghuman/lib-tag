@@ -13,6 +13,10 @@ or analysed for a `Tag`.
 
 
 
+#### Bug
+
+
+
 #### Feature
 #38 [api] Simplified the usage from 'DefaultTagValidator'.
 #34 [Lib-Tag-Core] Move content directly in this GitHub project.
@@ -23,11 +27,12 @@ or analysed for a `Tag`.
 
 
 
-#### Bug
+#### Test
 
 
 
 #### Documentation
+#41 [doc] Update the section-order in the release-templates.
 
 
 
