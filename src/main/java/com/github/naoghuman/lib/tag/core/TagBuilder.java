@@ -22,7 +22,6 @@ import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__GENERATION_TIME;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__ID;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__STYLE;
 import static com.github.naoghuman.lib.tag.core.Tag.TAG_PARA__TITLE;
-
 import com.github.naoghuman.lib.tag.internal.DefaultTag;
 import com.github.naoghuman.lib.tag.internal.DefaultTagValidator;
 import java.util.Optional;
@@ -185,7 +184,8 @@ public final class TagBuilder {
 
         @Override
         public TitleStep id(final Long id) {
-            DefaultTagValidator.getDefault().requireNonNull(id);
+            DefaultTagValidator.requireNonNull(id);
+            
             properties.put(TAG_PARA__ID, new SimpleLongProperty(id));
         
             return this;
@@ -193,7 +193,8 @@ public final class TagBuilder {
 
         @Override
         public GenerationTimeStep title(final String title) {
-            DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(title);
+            DefaultTagValidator.requireNonNullAndNotEmpty(title);
+            
             properties.put(TAG_PARA__TITLE, new SimpleStringProperty(title));
             
             return this;
@@ -201,7 +202,8 @@ public final class TagBuilder {
 
         @Override
         public Step generationTime(final Long generationTime) {
-            DefaultTagValidator.getDefault().requireNonNull(generationTime);
+            DefaultTagValidator.requireNonNull(generationTime);
+            
             properties.put(TAG_PARA__GENERATION_TIME, new SimpleLongProperty(generationTime));
             
             return this;
@@ -209,7 +211,8 @@ public final class TagBuilder {
 
         @Override
         public Step description(final String description) {
-            DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(description);
+            DefaultTagValidator.requireNonNullAndNotEmpty(description);
+            
             properties.put(TAG_PARA__DESCRIPTION, new SimpleStringProperty(description));
             
             return this;
@@ -217,7 +220,8 @@ public final class TagBuilder {
 
         @Override
         public Step style(final String style) {
-            DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(style);
+            DefaultTagValidator.requireNonNullAndNotEmpty(style);
+            
             properties.put(TAG_PARA__STYLE, new SimpleStringProperty(style));
             
             return this;

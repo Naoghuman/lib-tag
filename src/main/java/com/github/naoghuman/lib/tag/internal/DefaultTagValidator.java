@@ -16,39 +16,66 @@
  */
 package com.github.naoghuman.lib.tag.internal;
 
-import java.util.Optional;
-
-import com.github.naoghuman.lib.tag.core.TagValidator;
+import java.util.Objects;
 
 /**
- * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagValidator} 
- * for the validation in context from a {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
- * <p>
- * Will be used in the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
- * and in the {@code Class} {@link com.github.naoghuman.lib.tag.internal.DefaultTag}.
- *
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.Tag
- * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.TagValidator
- * @see    com.github.naoghuman.lib.tag.internal.DefaultTag
+ * This class includes an implementation of various {@code validation} methods to 
+ * test for minimal assumptions in the context of this library.
+ * 
+ * In general, all {@ code} parameters are checked for minimal conditions by all 
+ * functions in this library. For example, a {@code string} can not be {@code NULL} 
+ * or {@code EMPTY}.
+ * 
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see     com.github.naoghuman.lib.tag.core.TagValidator
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTag
  */
-public final class DefaultTagValidator implements TagValidator {
-
-    private static final Optional<DefaultTagValidator> INSTANCE = Optional.of(new DefaultTagValidator());
+public final class DefaultTagValidator {
 
     /**
-     * Returns a singleton instance from the {@code Class} <code>DefaultTagValidator</code>.
+     * Validates if the attribute {@code value} isn't {@code NULL}.
+     * <p>
+     * An additional error message will be added to the error stack:
+     * <ul>
+     * <li>The attribute [value] can't be NULL.</li>
+     * </ul>
      *
-     * @return a singleton instance from this {@code Class}.
+     * @param   <T>   the type of the reference.
+     * @param   value the attribute which should be validated.
+     * @throws  NullPointerException if {@code (value == NULL)}.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @author  Naoghuman
      */
-    public static final DefaultTagValidator getDefault() {
-        return INSTANCE.get();
+    public static <T> void requireNonNull(final T value) throws NullPointerException {
+        Objects.requireNonNull(value, "The attribute [value] can't be NULL."); // NOI18N
     }
-
-    private DefaultTagValidator() {
-
+    
+    /**
+     * Validates if the attribute {@code value} isn't {@code NULL} or {@code EMPTY}.
+     * <p>
+     * Adds following additional error messages depending from the error to the error stack:
+     * <ul>
+     * <li>The attribute [value] can't be NULL.</li>
+     * <li>The attribute [value] can't be EMPTY.</li>
+     * </ul>
+     *
+     * @param   value the attribute which should be validated.
+     * @throws  IllegalArgumentException if {@code (value.trim() == EMPTY)}.
+     * @throws  NullPointerException     if {@code (value        == NULL)}.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @author  Naoghuman
+     */
+    public static void requireNonNullAndNotEmpty(final String value) throws NullPointerException, IllegalArgumentException {
+        Objects.requireNonNull(value, "The attribute [value] can't be NULL."); // NOI18N
+        
+        if (value.trim().isEmpty()) {
+            throw new IllegalArgumentException("The attribute [value] can't be EMPTY."); // NOI18N
+        }
     }
-
 }

@@ -157,7 +157,8 @@ public class TagRelationContainerIdBuilder {
 
         @Override
         public ContainerStep path(final Class path) {
-            DefaultTagValidator.getDefault().requireNonNull(path);
+            DefaultTagValidator.requireNonNull(path);
+            
             properties.put(PARA__PATH, new SimpleObjectProperty(path));
             
             return this;
@@ -165,7 +166,8 @@ public class TagRelationContainerIdBuilder {
 
         @Override
         public ContainerIdStep container(final Class container) {
-            DefaultTagValidator.getDefault().requireNonNull(container);
+            DefaultTagValidator.requireNonNull(container);
+            
             properties.put(PARA__CONTAINER, new SimpleObjectProperty(container));
             
             return this;
@@ -173,7 +175,8 @@ public class TagRelationContainerIdBuilder {
 
         @Override
         public Builder containerId(final String containerId) {
-            DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
+            DefaultTagValidator.requireNonNullAndNotEmpty(containerId);
+            
             properties.put(PARA__CONTAINER_ID, new SimpleStringProperty(containerId));
             
             return this;

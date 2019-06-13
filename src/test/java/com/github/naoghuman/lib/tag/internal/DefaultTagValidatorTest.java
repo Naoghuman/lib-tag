@@ -19,7 +19,6 @@ package com.github.naoghuman.lib.tag.internal;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * Test class to test the default implementation from the {@code Interface} 
@@ -43,35 +42,23 @@ public class DefaultTagValidatorTest {
     @After
     public void tearDown() {
     }
-
-    @Test
-    public void testGetDefault() {
-        DefaultTagValidator defaultTagValidator = DefaultTagValidator.getDefault();
-        assertNotNull(defaultTagValidator);
-    }
     
     @Test
     public void testRequireNonNullNothingHappen() {
-        DefaultTagValidator defaultTagValidator = DefaultTagValidator.getDefault();
-        
         String objectToCheck = "hello world";
-        defaultTagValidator.requireNonNull(objectToCheck);
+        DefaultTagValidator.requireNonNull(objectToCheck);
     }
     
     @Test(expected = NullPointerException.class)
     public void testRequireNonNullThrowsBecauseNULL() {
-        DefaultTagValidator defaultTagValidator = DefaultTagValidator.getDefault();
-        
         String objectToCheck = null;
-        defaultTagValidator.requireNonNull(objectToCheck);
+        DefaultTagValidator.requireNonNull(objectToCheck);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void testRequireNonNullThrowsBecauseEMPTY() {
-        DefaultTagValidator defaultTagValidator = DefaultTagValidator.getDefault();
-        
         String objectToCheck = "";
-        defaultTagValidator.requireNonNullAndNotEmpty(objectToCheck);
+        DefaultTagValidator.requireNonNullAndNotEmpty(objectToCheck);
     }
     
 }

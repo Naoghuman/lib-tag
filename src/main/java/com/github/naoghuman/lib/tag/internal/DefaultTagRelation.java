@@ -16,12 +16,10 @@
  */
 package com.github.naoghuman.lib.tag.internal;
 
+import com.github.naoghuman.lib.tag.core.TagRelation;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-
-import com.github.naoghuman.lib.tag.core.TagRelation;
-
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -93,7 +91,7 @@ public final class DefaultTagRelation implements TagRelation {
 
     @Override
     public final void setId(final Long id) {
-        DefaultTagValidator.getDefault().requireNonNull(id);
+        DefaultTagValidator.requireNonNull(id);
         
         if (idProperty == null) {
             _id = id;
@@ -127,7 +125,7 @@ public final class DefaultTagRelation implements TagRelation {
 
     @Override
     public final void setTagId(final Long tagId) {
-        DefaultTagValidator.getDefault().requireNonNull(tagId);
+        DefaultTagValidator.requireNonNull(tagId);
         
         if (tagIdProperty == null) {
             _tagId = tagId;
@@ -161,7 +159,7 @@ public final class DefaultTagRelation implements TagRelation {
 
     @Override
     public void setContainerId(final String containerId) {
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
+        DefaultTagValidator.requireNonNullAndNotEmpty(containerId);
         
         if (containerIdProperty == null) {
             _containerId = containerId;

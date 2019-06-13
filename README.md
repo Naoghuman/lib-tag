@@ -17,8 +17,8 @@ or analysed for a `Tag`.
 > The generated `Tags` can be easily shown in different `JavaFX` gui components 
 > with the sub-library [Lib-Tag-Components].
 
-_Image:_ [UML] Lib-Tag-Core  
-![uml_lib-tag-core_2017-12-16_21-40.png][uml_lib-tag-core_2017-12-16_21-40]
+_Image:_ [UML] Lib-Tag  
+![uml_lib-tag_v0.4.0_2019-06-13_19-10.png][uml_lib-tag_v0.4.0_2019-06-13_19-10]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
@@ -905,7 +905,7 @@ You can reach me under <peter.rogge@yahoo.de>.
 [bpm_lib-tag-core_tagbuilder_2017-12-17_08-23]:https://user-images.githubusercontent.com/8161815/34077423-0925b636-e304-11e7-823f-4e2e288acd24.png
 [bpm_lib-tag-core_tagreleationbuilder_2017-11-25_22-42]:https://user-images.githubusercontent.com/8161815/34077425-16aecb9e-e304-11e7-8c23-d1cf42dbf8ee.png
 [bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32]:https://user-images.githubusercontent.com/8161815/34077450-fef599fa-e304-11e7-903d-e3ad075a0d63.png
-[uml_lib-tag-core_2017-12-16_21-40]:https://user-images.githubusercontent.com/8161815/34074166-c22ebf2a-e2a9-11e7-9a13-dccebb036f73.png
+[uml_lib-tag_v0.4.0_2019-06-13_19-10]:https://user-images.githubusercontent.com/8161815/59452927-1a652280-8e0f-11e9-8319-d120b47ebd16.png
 
 
 

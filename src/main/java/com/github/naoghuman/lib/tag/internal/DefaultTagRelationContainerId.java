@@ -16,8 +16,8 @@
  */
 package com.github.naoghuman.lib.tag.internal;
 
-import java.util.Optional;
 import com.github.naoghuman.lib.tag.core.TagRelationContainerId;
+import java.util.Optional;
 
 /**
  * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId}.
@@ -48,9 +48,9 @@ public class DefaultTagRelationContainerId implements TagRelationContainerId {
 
     @Override
     public String generateId(final Class path, final Class container, final String containerId) {
-        DefaultTagValidator.getDefault().requireNonNull(path);
-        DefaultTagValidator.getDefault().requireNonNull(container);
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(containerId);
+        DefaultTagValidator.requireNonNull(path);
+        DefaultTagValidator.requireNonNull(container);
+        DefaultTagValidator.requireNonNullAndNotEmpty(containerId);
         
         final StringBuilder sb = new StringBuilder();
         sb.append(path.getCanonicalName());

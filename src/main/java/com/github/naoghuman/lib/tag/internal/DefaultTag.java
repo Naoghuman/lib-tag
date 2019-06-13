@@ -17,7 +17,6 @@
 package com.github.naoghuman.lib.tag.internal;
 
 import com.github.naoghuman.lib.tag.core.Tag;
-
 import java.beans.Transient;
 import java.io.IOException;
 import java.io.ObjectInput;
@@ -136,7 +135,7 @@ public final class DefaultTag implements Tag {
 
     @Override
     public final void setId(final Long id) {
-        DefaultTagValidator.getDefault().requireNonNull(id);
+        DefaultTagValidator.requireNonNull(id);
         
         this.id = id;
     }
@@ -148,7 +147,7 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setTitle(final String title) {
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(title);
+        DefaultTagValidator.requireNonNullAndNotEmpty(title);
         
         this.title = title;
     }
@@ -160,7 +159,7 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setGenerationTime(final Long generationTime) {
-        DefaultTagValidator.getDefault().requireNonNull(generationTime);
+        DefaultTagValidator.requireNonNull(generationTime);
         
         this.generationTime = generationTime;
     }
@@ -172,7 +171,7 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setDescription(final String description) {
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(description);
+        DefaultTagValidator.requireNonNullAndNotEmpty(description);
         
         this.description = Optional.of(description);
     }
@@ -184,7 +183,7 @@ public final class DefaultTag implements Tag {
 
     @Override
     public void setStyle(final String style) {
-        DefaultTagValidator.getDefault().requireNonNullAndNotEmpty(style);
+        DefaultTagValidator.requireNonNullAndNotEmpty(style);
         
         this.style = Optional.of(style);
     }
