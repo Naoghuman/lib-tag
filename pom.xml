@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     
+    <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.naoghuman</groupId>
     <artifactId>lib-tag</artifactId>
     <version>0.4.0-SNAPSHOT</version> <!-- -SNAPSHOT -PRERELEASE -->
     <packaging>jar</packaging>
-    <description>The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
-
-A `Tag` is basically a simple [String] which can be used for example in a [Button], [Label] or another [JavaFX] component. Tagged topics can be easily searched or analysed for a `Tag`.</description>
     <name>Lib-Tag</name>
     <inceptionYear>2017</inceptionYear>
     <url>https://github.com/Naoghuman/lib-tag.git</url>
+    
+    <description>The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
+
+A `Tag` is basically a simple [String] which can be used for example in a [Button], [Label] or another [JavaFX] component. Tagged topics can be easily searched or analysed for a `Tag`.</description>
     
     <developers>
         <developer>
