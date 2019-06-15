@@ -19,6 +19,7 @@ or analysed for a `Tag`.
 
 #### Feature
 #38 [api] Simplified the usage from 'DefaultTagValidator'.
+#36 [api] Connect project with 'Travis CI'.
 #34 [Lib-Tag-Core] Move content directly in this GitHub project.
 
 
