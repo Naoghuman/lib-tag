@@ -1,7 +1,6 @@
 language: java
 jdk:
   - openjdk8
-  - openjfx
 sudo: required
 install: true
 script: mvn clean install
