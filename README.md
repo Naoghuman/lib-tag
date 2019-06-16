@@ -1,6 +1,10 @@
 Lib-Tag
 ===
 
+[![Build Status](https://travis-ci.org/Naoghuman/lib-tag.svg?branch=master)](https://travis-ci.org/Naoghuman/lib-tag)
+[![license: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![GitHub release](https://img.shields.io/github/release/Naoghuman/lib-tag.svg)](https://GitHub.com/Naoghuman/lib-tag/releases/)
+
 
 
 Intention

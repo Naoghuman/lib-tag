@@ -34,6 +34,7 @@ or analysed for a `Tag`.
 
 #### Documentation
 #41 [doc] Update the section-order in the release-templates.
+#35 [doc] Add badges from img.shield.io.
 
 
 
