@@ -38,7 +38,7 @@ or analysed for a `Tag`.
 
 
 #### Refactoring
-#36 [pom] Update dependencies in the pom.xml.
+#42 [pom] Update dependencies in the pom.xml.
 #27 [Lib-Tag-Core] Missing NOI18N in Tag by constant TAG_PARA__ID.
 #22 [Lib-Tag-Component] Deprecated the interface TagComponentValidator.
 
