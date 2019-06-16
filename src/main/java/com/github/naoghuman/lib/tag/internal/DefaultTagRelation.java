@@ -44,23 +44,26 @@ public final class DefaultTagRelation implements TagRelation {
 
     /**
      * Factory method to create an instance from the {@code Interface} 
-     * {@link com.github.naoghuman.lib.tag.core.TagRelation}.<br>
+     * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+     * <p>
      * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder}
      * is preferred against the directly usage from this method.
      * <ul>
-     * <li>All attributes are mandory and validate against {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+     * <li>All attributes are mandory and validate against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
      * <li>The attribute {@code id} defines the id from the entity.</li>
      * <li>The attribute {@code tagId} defines the id from the {@code Tag}.</li>
      * <li>The attribute {@code containerId} defines the id from the {@code container} where the Tag should be shown.</li>
      * </ul>
      * 
-     * @param  id          The id (mandory attribute) from this DefaultTagRelation.
-     * @param  tagId       The tagId (mandory attribute) from this DefaultTagRelation.
-     * @param  containerId The containerId (mandory attribute) from this DefaultTagRelation.
-     * @return             A new instance from the {@code Interface} TagRelation.
-     * @see    com.github.naoghuman.lib.tag.core.TagRelation
-     * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
-     * @see    com.github.naoghuman.lib.tag.core.TagValidator
+     * @param   id          The id (mandory attribute) from this DefaultTagRelation.
+     * @param   tagId       The tagId (mandory attribute) from this DefaultTagRelation.
+     * @param   containerId The containerId (mandory attribute) from this DefaultTagRelation.
+     * @return              A new instance from the {@code Interface} TagRelation.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.core.TagRelation
+     * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
      */
     public static TagRelation create(
             final Long id, final Long tagId, final String containerId

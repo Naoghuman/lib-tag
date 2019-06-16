@@ -28,11 +28,12 @@ package com.github.naoghuman.lib.tag.core;
  * For additional information about the {@code relation} plz see
  * {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder}.
  *
- * @author Naoghuman
- * @since  0.3.0
- * @see    com.github.naoghuman.lib.tag.core.Tag
- * @see    com.github.naoghuman.lib.tag.core.TagRelation
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @author  Naoghuman
+ * @since   0.3.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
  */
 public interface TagRelationContainerId {
     
@@ -53,15 +54,16 @@ public interface TagRelationContainerId {
      * will be used to validate if {@code path}, {@code container} and {@code containerId} isn't NULL. The parameter 
      * {@code containerId} will be checked additional if it isn't EMPTY.
      * 
-     * @param  path        usually the path from the class where the {@code Tag} used.
-     * @param  container   usually the type of the container where the {@code Tag} should be embbeded.
-     * @param  containerId the {@code Id} from the container.
-     * @return the generated {@code Id}.
-     * @throws IllegalArgumentException if the containerId is EMPTY.
-     * @throws NullPointerException     if path, container or containerId is NULL.
-     * @since  0.3.0
-     * @see    com.github.naoghuman.lib.tag.internal.DefaultTagValidator
-     * @see    java.lang.System#nanoTime()
+     * @param   path        usually the path from the class where the {@code Tag} used.
+     * @param   container   usually the type of the container where the {@code Tag} should be embbeded.
+     * @param   containerId the {@code Id} from the container.
+     * @return  the generated {@code Id}.
+     * @throws  IllegalArgumentException if the containerId is EMPTY.
+     * @throws  NullPointerException     if path, container or containerId is NULL.
+     * @since   0.3.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
+     * @see     java.lang.System#nanoTime()
      */
     public String generateId(final Class path, final Class container, final String containerId);
     

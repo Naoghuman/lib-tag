@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Contains the {@code API} from the library {@code Lib-Tag-Core}.
+ * Contains the {@code API} from the library {@code Lib-Tag}.
  * <p>
  * The main entry point from the API is the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag} 
  * which defines a Tag. A Tag is basically a simple {@link java.lang.String} which can be used for example 
@@ -37,13 +37,14 @@
  * directly an implementation from the {@code Interface} TagRelation, but again the preferred way is the 
  * corresponding fluent builder.
  * 
- * @author Naoghuman
- * @since  0.1.0
- * @see    com.github.naoghuman.lib.tag.core.Tag
- * @see    com.github.naoghuman.lib.tag.core.TagBuilder
- * @see    com.github.naoghuman.lib.tag.core.TagRelation
- * @see    com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see    com.github.naoghuman.lib.tag.internal.DefaultTag
- * @see    com.github.naoghuman.lib.tag.internal.DefaultTagRelation
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTag
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagRelation
  */
 package com.github.naoghuman.lib.tag.core;

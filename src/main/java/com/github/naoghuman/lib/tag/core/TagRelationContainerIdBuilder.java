@@ -37,14 +37,15 @@ import javafx.collections.ObservableMap;
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
  * <li>All defined values will be validate against the {@code Interface} 
- *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+ *     {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
  * </ul>
  *
- * @author Naoghuman
- * @since  0.3.0
- * @see    com.github.naoghuman.lib.tag.core.Tag
- * @see    com.github.naoghuman.lib.tag.core.TagRelation
- * @see    com.github.naoghuman.lib.tag.core.TagValidator
+ * @author  Naoghuman
+ * @since   0.4.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
  */
 public class TagRelationContainerIdBuilder {
     
@@ -52,7 +53,9 @@ public class TagRelationContainerIdBuilder {
      * Starting point from this fluent builder to configure and create an unique {@code Id},
      * returned as a {@link java.lang.String}.
      * 
-     * @return the first step to generate and configured an unique {@code Id}.
+     * @return  the first step to generate and configured an unique {@code Id}.
+     * @since   0.4.0
+     * @version 0.4.0
      */
     public static final PathStep create() {
         
@@ -61,8 +64,12 @@ public class TagRelationContainerIdBuilder {
     }
     
     /**
-     * First mandory step to configure and create an unique {@code Id}.<br>
+     * First mandory step to configure and create an unique {@code Id}.
+     * <p>
      * This {@code Interface} allowed to set the attribute {@code path}.
+     * 
+     * @since   0.4.0
+     * @version 0.4.0
      */
     public interface PathStep {
         
@@ -75,14 +82,20 @@ public class TagRelationContainerIdBuilder {
          * @param  path value for the attribute {@code path}.
          * @return the next step {@code ContainerStep} in this fluent builder.
          * @throws NullPointerException if {@code path} is NULL.
+         * @since   0.4.0
+         * @version 0.4.0
          */
         public ContainerStep path(final Class path);
         
     }
     
     /**
-     * Second mandory step to configure and create an unique {@code Id}.<br>
+     * Second mandory step to configure and create an unique {@code Id}.
+     * <p>
      * This {@code Interface} allowed to set the attribute {@code container}.
+     * 
+     * @since   0.4.0
+     * @version 0.4.0
      */
     public interface ContainerStep {
         
@@ -92,35 +105,47 @@ public class TagRelationContainerIdBuilder {
          * Internal {@link java.lang.Class#getSimpleName()} will be used to 
          * defined the second part from the unique {@code Id}.
          * 
-         * @param  container value for the attribute {@code container}.
-         * @return the next step {@code ContainerIdStep} in this fluent builder.
-         * @throws NullPointerException if {@code container} is NULL.
+         * @param   container value for the attribute {@code container}.
+         * @return  the next step {@code ContainerIdStep} in this fluent builder.
+         * @throws  NullPointerException if {@code container} is NULL.
+         * @since   0.4.0
+         * @version 0.4.0
          */
         public ContainerIdStep container(final Class container);
         
     }
     
     /**
-     * Third mandory step to configure and create an unique {@code Id}.<br>
+     * Third mandory step to configure and create an unique {@code Id}.
+     * <p>
      * This {@code Interface} allowed to set the attribute {@code containerId}.
+     * 
+     * @since   0.4.0
+     * @version 0.4.0
      */
     public interface ContainerIdStep {
         
         /**
          * Setter for the mandory attribute {@code containerId}.
          * 
-         * @param  containerId value for the attribute {@code containerId}.
-         * @return the next step {@code Builder} in this fluent builder.
-         * @throws NullPointerException     if {@code containerId} is NULL.
-         * @throws IllegalArgumentException if {@code containerId} is EMPTY.
+         * @param   containerId value for the attribute {@code containerId}.
+         * @return  the next step {@code Builder} in this fluent builder.
+         * @throws  NullPointerException     if {@code containerId} is NULL.
+         * @throws  IllegalArgumentException if {@code containerId} is EMPTY.
+         * @since   0.4.0
+         * @version 0.4.0
          */
         public Builder containerId(final String containerId);
         
     }
     
     /**
-     * In the last step the unique {@code Id} will created and returned.<br>
+     * In the last step the unique {@code Id} will created and returned.
+     * <p>
      * This {@code Interface} allowed to generate the {@code Id}.
+     * 
+     * @since   0.4.0
+     * @version 0.4.0
      */
     public interface Builder {
         
@@ -128,8 +153,10 @@ public class TagRelationContainerIdBuilder {
          * Configure and generate the unique {@code Id} with the defined values 
          * from the previous steps.
          * 
-         * @return the generated and configured instance.
-         * @see    com.github.naoghuman.lib.tag.core.TagRelation
+         * @return  the generated and configured instance.
+         * @since   0.4.0
+         * @version 0.4.0
+         * @see     com.github.naoghuman.lib.tag.core.TagRelation
          */
         public String build();
         

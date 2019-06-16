@@ -32,7 +32,8 @@ import java.util.Optional;
  * preferred way to generate an implementation from this {@code Interface}.
  *
  * @author Naoghuman
- * @since  0.1.0
+ * @since   0.1.0
+ * @version 0.4.0
  * @see    com.github.naoghuman.lib.tag.core.Tag
  * @see    com.github.naoghuman.lib.tag.core.TagBuilder
  */
@@ -41,28 +42,31 @@ public final class DefaultTag implements Tag {
     private static final String NOT_DEFINED = "[not defined]"; // NOI18N
     
     /**
-     * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.<br>
+     * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
+     * <p>
      * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder}
      * is preferred against the directly usage from this method.
      * 
      * <ul>
      * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
      * <li>Setting an value will be validate the value against 
-     *     {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+     *     {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
      * </ul>
      * 
      * This method delegates to 
      * {@link com.github.naoghuman.lib.tag.internal.DefaultTag#create(java.lang.Long, java.lang.String, java.lang.Long, java.util.Optional, java.util.Optional)  }
      * where all optional values are {@link java.util.Optional#empty()}.
      * 
-     * @param  id             The id (mandory attribute) from this DefaultTag.
-     * @param  title          The title (mandory attribute) from this DefaultTag.
-     * @param  generationTime The generationTime (mandory attribute) from this DefaultTag.
-     * @return                A new instance from the {@code Interface} Tag.
-     * @see    com.github.naoghuman.lib.tag.core.Tag
-     * @see    com.github.naoghuman.lib.tag.core.TagBuilder
-     * @see    com.github.naoghuman.lib.tag.core.TagValidator
-     * @see    java.util.Optional#empty()
+     * @param   id             The id (mandory attribute) from this DefaultTag.
+     * @param   title          The title (mandory attribute) from this DefaultTag.
+     * @param   generationTime The generationTime (mandory attribute) from this DefaultTag.
+     * @return                 A new instance from the {@code Interface} Tag.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.core.Tag
+     * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
+     * @see     java.util.Optional#empty()
      */
     public static final Tag create(
             final Long id, final String title, final Long generationTime
@@ -71,7 +75,8 @@ public final class DefaultTag implements Tag {
     }
     
     /**
-     * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.<br>
+     * Factory method to create an instance from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.Tag}.
+     * <p>
      * The usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder}
      * is preferred against the directly usage from this method.
      * <ul>
@@ -79,19 +84,21 @@ public final class DefaultTag implements Tag {
      * <li>All other attributes are optional, that means if not set then {@link java.util.Optional#empty()}
      *     will returned.</li>
      * <li>Setting an value in a mandory or an optional attribute will be validate the value 
-     *     against {@link com.github.naoghuman.lib.tag.core.TagValidator}.</li>
+     *     against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
      * </ul>
      * 
-     * @param  id             The id (mandory attribute) from this DefaultTag.
-     * @param  title          The title (mandory attribute) from this DefaultTag.
-     * @param  generationTime The generationTime (mandory attribute) from this DefaultTag.
-     * @param  description    Optional attribute. If not set then Optional#empty() will returned.
-     * @param  style          Optional attribute. If not set then Optional#empty() will returned.
-     * @return                A new instance from the {@code Interface} Tag.
-     * @see    com.github.naoghuman.lib.tag.core.Tag
-     * @see    com.github.naoghuman.lib.tag.core.TagBuilder
-     * @see    com.github.naoghuman.lib.tag.core.TagValidator
-     * @see    java.util.Optional#empty()
+     * @param   id             The id (mandory attribute) from this DefaultTag.
+     * @param   title          The title (mandory attribute) from this DefaultTag.
+     * @param   generationTime The generationTime (mandory attribute) from this DefaultTag.
+     * @param   description    Optional attribute. If not set then Optional#empty() will returned.
+     * @param   style          Optional attribute. If not set then Optional#empty() will returned.
+     * @return                 A new instance from the {@code Interface} Tag.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.core.Tag
+     * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
+     * @see     java.util.Optional#empty()
      */
     public static final Tag create(
             final Long id, final String title, final Long generationTime, 

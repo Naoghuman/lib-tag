@@ -22,7 +22,7 @@ import java.util.Objects;
  * This class includes an implementation of various {@code validation} methods to 
  * test for minimal assumptions in the context of this library.
  * 
- * In general, all {@ code} parameters are checked for minimal conditions by all 
+ * In general, all {@code parameters} are checked for minimal conditions by all 
  * functions in this library. For example, a {@code string} can not be {@code NULL} 
  * or {@code EMPTY}.
  * 
@@ -31,7 +31,7 @@ import java.util.Objects;
  * @version 0.4.0
  * @see     com.github.naoghuman.lib.tag.core.Tag
  * @see     com.github.naoghuman.lib.tag.core.TagBuilder
- * @see     com.github.naoghuman.lib.tag.core.TagValidator
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
  * @see     com.github.naoghuman.lib.tag.internal.DefaultTag
  */
 public final class DefaultTagValidator {
@@ -47,9 +47,9 @@ public final class DefaultTagValidator {
      * @param   <T>   the type of the reference.
      * @param   value the attribute which should be validated.
      * @throws  NullPointerException if {@code (value == NULL)}.
+     * @author  Naoghuman
      * @since   0.1.0
      * @version 0.4.0
-     * @author  Naoghuman
      */
     public static <T> void requireNonNull(final T value) throws NullPointerException {
         Objects.requireNonNull(value, "The attribute [value] can't be NULL."); // NOI18N
@@ -67,9 +67,9 @@ public final class DefaultTagValidator {
      * @param   value the attribute which should be validated.
      * @throws  IllegalArgumentException if {@code (value.trim() == EMPTY)}.
      * @throws  NullPointerException     if {@code (value        == NULL)}.
+     * @author  Naoghuman
      * @since   0.1.0
      * @version 0.4.0
-     * @author  Naoghuman
      */
     public static void requireNonNullAndNotEmpty(final String value) throws NullPointerException, IllegalArgumentException {
         Objects.requireNonNull(value, "The attribute [value] can't be NULL."); // NOI18N

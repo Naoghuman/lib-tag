@@ -23,7 +23,8 @@ import java.util.Optional;
  * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId}.
  *
  * @author Naoghuman
- * @since  0.3.0
+ * @since   0.3.0
+ * @version 0.4.0
  * @see    com.github.naoghuman.lib.tag.core.TagRelationContainerId
  */
 public class DefaultTagRelationContainerId implements TagRelationContainerId {
@@ -36,7 +37,8 @@ public class DefaultTagRelationContainerId implements TagRelationContainerId {
      * Returns a singleton instance from the {@code Class} <code>DefaultTagRelationContainerId</code>.
      *
      * @return a singleton instance from this {@code Class}.
-     * @since  0.3.0
+     * @since   0.3.0
+     * @version 0.4.0
      */
     public static final DefaultTagRelationContainerId getDefault() {
         return INSTANCE.get();

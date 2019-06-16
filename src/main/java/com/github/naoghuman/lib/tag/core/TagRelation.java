@@ -17,7 +17,6 @@
 package com.github.naoghuman.lib.tag.core;
 
 import java.io.Externalizable;
-
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
 
@@ -41,73 +40,97 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
     /**
      * Constant which defines the attribute {@code default-id}(= 
      * {@link java.lang.Long#MIN_VALUE}) from a {@code TagRelation}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public static final Long DEFAULT_ID = Long.MIN_VALUE;
 
     /**
      * Constant which defines the name from the attribute {@code id}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public static final String TAG_RELATION__PARA__ID = "id"; // NOI18N
 
     /**
      * Constant which defines the name from the attribute {@code containerId}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
 
     /**
      * Constant which defines the name from the attribute {@code tagId}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
 
     /**
      * Gets the value from the attribute {@code id} from this {@code TagRelation}.
      * 
-     * @return the value from the attribute {@code id}.
+     * @return  the value from the attribute {@code id}.
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public long getId();
     
     /**
      * Sets the new value from the attribute {@code id}.
      * <p>
-     * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
+     * The new value will be valid against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.
      * 
-     * @param  id the new value for the attribute {@code id}.
-     * @throws NullPointerException if {@code id} is NULL.
-     * @see    com.github.naoghuman.lib.tag.core.TagValidator
+     * @param   id the new value for the attribute {@code id}.
+     * @throws  NullPointerException if {@code id} is NULL.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
      */
     public void setId(final Long id);
     
     /**
      * Returnes the attribute {@code id} as a {@link javafx.beans.property.LongProperty}.
      * 
-     * @return the attribute {@code id} as a {@code LongProperty}.
-     * @see    javafx.beans.property.LongProperty
+     * @return  the attribute {@code id} as a {@code LongProperty}.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     javafx.beans.property.LongProperty
      */
     public LongProperty idProperty();
 
     /**
      * Gets the value from the attribute {@code tagId} from the {@code Tag}.
      * 
-     * @return the value from the attribute {@code tagId}.
+     * @return  the value from the attribute {@code tagId}.
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public long getTagId();
     
     /**
      * Sets the new value from the attribute {@code tagId}.
      * <p>
-     * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
+     * The new value will be valid against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.
      * 
-     * @param  tagId the new value for the attribute {@code tagId}.
-     * @throws NullPointerException if {@code tagId} is NULL.
-     * @see    com.github.naoghuman.lib.tag.core.TagValidator
+     * @param   tagId the new value for the attribute {@code tagId}.
+     * @throws  NullPointerException if {@code tagId} is NULL.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
      */
     public void setTagId(final Long tagId);
     
     /**
      * Returnes the attribute {@code tagId} as a {@link javafx.beans.property.LongProperty}.
      * 
-     * @return the attribute {@code tagId} as a {@code LongProperty}.
-     * @see    javafx.beans.property.LongProperty
+     * @return  the attribute {@code tagId} as a {@code LongProperty}.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     javafx.beans.property.LongProperty
      */
     public LongProperty tagIdProperty();
 
@@ -115,27 +138,33 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
      * Gets the value from the attribute {@code containerId} which defines the 
      * {@code id} from the container where the {@code Tag} is added.
      * 
-     * @return the value from the attribute {@code containerId}.
+     * @return  the value from the attribute {@code containerId}.
+     * @since   0.1.0
+     * @version 0.4.0
      */
     public String getContainerId();
     
     /**
      * Sets the new value from the attribute {@code containerId}.
      * <p>
-     * The new value will be valid against {@link com.github.naoghuman.lib.tag.core.TagValidator}.
+     * The new value will be valid against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.
      * 
-     * @param  containerId the new value for the attribute {@code containerId}.
-     * @throws IllegalArgumentException if {@code containerId} is EMPTY.
-     * @throws NullPointerException     if {@code containerId} is NULL.
-     * @see    com.github.naoghuman.lib.tag.core.TagValidator
+     * @param   containerId the new value for the attribute {@code containerId}.
+     * @throws  IllegalArgumentException if {@code containerId} is EMPTY.
+     * @throws  NullPointerException     if {@code containerId} is NULL.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
      */
     public void setContainerId(final String containerId);
     
     /**
      * Returnes the attribute {@code containerId} as a {@link javafx.beans.property.StringProperty}.
      * 
-     * @return the attribute {@code containerId} as a {@code StringProperty}.
-     * @see    javafx.beans.property.StringProperty
+     * @return  the attribute {@code containerId} as a {@code StringProperty}.
+     * @since   0.1.0
+     * @version 0.4.0
+     * @see     javafx.beans.property.StringProperty
      */
     public StringProperty containerIdProperty();
 
