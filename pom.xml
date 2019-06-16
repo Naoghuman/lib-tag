@@ -138,12 +138,6 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
     
     <dependencies>
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>11</version>
-        </dependency>
-        
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
