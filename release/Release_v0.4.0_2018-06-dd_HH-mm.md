@@ -33,6 +33,7 @@ or analysed for a `Tag`.
 
 
 #### Documentation
+#44 [doc] Add new section 'Download' to the ReadMe.
 #41 [doc] Update the section-order in the release-templates.
 #37 [doc] Move JavaDoc in new folder 'docs/apidocs'.
 #35 [doc] Add badges from img.shield.io.

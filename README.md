@@ -40,6 +40,7 @@ Content
     * [Usage of the class `TagRelationBuilder`](#UsOfThClTaReBu)
     * [Usage of the class `TagRelationContainerIdBuilder`](#UsOfThClTaReCoIdBu)
 * [JavaDoc](#JavaDoc)
+* [Download](#Download)
 * [License](#License)
 * [Autor](#Autor)
 * [Contact](#Contact)
@@ -201,6 +202,32 @@ _Image:_ JavaDoc Lib-Tag v0.4.0
 ![javadoc_lib-tag_v0.4.0_2019-06-16_11-34.png][javadoc_lib-tag_v0.4.0_2019-06-16_11-34]
 
 
+
+Download<a name="Download" />
+---
+
+Current `version` is `0.4.0`. Main points in this release are:
+* ...
+* ...
+
+Download:
+* [Release v0.4.0] (06.dd.2019 / MM.dd.yyyy)
+
+Maven:
+```xml
+<!-- https://mvnrepository.com/artifact/com.github.naoghuman/lib-tag -->
+<dependency>
+    <groupId>com.github.naoghuman</groupId>
+    <artifactId>lib-tag</artifactId>
+    <version>0.4.0</version>
+</dependency>
+```
+
+An `overview` about all existings releases can be found here:
+* [Overview] from all releases in Lib-Tag.
+
+
+
 License<a name="License" />
 ---
 
@@ -246,6 +273,8 @@ You can reach me under <peter.rogge@yahoo.de>.
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
 [Lib-Tag-Components]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-components
+[Overview]:https://github.com/Naoghuman/lib-tag/releases
+[Release v0.4.0]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.4.0
 [Step builder pattern]:http://www.svlada.com/step-builder-pattern/
 [String]:https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
 [Tag]:https://github.com/Naoghuman/lib-tag/blob/master/lib-tag-core/src/main/java/com/github/naoghuman/lib/tag/core/Tag.java
