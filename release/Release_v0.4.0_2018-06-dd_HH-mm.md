@@ -34,6 +34,7 @@ or analysed for a `Tag`.
 
 #### Documentation
 #46 [doc] Add new section 'Requirements' to the ReadMe.
+#45 [doc] Add new section 'Installation' to the ReadMe.
 #44 [doc] Add new section 'Download' to the ReadMe.
 #41 [doc] Update the section-order in the release-templates.
 #37 [doc] Move JavaDoc in new folder 'docs/apidocs'.

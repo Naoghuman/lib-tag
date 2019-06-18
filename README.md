@@ -17,19 +17,11 @@ A `Tag` is basically a simple [String] which can be used for example in a [Butto
 [Label] or another [JavaFX] component. Suchlike tagged topics can be easily searched 
 or analysed for a `Tag`.
 
-> __Hint__  
-> The generated `Tags` can be easily shown in different `JavaFX` gui components 
-> with the sub-library [Lib-Tag-Components].
-
 _Image:_ [UML] Lib-Tag  
 ![uml_lib-tag_v0.4.0_2019-06-13_19-10.png][uml_lib-tag_v0.4.0_2019-06-13_19-10]
 
 > __Hint__  
 > The `UML` diagram is created with the `Online Modeling Platform` [GenMyModel].
-
-> __Hint__  
-> This libray is a part of the project [Lib-Tag]. Plz see for additional 
-> informations like `Download`, `Requirements` or `Installation` there. Thanks :smile:
 
 
 
@@ -42,6 +34,7 @@ Content
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
 * [Requirements](#Requirements)
+* [Installation](#Installation)
 * [License](#License)
 * [Autor](#Autor)
 * [Contact](#Contact)
@@ -99,7 +92,7 @@ __Additional informations__
 ### Usage of the class `TagRelationBuilder`<a name="UsOfThClTaReBu" />
 
 With a [TagRelation] its possible to `map` a [Tag] with a specific gui component. 
-So the application `knows` which [Tag]s should be shown for example in a [Button] 
+So the application `knows` which Tags should be shown for example in a [Button] 
 or in a [FlowPane].
 
 ```java
@@ -178,7 +171,7 @@ final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
         .build();
 ```
 
-Again the same __as__ a [Business process modeling (BPM)] diagram (create with the tool [Bizagi Modeler BPMN]):  
+Again the same __as__ a [Business process modeling (BPM)] diagram:  
 _Image:_ Business process modeling diagram from `TagRelationContainerIdBuilder`  
 ![bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32.png][bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32]
 
@@ -240,6 +233,18 @@ In the library following dependencies are registered:
 
 
 
+Installation<a name="Installation" />
+---
+
+* If not installed download the [JRE 8] or the [JDK 8].
+  * Optional: To work better with [FXML] files in a [JavaFX] application 
+    download the [JavaFX Scene Builder] under 'Additional Resources'.
+* Choose your preferred IDE (e.g. [NetBeans], [Eclipse] or [IntelliJ IDEA]) for development.
+* Download or clone [Lib-Tag].
+* Open the projects in your IDE and run them.
+
+
+
 License<a name="License" />
 ---
 
@@ -275,18 +280,22 @@ You can reach me under <peter.rogge@yahoo.de>.
 [Business process modeling (BPM)]:https://en.wikipedia.org/wiki/Business_process_modeling
 [Button]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html
 [Bizagi Modeler BPMN]:http://www.bizagi.com/de/produkte/plattform/modeler
+[Eclipse]:https://www.eclipse.org/
 [FlowPane]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/FlowPane.html
 [Fluent Interface]:https://www.martinfowler.com/bliki/FluentInterface.html
+[FXML]:http://docs.oracle.com/javafx/2/fxml_get_started/jfxpub-fxml_get_started.htm
 [General Public License 3.0]:http://www.gnu.org/licenses/gpl-3.0.en.html
 [GenMyModel]:https://www.genmymodel.com/
+[IntelliJ IDEA]:http://www.jetbrains.com/idea/
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
 [JavaDoc Lib-Tag]:http://naoghuman.github.io/lib-tag/apidocs
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
+[JavaFX Scene Builder]:http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
-[Lib-Tag-Components]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-components
+[NetBeans]:https://netbeans.apache.org/
 [Overview]:https://github.com/Naoghuman/lib-tag/releases
 [Release v0.4.0]:https://github.com/Naoghuman/lib-tag/releases/tag/v0.4.0
 [Step builder pattern]:http://www.svlada.com/step-builder-pattern/
