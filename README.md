@@ -41,6 +41,7 @@ Content
     * [Usage of the class `TagRelationContainerIdBuilder`](#UsOfThClTaReCoIdBu)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
+* [Requirements](#Requirements)
 * [License](#License)
 * [Autor](#Autor)
 * [Contact](#Contact)
@@ -228,6 +229,17 @@ An `overview` about all existings releases can be found here:
 
 
 
+Requirements<a name="Requirements" />
+---
+
+* On your system you need [JRE 8] or [JDK 8] installed.
+* The library [lib-tag-0.4.0](#Installation).
+
+In the library following dependencies are registered:
+* No additional relationship
+
+
+
 License<a name="License" />
 ---
 
@@ -270,6 +282,8 @@ You can reach me under <peter.rogge@yahoo.de>.
 [JavaDoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
 [JavaDoc Lib-Tag]:http://naoghuman.github.io/lib-tag/apidocs
 [JavaFX]:http://docs.oracle.com/javase/8/javase-clienttechnologies.htm
+[JDK 8]:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[JRE 8]:http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 [Label]:https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html
 [Lib-Tag]:https://github.com/Naoghuman/lib-tag
 [Lib-Tag-Components]:https://github.com/Naoghuman/lib-tag/tree/master/lib-tag-components
