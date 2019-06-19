@@ -33,21 +33,20 @@ public class TagRelationBuilderAllowedSteps {
     TagRelationBuilderAllowedSteps() {
         
         /**
-         * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
-         * its possible to create easly a {@link com.github.naoghuman.lib.tag.core.TagRelation}
-         * which can be used to map a {@link com.github.naoghuman.lib.tag.core.Tag} against 
-         * a gui component.
-         * 
+         * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
+         * the developer can create easily an instance from the {@code Interface} 
+         * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
          * <ul>
-         * <li>All attributes in the builder are {@code mandory}.</li>
-         * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+         * <li>All attributes are {@code mandory}.</li>
+         * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
          * </ul>
-         * 
-         * @see com.github.naoghuman.lib.tag.core.Tag
-         * @see com.github.naoghuman.lib.tag.core.TagRelation
-         * @see com.github.naoghuman.lib.tag.core.TagRelationBuilder
-         * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
-         * @see com.github.naoghuman.lib.tag.core.TagValidator
+         *
+         * @author  Naoghuman
+         * @since   0.1.0
+         * @version 0.4.0
+         * @see     com.github.naoghuman.lib.tag.core.TagRelation
+         * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+         * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
          */
         final TagRelation tagRelation = TagRelationBuilder.create()
                 .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)

@@ -35,8 +35,7 @@ import javafx.collections.ObservableMap;
  * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} 
- *     {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
  * </ul>
  *
  * @author  Naoghuman

@@ -31,23 +31,23 @@ public class TagRelationContainerIdBuilderAllowedSteps {
     TagRelationContainerIdBuilderAllowedSteps() {
         
         /**
-         * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
-         * its possible to create easly an unique {@code Id} which can be used to map a 
-         * {@link com.github.naoghuman.lib.tag.core.Tag} against a gui component.
-         * 
-         * For more information about how to map a {@code Tag} with a container see 
-         * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+         * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+         * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
+         * <p>
+         * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
+         * between a {@link com.github.naoghuman.lib.tag.core.Tag} and the container where the {@code Tag} will be embbeded.
          * 
          * <ul>
-         * <li>All attributes in the builder are {@code mandory}.</li>
-         * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+         * <li>All attributes are {@code mandory}.</li>
+         * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
          * </ul>
-         * 
-         * @see com.github.naoghuman.lib.tag.core.Tag
-         * @see com.github.naoghuman.lib.tag.core.TagRelation
-         * @see com.github.naoghuman.lib.tag.core.TagRelationBuilder
-         * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
-         * @see com.github.naoghuman.lib.tag.core.TagValidator
+         *
+         * @author  Naoghuman
+         * @since   0.4.0
+         * @version 0.4.0
+         * @see     com.github.naoghuman.lib.tag.core.Tag
+         * @see     com.github.naoghuman.lib.tag.core.TagRelation
+         * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
          */
         final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
                 .path(TagRelationContainerId.class) // mandory (NOT NULL)

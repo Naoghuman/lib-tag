@@ -30,14 +30,12 @@ import javafx.collections.ObservableMap;
  * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
  * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
  * <p>
- * The main point from this {@code builder} is the possibility to generate an unique 
- * {@code Id} for a relation between a {@link com.github.naoghuman.lib.tag.core.Tag}
- * and the container where the {@code Tag} will be embbeded.
+ * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
+ * between a {@link com.github.naoghuman.lib.tag.core.Tag} and the container where the {@code Tag} will be embbeded.
  * 
  * <ul>
  * <li>All attributes are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} 
- *     {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
  * </ul>
  *
  * @author  Naoghuman

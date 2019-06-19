@@ -29,18 +29,22 @@ public class TagBuilderAllowedSteps {
     TagBuilderAllowedSteps() {
         
         /**
-         * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
-         * its possible to create easly a {@code Tag} which is the preferred way.
-         * 
+         * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+         * the developer can easily create an instance from the {@code Interface} 
+         * {@link com.github.naoghuman.lib.tag.core.Tag}.
          * <ul>
-         * <li>The first three attributes {@code id}, {@code title} and {@code generationTime} are mandory.</li>
-         * <li>All other attributes are {@code optional}.</li>
-         * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+         * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+         * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
+         * <li>Any attribute (mandory or optional if set) will be validate against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
          * </ul>
-         * 
-         * @see com.github.naoghuman.lib.tag.core.Tag
-         * @see com.github.naoghuman.lib.tag.core.TagBuilder
-         * @see com.github.naoghuman.lib.tag.core.TagValidator
+         *
+         * @author  Naoghuman
+         * @since   0.1.0
+         * @version 0.4.0
+         * @see     com.github.naoghuman.lib.tag.core.Tag
+         * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+         * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
+         * @see     java.util.Optional#empty()
          */
         final Tag tag = TagBuilder.create()
                 .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)

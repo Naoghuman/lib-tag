@@ -51,18 +51,22 @@ It is very easy to create a [Tag] with the fluent builder [TagBuilder]:
 
 ```java
 /**
- * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
- * its possible to create easly a {@code Tag} which is the preferred way.
- * 
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagBuilder} 
+ * the developer can easily create an instance from the {@code Interface} 
+ * {@link com.github.naoghuman.lib.tag.core.Tag}.
  * <ul>
- * <li>The first three attributes {@code id}, {@code title} and {@code generationTime} are mandory.</li>
- * <li>All other attributes are {@code optional}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+ * <li>The first two attributes {@code id} and {@code title} are mandory.</li>
+ * <li>All other attributes are optional, that means skipping them returns {@link java.util.Optional#empty()}.</li>
+ * <li>Any attribute (mandory or optional if set) will be validate against {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
  * </ul>
- * 
- * @see com.github.naoghuman.lib.tag.core.Tag
- * @see com.github.naoghuman.lib.tag.core.TagBuilder
- * @see com.github.naoghuman.lib.tag.core.TagValidator
+ *
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagBuilder
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
+ * @see     java.util.Optional#empty()
  */
 final Tag tag = TagBuilder.create()
         .id(Tag.DEFAULT_ID)               // mandory (NOT NULL)
@@ -97,21 +101,20 @@ or in a [FlowPane].
 
 ```java
 /**
- * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
- * its possible to create easly a {@link com.github.naoghuman.lib.tag.core.TagRelation}
- * which can be used to map a {@link com.github.naoghuman.lib.tag.core.Tag} against 
- * a gui component.
- * 
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
+ * the developer can create easily an instance from the {@code Interface} 
+ * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
  * <ul>
- * <li>All attributes in the builder are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+ * <li>All attributes are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
  * </ul>
- * 
- * @see com.github.naoghuman.lib.tag.core.Tag
- * @see com.github.naoghuman.lib.tag.core.TagRelation
- * @see com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
- * @see com.github.naoghuman.lib.tag.core.TagValidator
+ *
+ * @author  Naoghuman
+ * @since   0.1.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
  */
 final TagRelation tagRelation = TagRelationBuilder.create()
         .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)
@@ -146,23 +149,23 @@ is required. Here comes the following fluent builder in the game:
 
 ```java
 /**
- * With the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
- * its possible to create easly an unique {@code Id} which can be used to map a 
- * {@link com.github.naoghuman.lib.tag.core.Tag} against a gui component.
- * 
- * For more information about how to map a {@code Tag} with a container see 
- * {@link com.github.naoghuman.lib.tag.core.TagRelation}.
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+ * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
+ * <p>
+ * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
+ * between a {@link com.github.naoghuman.lib.tag.core.Tag} and the container where the {@code Tag} will be embbeded.
  * 
  * <ul>
- * <li>All attributes in the builder are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@code TagValidator}.</li>
+ * <li>All attributes are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
  * </ul>
- * 
- * @see com.github.naoghuman.lib.tag.core.Tag
- * @see com.github.naoghuman.lib.tag.core.TagRelation
- * @see com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
- * @see com.github.naoghuman.lib.tag.core.TagValidator
+ *
+ * @author  Naoghuman
+ * @since   0.4.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
  */
 final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
         .path(TagRelationContainerId.class) // mandory (NOT NULL)
