@@ -1,10 +1,10 @@
 Welcome to `Lib-Tag` with the new release `0.4.0`.
 
-`Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] & [Maven] 
-application.  
-A `Tag` is basically a simple [String] which can be used for example in a [Button], 
-[Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched 
-or analysed for a `Tag`.
+`Lib-Tag` is a library to use and handle easily [Tag]s in your [JavaFX] & [Maven] 
+application.
+A `Tag` is a simple [String] which can be used for example in a [Button], [Label] 
+or another [JavaFX] components. Suchlike tagged topics can be easily searched or 
+analyzed for a `Tag`. 
 
 
 #### Summary
@@ -33,6 +33,7 @@ or analysed for a `Tag`.
 
 
 #### Documentation
+#47 [doc] Check the library description with 'Grammarly'.
 #46 [doc] Add new section 'Requirements' to the ReadMe.
 #45 [doc] Add new section 'Installation' to the ReadMe.
 #44 [doc] Add new section 'Download' to the ReadMe.

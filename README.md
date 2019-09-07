@@ -13,9 +13,9 @@ Intention
 The sublibrary `Lib-Tag-Core` contains the core functionalities to perform the 
 CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
 
-A `Tag` is basically a simple [String] which can be used for example in a [Button], 
-[Label] or another [JavaFX] component. Suchlike tagged topics can be easily searched 
-or analysed for a `Tag`.
+A `Tag` is a simple [String] which can be used for example in a [Button], [Label] 
+or another [JavaFX] components. Suchlike tagged topics can be easily searched or 
+analyzed for a `Tag`. 
 
 _Image:_ [UML] Lib-Tag  
 ![uml_lib-tag_v0.4.0_2019-06-13_19-10.png][uml_lib-tag_v0.4.0_2019-06-13_19-10]

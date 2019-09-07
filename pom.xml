@@ -12,7 +12,7 @@
     
     <description>The library `Lib-Tag-Core` provides the API to perform CRUD (`Create`, `Read`, `Update` and `Delete`) operations for a [Tag].
 
-A `Tag` is basically a simple [String] which can be used for example in a [Button], [Label] or another [JavaFX] component. Tagged topics can be easily searched or analysed for a `Tag`.</description>
+A `Tag` is a simple [String] which can be used for example in a [Button], [Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched or analyzed for a `Tag`. </description>
     
     <developers>
         <developer>

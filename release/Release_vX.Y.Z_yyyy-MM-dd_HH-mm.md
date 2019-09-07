@@ -1,10 +1,10 @@
 Welcome to `Lib-Tag` with the new release `x.y.z`.
 
-`Lib-Tag` is a library to use and handle easily [Tag]s in your a [JavaFX] & [Maven] 
-application.  
-A `Tag` is basically a simple [String] which can be used for example in a [Button], 
-[Label] or another [JavaFX] components. Suchlike tagged topics can be easily searched 
-or analysed for a `Tag`.
+`Lib-Tag` is a library to use and handle easily [Tag]s in your [JavaFX] & [Maven] 
+application.
+A `Tag` is a simple [String] which can be used for example in a [Button], [Label] 
+or another [JavaFX] components. Suchlike tagged topics can be easily searched or 
+analyzed for a `Tag`. 
 
 
 
