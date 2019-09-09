@@ -18,9 +18,9 @@ package com.github.naoghuman.lib.tag.internal;
 
 import com.github.naoghuman.lib.tag.core.TagRelation;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * Test class to test the default implementation from the {@code Interface} 
@@ -277,7 +277,7 @@ public class DefaultTagRelationTest {
         String containerId = "hello-world";
         
         TagRelation result = DefaultTagRelation.create(id, tagId, containerId);
-        assertEquals("Tag[id=123, tagId=456, containerId=hello-world]", result.toString());
+        assertEquals("TagRelation [id=123, tagId=456, containerId=hello-world]", result.toString());
     }
     
 }

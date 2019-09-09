@@ -14,6 +14,7 @@ analyzed for a `Tag`.
 
 
 #### Bug
+#49 [bug] The entity TagRelation print 'Tag' instead 'TagRelation'.
 
 
 

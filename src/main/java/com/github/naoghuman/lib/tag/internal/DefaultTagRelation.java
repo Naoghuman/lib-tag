@@ -241,7 +241,7 @@ public final class DefaultTagRelation implements TagRelation {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("Tag["); // NOI18N
+        sb.append("TagRelation ["); // NOI18N
 
         sb.append("id=")           .append(this.getId()); // NOI18N
         sb.append(", tagId=")      .append(this.getTagId()); // NOI18N
