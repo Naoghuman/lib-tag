@@ -38,6 +38,14 @@ import javafx.beans.property.StringProperty;
 public interface TagRelation extends Comparable<TagRelation>, Externalizable {
 
     /**
+     * Constant which defines the name from the attribute {@code containerId}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
+     */
+    public static final String CONTAINER_ID = "containerId"; // NOI18N
+
+    /**
      * Constant which defines the attribute {@code default-id}(= 
      * {@link java.lang.Long#MIN_VALUE}) from a {@code TagRelation}.
      * 
@@ -52,15 +60,7 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
      * @since   0.1.0
      * @version 0.4.0
      */
-    public static final String TAG_RELATION__PARA__ID = "id"; // NOI18N
-
-    /**
-     * Constant which defines the name from the attribute {@code containerId}.
-     * 
-     * @since   0.1.0
-     * @version 0.4.0
-     */
-    public static final String TAG_RELATION__PARA__CONTAINER_ID = "containerId"; // NOI18N
+    public static final String ID = "id"; // NOI18N
 
     /**
      * Constant which defines the name from the attribute {@code tagId}.
@@ -68,7 +68,7 @@ public interface TagRelation extends Comparable<TagRelation>, Externalizable {
      * @since   0.1.0
      * @version 0.4.0
      */
-    public static final String TAG_RELATION__PARA__TAG_ID = "tagId"; // NOI18N
+    public static final String TAG_ID = "tagId"; // NOI18N
 
     /**
      * Gets the value from the attribute {@code id} from this {@code TagRelation}.

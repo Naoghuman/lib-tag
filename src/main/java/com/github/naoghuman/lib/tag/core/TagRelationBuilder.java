@@ -16,9 +16,6 @@
  */
 package com.github.naoghuman.lib.tag.core;
 
-import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__CONTAINER_ID;
-import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__ID;
-import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_RELATION__PARA__TAG_ID;
 import com.github.naoghuman.lib.tag.internal.DefaultTagRelation;
 import com.github.naoghuman.lib.tag.internal.DefaultTagValidator;
 import javafx.beans.property.LongProperty;
@@ -28,6 +25,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
+import static com.github.naoghuman.lib.tag.core.TagRelation.CONTAINER_ID;
+import static com.github.naoghuman.lib.tag.core.TagRelation.ID;
+import static com.github.naoghuman.lib.tag.core.TagRelation.TAG_ID;
 
 /**
  * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder} 
@@ -165,16 +165,16 @@ public final class TagRelationBuilder {
 
         private void init() {
             // Mandory attributes
-            properties.put(TAG_RELATION__PARA__CONTAINER_ID,   new SimpleStringProperty());
-            properties.put(TAG_RELATION__PARA__ID,             new SimpleLongProperty());
-            properties.put(TAG_RELATION__PARA__TAG_ID,         new SimpleLongProperty());
+            properties.put(CONTAINER_ID, new SimpleStringProperty());
+            properties.put(ID,           new SimpleLongProperty());
+            properties.put(TAG_ID,       new SimpleLongProperty());
         }
 
         @Override
         public TagIdStep id(final Long id) {
             DefaultTagValidator.requireNonNull(id);
             
-            properties.put(TAG_RELATION__PARA__ID, new SimpleLongProperty(id));
+            properties.put(ID, new SimpleLongProperty(id));
             
             return this;
         }
@@ -183,7 +183,7 @@ public final class TagRelationBuilder {
         public ContainerIdStep tagId(final Long tagId) {
             DefaultTagValidator.requireNonNull(tagId);
             
-            properties.put(TAG_RELATION__PARA__TAG_ID, new SimpleLongProperty(tagId));
+            properties.put(TAG_ID, new SimpleLongProperty(tagId));
             
             return this;
         }
@@ -192,7 +192,7 @@ public final class TagRelationBuilder {
         public Builder containerId(final String containerId) {
             DefaultTagValidator.requireNonNullAndNotEmpty(containerId);
             
-            properties.put(TAG_RELATION__PARA__CONTAINER_ID, new SimpleStringProperty(containerId));
+            properties.put(CONTAINER_ID, new SimpleStringProperty(containerId));
             
             return this;
         }
@@ -200,13 +200,13 @@ public final class TagRelationBuilder {
         @Override
         public TagRelation build() {
             // Catch data
-            final LongProperty idLongProperty = (LongProperty) properties.get(TAG_RELATION__PARA__ID);
+            final LongProperty idLongProperty = (LongProperty) properties.get(ID);
             final Long id = idLongProperty.get();
 
-            final LongProperty tagIdLongProperty = (LongProperty) properties.get(TAG_RELATION__PARA__TAG_ID);
+            final LongProperty tagIdLongProperty = (LongProperty) properties.get(TAG_ID);
             final Long tagId = tagIdLongProperty.get();
 
-            final StringProperty containerIdStringProperty = (StringProperty) properties.get(TAG_RELATION__PARA__CONTAINER_ID);
+            final StringProperty containerIdStringProperty = (StringProperty) properties.get(CONTAINER_ID);
             final String containerId = containerIdStringProperty.get();
 
             // Create the TagRelation

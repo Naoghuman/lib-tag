@@ -48,6 +48,30 @@ public interface Tag extends Comparable<Tag>, Externalizable {
      * @version 0.4.0
      */
     public static final Long DEFAULT_ID = Long.MIN_VALUE;
+
+    /**
+     * Constant which defines the name from the attribute {@code description}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
+     */
+    public static final String DESCRIPTION = "description"; // NOI18N
+
+    /**
+     * Constant which defines the name from the attribute {@code generationTime}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
+     */
+    public static final String GENERATION_TIME = "generationTime"; // NOI18N
+
+    /**
+     * Constant which defines the name from the attribute {@code id}.
+     * 
+     * @since   0.1.0
+     * @version 0.4.0
+     */
+    public static final String ID = "id"; // NOI18N
     
     /**
      * Constant which defines an empty {@link java.lang.String}.
@@ -59,36 +83,12 @@ public interface Tag extends Comparable<Tag>, Externalizable {
     public static final String SIGN__EMPTY = ""; // NOI18N
 
     /**
-     * Constant which defines the name from the attribute {@code description}.
-     * 
-     * @since   0.1.0
-     * @version 0.4.0
-     */
-    public static final String TAG_PARA__DESCRIPTION = "description"; // NOI18N
-
-    /**
-     * Constant which defines the name from the attribute {@code id}.
-     * 
-     * @since   0.1.0
-     * @version 0.4.0
-     */
-    public static final String TAG_PARA__ID = "id"; // NOI18N
-
-    /**
-     * Constant which defines the name from the attribute {@code generationTime}.
-     * 
-     * @since   0.1.0
-     * @version 0.4.0
-     */
-    public static final String TAG_PARA__GENERATION_TIME = "generationTime"; // NOI18N
-
-    /**
      * Constant which defines the name from the attribute {@code style}.
      * 
      * @since   0.1.0
      * @version 0.4.0
      */
-    public static final String TAG_PARA__STYLE = "style"; // NOI18N
+    public static final String STYLE = "style"; // NOI18N
 
     /**
      * Constant which defines the name from the attribute {@code title}.
@@ -96,7 +96,7 @@ public interface Tag extends Comparable<Tag>, Externalizable {
      * @since   0.1.0
      * @version 0.4.0
      */
-    public static final String TAG_PARA__TITLE = "title"; // NOI18N
+    public static final String TITLE = "title"; // NOI18N
 
     /**
      * Gets the value from the attribute {@code id} from this {@code Tag}.

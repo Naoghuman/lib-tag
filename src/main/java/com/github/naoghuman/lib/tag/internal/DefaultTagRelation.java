@@ -106,7 +106,7 @@ public final class DefaultTagRelation implements TagRelation {
     @Override
     public LongProperty idProperty() {
         if (idProperty == null) {
-            idProperty = new SimpleLongProperty(this, TAG_RELATION__PARA__ID, _id);
+            idProperty = new SimpleLongProperty(this, ID, _id);
         }
 
         return idProperty;
@@ -140,7 +140,7 @@ public final class DefaultTagRelation implements TagRelation {
     @Override
     public LongProperty tagIdProperty() {
         if (tagIdProperty == null) {
-            tagIdProperty = new SimpleLongProperty(this, TAG_RELATION__PARA__TAG_ID, _tagId);
+            tagIdProperty = new SimpleLongProperty(this, TAG_ID, _tagId);
         }
 
         return tagIdProperty;
@@ -174,7 +174,7 @@ public final class DefaultTagRelation implements TagRelation {
     @Override
     public StringProperty containerIdProperty() {
         if (containerIdProperty == null) {
-            containerIdProperty = new SimpleStringProperty(this, TAG_RELATION__PARA__CONTAINER_ID, _containerId);
+            containerIdProperty = new SimpleStringProperty(this, CONTAINER_ID, _containerId);
         }
 
         return containerIdProperty;
