@@ -26,6 +26,7 @@ analyzed for a `Tag`.
 
 
 #### Enhancement
+#51 [build] Deactivate Travis CI until 'openjdk12' in Travis.com.
 
 
 
