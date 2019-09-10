@@ -28,8 +28,8 @@ Content
 ---
 * [Examples](#Ex)
     * [Usage of the class `TagBuilder`](#UsOfThClTaBu)
+    * [Usage of the class `TagContainerIdBuilder`](#UsOfThClTaCoIdBu)
     * [Usage of the class `TagRelationBuilder`](#UsOfThClTaReBu)
-    * [Usage of the class `TagRelationContainerIdBuilder`](#UsOfThClTaReCoIdBu)
 * [JavaDoc](#JavaDoc)
 * [Download](#Download)
 * [Requirements](#Requirements)
@@ -92,6 +92,53 @@ __Additional informations__
 * Design Pattern: [Step builder pattern]
 
 
+### Usage of the class `TagContainerIdBuilder`<a name="UsOfThClTaCoIdBu" />
+
+To identify the container and the assoziated [Tag]s from the container a unique `id` 
+is required. Here comes the following fluent builder in the game:
+
+```java
+/**
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagContainerIdBuilder} 
+ * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
+ * <p>
+ * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
+ * between a {@link com.github.naoghuman.lib.tag.core.Tag} and the container where the {@code Tag} will be embbeded.
+ * 
+ * <ul>
+ * <li>All attributes are {@code mandory}.</li>
+ * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
+ * </ul>
+ *
+ * @author  Naoghuman
+ * @since   0.4.0
+ * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
+ * @see     com.github.naoghuman.lib.tag.core.TagRelation
+ * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
+ */
+final String tagContainerId = TagContainerIdBuilder.create()
+        .path(TagContainerId.class)         // mandory (NOT NULL)
+        .container(AnchorPane.class)        // mandory (NOT NULL)
+        .containerId("container-id")        // mandory (NOT NULL && NOT EMPTY)
+        .build();
+```
+
+Again the same __as__ a [Business process modeling (BPM)] diagram:  
+_Image:_ Business process modeling diagram from `TagContainerIdBuilder`  
+![bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32.png][bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32]
+
+> __Hint__  
+> . The generation from a `TagContainerId` starts with the method `create()`.  
+> . `Green` rectangles are `mandory` attributes.  
+> . The `TagContainerId` will then created with the last method `build()`.
+
+__Additional informations__  
+* Design Pattern: [Fluent Interface]
+* Design Pattern: [Builder pattern]
+* Design Pattern: [Step builder pattern]
+
+
 ### Usage of the class `TagRelationBuilder`<a name="UsOfThClTaReBu" />
 
 With a [TagRelation] its possible to `map` a [Tag] with a specific gui component. 
@@ -118,8 +165,8 @@ or in a [FlowPane].
 final TagRelation tagRelation = TagRelationBuilder.create()
         .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)
         .tagId(0L)                                          // mandory (NOT NULL)
-        .containerId(TagRelationContainerIdBuilder.create()
-                .path(TagRelationContainerId.class)         // mandory (NOT NULL)
+        .containerId(TagContainerIdBuilder.create()
+                .path(TagContainerId.class)                 // mandory (NOT NULL)
                 .container(AnchorPane.class)                // mandory (NOT NULL)
                 .containerId("container-id")                // mandory (NOT NULL && NOT EMPTY)
                 .build())
@@ -134,53 +181,6 @@ _Image:_ Business process modeling diagram from `TagRelationBuilder`
 > . The generation from a `TagRelation` starts with the method `create()`.  
 > . `Green` rectangles are `mandory` attributes.  
 > . The `TagRelation` will then created with the last method `build()`.
-
-__Additional informations__  
-* Design Pattern: [Fluent Interface]
-* Design Pattern: [Builder pattern]
-* Design Pattern: [Step builder pattern]
-
-
-### Usage of the class `TagRelationContainerIdBuilder`<a name="UsOfThClTaReContainerIdBu" />
-
-To identify the container and the assoziated [Tag]s from the container a unique `id` 
-is required. Here comes the following fluent builder in the game:
-
-```java
-/**
- * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
- * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
- * <p>
- * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
- * between a {@link com.github.naoghuman.lib.tag.core.Tag} and the container where the {@code Tag} will be embbeded.
- * 
- * <ul>
- * <li>All attributes are {@code mandory}.</li>
- * <li>All defined values will be validate against the {@code Interface} {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}.</li>
- * </ul>
- *
- * @author  Naoghuman
- * @since   0.4.0
- * @version 0.4.0
- * @see     com.github.naoghuman.lib.tag.core.Tag
- * @see     com.github.naoghuman.lib.tag.core.TagRelation
- * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
- */
-final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
-        .path(TagRelationContainerId.class) // mandory (NOT NULL)
-        .container(AnchorPane.class)        // mandory (NOT NULL)
-        .containerId("container-id")        // mandory (NOT NULL && NOT EMPTY)
-        .build();
-```
-
-Again the same __as__ a [Business process modeling (BPM)] diagram:  
-_Image:_ Business process modeling diagram from `TagRelationContainerIdBuilder`  
-![bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32.png][bpm_lib-tag-core_tagrelationcontaineridbuilder_2017-12-17_08-32]
-
-> __Hint__  
-> . The generation from a `TagRelationContainerId` starts with the method `create()`.  
-> . `Green` rectangles are `mandory` attributes.  
-> . The `TagRelationContainerId` will then created with the last method `build()`.
 
 __Additional informations__  
 * Design Pattern: [Fluent Interface]

@@ -19,19 +19,19 @@ package com.github.naoghuman.lib.tag.core;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * Example usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+ * Example usage from the fluent builder {@link com.github.naoghuman.lib.tag.core.TagContainerIdBuilder} 
  * for the documentation.
  *
  * @author  Naoghuman
  * @since   0.3.0
- * @see     com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
+ * @see     com.github.naoghuman.lib.tag.core.TagContainerIdBuilder
  */
-public class TagRelationContainerIdBuilderAllowedSteps {
+public class TagContainerIdBuilderAllowedSteps {
     
-    TagRelationContainerIdBuilderAllowedSteps() {
+    TagContainerIdBuilderAllowedSteps() {
         
         /**
-         * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+         * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagContainerIdBuilder} 
          * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
          * <p>
          * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
@@ -49,8 +49,8 @@ public class TagRelationContainerIdBuilderAllowedSteps {
          * @see     com.github.naoghuman.lib.tag.core.TagRelation
          * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
          */
-        final String tagRelationContainerId = TagRelationContainerIdBuilder.create()
-                .path(TagRelationContainerId.class) // mandory (NOT NULL)
+        final String tagContainerId = TagContainerIdBuilder.create()
+                .path(TagContainerId.class)         // mandory (NOT NULL)
                 .container(AnchorPane.class)        // mandory (NOT NULL)
                 .containerId("container-id")        // mandory (NOT NULL && NOT EMPTY)
                 .build();

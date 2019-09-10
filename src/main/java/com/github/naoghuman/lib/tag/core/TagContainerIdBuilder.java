@@ -16,7 +16,7 @@
  */
 package com.github.naoghuman.lib.tag.core;
 
-import com.github.naoghuman.lib.tag.internal.DefaultTagRelationContainerId;
+import com.github.naoghuman.lib.tag.internal.DefaultTagContainerId;
 import com.github.naoghuman.lib.tag.internal.DefaultTagValidator;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.Property;
@@ -27,7 +27,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 
 /**
- * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder} 
+ * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagContainerIdBuilder} 
  * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
  * <p>
  * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
@@ -45,7 +45,7 @@ import javafx.collections.ObservableMap;
  * @see     com.github.naoghuman.lib.tag.core.TagRelation
  * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
  */
-public class TagRelationContainerIdBuilder {
+public class TagContainerIdBuilder {
     
     /**
      * Starting point from this fluent builder to configure and create an unique {@code Id},
@@ -57,7 +57,7 @@ public class TagRelationContainerIdBuilder {
      */
     public static final PathStep create() {
         
-        return new TagRelationContainerIdBuilderImpl();
+        return new TagContainerIdBuilderImpl();
         
     }
     
@@ -160,7 +160,7 @@ public class TagRelationContainerIdBuilder {
         
     }
     
-    private static final class TagRelationContainerIdBuilderImpl implements PathStep, ContainerStep, ContainerIdStep, Builder {
+    private static final class TagContainerIdBuilderImpl implements PathStep, ContainerStep, ContainerIdStep, Builder {
 
         private static final String PARA__CONTAINER    = "container"; // NOI18N
         private static final String PARA__CONTAINER_ID = "containerId"; // NOI18N
@@ -169,15 +169,15 @@ public class TagRelationContainerIdBuilder {
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
         
-        TagRelationContainerIdBuilderImpl() {
+        TagContainerIdBuilderImpl() {
             this.init();
         }
 
         private void init() {
             // Mandory attributes
-            properties.put(PARA__CONTAINER, new SimpleObjectProperty());
+            properties.put(PARA__CONTAINER,    new SimpleObjectProperty());
             properties.put(PARA__CONTAINER_ID, new SimpleStringProperty());
-            properties.put(PARA__PATH, new SimpleObjectProperty());
+            properties.put(PARA__PATH,         new SimpleObjectProperty());
         }
 
         @Override
@@ -220,7 +220,7 @@ public class TagRelationContainerIdBuilder {
             final String containerId = containerIdStringProperty.get();
             
             // and returned the unique id
-            return DefaultTagRelationContainerId.getDefault().generateId(path, container, containerId);
+            return DefaultTagContainerId.getDefault().generateId(path, container, containerId);
         }
         
     }

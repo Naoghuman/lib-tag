@@ -26,7 +26,7 @@ import javafx.scene.layout.AnchorPane;
  * @since   0.1.0
  * @version 0.3.0
  * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
- * @see     com.github.naoghuman.lib.tag.core.TagRelationContainerIdBuilder
+ * @see     com.github.naoghuman.lib.tag.core.TagContainerIdBuilder
  */
 public class TagRelationBuilderAllowedSteps {
     
@@ -51,8 +51,8 @@ public class TagRelationBuilderAllowedSteps {
         final TagRelation tagRelation = TagRelationBuilder.create()
                 .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)
                 .tagId(0L)                                          // mandory (NOT NULL)
-                .containerId(TagRelationContainerIdBuilder.create()
-                        .path(TagRelationContainerId.class)         // mandory (NOT NULL)
+                .containerId(TagContainerIdBuilder.create()
+                        .path(TagContainerId.class)                 // mandory (NOT NULL)
                         .container(AnchorPane.class)                // mandory (NOT NULL)
                         .containerId("container-id")                // mandory (NOT NULL && NOT EMPTY)
                         .build())

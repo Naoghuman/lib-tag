@@ -16,35 +16,35 @@
  */
 package com.github.naoghuman.lib.tag.internal;
 
-import com.github.naoghuman.lib.tag.core.TagRelationContainerId;
 import java.util.Optional;
+import com.github.naoghuman.lib.tag.core.TagContainerId;
 
 /**
- * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId}.
+ * The default implementation from the {@code Interface} {@link com.github.naoghuman.lib.tag.core.TagContainerId}.
  *
  * @author Naoghuman
  * @since   0.3.0
  * @version 0.4.0
- * @see    com.github.naoghuman.lib.tag.core.TagRelationContainerId
+ * @see    com.github.naoghuman.lib.tag.core.TagContainerId
  */
-public class DefaultTagRelationContainerId implements TagRelationContainerId {
+public class DefaultTagContainerId implements TagContainerId {
 
     private static final String UNDERLINE = "_"; // NOI18N
     
-    private static final Optional<DefaultTagRelationContainerId> INSTANCE = Optional.of(new DefaultTagRelationContainerId());
+    private static final Optional<DefaultTagContainerId> INSTANCE = Optional.of(new DefaultTagContainerId());
 
     /**
-     * Returns a singleton instance from the {@code Class} <code>DefaultTagRelationContainerId</code>.
+     * Returns a singleton instance from the {@code Class} <code>DefaultTagContainerId</code>.
      *
      * @return a singleton instance from this {@code Class}.
      * @since   0.3.0
      * @version 0.4.0
      */
-    public static final DefaultTagRelationContainerId getDefault() {
+    public static final DefaultTagContainerId getDefault() {
         return INSTANCE.get();
     }
 
-    private DefaultTagRelationContainerId() {
+    private DefaultTagContainerId() {
 
     }
 

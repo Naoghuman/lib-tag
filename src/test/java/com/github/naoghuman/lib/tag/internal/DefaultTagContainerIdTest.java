@@ -18,23 +18,23 @@ package com.github.naoghuman.lib.tag.internal;
 
 import javafx.scene.layout.AnchorPane;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- * Test class to test the default implementation from the {@code Class} 
- * {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId} which is 
- * {@link com.github.naoghuman.lib.tag.internal.DefaultTagRelationContainerId}.
+ * Test class to test the default implementation from the {@code Interface} 
+ * {@link com.github.naoghuman.lib.tag.internal.DefaultTagContainerId} which is 
+ * {@link com.github.naoghuman.lib.tag.core.TagRelationContainerId}.
  *
  * @author Naoghuman
  * @since  0.3.0
  * @see    com.github.naoghuman.lib.tag.core.TagRelationContainerId
- * @see    com.github.naoghuman.lib.tag.internal.DefaultTagRelationContainerId
+ * @see    com.github.naoghuman.lib.tag.internal.DefaultTagContainerId
  */
-public class DefaultTagRelationContainerIdTest {
+public class DefaultTagContainerIdTest {
     
-    public DefaultTagRelationContainerIdTest() {
+    public DefaultTagContainerIdTest() {
     }
     
     @Before
@@ -51,43 +51,43 @@ public class DefaultTagRelationContainerIdTest {
         Class  container   = AnchorPane.class;
         String containerId = "hello-world";
         
-        DefaultTagRelationContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
     }
     
     @Test(expected = NullPointerException.class)
     public void testGeneratedIdThrowsBecauseContainerIsNULL() {
-        Class  path        = DefaultTagRelationContainerIdTest.class;
+        Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = null;
         String containerId = "hello-world";
         
-        DefaultTagRelationContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
     }
     
     @Test(expected = NullPointerException.class)
     public void testGeneratedIdThrowsBecauseContainerIdIsNULL() {
-        Class  path        = DefaultTagRelationContainerIdTest.class;
+        Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = AnchorPane.class;
         String containerId = null;
         
-        DefaultTagRelationContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void testGeneratedIdThrowsBecauseContainerIdIsEMPTY() {
-        Class  path        = DefaultTagRelationContainerIdTest.class;
+        Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = AnchorPane.class;
         String containerId = "";
         
-        DefaultTagRelationContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
     }
 
     @Test
     public void testGenerateIdWithPathAndContainerAndContainerId() {
-        Class  path        = DefaultTagRelationContainerIdTest.class;
+        Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = AnchorPane.class;
         String containerId = "1234567890";
         
-        String result = DefaultTagRelationContainerId.getDefault().generateId(path, container, containerId);
+        String result = DefaultTagContainerId.getDefault().generateId(path, container, containerId);
         System.out.println(result);
         
         assertTrue(result.startsWith(path.getCanonicalName()));

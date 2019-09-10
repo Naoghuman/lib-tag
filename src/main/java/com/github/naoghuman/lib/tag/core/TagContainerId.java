@@ -35,7 +35,7 @@ package com.github.naoghuman.lib.tag.core;
  * @see     com.github.naoghuman.lib.tag.core.TagRelation
  * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
  */
-public interface TagRelationContainerId {
+public interface TagContainerId {
     
     /**
      * Generates an (unique) {@code Id} as an {@link java.lang.String}.

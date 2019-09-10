@@ -46,6 +46,7 @@ analyzed for a `Tag`.
 
 
 #### Refactoring
+#50 [api] Refactore the entity name 'TagRelationContainerId' to 'TagContainerId'.
 #48 [api] Refactore the constant-names in the entities.
 #42 [pom] Update dependencies in the pom.xml.
 #27 [Lib-Tag-Core] Missing NOI18N in Tag by constant TAG_PARA__ID.
