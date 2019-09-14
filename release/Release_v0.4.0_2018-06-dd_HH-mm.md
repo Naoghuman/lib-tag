@@ -47,6 +47,7 @@ analyzed for a `Tag`.
 
 
 #### Refactoring
+#53 [api] Rename the attribute 'containerId' in TagContainerId.
 #50 [api] Refactore the entity name 'TagRelationContainerId' to 'TagContainerId'.
 #48 [api] Refactore the constant-names in the entities.
 #42 [pom] Update dependencies in the pom.xml.

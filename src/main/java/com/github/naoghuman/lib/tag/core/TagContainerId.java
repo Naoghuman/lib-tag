@@ -23,26 +23,24 @@ package com.github.naoghuman.lib.tag.core;
  * <p>
  * The main point from this {@code Interface} is the possibility to generate an unique 
  * {@code Id} for a relation between a {@link com.github.naoghuman.lib.tag.core.Tag}
- * and the container where the {@code Tag} will be embbeded.
- * <p>
- * For additional information about the {@code relation} plz see
- * {@link com.github.naoghuman.lib.tag.core.TagRelationBuilder}.
+ * and the JavaFX container where the {@code Tag} will be embbeded.
  *
  * @author  Naoghuman
  * @since   0.3.0
  * @version 0.4.0
  * @see     com.github.naoghuman.lib.tag.core.Tag
  * @see     com.github.naoghuman.lib.tag.core.TagRelation
- * @see     com.github.naoghuman.lib.tag.core.TagRelationBuilder
  */
 public interface TagContainerId {
     
     /**
-     * Generates an (unique) {@code Id} as an {@link java.lang.String}.
+     * Generates an (unique) {@code Id} as an {@link java.lang.String} which can 
+     * be used as a {@code relation Id} between a {@link com.github.naoghuman.lib.tag.core.Tag} 
+     * and a JavaFX container.
      * 
      * The format from the {@code Id} is:
      * <ul>
-     * <li>path.getCanonicalName() + '_' + container.getSimpleName() + '_' + containerId</li>
+     * <li>path.getCanonicalName() + '_' + container.getSimpleName() + '_' + fxId</li>
      * </ul>
      * 
      * Example:
@@ -51,20 +49,22 @@ public interface TagContainerId {
      * </ul>
      * 
      * Internal {@link com.github.naoghuman.lib.tag.internal.DefaultTagValidator}
-     * will be used to validate if {@code path}, {@code container} and {@code containerId} isn't NULL. The parameter 
-     * {@code containerId} will be checked additional if it isn't EMPTY.
+     * will be used to validate if {@code path}, {@code container} and {@code fxId} 
+     * isn't NULL. The parameter {@code containerId} will be checked additional if 
+     * it isn't EMPTY.
      * 
      * @param   path        usually the path from the class where the {@code Tag} used.
-     * @param   container   usually the type of the container where the {@code Tag} should be embbeded.
-     * @param   containerId the {@code Id} from the container.
+     * @param   container   usually the type of the JavaFX component where the {@code Tag} should be embbeded.
+     * @param   fxId        the {@code JavaFX-Id} from the JavaFX component.
      * @return  the generated {@code Id}.
-     * @throws  IllegalArgumentException if the containerId is EMPTY.
-     * @throws  NullPointerException     if path, container or containerId is NULL.
+     * @throws  IllegalArgumentException if the fxId is EMPTY.
+     * @throws  NullPointerException     if path, container or fxId is NULL.
      * @since   0.3.0
      * @version 0.4.0
+ * @see     com.github.naoghuman.lib.tag.core.Tag
      * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
      * @see     java.lang.System#nanoTime()
      */
-    public String generateId(final Class path, final Class container, final String containerId);
+    public String generateId(final Class path, final Class container, final String fxId);
     
 }

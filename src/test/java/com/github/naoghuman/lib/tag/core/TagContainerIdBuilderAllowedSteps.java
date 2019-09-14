@@ -34,8 +34,9 @@ public class TagContainerIdBuilderAllowedSteps {
          * With the fluent builder {@code Class} {@link com.github.naoghuman.lib.tag.core.TagContainerIdBuilder} 
          * the developer can create easily an unique {@code Id} and returned it as a {@link java.lang.String}.
          * <p>
-         * The main point from this {@code builder} is the possibility to generate an unique {@code Id} for a relation 
-         * between a {@link com.github.naoghuman.lib.tag.core.Tag} and the container where the {@code Tag} will be embbeded.
+         * The main point from this {@code builder} is the possibility to generate an unique {@code Id} 
+         * for a relation between a {@link com.github.naoghuman.lib.tag.core.Tag} and the JavaFX container 
+         * where the {@code Tag} will be embbeded.
          * 
          * <ul>
          * <li>All attributes are {@code mandory}.</li>
@@ -50,9 +51,9 @@ public class TagContainerIdBuilderAllowedSteps {
          * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
          */
         final String tagContainerId = TagContainerIdBuilder.create()
-                .path(TagContainerId.class)         // mandory (NOT NULL)
-                .container(AnchorPane.class)        // mandory (NOT NULL)
-                .containerId("container-id")        // mandory (NOT NULL && NOT EMPTY)
+                .path(TagContainerId.class)   // mandory (NOT NULL)
+                .container(AnchorPane.class)  // mandory (NOT NULL)
+                .fxId("fx-id")                // mandory (NOT NULL && NOT EMPTY)
                 .build();
         
     }

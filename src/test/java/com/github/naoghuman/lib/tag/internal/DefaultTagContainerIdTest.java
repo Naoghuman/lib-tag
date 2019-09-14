@@ -49,45 +49,45 @@ public class DefaultTagContainerIdTest {
     public void testGeneratedIdThrowsBecausePathIsNULL() {
         Class  path        = null;
         Class  container   = AnchorPane.class;
-        String containerId = "hello-world";
+        String fxId        = "hello-world";
         
-        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, fxId);
     }
     
     @Test(expected = NullPointerException.class)
     public void testGeneratedIdThrowsBecauseContainerIsNULL() {
         Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = null;
-        String containerId = "hello-world";
+        String fxId        = "hello-world";
         
-        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, fxId);
     }
     
     @Test(expected = NullPointerException.class)
     public void testGeneratedIdThrowsBecauseContainerIdIsNULL() {
         Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = AnchorPane.class;
-        String containerId = null;
+        String fxId        = null;
         
-        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, fxId);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void testGeneratedIdThrowsBecauseContainerIdIsEMPTY() {
         Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = AnchorPane.class;
-        String containerId = "";
+        String fxId        = "";
         
-        DefaultTagContainerId.getDefault().generateId(path, container, containerId);
+        DefaultTagContainerId.getDefault().generateId(path, container, fxId);
     }
 
     @Test
     public void testGenerateIdWithPathAndContainerAndContainerId() {
         Class  path        = DefaultTagContainerIdTest.class;
         Class  container   = AnchorPane.class;
-        String containerId = "1234567890";
+        String fxId        = "1234567890";
         
-        String result = DefaultTagContainerId.getDefault().generateId(path, container, containerId);
+        String result = DefaultTagContainerId.getDefault().generateId(path, container, fxId);
         System.out.println(result);
         
         assertTrue(result.startsWith(path.getCanonicalName()));

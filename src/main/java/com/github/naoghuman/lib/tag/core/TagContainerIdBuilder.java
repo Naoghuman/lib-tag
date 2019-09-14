@@ -104,36 +104,36 @@ public class TagContainerIdBuilder {
          * defined the second part from the unique {@code Id}.
          * 
          * @param   container value for the attribute {@code container}.
-         * @return  the next step {@code ContainerIdStep} in this fluent builder.
+         * @return  the next step {@code FxIdStep} in this fluent builder.
          * @throws  NullPointerException if {@code container} is NULL.
          * @since   0.4.0
          * @version 0.4.0
          */
-        public ContainerIdStep container(final Class container);
+        public FxIdStep container(final Class container);
         
     }
     
     /**
      * Third mandory step to configure and create an unique {@code Id}.
      * <p>
-     * This {@code Interface} allowed to set the attribute {@code containerId}.
+     * This {@code Interface} allowed to set the attribute {@code fxId}.
      * 
      * @since   0.4.0
      * @version 0.4.0
      */
-    public interface ContainerIdStep {
+    public interface FxIdStep {
         
         /**
-         * Setter for the mandory attribute {@code containerId}.
+         * Setter for the mandory attribute {@code fxId}.
          * 
-         * @param   containerId value for the attribute {@code containerId}.
+         * @param   fxId value for the attribute {@code fxId}.
          * @return  the next step {@code Builder} in this fluent builder.
-         * @throws  NullPointerException     if {@code containerId} is NULL.
-         * @throws  IllegalArgumentException if {@code containerId} is EMPTY.
+         * @throws  NullPointerException     if {@code fxId} is NULL.
+         * @throws  IllegalArgumentException if {@code fxId} is EMPTY.
          * @since   0.4.0
          * @version 0.4.0
          */
-        public Builder containerId(final String containerId);
+        public Builder fxId(final String fxId);
         
     }
     
@@ -160,11 +160,11 @@ public class TagContainerIdBuilder {
         
     }
     
-    private static final class TagContainerIdBuilderImpl implements PathStep, ContainerStep, ContainerIdStep, Builder {
+    private static final class TagContainerIdBuilderImpl implements PathStep, ContainerStep, FxIdStep, Builder {
 
-        private static final String PARA__CONTAINER    = "container"; // NOI18N
-        private static final String PARA__CONTAINER_ID = "containerId"; // NOI18N
-        private static final String PARA__PATH         = "path"; // NOI18N
+        private static final String PARA__PATH      = "path";      // NOI18N
+        private static final String PARA__CONTAINER = "container"; // NOI18N
+        private static final String PARA__FX_ID     = "fxId";      // NOI18N
         
         @SuppressWarnings("rawtypes")
         private final ObservableMap<String, Property> properties = FXCollections.observableHashMap();
@@ -175,9 +175,9 @@ public class TagContainerIdBuilder {
 
         private void init() {
             // Mandory attributes
-            properties.put(PARA__CONTAINER,    new SimpleObjectProperty());
-            properties.put(PARA__CONTAINER_ID, new SimpleStringProperty());
-            properties.put(PARA__PATH,         new SimpleObjectProperty());
+            properties.put(PARA__PATH,      new SimpleObjectProperty());
+            properties.put(PARA__CONTAINER, new SimpleObjectProperty());
+            properties.put(PARA__FX_ID,     new SimpleStringProperty());
         }
 
         @Override
@@ -190,7 +190,7 @@ public class TagContainerIdBuilder {
         }
 
         @Override
-        public ContainerIdStep container(final Class container) {
+        public FxIdStep container(final Class container) {
             DefaultTagValidator.requireNonNull(container);
             
             properties.put(PARA__CONTAINER, new SimpleObjectProperty(container));
@@ -199,10 +199,10 @@ public class TagContainerIdBuilder {
         }
 
         @Override
-        public Builder containerId(final String containerId) {
+        public Builder fxId(final String containerId) {
             DefaultTagValidator.requireNonNullAndNotEmpty(containerId);
             
-            properties.put(PARA__CONTAINER_ID, new SimpleStringProperty(containerId));
+            properties.put(PARA__FX_ID, new SimpleStringProperty(containerId));
             
             return this;
         }
@@ -216,11 +216,11 @@ public class TagContainerIdBuilder {
             final ObjectProperty containerObjectProperty = (ObjectProperty) properties.get(PARA__CONTAINER);
             final Class container = (Class) containerObjectProperty.get();
             
-            final StringProperty containerIdStringProperty = (StringProperty) properties.get(PARA__CONTAINER_ID);
-            final String containerId = containerIdStringProperty.get();
+            final StringProperty fxIdStringProperty = (StringProperty) properties.get(PARA__FX_ID);
+            final String fxId = fxIdStringProperty.get();
             
             // and returned the unique id
-            return DefaultTagContainerId.getDefault().generateId(path, container, containerId);
+            return DefaultTagContainerId.getDefault().generateId(path, container, fxId);
         }
         
     }

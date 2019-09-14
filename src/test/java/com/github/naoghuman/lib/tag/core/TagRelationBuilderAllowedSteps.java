@@ -49,12 +49,12 @@ public class TagRelationBuilderAllowedSteps {
          * @see     com.github.naoghuman.lib.tag.internal.DefaultTagValidator
          */
         final TagRelation tagRelation = TagRelationBuilder.create()
-                .id(TagRelation.DEFAULT_ID)                         // mandory (NOT NULL)
-                .tagId(0L)                                          // mandory (NOT NULL)
+                .id(TagRelation.DEFAULT_ID)                  // mandory (NOT NULL)
+                .tagId(0L)                                   // mandory (NOT NULL)
                 .containerId(TagContainerIdBuilder.create()
-                        .path(TagContainerId.class)                 // mandory (NOT NULL)
-                        .container(AnchorPane.class)                // mandory (NOT NULL)
-                        .containerId("container-id")                // mandory (NOT NULL && NOT EMPTY)
+                        .path(TagContainerId.class)          // mandory (NOT NULL)
+                        .container(AnchorPane.class)         // mandory (NOT NULL)
+                        .fxId("fx-id")                       // mandory (NOT NULL && NOT EMPTY)
                         .build())
                 .build();
         

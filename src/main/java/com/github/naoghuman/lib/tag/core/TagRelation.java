@@ -21,7 +21,7 @@ import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- * A {@code TagRelation} is a simple mapping between a container like 
+ * A {@code TagRelation} is a simple mapping between a JavaFX container like 
  * {@link javafx.scene.layout.FlowPane} and all {@code Tag}s which should be shown
  * in this container.
  * <p>
