@@ -19,6 +19,7 @@ analyzed for a `Tag`.
 
 
 #### Feature
+#55 [test] Add prototype implementation for a Lib-Tag-Demo.
 #52 [api] Add test dependencies for 'flyway' and 'h2' for the demo.
 #38 [api] Simplified the usage from 'DefaultTagValidator'.
 #36 [api] Connect project with 'Travis CI'.
