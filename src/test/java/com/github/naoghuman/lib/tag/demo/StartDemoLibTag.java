@@ -1,18 +1,22 @@
 package com.github.naoghuman.lib.tag.demo;
 
 import com.github.naoghuman.lib.logger.core.LoggerFacade;
+import com.github.naoghuman.lib.tag.core.Tag;
 import com.github.naoghuman.lib.tag.core.TagContainerIdBuilder;
 import com.github.naoghuman.lib.tag.demo.h2sql.core.H2SQLProvider;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Callback;
 
 public class StartDemoLibTag extends Application {
 
@@ -37,6 +41,7 @@ public class StartDemoLibTag extends Application {
         hbDesktop.setStyle("-fx-background-color:LIGHTGREEN; -fx-padding:14;"); // NOI18N
         
         hbDesktop.getChildren().add(this.getVBoxContainers());
+        hbDesktop.getChildren().add(this.getVBoxExistingTags());
         
         final Scene scene = new Scene(hbDesktop, 1280, 720);
         primaryStage.setTitle("Demo Lib-Tag v0.4.0"); // NOI18N
@@ -53,7 +58,7 @@ public class StartDemoLibTag extends Application {
     private VBox getVBoxContainers() {
         // Container
         final VBox vbContainers = new VBox(2.0d);
-        vbContainers.setStyle("-fx-background-color:CADETBLUE; -fx-padding:14;"); // NOI18N
+        vbContainers.setStyle("-fx-background-color:LIGHTBLUE; -fx-padding:14;"); // NOI18N
         
         // Header
         final Label lContainers = new Label("Containers");// NOI18N
@@ -108,12 +113,59 @@ public class StartDemoLibTag extends Application {
         return vbContainers;
     }
     
+    private VBox getVBoxExistingTags() {
+        final VBox vbExistingTags = new VBox(2.0d);
+        vbExistingTags.setStyle("-fx-background-color:BEIGE; -fx-padding:14;"); // NOI18N
+        
+        // Header
+        final Label lExistingTags = new Label("Existing Tags");// NOI18N
+        lExistingTags.setFont(Font.font(18.0d));
+        vbExistingTags.getChildren().add(lExistingTags);
+        
+        // ListView
+        final ListView<Tag> lvExistingTags = new ListView();
+        final Callback callbackTopics = (Callback<ListView<Tag>, ListCell<Tag>>) (ListView<Tag> listView) -> new ListCell<Tag>() {
+            @Override
+            protected void updateItem(Tag tag, boolean empty) {
+                super.updateItem(tag, empty);
+                
+                this.setGraphic(null);
+                
+                if (tag == null || empty) {
+                    this.setText(null);
+                } else {
+                    this.setText(tag.getTitle());
+                }
+            }
+        };
+        lvExistingTags.setCellFactory(callbackTopics);
+        lvExistingTags.setOnMouseClicked(event -> {
+            // Show the Tag
+            if (
+                    event.getClickCount() == 1
+                    && !lvExistingTags.getSelectionModel().isEmpty()
+            ) {
+                final Tag tag = lvExistingTags.getSelectionModel().getSelectedItem();
+                this.onActionShowTag(tag);
+            }
+        });
+        vbExistingTags.getChildren().add(lvExistingTags);
+        
+        return vbExistingTags;
+    }
+    
     private void onActionCloseRequest() {
         LoggerFacade.getDefault().debug(this.getClass(), "StartDemoLibTag#onActionCloseRequest())"); // NOI18N
         
         H2SQLProvider.getDefault().shutdown();
         
         Platform.exit();
+    }
+    
+    private void onActionShowTag(final Tag tag) {
+        LoggerFacade.getDefault().debug(this.getClass(), "StartDemoLibTag#onActionShowTag(Tag))"); // NOI18N
+        
+        // show the data from the tag into the tag-components.
     }
 
 }
