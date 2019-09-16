@@ -6,7 +6,9 @@ import com.github.naoghuman.lib.tag.core.TagContainerIdBuilder;
 import com.github.naoghuman.lib.tag.demo.h2sql.core.H2SQLProvider;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -40,13 +42,18 @@ public class StartDemoLibTag extends Application {
     public void start(Stage primaryStage) throws Exception {
         LoggerFacade.getDefault().debug(this.getClass(), "StartDemoLibTag#start(Stage))"); // NOI18N
         
+        // Desktop
         final HBox hbDesktop = new HBox(7.0);
         hbDesktop.setStyle("-fx-background-color:LIGHTGREEN; -fx-padding:14;"); // NOI18N
         
+        // Sections
         hbDesktop.getChildren().add(this.getSectionContainers());
         hbDesktop.getChildren().add(this.getSectionExistingTags());
-        hbDesktop.getChildren().add(this.getSectionTag());
+        final VBox vbTag = this.getSectionTag();
+        hbDesktop.getChildren().add(vbTag);
+        vbTag.getChildren().add(this.getSectionCRUD());
         
+        // Window
         final Scene scene = new Scene(hbDesktop, 1280, 720);
         primaryStage.setTitle("Demo Lib-Tag v0.4.0"); // NOI18N
         primaryStage.setScene(scene);
@@ -62,7 +69,7 @@ public class StartDemoLibTag extends Application {
     private VBox getSectionContainers() {
         // Container
         final VBox vbContainers = new VBox(2.0d);
-        vbContainers.setStyle("-fx-background-color:LIGHTBLUE; -fx-padding:14;"); // NOI18N
+        vbContainers.setStyle("-fx-background-color:PALETURQUOISE; -fx-padding:14;"); // NOI18N
         HBox.setHgrow(vbContainers, Priority.ALWAYS);
         
         // Header
@@ -120,7 +127,7 @@ public class StartDemoLibTag extends Application {
     
     private VBox getSectionExistingTags() {
         final VBox vbExistingTags = new VBox(2.0d);
-        vbExistingTags.setStyle("-fx-background-color:BEIGE; -fx-padding:14;"); // NOI18N
+        vbExistingTags.setStyle("-fx-background-color:PALETURQUOISE; -fx-padding:14;"); // NOI18N
         HBox.setHgrow(vbExistingTags, Priority.ALWAYS);
         
         // Header
@@ -222,6 +229,35 @@ public class StartDemoLibTag extends Application {
         vbTag.getChildren().add(cbMarkAsChanged);
        
         return vbTag;
+    }
+    
+    private HBox getSectionCRUD() {
+        final HBox hbCRUD = new HBox(7.0);
+        hbCRUD.setAlignment(Pos.CENTER_RIGHT);
+        hbCRUD.setStyle("-fx-background-color:POWDERBLUE; -fx-padding:7;"); // NOI18N
+        
+        // Create
+        final Button btnCreate = new Button("Create"); // NOI18N
+        btnCreate.setOnAction((event) -> {
+            //
+        });
+        hbCRUD.getChildren().add(btnCreate);
+        
+        // Delete
+        final Button btnDelete = new Button("Delete"); // NOI18N
+        btnDelete.setOnAction((event) -> {
+            //
+        });
+        hbCRUD.getChildren().add(btnDelete);
+        
+        // Save
+        final Button btnSave = new Button("Save"); // NOI18N
+        btnSave.setOnAction((event) -> {
+            //
+        });
+        hbCRUD.getChildren().add(btnSave);
+        
+        return hbCRUD;
     }
     
     private void onActionCloseRequest() {
