@@ -7,11 +7,14 @@ import com.github.naoghuman.lib.tag.demo.h2sql.core.H2SQLProvider;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -40,8 +43,9 @@ public class StartDemoLibTag extends Application {
         final HBox hbDesktop = new HBox(7.0);
         hbDesktop.setStyle("-fx-background-color:LIGHTGREEN; -fx-padding:14;"); // NOI18N
         
-        hbDesktop.getChildren().add(this.getVBoxContainers());
-        hbDesktop.getChildren().add(this.getVBoxExistingTags());
+        hbDesktop.getChildren().add(this.getSectionContainers());
+        hbDesktop.getChildren().add(this.getSectionExistingTags());
+        hbDesktop.getChildren().add(this.getSectionTag());
         
         final Scene scene = new Scene(hbDesktop, 1280, 720);
         primaryStage.setTitle("Demo Lib-Tag v0.4.0"); // NOI18N
@@ -55,13 +59,14 @@ public class StartDemoLibTag extends Application {
         primaryStage.show();
     }
     
-    private VBox getVBoxContainers() {
+    private VBox getSectionContainers() {
         // Container
         final VBox vbContainers = new VBox(2.0d);
         vbContainers.setStyle("-fx-background-color:LIGHTBLUE; -fx-padding:14;"); // NOI18N
+        HBox.setHgrow(vbContainers, Priority.ALWAYS);
         
         // Header
-        final Label lContainers = new Label("Containers");// NOI18N
+        final Label lContainers = new Label("JavaFX Containers");// NOI18N
         lContainers.setFont(Font.font(18.0d));
         vbContainers.getChildren().add(lContainers);
         
@@ -76,7 +81,7 @@ public class StartDemoLibTag extends Application {
                 .container(FlowPane.class)
                 .fxId("flowpane-nr-1") // NOI18N
                 .build());
-        flowPane1.setPrefSize(448.0d, 128.0d);
+        flowPane1.setPrefSize(336.0d, 112.0d);
         flowPane1.setStyle("-fx-background-color:WHITE;"); // NOI18N
         vbContainers.getChildren().add(flowPane1);
         
@@ -91,7 +96,7 @@ public class StartDemoLibTag extends Application {
                 .container(FlowPane.class)
                 .fxId("flowpane-nr-2") // NOI18N
                 .build());
-        flowPane2.setPrefSize(448.0d, 128.0d);
+        flowPane2.setPrefSize(336.0d, 112.0d);
         flowPane2.setStyle("-fx-background-color:WHITE;"); // NOI18N
         vbContainers.getChildren().add(flowPane2);
         
@@ -106,16 +111,17 @@ public class StartDemoLibTag extends Application {
                 .container(FlowPane.class)
                 .fxId("flowpane-nr-3") // NOI18N
                 .build());
-        flowPane3.setPrefSize(448.0d, 128.0d);
+        flowPane3.setPrefSize(336.0d, 112.0d);
         flowPane3.setStyle("-fx-background-color:WHITE;"); // NOI18N
         vbContainers.getChildren().add(flowPane3);
         
         return vbContainers;
     }
     
-    private VBox getVBoxExistingTags() {
+    private VBox getSectionExistingTags() {
         final VBox vbExistingTags = new VBox(2.0d);
         vbExistingTags.setStyle("-fx-background-color:BEIGE; -fx-padding:14;"); // NOI18N
+        HBox.setHgrow(vbExistingTags, Priority.ALWAYS);
         
         // Header
         final Label lExistingTags = new Label("Existing Tags");// NOI18N
@@ -152,6 +158,70 @@ public class StartDemoLibTag extends Application {
         vbExistingTags.getChildren().add(lvExistingTags);
         
         return vbExistingTags;
+    }
+    
+    private VBox getSectionTag() {
+        final VBox vbTag = new VBox(2.0d);
+        vbTag.setStyle("-fx-background-color:PALETURQUOISE; -fx-padding:14;"); // NOI18N
+        HBox.setHgrow(vbTag, Priority.ALWAYS);
+        
+        // Header
+        final Label lTag = new Label("Tag");// NOI18N
+        lTag.setFont(Font.font(18.0d));
+        vbTag.getChildren().add(lTag);
+        
+        // Id
+        final Label lId = new Label("Id");// NOI18N
+        lId.setFont(Font.font(12.0d));
+        vbTag.getChildren().add(lId);
+        
+        final TextField tfId = new TextField();
+        tfId.setDisable(true);
+        vbTag.getChildren().add(tfId);
+        
+        // GenerationTime
+        final Label lGenerationTime = new Label("GenerationTime");// NOI18N
+        lGenerationTime.setFont(Font.font(12.0d));
+        vbTag.getChildren().add(lGenerationTime);
+        
+        final TextField tfGenerationTime = new TextField();
+        tfGenerationTime.setDisable(true);
+        vbTag.getChildren().add(tfGenerationTime);
+        
+        // Title
+        final Label lTitle = new Label("Title");// NOI18N
+        lTitle.setFont(Font.font(12.0d));
+        vbTag.getChildren().add(lTitle);
+        
+        final TextField tfTitle = new TextField();
+        vbTag.getChildren().add(tfTitle);
+        
+        // Description
+        final Label lDescription = new Label("Description");// NOI18N
+        lDescription.setFont(Font.font(12.0d));
+        vbTag.getChildren().add(lDescription);
+        
+        final TextField tfDescription = new TextField();
+        vbTag.getChildren().add(tfDescription);
+        
+        // Style
+        final Label lStyle = new Label("Style");// NOI18N
+        lStyle.setFont(Font.font(12.0d));
+        vbTag.getChildren().add(lStyle);
+        
+        final TextField tfStyle = new TextField();
+        vbTag.getChildren().add(tfStyle);
+        
+        // MarkAsChanced
+        final Label lMarkAsChanced = new Label("MarkAsChanced");// NOI18N
+        lMarkAsChanced.setFont(Font.font(12.0d));
+        vbTag.getChildren().add(lMarkAsChanced);
+        
+        final CheckBox cbMarkAsChanged = new CheckBox();
+        cbMarkAsChanged.setDisable(true);
+        vbTag.getChildren().add(cbMarkAsChanged);
+       
+        return vbTag;
     }
     
     private void onActionCloseRequest() {

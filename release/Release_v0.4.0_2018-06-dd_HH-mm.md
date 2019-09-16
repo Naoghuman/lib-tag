@@ -19,6 +19,7 @@ analyzed for a `Tag`.
 
 
 #### Feature
+#58 [test] Add section 'Tag' to the prototype.
 #57 [test] Add section 'Existing Tags' to the prototype.
 #56 [test] Add section 'Containers' to the prototype demo.
 #55 [test] Add prototype implementation for a Lib-Tag-Demo.
